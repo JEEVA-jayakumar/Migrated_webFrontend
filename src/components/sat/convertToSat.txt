@@ -1,0 +1,971 @@
+<template>
+  <div>
+    <q-modal
+      minimized
+      class="customModalOverlay"
+      v-model="toggleModel"
+      @hide="emitfnshowConvertToSat()"
+      :content-css="{ padding: '25px', minWidth: '30vw' }"
+    >
+      <form>
+        <div class="column group">
+          <div class="col-md-12">
+            <div class="q-title text-weight-regular">Edit ShortLead</div>
+          </div>
+          <div class="col-md-12">
+            <q-input
+              @keyup.enter="submitShortLead(formData)"
+              v-model="formData.id"
+              class="text-weight-regular text-grey-8"
+              color="grey-9"
+              float-label="leadId"
+              placeholder="leadId"
+            />
+          </div>
+          <div class="col-md-12">
+            <q-input
+              @keyup.enter="submitShortLead(formData)"
+              v-model="formData.leadName"
+              :error="$v.formData.leadName.$error"
+              class="text-weight-regular text-grey-8"
+              color="grey-9"
+              float-label="leadName"
+              placeholder="leadName"
+            />
+          </div>
+          <div class="col-md-12">
+            <q-input
+              @keyup.enter="submitShortLead(formData)"
+              v-model="formData.leadNumber"
+              :error="$v.formData.leadNumber.$error"
+              class="text-weight-regular text-grey-8"
+              color="grey-9"
+              float-label="leadNumber"
+              placeholder="leadNumber"
+            />
+          </div>
+          <div class="col-md-12">
+            <q-input
+              @keyup.enter="submitShortLead(formData)"
+              v-model="formData.shortleadDate"
+              :error="$v.formData.shortleadDate.$error"
+              class="text-weight-regular text-grey-8"
+              color="grey-9"
+              float-label="shortleadDate"
+              placeholder="shortleadDate"
+            />
+          </div>
+          <div class="col-md-12">
+            <q-input
+              @keyup.enter="submitShortLead(formData)"
+              v-model="formData.contactNumber"
+              :error="$v.formData.contactNumber.$error"
+              class="text-weight-regular text-grey-8"
+              color="grey-9"
+              float-label="contactNumber"
+              placeholder="contactNumber"
+            />
+          </div>
+          <div class="col-md-12">
+            <q-input
+              @keyup.enter="submitShortLead(formData)"
+              v-model="formData.alternateContactNumber"
+              :error="$v.formData.alternateContactNumber.$error"
+              class="text-weight-regular text-grey-8"
+              color="grey-9"
+              float-label="alternateContactNumber"
+              placeholder="alternateContactNumber"
+            />
+          </div>
+          <div class="col-md-12">
+            <q-input
+              @keyup.enter="submitShortLead(formData)"
+              v-model="formData.email"
+              :error="$v.formData.email.$error"
+              class="text-weight-regular text-grey-8"
+              color="grey-9"
+              float-label="email"
+              placeholder="email"
+            />
+          </div>
+          <div class="col-md-12">
+            <q-input
+              @keyup.enter="submitShortLead(formData)"
+              v-model="formData.leadAddress"
+              :error="$v.formData.leadAddress.$error"
+              class="text-weight-regular text-grey-8"
+              color="grey-9"
+              float-label="leadAddress"
+              placeholder="leadAddress"
+            />
+          </div>
+          <div class="col-md-12">
+            <q-input
+              @keyup.enter="submitShortLead(formData)"
+              v-model="formData.pincode"
+              :error="$v.formData.pincode.$error"
+              class="text-weight-regular text-grey-8"
+              color="grey-9"
+              float-label="pincode"
+              placeholder="pincode"
+            />
+          </div>
+          <div class="col-md-12">
+            <q-input
+              @keyup.enter="submitShortLead(formData)"
+              v-model="formData.city"
+              :error="$v.formData.city.$error"
+              class="text-weight-regular text-grey-8"
+              color="grey-9"
+              float-label="city"
+              placeholder="city"
+            />
+          </div>
+          <div class="col-md-12">
+            <q-input
+              @keyup.enter="submitShortLead(formData)"
+              v-model="formData.state"
+              :error="$v.formData.state.$error"
+              class="text-weight-regular text-grey-8"
+              color="grey-9"
+              float-label="state"
+              placeholder="state"
+            />
+          </div>
+          <!-- <div class="col-md-12">
+            <q-input v-model="formData.leadCategory" label="Lead Category" />
+          </div>-->
+          <div class="col-md-12">
+            <q-select
+              color="grey-9"
+              v-model="formData.leadSource"
+              :error="$v.formData.leadSource.$error"
+              :options="dropDown.leadSourceOptions"
+              float-label="Select lead source"
+              @input="fnleadSource"
+            />
+          </div>
+          <div class="col-md-12">
+            <q-select
+              color="grey-9"
+              v-model="formData.device"
+              :error="$v.formData.device.$error"
+              :options="dropDown.deviceOptions"
+              float-label="Select device"
+              @input="fnDevice"
+            />
+          </div>
+
+          <div class="col-md-12">
+            <q-select
+              color="grey-9"
+              v-model="formData.merchantCategory"
+              :error="$v.formData.merchantCategory.$error"
+              :options="dropDown.merchantCategory"
+              float-label="Select merchant category type"
+              @input="fnMerchantCategory"
+            />
+          </div>
+
+          <div class="col-md-12">
+            <q-input
+              disable
+              v-model.trim="formData.debitLessthanAmount"
+              :error="$v.formData.debitLessthanAmount.$error"
+              class="text-weight-regular text-grey-8"
+              color="grey-9"
+              float-label="*debitLessthanAmount"
+              placeholder="debitLessthanAmount"
+            />
+          </div>
+          <div class="col-md-12">
+            <q-input
+              disable
+              v-model.trim="formData.debitGreaterthanAmount"
+              :error="$v.formData.debitGreaterthanAmount.$error"
+              class="text-weight-regular text-grey-8"
+              color="grey-9"
+              float-label="*debitGreaterthanAmount"
+              placeholder="debitGreaterthanAmount"
+            />
+          </div>
+          <div class="col-md-12">
+            <q-input
+              disable
+              v-model.trim="formData.stdCC"
+              :error="$v.formData.stdCC.$error"
+              class="text-weight-regular text-grey-8"
+              color="grey-9"
+              float-label="*stdCC"
+              placeholder="stdCC"
+            />
+          </div>
+          <div class="col-md-12">
+            <q-input
+              disable
+              v-model.trim="formData.premiumCC"
+              :error="$v.formData.premiumCC.$error"
+              class="text-weight-regular text-grey-8"
+              color="grey-9"
+              float-label="*premiumCC"
+              placeholder="premiumCC"
+            />
+          </div>
+          <div class="col-md-12">
+            <q-input
+              disable
+              v-model.trim="formData.corpCC"
+              :error="$v.formData.corpCC.$error"
+              class="text-weight-regular text-grey-8"
+              color="grey-9"
+              float-label="*corpCC"
+              placeholder="corpCC"
+            />
+          </div>
+          <div class="col-md-12">
+            <q-input
+              disable
+              v-model.trim="formData.intlCC"
+              :error="$v.formData.intlCC.$error"
+              class="text-weight-regular text-grey-8"
+              color="grey-9"
+              float-label="*intlCC"
+              placeholder="intlCC"
+            />
+          </div>
+          <div class="col-md-12">
+            <q-input
+              disable
+              v-model.trim="formData.superPremiumlCC"
+              :error="$v.formData.superPremiumlCC.$error"
+              class="text-weight-regular text-grey-8"
+              color="grey-9"
+              float-label="*superPremiumlCC"
+              placeholder="superPremiumlCC"
+            />
+          </div>
+          <div class="col-md-12">
+            <q-select
+              color="grey-9"
+              v-model="formData.plan"
+              :error="$v.formData.plan.$error"
+              :options="dropDown.planOptions"
+              float-label="Select plan"
+              placeholder="Plan"
+              @input="fnPlan"
+            />
+          </div>
+
+          <div class="col-md-12">
+            <q-input
+              disable
+              v-model.trim="formData.setupFees"
+              :error="$v.formData.setupFees.$error"
+              class="text-weight-regular text-grey-8"
+              color="grey-9"
+              float-label="*setUp fees"
+              placeholder="setUp fees"
+            />
+          </div>
+          <div class="col-md-12">
+            <q-input
+              disable
+              v-model.trim="formData.recurringFees"
+              :error="$v.formData.recurringFees.$error"
+              class="text-weight-regular text-grey-8"
+              color="grey-9"
+              float-label="*Recurring Fees"
+              placeholder="Recurring Fees"
+            />
+          </div>
+          <div class="col-md-12">
+            <q-radio
+              v-model="formData.posEnable"
+              val="true"
+              label="Enable Cash Pos"
+            />
+            <q-radio
+              v-model="formData.posEnable"
+              val="false"
+              label="Disable Cash Pos"
+            />
+          </div>
+
+          <div class="col-md-12">Payement Option</div>
+          <div class="col-md-12">
+            <q-input
+              v-model.trim="formData.amountCollected"
+              :error="$v.formData.amountCollected.$error"
+              class="text-weight-regular text-grey-8"
+              color="grey-9"
+              float-label="*Amout Collected"
+              placeholder="Amout Collected"
+            />
+          </div>
+          <div class="col-md-12">
+            <q-datetime
+              v-model.trim="formData.paymentMadeon"
+              :error="$v.formData.paymentMadeon.$error"
+              class="text-weight-regular text-grey-8"
+              color="grey-9"
+              float-label="*Transaction Made ON"
+              placeholder="Transaction Made ON"
+            />
+          </div>
+          <div class="col-md-12">Payement Type</div>
+          <div class="col-md-12">
+            <q-select
+              color="grey-9"
+              v-model="formData.paymentOption"
+              :error="$v.formData.paymentOption.$error"
+              :options="paymentType"
+              float-label="paymentType"
+              placeholder="paymentType"
+            />
+          </div>
+          <div class="col-md-12" v-if="formData.paymentOption == 1">
+            <q-input
+              v-model.trim="formData.referenceNumber"
+              :error="$v.formData.referenceNumber.$error"
+              class="text-weight-regular text-grey-8"
+              color="grey-9"
+              float-label="*NEFT"
+              placeholder="NEFT"
+            />
+          </div>
+          <div class="col-md-12" v-if="formData.paymentOption == 3">
+            <q-input
+              v-model.trim="formData.referenceNumber"
+              :error="$v.formData.referenceNumber.$error"
+              class="text-weight-regular text-grey-8"
+              color="grey-9"
+              float-label="*CHEQUE"
+              placeholder="CHEQUE"
+            />
+          </div>
+          <div class="col-md-12" v-if="formData.paymentOption == 2">
+            <q-input
+              v-model.trim="formData.referenceNumber"
+              :error="$v.formData.referenceNumber.$error"
+              class="text-weight-regular text-grey-8"
+              color="grey-9"
+              float-label="*SWIPE"
+              placeholder="SWIPE"
+            />
+          </div>
+          <div class="col-md-12">
+            <q-select
+              color="grey-9"
+              v-model="formData.merchantType"
+              :error="$v.formData.merchantType.$error"
+              :options="dropDown.merchantType"
+              float-label="Select merchant type"
+            />
+          </div>
+          <div class="col-md-12">
+            <q-input
+              color="grey-9"
+              v-model="formData.deviceCount"
+              :error="$v.formData.deviceCount.$error"
+              float-label="Device Count"
+            />
+          </div>
+
+          <div class="col-md-12 group" align="right">
+            <q-btn
+              flat
+              align="right"
+              class="bg-white text-weight-regular text-grey-8"
+              @click="emitfnshowConvertToSat()"
+              >Cancel</q-btn
+            >
+            <q-btn
+              align="right"
+              @click="submitShortLead(formData)"
+              color="purple-9"
+              >submit to sat</q-btn
+            >
+          </div>
+        </div>
+      </form>
+    </q-modal>
+  </div>
+</template>
+
+<script>
+import {
+  required,
+  numeric,
+  maxLength,
+  minLength,
+} from "vuelidate/lib/validators";
+import { mapGetters, mapActions } from "vuex";
+export default {
+  props: ["propShowConvertToSat", "propRowDetails"],
+  data() {
+    return {
+      toggleModel: this.propShowConvertToSat,
+      viewBinding: {},
+      paymentType: [
+        {
+          label: "Cheque",
+          value: 2,
+        },
+        {
+          label: "NEFT",
+          value: 1,
+        },
+        {
+          label: "SWIPE",
+          value: 3,
+        },
+        // {
+        //   label: "Paper statement",
+        //   value: "P"
+        // }
+      ],
+      formData: {
+        id: this.propRowDetails.id,
+        leadNumber: this.propRowDetails.leadNumber,
+        leadName: this.propRowDetails.leadName,
+        shortleadDate: this.propRowDetails.shortleadDate,
+        contactNumber: this.propRowDetails.contactNumber,
+        alternateContactNumber: "",
+        email: "",
+        leadAddress: "",
+        pincode: "",
+        city: "",
+        state: "",
+        leadCategory: 1,
+        leadSource: "",
+        device: "",
+        deviceId: "",
+        deviceCount: "",
+        debitLessthanAmount: 0,
+        debitGreaterthanAmount: 0,
+        stdCC: 0,
+        premiumCC: 0,
+        corpCC: 0,
+        intlCC: 0,
+        superPremiumlCC: 0,
+        plan: "",
+        planId: "",
+        setupFees: 0,
+        recurringFees: 0,
+        posEnable: "",
+        amountCollected: "",
+        paymentMadeon: "",
+        paymentOption: 1,
+        applicationFile: "475_FirstPageofApplicationForm_1571124179606",
+        applicationFileMimeType: "image/*",
+        documentUploadedType: 1,
+        kyc: false,
+        leadDocuments: [],
+        latitude: 0.0,
+        leadVerificationStatus: [],
+        longitude: 0.0,
+        marsDeviceDetails: [],
+        paymentDocumentFile: "",
+        posIncentive: 0,
+        pricing: false,
+        priority: false,
+        reason: "",
+        referenceNumber: "",
+        tidReleaseDate: 0,
+        updatedAt: 0,
+        verificationStatusReason: "",
+        verifiedSATDate: 0,
+        wipLeadDate: 0,
+        branch: "",
+        merchantType: "",
+        leadSource1: "",
+        merchantCategory1: "",
+      },
+      dropDown: {
+        deviceOptions: [],
+        leadSourceOptions: [],
+        merchantCategory: [],
+        planOptions: [],
+        merchantType: [],
+      },
+    };
+  },
+  validations: {
+    formData: {
+      leadNumber: {
+        required,
+        // maxLength: maxLength(7),
+        // minLength: minLength(5)
+      },
+      leadName: {
+        required,
+      },
+      shortleadDate: {
+        required,
+      },
+      contactNumber: {
+        required,
+      },
+      alternateContactNumber: {
+        required,
+      },
+      email: {
+        required,
+      },
+      leadAddress: {
+        required,
+      },
+      pincode: {
+        required,
+      },
+      city: {
+        required,
+      },
+      state: {
+        required,
+      },
+      leadSource: {
+        required,
+      },
+      device: {
+        required,
+      },
+      deviceCount: {
+        required,
+      },
+      debitLessthanAmount: {
+        required,
+      },
+      debitGreaterthanAmount: {
+        required,
+      },
+      stdCC: {
+        required,
+      },
+      premiumCC: {
+        required,
+      },
+      corpCC: {
+        required,
+      },
+      intlCC: {
+        required,
+      },
+      superPremiumlCC: {
+        required,
+      },
+      referenceNumber: {
+        required,
+      },
+      plan: {
+        required,
+      },
+      setupFees: {
+        required,
+      },
+      recurringFees: {
+        required,
+      },
+      amountCollected: {
+        required,
+      },
+      paymentMadeon: {
+        required,
+      },
+      paymentOption: {
+        numeric,
+        required,
+      },
+      merchantType: {
+        required,
+      },
+      merchantCategory: {
+        required,
+      },
+    },
+  },
+  computed: {
+    ...mapGetters("SA_Devices", ["getAllDevicesInfo"]),
+    ...mapGetters("leadSource", ["getActiveLeadSource"]),
+    ...mapGetters("merchantTypes", ["getActiveMerchantTypes"]),
+    ...mapGetters("CategoryBasedMdr", ["categoryBasedMdr"]),
+    ...mapGetters("plan", ["getActivePlan"]),
+    ...mapGetters("appMerchantType", ["getappMerchantDocumentType"]),
+    ...mapGetters("shortLeadInfo", ["getShortLead"]),
+    ...mapGetters("categoryBasedRental", ["categoryBasedRental"]),
+  },
+  created() {
+    this.ajaxLoadDataForDeviceTypeTable();
+  },
+  methods: {
+    ...mapActions("pincodes", ["FETCH_ALL_PINCODES", "EDIT_NEW_PINCODE"]),
+    ...mapActions("convertToWip", ["CONVERT_TO_WIP"]),
+    ...mapActions("SA_Devices", ["FETCH_DEVICES_DATA"]),
+    ...mapActions("leadSource", ["LEAD_SOURCE_ACTIVE_LIST"]),
+    ...mapActions("merchantTypes", ["MERCHANT_TYPE_ACTIVE_LIST"]),
+    ...mapActions("MdrPlan", ["MDR_PLAN"]),
+    ...mapActions("CategoryBasedMdr", [
+      "CATEGORY_BASED_MDR_PLAN",
+      "EDIT_MDR_PLAN",
+    ]),
+    ...mapActions("plan", ["PLAN_ACTIVE_LIST"]),
+    ...mapActions("soTosat", ["SO_TO_SAT"]),
+    ...mapActions("appMerchantType", ["APP_MERCHANT_DOCUMENT_TYPE"]),
+    ...mapActions("shortLeadInfo", ["FETCH_SHORT_LEAD"]),
+    ...mapActions("categoryBasedRental", ["CATEGORY_BASED_RENTAL_PLAN"]),
+    emitfnshowConvertToSat() {
+      this.$emit("emitfnshowConvertToSat");
+    },
+    //Permission creation final submit
+    submitShortLead(request) {
+      this.$v.formData.$touch();
+      if (this.$v.formData.$error) {
+        this.$q.notify("Please review fields again.");
+      } else {
+        let params = {
+          data1: {
+            id: request.id,
+            leadNumber: request.leadNumber,
+            leadName: request.leadName,
+            shortleadDate: request.shortleadDate,
+            contactNumber: request.contactNumber,
+            alternateContactNumber: request.alternateContactNumber,
+            email: request.email,
+            leadAddress: request.leadAddress,
+            pincode: request.pincode,
+            city: request.city,
+            state: request.state,
+            leadCategory: request.leadCategory,
+            leadSource: request.leadSource,
+            leadSource1: request.leadSource1,
+            // leadSource1: this.getActiveLeadSource.id,
+            device: request.device,
+            deviceCount: request.deviceCount,
+            merchantType: request.merchantType,
+            merchantCategory: request.merchantCategory,
+            debitLessthanAmount: request.debitLessthanAmount,
+            debitGreaterthanAmount: request.debitGreaterthanAmount,
+            stdCC: request.stdCC,
+            premiumCC: request.premiumCC,
+            corpCC: request.corpCC,
+            intlCC: request.intlCC,
+            superPremiumlCC: request.superPremiumlCC,
+            plan: request.plan,
+            setupFees: request.setupFees,
+            recurringFees: request.recurringFees,
+            posEnable: request.posEnable,
+            amountCollected: request.amountCollected,
+            paymentMadeon: request.paymentMadeon,
+            paymentOption: request.paymentOption,
+            applicationFile: request.applicationFile,
+            applicationFileMimeType: request.applicationFileMimeType,
+            documentUploadedType: request.documentUploadedType,
+            kyc: request.kyc,
+            leadDocuments: request.leadDocuments,
+            latitude: request.latitude,
+            leadVerificationStatus: request.leadVerificationStatus,
+            longitude: request.longitude,
+            marsDeviceDetails: request.marsDeviceDetails,
+            paymentDocumentFile: request.paymentDocumentFile,
+            posIncentive: request.posIncentive,
+            pricing: request.pricing,
+            priority: request.priority,
+            reason: request.reason,
+            referenceNumber: request.referenceNumber,
+            shortleadDate: request.shortleadDate,
+            tidReleaseDate: request.tidReleaseDate,
+            updatedAt: request.updatedAt,
+            verificationStatusReason: request.verificationStatusReason,
+            verifiedSATDate: request.verifiedSATDate,
+            wipLeadDate: request.wipLeadDate,
+            branch: request.branch,
+            merchantType: request.merchantType,
+          },
+          url: {
+            id: this.propRowDetails.id,
+            action: 2,
+          },
+        };
+        this.$q.loading.show({
+          delay: 100, // ms
+          message: "Please Wait",
+          spinnerColor: "purple-9",
+          customClass: "shadow-none",
+        });
+        this.SO_TO_SAT(params)
+          .then((response) => {
+            this.FETCH_SHORT_LEAD();
+            this.$emit("emitfnshowConvertToSat");
+            this.$q.loading.hide();
+            this.$q.notify({
+              color: "positive",
+              position: "bottom",
+              message: "Wip Lead successfully created!",
+              icon: "thumb_up",
+            });
+            this.$router.push("/sat/lead/validation");
+          })
+          .catch(() => {
+            this.$q.loading.hide();
+            this.$q.notify({
+              color: "negative",
+              position: "bottom",
+              message: error.body.message == null ? "Please Try Again Later !" : error.body.message,
+              icon: "thumb_down",
+            });
+          });
+      }
+    },
+    ajaxLoadDataForDeviceTypeTable() {
+      let self = this;
+      self
+        .FETCH_DEVICES_DATA()
+        .then(() => {
+          return _.map(self.getAllDevicesInfo, (item) => {
+            self.dropDown.deviceOptions.push({
+              value: item,
+              label: item.deviceName,
+            });
+          });
+        })
+        .then(() => {
+          self.LEAD_SOURCE_ACTIVE_LIST().then(() => {
+            return _.map(self.getActiveLeadSource, (item) => {
+              self.dropDown.leadSourceOptions.push({
+                value: item,
+                label: item.sourceName,
+              });
+            });
+          });
+        })
+        .then(() => {
+          self.MERCHANT_TYPE_ACTIVE_LIST().then(() => {
+            return _.map(self.getActiveMerchantTypes, (item) => {
+              self.dropDown.merchantCategory.push({
+                value: item,
+                label: item.merchantCategoryName,
+              });
+            });
+          });
+        })
+        .then(() => {
+          self.PLAN_ACTIVE_LIST().then(() => {
+            return _.map(self.getActivePlan, (item) => {
+              self.dropDown.planOptions.push({
+                value: item,
+                label: item.planName,
+              });
+            });
+          });
+        })
+        .then(() => {
+          self.APP_MERCHANT_DOCUMENT_TYPE().then(() => {
+            return _.map(self.getappMerchantDocumentType, (item) => {
+              self.dropDown.merchantType.push({
+                value: item,
+                label: item.merchantTypeName,
+              });
+            });
+          });
+        });
+    },
+    fnleadSource(item) {
+      this.formData.leadSource1 = item.id;
+      this.formData.leadSource = item;
+      let formData = {
+        leadSource: this.formData.leadSource1,
+        device: this.formData.deviceId,
+        merchantType: this.formData.merchantCategory1,
+      };
+      let self = this;
+      self.CATEGORY_BASED_MDR_PLAN(formData).then((response) => {
+        if (response.status == 200) {
+          this.formData.debitLessthanAmount =
+            self.categoryBasedMdr.debitLessthanAmount;
+          this.formData.debitGreaterthanAmount =
+            self.categoryBasedMdr.debitGreaterthanAmount;
+          this.formData.stdCC = self.categoryBasedMdr.stdCC;
+          this.formData.premiumCC = self.categoryBasedMdr.premiumCC;
+          this.formData.corpCC = self.categoryBasedMdr.corpCC;
+          this.formData.intlCC = self.categoryBasedMdr.intlCC;
+          this.formData.superPremiumlCC = self.categoryBasedMdr.superPremiumlCC;
+        } else {
+          this.$q.notify({
+            color: "negative",
+            position: "bottom-left",
+            message: "Invalid IFSC code",
+            icon: "clear",
+          });
+          this.formData.debitLessthanAmount = "";
+          this.formData.debitGreaterthanAmount = "";
+          this.formData.stdCC = "";
+          this.formData.premiumCC = "";
+          this.formData.corpCC = "";
+          this.formData.intlCC = "";
+          this.formData.superPremiumlCC = "";
+        }
+      });
+    },
+    fnDevice(item) {
+      this.formData.deviceId = item.id;
+      this.formData.device = item;
+      let formData = {
+        leadSource: this.formData.leadSource1,
+        device: this.formData.deviceId,
+        merchantType: this.formData.merchantCategory1,
+      };
+      let self = this;
+      self.CATEGORY_BASED_MDR_PLAN(formData).then((response) => {
+        if (response.status == 200) {
+          this.formData.debitLessthanAmount =
+            self.categoryBasedMdr.debitLessthanAmount;
+          this.formData.debitGreaterthanAmount =
+            self.categoryBasedMdr.debitGreaterthanAmount;
+          this.formData.stdCC = self.categoryBasedMdr.stdCC;
+          this.formData.premiumCC = self.categoryBasedMdr.premiumCC;
+          this.formData.corpCC = self.categoryBasedMdr.corpCC;
+          this.formData.intlCC = self.categoryBasedMdr.intlCC;
+          this.formData.superPremiumlCC = self.categoryBasedMdr.superPremiumlCC;
+        } else {
+          this.$q.notify({
+            color: "negative",
+            position: "bottom-left",
+            message: "Invalid IFSC code",
+            icon: "clear",
+          });
+          this.formData.debitLessthanAmount = "";
+          this.formData.debitGreaterthanAmount = "";
+          this.formData.stdCC = "";
+          this.formData.premiumCC = "";
+          this.formData.corpCC = "";
+          this.formData.intlCC = "";
+          this.formData.superPremiumlCC = "";
+        }
+      });
+    },
+    fnPlan(item) {
+      this.formData.planId = item.id;
+      this.formData.plan = item;
+      let formData = {
+        leadSource: this.formData.leadSource1,
+        device: this.formData.deviceId,
+        plan: this.formData.planId,
+      };
+      let self = this;
+      self.CATEGORY_BASED_RENTAL_PLAN(formData).then((response) => {
+        if (response.status == 200) {
+          this.formData.setupFees = self.categoryBasedRental.setupFees;
+          this.formData.recurringFees = self.categoryBasedRental.monthlyFees;
+        } else {
+          this.$q.notify({
+            color: "negative",
+            position: "bottom-left",
+            message: "Invalid MDR Plan Code",
+            icon: "clear",
+          });
+          this.formData.setupFees = "";
+          this.formData.monthlyFees = "";
+        }
+      });
+    },
+    fnMerchantCategory(item) {
+      this.formData.merchantCategory1 = item.id;
+      this.formData.merchantCategory = item;
+      let formData = {
+        leadSource: this.formData.leadSource1,
+        device: this.formData.deviceId,
+        merchantType: this.formData.merchantCategory1,
+      };
+      let self = this;
+      self.CATEGORY_BASED_MDR_PLAN(formData).then((response) => {
+        if (response.status == 200) {
+          this.formData.debitLessthanAmount =
+            self.categoryBasedMdr.debitLessthanAmount;
+          this.formData.debitGreaterthanAmount =
+            self.categoryBasedMdr.debitGreaterthanAmount;
+          this.formData.stdCC = self.categoryBasedMdr.stdCC;
+          this.formData.premiumCC = self.categoryBasedMdr.premiumCC;
+          this.formData.corpCC = self.categoryBasedMdr.corpCC;
+          this.formData.intlCC = self.categoryBasedMdr.intlCC;
+          this.formData.superPremiumlCC = self.categoryBasedMdr.superPremiumlCC;
+        } else {
+          this.$q.notify({
+            color: "negative",
+            position: "bottom-left",
+            message: "Invalid IFSC code",
+            icon: "clear",
+          });
+          this.formData.debitLessthanAmount = "";
+          this.formData.debitGreaterthanAmount = "";
+          this.formData.stdCC = "";
+          this.formData.premiumCC = "";
+          this.formData.corpCC = "";
+          this.formData.intlCC = "";
+          this.formData.superPremiumlCC = "";
+        }
+      });
+    },
+    fnCategoryBasedMdr(request) {
+      let formData = {
+        leadSource: this.getActiveLeadSource.id,
+        device: request.device,
+        merchantType: request.merchantType,
+      };
+      let self = this;
+      self.CATEGORY_BASED_MDR_PLAN(formData).then((response) => {
+        if (response.status == 200) {
+          this.formData.debitLessthanAmount =
+            self.categoryBasedMdr.debitLessthanAmount;
+          this.formData.debitGreaterthanAmount =
+            self.categoryBasedMdr.debitGreaterthanAmount;
+          this.formData.stdCC = self.categoryBasedMdr.stdCC;
+          this.formData.premiumCC = self.categoryBasedMdr.premiumCC;
+          this.formData.corpCC = self.categoryBasedMdr.corpCC;
+          this.formData.intlCC = self.categoryBasedMdr.intlCC;
+          this.formData.superPremiumlCC = self.categoryBasedMdr.superPremiumlCC;
+        } else {
+          this.$q.notify({
+            color: "negative",
+            position: "bottom-left",
+            message: "Invalid IFSC code",
+            icon: "clear",
+          });
+          this.formData.debitLessthanAmount = "";
+          this.formData.debitGreaterthanAmount = "";
+          this.formData.stdCC = "";
+          this.formData.premiumCC = "";
+          this.formData.corpCC = "";
+          this.formData.intlCC = "";
+          this.formData.superPremiumlCC = "";
+        }
+      });
+    },
+    fnCategoryBasedRental(request) {
+      let formData = {
+        leadSource: request.leadSource,
+        device: request.device,
+        plan: request.plan,
+      };
+      let self = this;
+      self.CATEGORY_BASED_RENTAL_PLAN(formData).then((response) => {
+        if (response.status == 200) {
+          this.formData.setupFees = self.categoryBasedRental.setupFees;
+          this.formData.monthlyFees = self.categoryBasedRental.monthlyFees;
+        } else if (response.data == null) {
+          this.formData.setupFees = 0;
+          this.formData.monthlyFees = 0;
+        } else {
+          this.$q.notify({
+            color: "negative",
+            position: "bottom-left",
+            message: "Invalid MDR Plan Code",
+            icon: "clear",
+          });
+          this.formData.setupFees = "";
+          this.formData.monthlyFees = "";
+        }
+      });
+    },
+  },
+};
+</script>

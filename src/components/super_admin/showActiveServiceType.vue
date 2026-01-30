@@ -1,0 +1,207 @@
+<template>
+  <div>
+    <q-modal
+      minimized
+      v-model="toggleModel"
+      @hide="emitfnshowActiveSubTaskType"
+      @escape-key="emitfnshowActiveSubTaskType"
+      class="customModalOverlay"
+      :content-css="{ padding: '30px', minWidth: '30vw' }"
+    >
+      <form>
+        <div class="row gutter-sm q-py-sm items-center">
+          <div class="col-md-12">
+            <div class="q-title text-weight-regular">
+              Modify Service Request Info
+            </div>
+          
+          </div>
+          
+        </div>
+        <div class="row gutter-sm q-py-sm items-center">
+          <div class="col-md-12">
+            <q-input
+              v-model="formData.serviceReqType.name"
+              :error="$v.formData.serviceReqType.name.$error"
+              class="text-weight-regular text-grey-8"
+              color="grey-9"
+              float-label="Service Req Data"
+              placeholder="Service Req Data"
+            />
+          </div>
+        </div >
+        <div class="row">
+          <div class="col">
+          <p>Service Req Issue Type*</p>
+          <div class="col-md-12">
+            <div class="row items-center" v-for="menu in serviceReqIssueTypeSetsPro" :key="menu.id" :to="menu.to">
+              <input style="width: 18px; height: 18px" type="checkbox" @click="getSelectedDetails($event, menu)" />
+              <label>{{ menu.serviceReqIssueType.name}}</label>
+            </div>
+          </div>
+        </div>
+        <div class="col">
+        <div class="row gutter-sm q-py-sm items-center">
+          <p>Service Status*</p>
+          <div class="col-md-12">
+            <div class="row items-center" v-for="menu in serviceRequestStatus" :key="menu.id" :to="menu.to" >
+              <input style="width: 18px; height: 18px" type="checkbox" @click="getSelectedStatusDetails($event, menu)"/>
+              <label>{{ menu.name}}</label>
+            </div>
+          </div>
+        </div>
+      </div>
+        </div>
+
+        <div class="row gutter-sm q-py-sm items-center">
+          <div class="col-md-12 group" align="right">
+            <q-btn
+              flat
+              align="right"
+              class="bg-white text-weight-regular text-grey-8"
+              @click="emitfnshowActiveSubTaskType()"
+              >Cancel</q-btn
+            >
+            <q-btn
+              align="right"
+              @click="fnfinalsubmitEditedSpareParts(formData)"
+              color="purple-9"
+              >Save</q-btn
+            >
+          </div>
+        </div>
+      </form>
+    </q-modal>
+     <!--START: Show Sub Task Details-->
+     <showServiceSubTaskDetails
+        v-if="propShowServiceSubTaskDetails"
+        :propShowServiceSubTaskDetails="propShowServiceSubTaskDetails"
+        :propRowDetails="propRowDetails"
+        @emitfnshowServiceSubTaskDetails="fnShowSubTaskDetails"
+      />
+       <!-- END: Show Sub Task Details -->
+  </div>
+</template>
+
+<script>
+import { request } from "http";
+import { required } from "vuelidate/lib/validators";
+import { mapGetters, mapActions } from "vuex";
+import showServiceSubTaskDetails from  "../../components/super_admin/showServiceSubTaskDetails.vue";
+
+export default {
+     components: {
+    showServiceSubTaskDetails,
+  },
+  props: ["propShowActiveServiceType", "propRowDetails"],
+  data() {
+    return {
+      toggleModel: this.propShowActiveServiceType,
+      serviceReqIssueTypeSetsPro:[],
+       reqData: [],
+       reqdata: [],
+      propShowServiceSubTaskDetails: false,
+      // regionGroup: [],
+      formData: {
+        serviceReqType:{
+           name: JSON.stringify(this.propRowDetails4.serviceReqType.name)
+        },
+       
+      }
+    };
+  },
+
+  validations: {
+    formData: {
+      serviceReqType: {
+        name:{
+          required
+        },
+        
+      }
+    }
+  },
+  beforeMount() {
+    console.log(
+      "Getter propShowEditSpareParts Name---------------->" +
+        JSON.stringify(this.propRowDetails)
+    );
+    // console.log("Prop details---------------->"+JSON.stringify(this.propShowEditRegions))
+    //  console.log("Prop Row details---------------->"+JSON.stringify(this.propRowDetails))
+    // this.formData.id = this.propRowDetails.id;
+    this.formData.serviceReqType.name= this.propRowDetails4.serviceReqType.name;
+    this.serviceReqIssueTypeSetsPro= this.propRowDetails4.serviceReqIssueTypeSets;
+    // this.serviceRequestStatus= this.propRowDetails.serviceRequestStatusSets;
+    // //  AllRegionName( this.formData.regionGroupName = this.propRowDetails.regionGroup.regionName)
+    // this.AllRegionName();
+    //   console.log("Region Name---------------->"+JSON.stringify(this.formData.regionGroupName))
+  },
+  computed: {
+    ...mapGetters("SuperAdminUsers", ["getAllRegionsData"]),
+    ...mapGetters("serviceRequest", ["getserviceRequestIssueTypes"]),
+    ...mapGetters("ServiceRequestStatus", ["getserviceRequestStatusDetails"])
+  },
+
+  created(){
+    this.getIssueTypes();
+    this.getStatusTypes();
+  },
+
+  methods: {
+    ...mapActions("SuperAdminUsers", [
+      "FETCH_ALL_REGIONS_DATA",
+      "FEED_EXISTING_REGION_DATA"
+    ]),
+    ...mapActions("SuperAdminUsers", ["FETCH_ALL_REGIONS_DATA"]),
+    ...mapActions("sparePartsGetTypes", ["EDIT_service_req_data"]),
+    ...mapActions("serviceRequest", ["EDIT_SERVICE_REQUEST_TYPES","GET_SERVICE_ISSUE_TYPES"]),
+    ...mapActions("ServiceRequestStatus", ["EDIT_SERVICE_STATUS_TYPES","FETCH_SERVICE_REQUEST_STATUS_DETAILS"]),
+    emitfnshowActiveSubTaskType() {
+      this.$emit("emitfnshowActiveSubTaskType");
+    },
+
+    getSelectedDetails(event, request){
+ console.log("event SUBMITTED VALUES----------->",JSON.stringify(event));
+  console.log("request SUBMITTED VALUES----------->",JSON.stringify(request))
+   this.reqData.push(request);
+   console.log("VALUES----------->",JSON.stringify(this.reqData))
+   this.formData.serviceReqIssueTypeSets = this.reqData;
+   console.log("serviceReqIssueTypeSets SUBMITTED VALUES----------->",JSON.stringify(this.formData.serviceReqIssueTypeSets ))
+    },
+
+    getSelectedStatusDetails(event, request){
+   console.log("event SUBMITTED VALUES getSelectedStatusDetailsSTATUS----------->",JSON.stringify(event));
+   console.log("request SUBMITTED VALUES getSelectedStatusDetailsSTATUS----------->",JSON.stringify(request))
+    this.reqdata.push({"serviceRequestStatus": request});
+   console.log("VALUES----------->",JSON.stringify(this.reqdata))
+   this.formData.serviceRequestStatusSets= this.reqdata;
+  //  console.log("serviceRequestStatusSets SUBMITTED VALUES----------->",JSON.stringify(this.serviceRequestStatusSets ))
+    },
+
+    getIssueTypes(){
+      let self = this;
+      self.GET_SERVICE_ISSUE_TYPES().then(() => {
+        return _.map(self.getserviceRequestIssueTypes, item => {
+          // console.log("getIssueTypes----------->",JSON.stringify(self.getserviceRequestIssueTypes ))
+          self.serviceReqIssueTypeSetsPro.push(item);
+        });
+      });
+    },
+
+    getStatusTypes(){
+      let self = this;
+      self.FETCH_SERVICE_REQUEST_STATUS_DETAILS().then(() => {
+        return _.map(self.getserviceRequestStatusDetails, item => {
+          console.log("FETCH_SERVICE_REQUEST_STATUS_DETAILS----------->>>>>>",JSON.stringify(self.getserviceRequestStatusDetails))
+          self.serviceRequestStatus.push(item);
+        });
+      });
+    },
+
+     fnShowSubTaskDetails(rowDetails){
+      this.propShowServiceSubTaskDetails = !this.propShowServiceSubTaskDetails;
+      this.propRowDetails = rowDetails;
+    },
+  }
+};
+</script>

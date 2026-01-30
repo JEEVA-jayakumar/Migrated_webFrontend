@@ -1,0 +1,150 @@
+.common-btn {
+  background-color: #202c3f;
+  color: #e3e4e5;
+}
+
+select {
+  -moz-appearance: menulist-button !important;
+  -webkit-appearance: menulist-button !important;
+}
+
+.underline {
+  text-decoration: underline;
+}
+
+.q-list-header {
+  max-height: 50px;
+}
+
+.bottom-border {
+  border-bottom: 1px solid #cccccc !important;
+}
+
+.all-border {
+  border: 1px solid #cccccc !important;
+}
+
+.bg-purple-9 {
+  background: #61116a !important;
+}
+
+.customTableClass thead tr th {
+  background: #f8f7f7 !important;
+}
+
+.customTableClass thead tr th {
+  font-weight: 500 !important;
+  color: #444 !important;
+}
+
+.customTableClass tbody tr td {
+  font-weight: 400 !important;
+  color: #666666 !important;
+}
+
+.customTableClass tbody tr td.breakAll {
+  word-wrap: break-word;
+  white-space: normal;
+}
+
+.customSATableClass thead tr th {
+  font-weight: 500 !important;
+  color: #444 !important;
+}
+
+.customSATableClass tbody tr td {
+  font-weight: 400 !important;
+  color: #666666 !important;
+}
+
+.customSATableClass thead tr th {
+  background: #f8f7f7 !important;
+}
+
+.bg-custom-light-grey {
+  background: #f8f7f7 !important;
+}
+
+.custom-title-background {
+  background: #d5d5d5;
+}
+
+.spinner-overlay {
+  background: rgba(248, 247, 247, 0.3);
+}
+
+.full-border {
+  border: 1px solid #ccc;
+  padding: 5px !important;
+}
+
+.customModalOverlay {
+  background: rgba(19, 26, 38, 0.5) !important;
+}
+
+.common-dark-blue {
+  background: #212c3f !important;
+  color: #eee;
+}
+
+.q-table-container {
+  box-shadow: none !important;
+}
+
+/* For side menus */
+.menu-item-color {
+  color: #e3e4e5;
+  font-size: 14px;
+}
+
+.menu-main-item-color:hover {
+  color: #e3e4e5;
+  font-size: 14px;
+  background: rgba(56, 69, 90, 0.98) !important;
+}
+
+.menu-main-item-color:active {
+  color: #e3e4e5;
+  font-size: 14px;
+  background: #1f2c3f !important;
+}
+
+.menu-main-item-color:focus {
+  color: #e3e4e5;
+  font-size: 14px;
+  background: #1f2c3f !important;
+}
+
+.menu-item-color-SA {
+  color: #e3e4e5;
+  font-size: 14px;
+}
+
+.menu-main-item-color-SA:hover {
+  color: #e3e4e5;
+  font-size: 14px;
+  background: #7d428f !important;
+}
+
+.menu-main-item-color-SA:active {
+  color: #e3e4e5;
+  font-size: 14px;
+  background: #7d428f !important;
+}
+
+.menu-main-item-color-SA:focus {
+  color: #e3e4e5;
+  font-size: 14px;
+  background: #7d428f !important;
+}
+
+.q-item.active,
+.q-item.router-link-active,
+.q-item:focus {
+  background: rgba(0, 0, 0, 0.4) !important;
+}
+
+/* For side menus */
+.wrapWord {
+  word-break: break-all;
+}

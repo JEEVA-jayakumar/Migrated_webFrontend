@@ -1,0 +1,82 @@
+
+    findMenuAuth() {
+      // Declaring roles ad array from local storage
+      let authUserRoles = JSON.parse(localStorage.getItem("u_i")).roles;
+      let self = this;
+
+      /* variables:
+      authUserRoles => contains user info, which is saved in local storage of browser
+      hierarchyRoleLevel =>  contains current object of roles array */
+      return key => {
+        if (key == "sat") {
+          // Will display for user has roles as "SAT"
+          return _.find(authUserRoles, function(oo) {
+            return oo.hierarchyRoleLevel == self.$ROLE_HIERARCHY_OPERATION_SAT;
+          }) == undefined
+            ? false
+            : true;
+        } else if (key == "finance") {
+          // Will display for user has roles as "Finance"
+          return _.find(authUserRoles, function(oo) {
+            return (
+              oo.hierarchyRoleLevel == self.$ROLE_HIERARCHY_FINANCE_HEAD ||
+              oo.hierarchyRoleLevel == self.$ROLE_HIERARCHY_FINANCE_MANAGER ||
+              oo.hierarchyRoleLevel == self.$ROLE_HIERARCHY_FINANCE_EXECUTIVE
+            );
+          }) == undefined
+            ? false
+            : true;
+        } else if (key == "inventory") {
+          // Will display for user has roles as "Inventory"
+          return _.find(authUserRoles, function(oo) {
+            return (
+              oo.hierarchyRoleLevel == self.$ROLE_HIERARCHY_INVENTORY_OFFICER
+            );
+          }) == undefined
+            ? false
+            : true;
+        } else if (key == "opsHead") {
+          // Will display for user has roles as "OPS Head"
+          return _.find(authUserRoles, function(oo) {
+            return (
+              oo.hierarchyRoleLevel == self.$ROLE_HIERARCHY_OPERATIONS_HEAD
+            );
+          }) == undefined
+            ? false
+            : true;
+        } else if (key == "salesManager") {
+          // Will display for user has roles as "RSM/ASM"
+          return _.find(authUserRoles, function(oo) {
+            return (
+              oo.hierarchyRoleLevel == self.$ROLE_HIERARCHY_SALES_RSM ||
+              oo.hierarchyRoleLevel == self.$ROLE_HIERARCHY_SALES_ASM
+            );
+          }) == undefined
+            ? false
+            : true;
+        } else if (key == "banksOps") {
+          // Will display for user has roles as "Bank ops"
+          return _.find(authUserRoles, function(oo) {
+            return oo.hierarchyRoleLevel == self.$ROLE_HIERARCHY_BANK_OPS;
+          }) == undefined
+            ? false
+            : true;
+        } else if (key == "bm") {
+          // Will display for user has roles as "BM/Super admin"
+          return _.find(authUserRoles, function(oo) {
+            return oo.hierarchyRoleLevel == self.$ROLE_BIJLIPAY_MANAGER;
+          }) == undefined
+            ? false
+            : true;
+        }else if (key == "crm") {
+          // Will display for user has roles as "CRM Users"
+          return _.find(authUserRoles, function(oo) {
+            return oo.hierarchyRoleLevel == self.$HIERARCHY_CRM;
+          }) == undefined
+            ? false
+            : true;
+         else {
+          return false;
+        }
+      };
+    },
