@@ -16,10 +16,7 @@
         <q-list no-border link inset-delimiter highlight style="padding-top:65px">
           <div>
             <!-- Entry point for sat -->
-            <div v-if="
-              $q.localStorage.get.item('u_i') != undefined &&
-              showMenu.includes($ROLE_HIERARCHY_OPERATION_SAT)
-            ">
+            <div v-if="checkAuth('sat')">
             <div v-if="JSON.parse($q.localStorage.get.item('u_i')).region.regionAreaName == 'VARANEEK'">
              <q-item
                     v-for="menu in menus.varaneekSat"
@@ -63,16 +60,14 @@
             </div>
 
             <!-- Entry point for finance manager -->
-            <div
-              v-if="$q.localStorage.get.item('u_i') != undefined && (showMenu.includes($ROLE_HIERARCHY_FINANCE_HEAD) || showMenu.includes($ROLE_HIERARCHY_FINANCE_MANAGER) || showMenu.includes($ROLE_HIERARCHY_FINANCE_EXECUTIVE))">
+            <div v-if="checkAuth('finance')">
               <q-item v-for="menu in menus.finance" :key="menu.id" :to="menu.to" class="menu-main-item-color">
                 <q-item-main class="menu-item-color">{{ menu.name }}</q-item-main>
               </q-item>
             </div>
 
             <!-- Entry point for inventory -->
-            <div
-              v-if="$q.localStorage.get.item('u_i') != undefined && showMenu.includes($ROLE_HIERARCHY_INVENTORY_OFFICER)">
+            <div v-if="checkAuth('inventory')">
               <q-item v-for="menu in menus.inventory" :key="menu.id" v-if="menu.subItems.length == 0" :to="menu.to"
                 class="menu-main-item-color">
                 <q-item-main class="menu-item-color">{{ menu.name }}</q-item-main>
@@ -105,12 +100,7 @@
 
             <!-- Entry point for ksn inventory -->
 
-            <div
-              v-if="
-                $q.localStorage.get.item('u_i') != undefined &&
-                showMenu.includes($ROLE_HIERARCHY_KSN)
-              "
-            >
+            <div v-if="checkAuth('ksn')">
               <q-item
                 v-for="menu in menus.ksn"
                 :key="menu.id"
@@ -122,8 +112,7 @@
             </div>
 
             <!-- Entry point for opeartions head -->
-            <div
-              v-if="$q.localStorage.get.item('u_i') != undefined && showMenu.includes($ROLE_HIERARCHY_OPERATIONS_HEAD)">
+            <div v-if="checkAuth('opsHead')">
               <q-item v-for="menu in menus.opsHead" :key="menu.id" v-if="menu.subItems.length == 0" :to="menu.to"
                 class="menu-main-item-color">
                 <q-item-main class="cursor-pointer menu-item-color">{{ menu.name }}</q-item-main>
@@ -142,28 +131,27 @@
             </div>
 
             <!-- Entry point for sales manager => RSM/ASM -->
-            <div
-              v-if="$q.localStorage.get.item('u_i') != undefined && (showMenu.includes($ROLE_HIERARCHY_SALES_RSM) || showMenu.includes($ROLE_HIERARCHY_SALES_ASM) || showMenu.includes($ROLE_HIERARCHY_SALES_NATIONAL_HEAD))">
+            <div v-if="checkAuth('salesManager')">
               <q-item v-for="menu in menus.salesManager" :key="menu.id" :to="menu.to" class="menu-main-item-color">
                 <q-item-main class="menu-item-color">{{ menu.name }}</q-item-main>
               </q-item>
             </div>
 
             <!-- Entry point for sales manager => bank ops -->
-            <div v-if="$q.localStorage.get.item('u_i') != undefined && showMenu.includes($ROLE_HIERARCHY_BANK_OPS)">
+            <div v-if="checkAuth('banksOps')">
               <q-item v-for="menu in menus.bankOps" :key="menu.id" :to="menu.to" class="menu-main-item-color">
                 <q-item-main class="menu-item-color">{{ menu.name }}</q-item-main>
               </q-item>
             </div>
 
             <!-- Entry point for CRM USERS -->
-            <div v-if="$q.localStorage.get.item('u_i') != undefined && showMenu.includes($HIERARCHY_CRM1)">
+            <div v-if="checkAuth('crm')">
               <q-item v-for="menu in menus.crm" :key="menu.id" :to="menu.to" class="menu-main-item-color">
                 <q-item-main class="menu-item-color">{{ menu.name }}</q-item-main>
               </q-item>
             </div>
             <!-- Entry point for super admin/bijlipay managemnet -->
-            <div v-if="$q.localStorage.get.item('u_i') != undefined && showMenu.includes($ROLE_BIJLIPAY_MANAGER)">
+            <div v-if="checkAuth('bm')">
               <q-item v-for="menu in menus.superAdmin" :key="menu.id" :to="menu.to">
                 <q-item-main class="menu-item-color-SA">{{ menu.name}}</q-item-main>
               </q-item>
@@ -203,7 +191,7 @@ export default {
       menuListNameSat: '',
       name:'',
       options: [],
-      showMenu: [],
+      authCheck: null,
       array:[],
       selectedValue: "",
       selectedValueSat: "",
@@ -947,27 +935,27 @@ export default {
         crm: [
           {
             id: 1,
-            to: "phonepePendingCrm",
+            to: "/crm/phonepePendingCrm",
             name: "Phonepe Service Request",
           },
           {
             id: 2,
-            to: "bijlipayCrm",
+            to: "/crm/bijlipayCrm",
             name: "Bijlipay Service Request",
           },
           {
-            id: 2,
-            to: "globalTicketSearch",
+            id: 3,
+            to: "/crm/globalTicketSearch",
             name: "Global Ticket Search",
           },
           {
-            id: 288,
-            to: "docviewer",
+            id: 4,
+            to: "/crm/docviewer",
             name: "DOC View",
           },
           {
-            id: 888,
-            to: "serviceticket",
+            id: 5,
+            to: "/crm/serviceticket",
             name: "Service Ticket",
           },
         ],
@@ -1516,7 +1504,7 @@ export default {
   },
 
   created() {
-    this.findMenuAuth();
+    this.authCheck = this.findMenuAuth();
   },
   beforeMount() {
     this.fnAjaxGetAllMenuList();
@@ -1534,15 +1522,103 @@ export default {
     ...mapActions("superAdminAggregators", ["GET_ACTIVE_CREATED_AGGREGATORS_LIST"]),
     findMenuAuth() {
       // Declaring roles ad array from local storage
+      if (localStorage.getItem("u_i") == undefined) {
+        return key => false;
+      }
       let authUserRoles = JSON.parse(localStorage.getItem("u_i")).roles;
+      let self = this;
+
       /* variables:
       authUserRoles => contains user info, which is saved in local storage of browser
       hierarchyRoleLevel =>  contains current object of roles array */
-      let menuArr = [];
-      _.map(authUserRoles, function (oo) {
-        menuArr.push(oo.hierarchyRoleLevel);
-      });
-      this.showMenu = menuArr;
+      return key => {
+        if (key == "sat") {
+          // Will display for user has roles as "SAT"
+          return _.find(authUserRoles, function (oo) {
+            return oo.hierarchyRoleLevel == self.$ROLE_HIERARCHY_OPERATION_SAT;
+          }) == undefined
+            ? false
+            : true;
+        } else if (key == "finance") {
+          // Will display for user has roles as "Finance"
+          return _.find(authUserRoles, function (oo) {
+            return (
+              oo.hierarchyRoleLevel == self.$ROLE_HIERARCHY_FINANCE_HEAD ||
+              oo.hierarchyRoleLevel == self.$ROLE_HIERARCHY_FINANCE_MANAGER ||
+              oo.hierarchyRoleLevel == self.$ROLE_HIERARCHY_FINANCE_EXECUTIVE
+            );
+          }) == undefined
+            ? false
+            : true;
+        } else if (key == "inventory") {
+          // Will display for user has roles as "Inventory"
+          return _.find(authUserRoles, function (oo) {
+            return (
+              oo.hierarchyRoleLevel == self.$ROLE_HIERARCHY_INVENTORY_OFFICER
+            );
+          }) == undefined
+            ? false
+            : true;
+        } else if (key == "ksn") {
+          // Will display for user has roles as "KSN"
+          return _.find(authUserRoles, function (oo) {
+            return (
+              oo.hierarchyRoleLevel == self.$ROLE_HIERARCHY_KSN
+            );
+          }) == undefined
+            ? false
+            : true;
+        } else if (key == "opsHead") {
+          // Will display for user has roles as "OPS Head"
+          return _.find(authUserRoles, function (oo) {
+            return (
+              oo.hierarchyRoleLevel == self.$ROLE_HIERARCHY_OPERATIONS_HEAD
+            );
+          }) == undefined
+            ? false
+            : true;
+        } else if (key == "salesManager") {
+          // Will display for user has roles as "RSM/ASM/National Head"
+          return _.find(authUserRoles, function (oo) {
+            return (
+              oo.hierarchyRoleLevel == self.$ROLE_HIERARCHY_SALES_RSM ||
+              oo.hierarchyRoleLevel == self.$ROLE_HIERARCHY_SALES_ASM ||
+              oo.hierarchyRoleLevel == self.$ROLE_HIERARCHY_SALES_NATIONAL_HEAD
+            );
+          }) == undefined
+            ? false
+            : true;
+        } else if (key == "banksOps") {
+          // Will display for user has roles as "Bank ops"
+          return _.find(authUserRoles, function (oo) {
+            return oo.hierarchyRoleLevel == self.$ROLE_HIERARCHY_BANK_OPS;
+          }) == undefined
+            ? false
+            : true;
+        } else if (key == "bm") {
+          // Will display for user has roles as "BM/Super admin"
+          return _.find(authUserRoles, function (oo) {
+            return oo.hierarchyRoleLevel == self.$ROLE_BIJLIPAY_MANAGER;
+          }) == undefined
+            ? false
+            : true;
+        } else if (key == "crm") {
+          // Will display for user has roles as "CRM Users"
+          return _.find(authUserRoles, function (oo) {
+            return (
+              oo.hierarchyRoleLevel == self.$HIERARCHY_CRM ||
+              oo.hierarchyRoleLevel == self.$HIERARCHY_CRM1
+            );
+          }) == undefined
+            ? false
+            : true;
+        } else {
+          return false;
+        }
+      };
+    },
+    checkAuth(key) {
+      return this.authCheck(key);
     },
     // fnselectedValues(value){
 
