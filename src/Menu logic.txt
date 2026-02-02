@@ -1,4 +1,3 @@
-
     findMenuAuth() {
       // Declaring roles ad array from local storage
       let authUserRoles = JSON.parse(localStorage.getItem("u_i")).roles;
@@ -35,6 +34,15 @@
           }) == undefined
             ? false
             : true;
+        } else if (key == "ksn") {
+          // Will display for user has roles as "KSN"
+          return _.find(authUserRoles, function(oo) {
+            return (
+              oo.hierarchyRoleLevel == self.$ROLE_HIERARCHY_KSN
+            );
+          }) == undefined
+            ? false
+            : true;
         } else if (key == "opsHead") {
           // Will display for user has roles as "OPS Head"
           return _.find(authUserRoles, function(oo) {
@@ -45,11 +53,12 @@
             ? false
             : true;
         } else if (key == "salesManager") {
-          // Will display for user has roles as "RSM/ASM"
+          // Will display for user has roles as "RSM/ASM/National Head"
           return _.find(authUserRoles, function(oo) {
             return (
               oo.hierarchyRoleLevel == self.$ROLE_HIERARCHY_SALES_RSM ||
-              oo.hierarchyRoleLevel == self.$ROLE_HIERARCHY_SALES_ASM
+              oo.hierarchyRoleLevel == self.$ROLE_HIERARCHY_SALES_ASM ||
+              oo.hierarchyRoleLevel == self.$ROLE_HIERARCHY_SALES_NATIONAL_HEAD
             );
           }) == undefined
             ? false
@@ -68,14 +77,17 @@
           }) == undefined
             ? false
             : true;
-        }else if (key == "crm") {
+        } else if (key == "crm") {
           // Will display for user has roles as "CRM Users"
           return _.find(authUserRoles, function(oo) {
-            return oo.hierarchyRoleLevel == self.$HIERARCHY_CRM;
+            return (
+              oo.hierarchyRoleLevel == self.$HIERARCHY_CRM ||
+              oo.hierarchyRoleLevel == self.$HIERARCHY_CRM1
+            );
           }) == undefined
             ? false
             : true;
-         else {
+        } else {
           return false;
         }
       };
