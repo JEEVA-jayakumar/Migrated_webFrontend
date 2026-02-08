@@ -1,9 +1,9 @@
 <template>
   <q-page>
     <div>
-      <!--START: table title -->
+      <!--STARTv-model: table title -->
       <div
-        class="col-md-12 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
+        class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
       >Leads Pending Assignment</div>
       <!--END: table title -->
       <!--START: table lead validation -->
@@ -14,10 +14,10 @@
         :data="tableData"
         :columns="columns"
         :filter="filter"
-        :pagination.sync="paginationControl"
+        :pagination="paginationControl"
         row-key="name"
       >
-        <template slot="top" slot-scope="props" class="bottom-border">
+        <template v-slot:top="props" class="bottom-border">
           <!--START: table fullscreen mode -->
           <!-- <div class="col-md-4" align="right">
             <q-btn
@@ -31,7 +31,7 @@
           <!--END: table fullscreen mode -->
           <!--START: table filter,search -->
           <div class="col-md-5">
-            <q-search
+            <q-input
               clearable
               color="grey-9"
               v-model="filter"

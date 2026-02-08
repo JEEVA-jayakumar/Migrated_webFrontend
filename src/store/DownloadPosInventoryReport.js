@@ -1,3 +1,4 @@
+import { api } from '../boot/axios';
 
 import Vue from "vue"
 
@@ -32,7 +33,7 @@ const FileDownload1 = {
       var today = new Date();
       var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
       // if (request.from && request.to) {
-      //   return await Vue.http
+      //   return await api
       //     .get("download-depreciation-report" + "/" + request.from + "/" + request.to, {
       //       responseType: 'arraybuffer'
       //     })
@@ -46,7 +47,7 @@ const FileDownload1 = {
       //     });
       // }
       if (request.from) {
-        return await Vue.http
+        return await api
           .get("download-depreciation-report" + "/" + request.from, {
             responseType: 'arraybuffer'
           })

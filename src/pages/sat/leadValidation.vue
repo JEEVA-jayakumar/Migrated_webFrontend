@@ -2,45 +2,45 @@
   <q-page>
     <div>
       <!-- //Common lead information in popup -->
-      <generalLeadInformation v-if="propToggleLeadInformation" :leadInformation="addtnLeadInformation"
+      <generalLeadInformation v-if="propToggleLeadInformation" v-model:leadInformation="addtnLeadInformation"
         :propToggleLeadInformationPop="propToggleLeadInformation" @closeLeadInformation="toggleLeadInformation" />
 
       <q-pull-to-refresh :distance="30" :handler="PullToRefresh" inline>
         <!--START: table title -->
-        <div class="col-md-12 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"> Lead Validation
+        <div class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"> Lead Validation
         </div>
         <!--END: table title -->
         <!--START: table lead validation -->
         <q-table title="Lead Validation" table-class="customTableClass" class="q-py-none" :data="tableData"
-          :columns="columns" row-key="name" :filter="filter" :pagination.sync="paginationControl"
+          :columns="columns" row-key="name" :filter="filter" :pagination="paginationControl"
           :rows-per-page-options="[5,10,15,20]" :loading="toggleAjaxLoadFilter" @request="ajaxLoadAllLeadInfo">
           <!--START: table body modification -->
-          <q-td slot="body-cell-createdAt" slot-scope="props" :props="props">{{ props.row.date | moment("Do MMM Y")
+          <q-td v-slot:body-cell-createdAt="props" :props="props">{{ props.row.date | moment("Do MMM Y")
             }}</q-td>
 
-          <q-td slot="body-cell-leadNumber" slot-scope="props" :props="props" class="cursor-pointer"
+          <q-td v-slot:body-cell-leadNumber="props" :props="props" class="cursor-pointer"
             @click.native="toggleLeadInformation(props.row)">
             <span class="label" :class="[props.row.priority?'text-negative text-weight-bolder':'text-primary']">#
               {{props.row.leadNumber}}</span>
           </q-td>
 
-          <q-td slot="body-cell-leadName" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-leadName="props" :props="props">
             <span class="capitalize">{{props.row.merchantName}}</span>
           </q-td>
 
-          <q-td slot="body-cell-state" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-state="props" :props="props">
             <span class="capitalize">{{props.row.state}}</span>
           </q-td>
 
-          <q-td slot="body-cell-assignedTo.name" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-assignedTo.name="props" :props="props">
             <span class="capitalize">{{props.row.salesOfficerName+" | "+props.row.salesOfficerEmpId}}</span>
           </q-td>
-          <q-td slot="body-cell-leadSource" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-leadSource="props" :props="props">
             <span :class="{ 'text-red': props.row.leadSource === 'LS_TOHANDS' }">
               {{ props.row.leadSource }}
             </span>
           </q-td>
-          <q-td slot="body-cell-verifiedFinanceStatus" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-verifiedFinanceStatus="props" :props="props">
             <span class="label text-positive"
               v-if="props.row.verifiedFinanceStatus== $VERIFIED_FINANCE_STATUS_SUCCESS">Approved</span>
             <span class="label text-negative"
@@ -50,7 +50,7 @@
             <span class="label" v-else>NA</span>
           </q-td>
 
-          <q-td slot="body-cell-leadStatus" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-leadStatus="props" :props="props">
             <span class="label text-positive"
               v-if="props.row.verifiedFinanceStatus== $LEAD_STATUS_SUBMIT_TO_SAT_LEAD && props.row.verifiedFinanceStatus== $VERIFIED_FINANCE_STATUS_SUCCESS">New</span>
             <span class="label text-negative"
@@ -61,7 +61,7 @@
               ops</span>
             <span class="label text-negative" v-else>Pending</span>
           </q-td>
-          <q-td slot="body-cell-action" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-action="props" :props="props">
             <q-btn v-if="props.row.leadStatus == $LEAD_STATUS_DATA_ENTRY_PENDING" highlight push outline
               color="purple-9" size="sm"
               @click="$router.push('/sat/lead/validation/'+ props.row.leadId+'/data/entry')">Data Entry</q-btn>
@@ -87,15 +87,15 @@
 
             <q-btn v-else class="disabled" highlight push outline color="grey-9" size="sm">Validate</q-btn>
           </q-td>
-          <q-td slot="body-cell-rejectLead" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-rejectLead="props" :props="props">
             <q-btn v-if="props.row.leadStatus == $LEAD_STATUS_SUBMIT_TO_SAT_LEAD  " highlight push outline
               class="q-mx-sm" color="negative" @click="openRejectLead(props.row)" size="sm">Reject Lead</q-btn>
           </q-td>
           <!-- END: table body modification -->
-          <template slot="top" slot-scope="props" class="bottom-border">
+          <template v-slot:top="props" class="bottom-border">
             <!--START: table filter,search -->
             <div class="col-md-5">
-              <q-search clearable color="grey-9" v-model="filter" placeholder="Type.." :debounce="600"
+              <q-input clearable color="grey-9" v-model="filter" placeholder="Type.." :debounce="600"
                 class="q-mr-lg q-py-sm" float-label="Search By Merchant Name, Lead ID, Lead Source.." />
             </div>
             <!--END: table filter,search -->

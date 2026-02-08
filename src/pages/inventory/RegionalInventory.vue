@@ -9,17 +9,17 @@ LOST
         title="Change Management"
         table-class="customTableClass"
         class="q-py-none"
-        :data="tableData"
+        v-model:data="tableData"
         :columns="columns"
         row-key="name"
         :filter="filter1"
-        :pagination.sync="paginationControlchange"
+        :pagination="paginationControlchange"
         :rows-per-page-options="[5,10,15]"
         :loading="toggleAjaxLoadFilter"
         @request="ajaxLoadAllCMS"
       >
         
-        <!-- <q-td slot="body-cell-Status" slot-scope="props" :props="props">
+        <!-- <q-td v-slot:body-cell-Status="props" :props="props">
           <span
             class="label text-positive"
             v-if="props.row.leadInformation.cmsLeadStatus== 23"
@@ -70,7 +70,7 @@ LOST
           >Submitted to Mars</span>-->
           <!-- <span class="label text-negative" v-else>Pending</span>
         </q-td> -->
-        <!-- <q-td slot="body-cell-action" slot-scope="props" :props="props">
+        <!-- <q-td v-slot:body-cell-action="props" :props="props">
           <q-btn
             v-if="props.row.leadInformation.cmsLeadStatus== 22 || props.row.leadInformation.cmsLeadStatus==15 || props.row.leadInformation.cmsLeadStatus==25 "
             highlight
@@ -130,7 +130,7 @@ LOST
         <template slot="top"  class="bottom-border">
           <!--START: table filter,search -->
           <div class="col-md-5">
-            <q-search
+            <q-input
               clearable
               color="grey-9"
               v-model="filter1"
@@ -184,7 +184,7 @@ LOST
           </div>
             <div class="col-auto" align="right"> 
           <q-btn
-            :disabled="Add == ''"
+            v-model:disabled="Add == ''"
             label="Add"
             class="text-white text-weight-regular common-dark-blue q-py-sm"
             @click="fnCookDispatchedHistoryDetails"
@@ -192,7 +192,7 @@ LOST
         </div>
        </template>
       <!-- <div>
-        class="col-md-12 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
+        class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
       >Enter Device Serial Number/TID</div> -->
       <q-table
         title="Change Management"
@@ -201,15 +201,15 @@ LOST
         :columns="columns1"
         row-key="name"
         :filter="filter"
-        :pagination.sync="paginationControl"
+        :pagination="paginationControl"
         :rows-per-page-options="[5,10,15,20]"
         :loading="toggleAjaxLoadFilter1"
         @request="ajaxLoadAllLeadInfo"
       >
-        <!-- <q-td slot="body-cell-action" slot-scope="props" :props="props">
+        <!-- <q-td v-slot:body-cell-action="props" :props="props">
           <q-btn @click="fnEdit(props.row.leadInformation.id)" flat class="text-negative">Edit</q-btn>
         </q-td>-->
-        <q-td slot="body-cell-action" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-action="props" :props="props">
           <!-- <q-btn v-if="props.row.leadInformation.leadDocuments.length==0"
             highlight
             push
@@ -230,7 +230,7 @@ LOST
         <template slot="top"  class="bottom-border">
           <!--START: table filter,search -->
           <div class="col-md-5">
-            <q-search
+            <q-input
               clearable
               color="grey-9"
               v-model="filter"

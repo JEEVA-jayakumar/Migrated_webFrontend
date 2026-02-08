@@ -10,9 +10,9 @@
         <q-tab default color="dark" name="tab-1" slot="title" label="New Requests" />
         <q-tab color="dark" name="tab-2" slot="title" label="Courier" />
         <q-tab color="dark" name="tab-3" slot="title" label="Failure Onboarding" />
-        <q-tab-pane name="tab-1">
+        <q-tab-panel name="tab-1">
           <div class="row items-center">
-            <q-search
+            <q-input
               class="col-5"
               clearable
               color="grey-9"
@@ -24,15 +24,15 @@
           <q-table
             table-class="customTableClass"
             class="q-py-none"
-            :data="tableData"
+            v-model:data="tableData"
             :columns="columns"
             :filter="filter"
             :rows-per-page-options="[50, 100, 150, 200]"
-            :pagination.sync="paginationControl"
+            :pagination="paginationControl"
             :loading="toggleAjaxLoadFilter"
             @request="ajaxLoadAllLeadInfo"
           >
-            <q-td slot="body-cell-actionScanQR" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-actionScanQR="props" :props="props">
               <div class="row no-wrap no-padding">
                 <q-btn
                   :disable="props.row.isScanQrEnabled"
@@ -49,7 +49,7 @@
                 </q-btn>
               </div>
             </q-td>
-            <q-td slot="body-cell-actionScanSoundbox" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-actionScanSoundbox="props" :props="props">
               <div v-if="props.row.soundBox == true" class="row no-wrap no-padding">
                 <q-btn
                   :disable="props.row.isScanSoundboxEnabled"
@@ -66,7 +66,7 @@
                 </q-btn>
               </div>
             </q-td>
-            <q-td slot="body-cell-actionPrint" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-actionPrint="props" :props="props">
               <div class="row no-wrap no-padding">
                 <q-btn
                   :disabled="
@@ -88,7 +88,7 @@
                 </q-btn>
               </div>
             </q-td>
-            <q-td slot="body-cell-actionSubmit" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-actionSubmit="props" :props="props">
               <div class="row no-wrap no-padding">
                 <q-btn
                   :disabled="
@@ -107,20 +107,20 @@
               </div>
             </q-td>
           </q-table>
-        </q-tab-pane>
-        <q-tab-pane name="tab-2">
+        </q-tab-panell>
+        <q-tab-panel name="tab-2">
           <q-table
             table-class="customTableClass"
             class="q-py-none"
-            :data="tableData1"
+            v-model:data="tableData1"
             :columns="columns2"
             :filter="filter1"
             :rows-per-page-options="[5, 10, 15, 20]"
-            :pagination.sync="paginationControl1"
+            :pagination="paginationControl1"
             :loading="toggleAjaxLoadFilter1"
             @request="ajaxLoadAllLeadInfo1"
           >
-            <q-td slot="body-cell-merchantName" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-merchantName="props" :props="props">
               <template v-if="props.row.pod == true">
                 {{ props.row.podNumber }}
               </template>
@@ -133,7 +133,7 @@
                 />
               </template>
             </q-td>
-            <q-td slot="body-cell-actionPodNumber" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-actionPodNumber="props" :props="props">
               <div v-if="props.row.pod == false" class="row no-wrap no-padding">
                 <q-btn
                   highlight
@@ -147,21 +147,21 @@
               </div>
             </q-td>
           </q-table>
-        </q-tab-pane>
+        </q-tab-panell>
 
-        <q-tab-pane name="tab-3">
+        <q-tab-panel name="tab-3">
           <q-table
             table-class="customTableClass"
             class="q-py-none"
-            :data="tableData2"
+            v-model:data="tableData2"
             :columns="columns3"
             :filter="filter2"
             :rows-per-page-options="[5, 10, 15, 20]"
-            :pagination.sync="paginationControl2"
+            :pagination="paginationControl2"
             :loading="toggleAjaxLoadFilter2"
             @request="ajaxLoadAllLeadInfo2"
           >
-            <q-td slot="body-cell-actionReSubmit" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-actionReSubmit="props" :props="props">
               <div class="row no-wrap no-padding">
                 <q-btn
                   highlight
@@ -174,7 +174,7 @@
               </div>
             </q-td>
           </q-table>
-        </q-tab-pane>
+        </q-tab-panell>
       </q-tabs>
     </div>
     <ScanStaticInventory

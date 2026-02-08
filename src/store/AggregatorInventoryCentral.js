@@ -1,3 +1,4 @@
+import { api } from '../boot/axios';
 import api from "./api.js";
 import Vue from "vue";
 
@@ -525,7 +526,7 @@ const InventoryCentral = {
     /* API call to fetch lead approval data */
     async REPORT_MASTER_INVENTORY({ commit }, request) {
       if (request == undefined) {
-        return await Vue.http
+        return await api
           .get("download/master-inventory-report", {
             responseType: "arraybuffer"
           })
@@ -539,7 +540,7 @@ const InventoryCentral = {
             link.click();
           });
       } else {
-        return await Vue.http
+        return await api
           .get("download/master-inventory-report/" + request, {
             responseType: "arraybuffer"
           })
@@ -558,7 +559,7 @@ const InventoryCentral = {
     //   commit
     // }, request) {
 
-    //     return await Vue.http
+    //     return await api
     //       .get("download-MerchantMenu", {
     //         responseType: "arraybuffer",
     //       })
@@ -599,7 +600,7 @@ const InventoryCentral = {
         (today.getMonth() + 1) +
         "-" +
         today.getDate();
-      let response = await Vue.http.get(
+      let response = await api.get(
         "download-MerchantMenu?from=" + request.from + "&to=" + request.to,
         {
           responseType: "arraybuffer"
@@ -614,7 +615,7 @@ const InventoryCentral = {
       link.click();
     },
     async REPORT_INVENTORY_SUMMARY1({ commit }, request) {
-      return await Vue.http
+      return await api
         .get("download-InventorySummaryInfoMenu/1", {
           responseType: "arraybuffer"
         })
@@ -627,7 +628,7 @@ const InventoryCentral = {
         });
     },
     async REPORT_INVENTORY_SUMMARY2({ commit }, request) {
-      return await Vue.http
+      return await api
         .get("download-InventorySummaryInfoMenu/2", {
           responseType: "arraybuffer"
         })
@@ -640,7 +641,7 @@ const InventoryCentral = {
         });
     },
     async REPORT_INVENTORY_SUMMARY3({ commit }, request) {
-      return await Vue.http
+      return await api
         .get("download-InventorySummaryInfoMenu/3", {
           responseType: "arraybuffer"
         })
@@ -657,7 +658,7 @@ const InventoryCentral = {
     //   commit
     // }, request) {
 
-    //     return await Vue.http
+    //     return await api
     //       .get("download-RecoveryReplacementHist", {
     //         responseType: "arraybuffer",
     //       })
@@ -679,7 +680,7 @@ const InventoryCentral = {
         (today.getMonth() + 1) +
         "-" +
         today.getDate();
-      let response = await Vue.http.get(
+      let response = await api.get(
         "download-RecoveryReplacementHist?from=" +
         request.from +
         "&to=" +
@@ -701,7 +702,7 @@ const InventoryCentral = {
     //   commit
     // }, request) {
 
-    //     return await Vue.http
+    //     return await api
     //       .get("download-BpRegionsMenu", {
     //         responseType: "arraybuffer",
     //       })
@@ -722,7 +723,7 @@ const InventoryCentral = {
         (today.getMonth() + 1) +
         "-" +
         today.getDate();
-      let response = await Vue.http.get(
+      let response = await api.get(
         "download-BpRegionsMenu?from=" + request.from + "&to=" + request.to,
         {
           responseType: "arraybuffer"
@@ -741,7 +742,7 @@ const InventoryCentral = {
     //   commit
     // }, request) {
     //
-    //     return await Vue.http
+    //     return await api
     //       .get("download-lost-or-stolen-device-sat", {
     //         responseType: "arraybuffer",
     //       })
@@ -762,7 +763,7 @@ const InventoryCentral = {
         (today.getMonth() + 1) +
         "-" +
         today.getDate();
-      let response = await Vue.http.get(
+      let response = await api.get(
         "download-lost-or-stolen-device-sat?fromDate=" +
         request.fromDate +
         "&toDate=" +
@@ -784,7 +785,7 @@ const InventoryCentral = {
     //   commit
     // }, request) {
 
-    //     return await Vue.http
+    //     return await api
     //       .get("download-lost-or-stolen-device-sat/" + request.filter, {
     //         responseType: "arraybuffer",
     //       })
@@ -802,7 +803,7 @@ const InventoryCentral = {
     //   commit
     // }, request) {
 
-    //     return await Vue.http
+    //     return await api
     //       .get("download-lost-or-stolen-device-sat", {
     //         responseType: "arraybuffer",
     //       })
@@ -817,7 +818,7 @@ const InventoryCentral = {
     // },
 
     async REPORT_MASTERTRACKER_MENU({ commit }, request) {
-      return await Vue.http
+      return await api
         .get("download-master-tracker-list", {
           responseType: "arraybuffer"
         })
@@ -833,7 +834,7 @@ const InventoryCentral = {
     //   commit
     // }, request) {
 
-    //     return await Vue.http
+    //     return await api
     //       .get("download-deviceHist", {
     //         responseType: "arraybuffer",
     //       })
@@ -849,7 +850,7 @@ const InventoryCentral = {
     async REPORT_DEVICE_HISTORY_LIST({ commit }, request) {
       var today = new Date();
       var date = today.getFullYear() + "-" + (today.getMonth() + 1) + "-" + today.getDate();
-      let response = await Vue.http.get(
+      let response = await api.get(
         "download-deviceHist?from=" + request.from + "&to=" + request.to,
         {
           responseType: "arraybuffer"
@@ -868,7 +869,7 @@ const InventoryCentral = {
     //   commit
     // }, request) {
 
-    //     return await Vue.http
+    //     return await api
     //       .get("download-SoMenu", {
     //         responseType: "arraybuffer",
     //       })
@@ -889,7 +890,7 @@ const InventoryCentral = {
         (today.getMonth() + 1) +
         "-" +
         today.getDate();
-      let response = await Vue.http.get(
+      let response = await api.get(
         "download-SoMenu?from=" + request.from + "&to=" + request.to,
         {
           responseType: "arraybuffer"
@@ -944,7 +945,7 @@ const InventoryCentral = {
     //   commit
     // }, request) {
     //   if (request == undefined) {
-    //     return await Vue.http
+    //     return await api
     //       .get("download/master-inventory-report", {
     //         responseType: "arraybuffer",
     //       })
@@ -958,7 +959,7 @@ const InventoryCentral = {
     //         link.click();
     //       });
     //   } else {
-    //     return await Vue.http
+    //     return await api
     //       .get("download/master-inventory-report/" + request, {
     //         responseType: "arraybuffer",
     //       })

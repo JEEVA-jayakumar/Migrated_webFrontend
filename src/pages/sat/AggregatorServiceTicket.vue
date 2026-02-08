@@ -2,49 +2,49 @@
   <q-page>
     <div>
       <div
-        class="col-md-12 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
+        class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
       >
         SAT - Service Verification
       </div>
       <q-table
         table-class="customTableClass"
-        :data="tableData"
+        v-model:data="tableData"
         :columns="columns"
         :filter="filter"
-        :pagination.sync="paginationControl"
+        :pagination="paginationControl"
         row-key="name"
         :loading="toggleAjaxLoadFilter"
         :rows-per-page-options="[5, 10, 15, 20]"
         @request="ajaxLoadAllLeadInfo"
       >
-        <q-td slot="body-cell-createdDate" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-createdDate="props" :props="props">
           <span class="label">{{ props.row.createdDate | moment("Do MMM Y") }}</span>
         </q-td>
-        <q-td slot="body-cell-tid" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-tid="props" :props="props">
           <span class="label text-primary"># {{ props.row.serviceRequestData.tid }}</span>
         </q-td>
-        <q-td slot="body-cell-ticketid" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-ticketid="props" :props="props">
           <span class="label text-primary"
             ># {{ props.row.serviceRequestData.serviceReqTicketId }}</span
           >
         </q-td>
-        <q-td slot="body-cell-statusReport" slot-scope="props" :props="props">{{
+        <q-td v-slot:body-cell-statusReport="props" :props="props">{{
           props.row.serviceRequestType.name
         }}</q-td>
 
-        <q-td slot="body-cell-merchantname" slot-scope="props" :props="props">{{
+        <q-td v-slot:body-cell-merchantname="props" :props="props">{{
           props.row.serviceRequestData.meName
         }}</q-td>
-        <q-td slot="body-cell-merchantaddress" slot-scope="props" :props="props">{{
+        <q-td v-slot:body-cell-merchantaddress="props" :props="props">{{
           props.row.serviceRequestData.address
         }}</q-td>
-        <q-td slot="body-cell-typeofvisit" slot-scope="props" :props="props">{{
+        <q-td v-slot:body-cell-typeofvisit="props" :props="props">{{
           props.row.resolutionType
         }}</q-td>
-        <!-- <q-td slot="body-cell-user" slot-scope="props" :props="props">{{
+        <!-- <q-td v-slot:body-cell-user="props" :props="props">{{
           props.row.id
         }}</q-td> -->
-        <q-td slot="body-cell-viewDocument" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-viewDocument="props" :props="props">
           <div
             v-if="
               props.row.implementationFormMimeType == null ||
@@ -74,7 +74,7 @@
           </div>
           <div v-else>NA Document</div>
         </q-td>
-        <q-td slot="body-cell-pictureOfShop" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-pictureOfShop="props" :props="props">
           <div
             v-if="
               props.row.pictureOfShopMimeType == null ||
@@ -104,11 +104,11 @@
           </div>
           <div v-else>NA Document</div>
         </q-td>
-        <q-td slot="body-cell-closedate" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-closedate="props" :props="props">
           <span class="label">{{ props.row.updatedDate | moment("Do MMM Y") }}</span>
         </q-td>
 
-        <q-td slot="body-cell-status" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-status="props" :props="props">
           <span
             class="label text-positive"
             v-if="
@@ -129,10 +129,10 @@
           >
           <span class="label text-amber" v-else>Pending</span>
         </q-td>
-        <q-td slot="body-cell-device" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-device="props" :props="props">
           {{ props.row.serviceRequestData.deviceType }}
         </q-td>
-        <q-td slot="body-cell-action" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-action="props" :props="props">
           <q-btn
             :disabled="props.row.serviceRequestSubTicketStatus.id == 102 ? false : true"
             no-caps
@@ -144,7 +144,7 @@
             color="green-7"
           ></q-btn>
         </q-td>
-        <q-td slot="body-cell-data" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-data="props" :props="props">
           <q-btn
             :disabled="props.row.serviceRequestSubTicketStatus.id == 102 ? false : true"
             no-caps
@@ -159,7 +159,7 @@
 
         <template slot="top">
           <div class="col-5">
-            <q-search
+            <q-input
               clearable
               v-model="filter"
               separator

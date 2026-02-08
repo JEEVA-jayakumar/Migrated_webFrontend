@@ -1,3 +1,4 @@
+import { api } from '../boot/axios';
 import Vue from "vue";
 import api from "./api.js";
 import _ from "lodash";
@@ -325,7 +326,7 @@ const SatLeadValidation = {
       commit,
       rootState
     }, request) {
-      return Vue.http
+      return api
         .post(
           rootState.GlobalVariables.SAT_FILEUPLOADURL +
           "/" +
@@ -351,7 +352,7 @@ const SatLeadValidation = {
       commit,
       rootState
     }, request) {
-      return Vue.http
+      return api
         .post(
           rootState.GlobalVariables.SAT_QR_FILEUPLOADURL +
           "/" +
@@ -379,7 +380,7 @@ const SatLeadValidation = {
       console.log("FEED_HAND_OVER_TO_SAT_FORMS_QR_DOCUMENT",requestParams);
       let formData = requestParams.files;
       // formData.append("fileNameOriginal", requestParams.fileNameOriginal);
-      return Vue.http
+      return api
         .post(
           rootState.GlobalVariables.SAT_FORMS_QR_FILEUPLOADURL, formData, {
           headers: {
@@ -400,7 +401,7 @@ const SatLeadValidation = {
       commit,
       rootState
     }, request) {
-      return Vue.http
+      return api
         .put(
           rootState.GlobalVariables.SAT_APPLICATION_FORM_FILEUPLOADURL +
           "/" +
@@ -426,7 +427,7 @@ const SatLeadValidation = {
       commit,
       rootState
     }, request) {
-      return Vue.http
+      return api
         .post("https://qaapp.bijlipay.co.in:8085/api/form-submit-with-file",
           request.files, {
           headers: {
@@ -479,7 +480,7 @@ const SatLeadValidation = {
     // },
 
     async SAMPLE() {
-      let response = await Vue.http.get(
+      let response = await api.get(
         "download/lead-approval-tracker/1538332200000/1540284863560", {
         responseType: "arraybuffer",
       }

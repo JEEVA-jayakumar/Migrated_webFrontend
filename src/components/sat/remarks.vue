@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-modal
+    <q-dialog
       minimized
       no-backdrop-dismiss
       no-esc-dismiss
@@ -10,7 +10,7 @@
     >
       <form>
         <div class="column group">
-          <div class="col-12 q-title q-py-md">Save with remarks</div>
+          <div class="col-12 text-h6 q-py-md">Save with remarks</div>
           <div class="col-12">
             <q-input
               color="grey-9"
@@ -43,14 +43,14 @@
           </div>
         </div>
       </form>
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 
 <script>
 import { date } from "quasar";
 import { mapGetters, mapActions } from "vuex";
-import { required } from "vuelidate/lib/validators";
+import { required } from "@vuelidate/validators";
 
 export default {
   props: ["propToggleLeadModal", "propLeadDetails"],

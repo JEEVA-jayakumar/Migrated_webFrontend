@@ -4,8 +4,8 @@
         <div>
             <div class="row bottom-border q-px-md q-py-md items-center">
                 <!--START: table title -->
-                <div class="col-md-8 q-title text-weight-regular  text-grey-9">Add New Devices - Scan & Upload</div>
-                <div class="col-md-4 col-sm-12 col-xs-12 q-title text-weight-regular text-grey-9" align="right">
+                <div class="col-md-8 text-h6 text-weight-regular  text-grey-9">Add New Devices - Scan & Upload</div>
+                <div class="col-md-4 col-sm-12 col-xs-12 text-h6 text-weight-regular text-grey-9" align="right">
                    <q-btn
                     @click="$router.push('/inventory/central')"
                     outline
@@ -24,7 +24,7 @@
                         float-label="Select Device Type"
                         radio
                         color="grey-9"
-                        :options="deviceOptions"
+                        v-model:options="deviceOptions"
                     />
                 </div>
                 <div class="col-md-3" align="center">
@@ -54,10 +54,10 @@
             </div>
 
              <!--START: table Data -->
-            <q-table :data="getAddDeviceScannedItems" :columns="columnData" table-class="customTableClass shadow-0" :filter="filterSearch" :pagination.sync="paginationControl" row-key="index" :loading="tableAjaxLoading"
+            <q-table :data="getAddDeviceScannedItems" :columns="columnData" table-class="customTableClass shadow-0" :filter="filterSearch" :pagination="paginationControl" row-key="index" :loading="tableAjaxLoading"
             color="light-blue">
 
-                <q-td slot="body-cell-action" slot-scope="props" :props="props">
+                <q-td v-slot:body-cell-action="props" :props="props">
                    <q-btn
                    @click="removeScannedItems(props.row)"
                     label="Remove"
@@ -67,10 +67,10 @@
                    />
                 </q-td>
 
-                <template slot="top" slot-scope="props">
+                <template v-slot:top="props">
                     <!--START: table filter,search -->
                     <div class="col-md-5">
-                    <q-search
+                    <q-input
                         clearable
                         color="grey-9"
                         v-model="filterSearch"

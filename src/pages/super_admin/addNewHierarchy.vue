@@ -1,15 +1,15 @@
 <template>
   <q-page>
     <div class="row">
-      <div class="col-12 q-title q-pa-md text-weight-regular bottom-border">Add New Hierarchy</div>
+      <div class="col-12 text-h6 q-pa-md text-weight-regular bottom-border">Add New Hierarchy</div>
       <!-- START >> Setup MDR details -->
       <div class="col-md-5 col-sm-4 col-xs-12 q-pa-sm">
         <q-card style="width:100%">
-          <q-card-main>
+          <q-card-section>
             <q-list no-border>
               
               <q-item>
-                <q-item-main>
+                <q-item-section>
                   <q-input
                     color="grey-9"
                     type="text"
@@ -20,10 +20,10 @@
                     placeholder="Add New Hierarchy"
                   />
                    
-                </q-item-main>
+                </q-item-section>
               </q-item>
                 <q-item>
-                <q-item-main>
+                <q-item-section>
                   <q-input
                     color="grey-9"
                     type="text"
@@ -34,10 +34,10 @@
                     placeholder="Add New Hierarchy Code"
                   />
                    
-                </q-item-main>
+                </q-item-section>
               </q-item>
             </q-list>
-          </q-card-main>
+          </q-card-section>
           <q-card-actions vertical align="end">
             <q-btn label="submit" @click="fnAddHierarchy(formData)" color="purple-9" />
             <!-- <q-btn label="submit" @click="fnsubmit(formData)" color="purple-9" /> -->
@@ -80,7 +80,7 @@ import {
   maxLength,
   integer,
   email
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 /* START >> Modal components Lead source, device, merchant type */
 import showLeadSourceModalComponent from "../../components/super_admin/showLeadSourceModalComponents.vue";
 import showDeviceDetailModalComponent from "../../components/super_admin/showDeviceDetailModalComponents.vue";

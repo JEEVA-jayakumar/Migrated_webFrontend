@@ -15,13 +15,13 @@
             <q-tab name="external" label="Phonepe Regional Inventory" slot="title" />
            
            
-            <q-tab-pane name="internal">
+            <q-tab-panel name="internal">
               <internalRegionalInventory/>
-            </q-tab-pane>
+            </q-tab-panell>
            
-            <q-tab-pane name="external">
+            <q-tab-panel name="external">
               <AggregatorInventory/>
-            </q-tab-pane>
+            </q-tab-panell>
           </q-tabs>
         </div>
       </div>

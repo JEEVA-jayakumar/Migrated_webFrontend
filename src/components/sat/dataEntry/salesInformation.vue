@@ -37,7 +37,7 @@
         />
       </div>
       <div class="col-md-6 col-sm-12 col-xs-12">
-        <q-datetime
+        <q-input
           modal
           color="grey-9"
           format="DD/MM/YYYY"
@@ -49,7 +49,7 @@
         />
       </div>
       <div class="col-md-6 col-sm-12 col-xs-12">
-        <q-datetime
+        <q-input
           modal
           color="grey-9"
           format="DD/MM/YYYY"
@@ -116,7 +116,7 @@
         />
       </div>
       <div class="col-md-6 col-sm-12 col-xs-12">
-        <p class="q-caption">Sharing Model</p>
+        <p class="text-caption">Sharing Model</p>
         <div v-for="(item,index) in viewBinding.sharingModelCode" :key="index">
           <q-radio
             color="grey-9"
@@ -176,7 +176,7 @@
         />
       </div>
       <div class="col-md-6 col-sm-12 col-xs-12">
-        <q-datetime
+        <q-input
           format="DD/MM/YYYY"
           format-model="date"
           @blur="$v.merchant.salesInformation.loanDisbursementDate.$touch"
@@ -211,7 +211,7 @@
         />
       </div>
       <div class="col-md-6 col-sm-12 col-xs-12">
-        <q-datetime
+        <q-input
           format="DD/MM/YYYY"
           format-model="date"
           @blur="$v.merchant.salesInformation.tenureStartDate.$touch"
@@ -287,7 +287,7 @@ import {
   minValue,
   decimal,
   between
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 export default {
   props: [
     "leadDetails",

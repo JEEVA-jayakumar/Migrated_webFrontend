@@ -1,6 +1,6 @@
 <template>
   <div>
-   <q-modal 
+   <q-dialog
         @hide="emitToggleRemarks" 
         @escape-key="emitToggleRemarks"  
         v-model="toggleModal"  
@@ -17,7 +17,7 @@
               <vuePdfjs :url="GLOBAL_FILE_FETCH_URL+'/'+itemDetails" :type="0" :height="'400px'" style="max-width:100%"></vuePdfjs>
           </div>
         </div>
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 

@@ -21,7 +21,7 @@
           label="Completed Tickets"
         />
         <q-tab color="dark" name="tab-3" slot="title" label="RTO Tickets" />
-        <q-tab-pane name="tab-1">
+        <q-tab-panel name="tab-1">
           <div class="row items-center">
             <div class="col">
               <strong>
@@ -38,7 +38,7 @@
             </q-select>
 
             <div class="col-5"></div>
-            <q-search
+            <q-input
               class="col-5"
               clearable
               color="grey-9"
@@ -50,15 +50,15 @@
           <q-table
             table-class="customTableClass"
             class="q-py-none"
-            :data="tableData"
+            v-model:data="tableData"
             :columns="columns"
             :filter="filter"
             :rows-per-page-options="[5, 10, 15]"
-            :pagination.sync="paginationControl"
+            :pagination="paginationControl"
             :loading="toggleAjaxLoadFilter"
             @request="ajaxLoadAllLeadInfo"
           >
-            <q-td slot="body-cell-action1" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-action1="props" :props="props">
               <div class="row no-wrap no-padding">
                 <q-btn
                   dense
@@ -74,7 +74,7 @@
                 </q-btn>
               </div>
             </q-td>
-            <q-td slot="body-cell-action" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-action="props" :props="props">
               <div class="row no-wrap no-padding">
                 <q-btn
                   dense
@@ -90,7 +90,7 @@
                 </q-btn>
               </div>
             </q-td>
-            <q-td slot="body-cell-action2" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-action2="props" :props="props">
               <div class="row no-wrap no-padding">
                 <q-btn
                   dense
@@ -106,8 +106,7 @@
               </div>
             </q-td>
             <q-td
-              slot="body-cell-createdDate"
-              slot-scope="props"
+              v-slot:body-cell-createdDate="props"
               :props="props"
               >{{
                 props.row == null
@@ -116,10 +115,10 @@
               }}</q-td
             >
           </q-table>
-        </q-tab-pane>
-        <q-tab-pane name="tab-2">
+        </q-tab-panell>
+        <q-tab-panel name="tab-2">
           <div class="row">
-            <q-search
+            <q-input
               class="col-4"
               clearable
               color="grey-9"
@@ -131,17 +130,16 @@
           <q-table
             table-class="customTableClass"
             class="q-py-none"
-            :data="tableData1"
+            v-model:data="tableData1"
             :columns="columns2"
             :filter="filter1"
             :rows-per-page-options="[5, 10, 15]"
-            :pagination.sync="paginationControl1"
+            :pagination="paginationControl1"
             :loading="toggleAjaxLoadFilter1"
             @request="ajaxLoadAllLeadInfo1"
           >
             <q-td
-              slot="body-cell-createdDate"
-              slot-scope="props"
+              v-slot:body-cell-createdDate="props"
               :props="props"
               >{{
                 props.row == null
@@ -150,8 +148,7 @@
               }}</q-td
             >
             <q-td
-              slot="body-cell-updatedDate"
-              slot-scope="props"
+              v-slot:body-cell-updatedDate="props"
               :props="props"
               >{{
                 props.row == null
@@ -159,7 +156,7 @@
                   : props.row.updatedDate | moment("Do MMM Y")
               }}</q-td
             >
-            <q-td slot="body-cell-action3" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-action3="props" :props="props">
               <div class="row no-wrap no-padding">
                 <q-btn
                   dense
@@ -175,10 +172,10 @@
               </div>
             </q-td>
           </q-table>
-        </q-tab-pane>
-        <q-tab-pane name="tab-3">
+        </q-tab-panell>
+        <q-tab-panel name="tab-3">
           <div class="row">
-            <q-search
+            <q-input
               class="col-4"
               clearable
               color="grey-9"
@@ -190,17 +187,16 @@
           <q-table
             table-class="customTableClass"
             class="q-py-none"
-            :data="tableData2"
+            v-model:data="tableData2"
             :columns="columns3"
             :filter="filter2"
             :rows-per-page-options="[5, 10, 15]"
-            :pagination.sync="paginationControl2"
+            :pagination="paginationControl2"
             :loading="toggleAjaxLoadFilter2"
             @request="ajaxLoadAllLeadInfo2"
           >
             <q-td
-              slot="body-cell-createdDate"
-              slot-scope="props"
+              v-slot:body-cell-createdDate="props"
               :props="props"
               >{{
                 props.row == null
@@ -209,8 +205,7 @@
               }}</q-td
             >
             <q-td
-              slot="body-cell-updatedDate"
-              slot-scope="props"
+              v-slot:body-cell-updatedDate="props"
               :props="props"
               >{{
                 props.row == null
@@ -219,8 +214,7 @@
               }}</q-td
             >
             <q-td
-              slot="body-cell-rtoCreatedDate"
-              slot-scope="props"
+              v-slot:body-cell-rtoCreatedDate="props"
               :props="props"
               >{{
                 props.row == null
@@ -229,7 +223,7 @@
               }}</q-td
             >
           </q-table>
-        </q-tab-pane>
+        </q-tab-panell>
       </q-tabs>
     </div>
     <phonepePaperRollScan

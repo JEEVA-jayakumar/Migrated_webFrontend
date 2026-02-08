@@ -151,7 +151,7 @@ import {
   minLength,
   maxLength,
   email
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 const panCard = helpers.regex(
   "panCard",
   /^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$/

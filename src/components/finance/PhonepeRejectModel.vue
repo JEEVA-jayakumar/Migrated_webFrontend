@@ -1,6 +1,6 @@
 <template>
     <div>
-       <q-modal 
+       <q-dialog
        v-model="showRejectModel" 
        @hide="emitToggleReject(showRejectModel)" 
        @escape-key="emitToggleReject(showRejectModel)"  
@@ -23,7 +23,7 @@
             class="float-right q-ma-sm" @click="emitToggleReject(showRejectModel)">Cancel
           </q-btn>
         </div>
-      </q-modal>
+      </q-dialog>
     </div>
 </template>
 <script>
@@ -36,7 +36,7 @@ import {
   alpha,
   alphaNum,
   numeric
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 export default {
   props: ["showRejectModel", "propShowRejectComponent"],

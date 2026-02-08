@@ -1,7 +1,7 @@
 <template>
   <div class="q-pa-md">
     <q-card>
-      <q-card-main>
+      <q-card-section>
         <div class="row">
           <!--START: table title -->
           <div class="col-md-6">
@@ -71,7 +71,7 @@
             />
           </div>
         </div>
-      </q-card-main>
+      </q-card-section>
     </q-card>
     <!--END: table title -->
 
@@ -88,7 +88,7 @@ import {
   email,
   maxLength,
   minLength
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 
 import Vue from "vue";
 import { mapGetters, mapActions } from "vuex";

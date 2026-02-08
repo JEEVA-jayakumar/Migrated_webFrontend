@@ -1,6 +1,6 @@
 <template>
   <div>
-     <q-modal 
+     <q-dialog
         position="right"
         maximized
         v-model="propShowAddPermissions"  
@@ -14,7 +14,7 @@
               <div class="q-pa-sm">
                 <div class="column gutter-sm q-py-sm items-center bottom-border">
                   <div class="col-md-8">
-                    <div class="q-title text-weight-regular">Add Permissions</div>
+                    <div class="text-h6 text-weight-regular">Add Permissions</div>
                   </div>
                   <div class="col-md-2">
                     <q-btn flat size="md" align="right" class="bg-white text-weight-regular text-grey-8" @click="emitfnshowAddPermissions(item)">Cancel
@@ -40,7 +40,7 @@
                     <div class="text-weight-regular text-grey-8">
                       Arun Kumar
                     </div>
-                    <div class="text-weight-regular q-body-1 text-grey-8">
+                    <div class="text-weight-regular text-body1 text-grey-8">
                       <span class="text-light-blue">Employee ID:</span> 2134453
                     </div>
                   </div>
@@ -49,7 +49,7 @@
                     <div class="text-weight-regular text-grey-8">
                       +91 9921344530
                     </div>
-                    <div class="text-weight-regular q-body-1 text-grey-8">
+                    <div class="text-weight-regular text-body1 text-grey-8">
                       arunkumar@gmail.com
                     </div>
                   </div>
@@ -61,7 +61,7 @@
                 <div class="q-pa-sm">
                     <div class="column gutter-sm q-py-sm items-center bottom-border">
                         <div class="col-md-12">
-                        <div class="q-title text-weight-regular">Set Permission</div>
+                        <div class="text-h6 text-weight-regular">Set Permission</div>
                         </div>
                         <div v-for="radioPermission in radioPermissions" :key="radioPermission.id">
                         <q-radio v-model="radioPermissionChecked" color="purple-9">
@@ -75,9 +75,9 @@
             </div>
 
         </form>
-    </q-modal>
+    </q-dialog>
 
-     <q-modal 
+     <q-dialog
        
         minimized
         v-model="propShowAddPermissions"  
@@ -104,7 +104,7 @@
                 class="float-right q-mx-sm q-my-md" @click="emitfnshowAddPermissions(propShowAddPermissions)">Cancel
             </q-btn>
         </form>
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 

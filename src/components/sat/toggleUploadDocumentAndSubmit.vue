@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-modal
+    <q-dialog
       no-refocus
       no-esc-dismiss
       no-backdrop-dismiss
@@ -9,7 +9,7 @@
       :content-css="{minWidth:'50%',height:'auto',maxHeight:'50vh',margin:'20px',padding:'20px'}"
     >
       <div class="column">
-        <div class="q-py-sm q-title bottom-border">Bank Subvention Letter</div>
+        <div class="q-py-sm text-h6 bottom-border">Bank Subvention Letter</div>
         <div class="q-py-sm">
           <div v-if="!uploadFileBoolean" class="group">
             <label
@@ -97,7 +97,7 @@
           />
         </div>
       </div>
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 

@@ -1,5 +1,5 @@
 <template>
-  <q-modal
+  <q-dialog
     minimized
     position="right"
     v-model="toggleModal"
@@ -10,7 +10,7 @@
   >
     <div class="row items-center bottom-border q-py-sm fit">
       <div class="col">
-        <div class="q-title text-weight-regular">Manage Host</div>
+        <div class="text-h6 text-weight-regular">Manage Host</div>
       </div>
       <div class="col" align="right">
         <q-btn outline round color="dark" size="sm" icon="clear" @click="emitModalClose"/>
@@ -19,7 +19,7 @@
     <q-tabs color="grey-9">
       <!-- Tabs - notice slot="title" -->
       <q-tab @select="leadSourceActiveList" default slot="title" label="Host List" name="tab-1"/>
-      <q-tab-pane name="tab-1">
+      <q-tab-panel name="tab-1">
         <q-table
           :data="tableData"
           table-class="customSATableClass"
@@ -29,7 +29,7 @@
           color="grey-9"
           @request="ajaxLoadAllLeadInfo"
         >
-          <q-td slot="body-cell-action" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-action="props" :props="props">
             <div class="row no-wrap no-padding">
               <q-btn
                 dense
@@ -55,10 +55,10 @@
               ></q-btn>
             </div>
           </q-td>
-          <template slot="top" slot-scope="props">
+          <template v-slot:top="props">
             <!--START: table filter,search -->
             <div class="col-8">
-              <q-search
+              <q-input
                 clearable
                 color="grey-9"
                 v-model="activeFilterSearch"
@@ -80,7 +80,7 @@
             <!--END: table filter,search -->
           </template>
         </q-table>
-      </q-tab-pane>
+      </q-tab-panell>
     </q-tabs>
     <!--START: Show create LeadSources -->
     <showCreateHost
@@ -97,12 +97,12 @@
       @emitfnshowHost="refreshLeadSourceList"
     ></showEditHost>
     <!--END: Show edit LeadSources -->
-  </q-modal>
+  </q-dialog>
 </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-import { required } from "vuelidate/lib/validators";
+import { required } from "@vuelidate/validators";
 import showEditHost from "./editHost.vue";
 import showCreateHost from "./createHost.vue";
 import showCreateLeadSource from "./createLeadSource.vue";

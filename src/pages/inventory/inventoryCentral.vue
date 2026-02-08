@@ -5,7 +5,7 @@
       <!--START: table title -->
       <div class="row bottom-border q-px-md q-py-sm items-center">
         <!--START: table title -->
-        <div class="col-12 col-lg-4 q-title text-weight-regular text-grey-9">Bijlipay Central Inventory </div>
+        <div class="col-12 col-lg-4 text-h6 text-weight-regular text-grey-9">Bijlipay Central Inventory </div>
         <div class="col-12 col-lg-8 group" align="right">
           <q-btn
             outline
@@ -47,16 +47,16 @@
             <!-- dropdown content -->
             <q-list link>
               <q-item to="central/add/device/scan">
-                <q-item-side icon="search" />
-                <q-item-main>
-                  <q-item-tile label>Scan and Upload</q-item-tile>
-                </q-item-main>
+                <q-item-section icon="search" />
+                <q-item-section>
+                  <q-item-label label>Scan and Upload</q-item-label>
+                </q-item-section>
               </q-item>
               <q-item @click.native="fnOpenBulkUploadModal">
-                <q-item-side icon="attach_file" />
-                <q-item-main>
-                  <q-item-tile label>Bulk upload</q-item-tile>
-                </q-item-main>
+                <q-item-section icon="attach_file" />
+                <q-item-section>
+                  <q-item-label label>Bulk upload</q-item-label>
+                </q-item-section>
               </q-item>
             </q-list>
           </q-btn-dropdown>
@@ -83,13 +83,13 @@
         </div>
         <div class="col-md-9">
           <div>
-            <!--START: table Data -->
+            <!--STARTv-model: table Data -->
             <q-table
               :data="getAllInventoryDevicesData"
               :columns="columnData"
               table-class="customTableClass shadow-0"
               :filter="filterSearch"
-              :pagination.sync="paginationControl"
+              :pagination="paginationControl"
               row-key="index"
               :loading="tableAjaxLoading"
               color="primary"
@@ -97,7 +97,7 @@
               <template slot="top" >
                 <!--START: table filter,search -->
                 <div class="col-md-5">
-                  <q-search
+                  <q-input
                     clearable
                     color="grey-9"
                     v-model="filterSearch"
@@ -108,7 +108,7 @@
                 </div>
 
                 <div class="col-md-5">
-                  <!-- <q-search
+                  <!-- <q-input
                     clearable
                     color="grey-9"
                     v-model="filterSearch"

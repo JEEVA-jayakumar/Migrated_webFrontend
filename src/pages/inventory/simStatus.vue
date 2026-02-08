@@ -2,50 +2,45 @@
   <q-page>
     <div>
       <div
-        class="col-md-6 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
+        class="col-md-6 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
       >
         Sim Status
       </div>
       <q-table
         table-class="customTableClass"
-        :columns="columns"
+        v-model:columns="columns"
         :filter="filter"
         :data="tableData"
-        :pagination.sync="paginationControl"
+        :pagination="paginationControl"
         row-key="id"
         :rows-per-page-options="[5, 10, 15, 20]"
          :loading="toggleAjaxLoadFilter"
          @request="ajaxLoadAllLeadInfo"
       >
         <!-- <q-td
-          slot="body-cell-createdAt"
-          slot-scope="props"
+          v-slot:body-cell-createdAt="props"
           :props="props"
         >{{ props.row.createdAt | moment("Do MMM Y") }}</q-td>
         <q-td
-          slot="body-cell-receivedAt"
-          slot-scope="props"
+          v-slot:body-cell-receivedAt="props"
           :props="props"
         >{{ props.row.receivedAt | moment("Do MMM Y") }}</q-td>
         <q-td
-          slot="body-cell-receivedAt"
-          slot-scope="props"
+          v-slot:body-cell-receivedAt="props"
           :props="props"
         >{{ props.row.receivedAt ==null? "NA" : props.row.receivedAt | moment("Do MMM Y") }}</q-td>
         <q-td
-          slot="body-cell-DeviceList"
-          slot-scope="props"
+          v-slot:body-cell-DeviceList="props"
           :props="props"
         >{{ props.row.device.createDate | moment("Do MMM Y") }}</q-td>
         <q-td
-          slot="body-cell-ModifyDate"
-          slot-scope="props"
+          v-slot:body-cell-ModifyDate="props"
           :props="props"
         >{{ props.row.device.modifyDate | moment("Do MMM Y") }}</q-td>-->
 
-        <template slot="top" slot-scope="props">
+        <template v-slot:top="props">
           <div class="col-md-5">
-            <q-search
+            <q-input
               clearable
               v-model="filter"
               separator

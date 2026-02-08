@@ -1,26 +1,25 @@
 <template>
   <q-page>
     <div>
-      <div class="col-md-6 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9">
+      <div class="col-md-6 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9">
         <!-- <strong>Select the batch to download QR String</strong> -->
       </div>
       <q-table
         table-class="customTableClass"
-        :data="getAllQRList"
+        v-model:data="getAllQRList"
         :columns="columns"
         :filter="filter"
-        :pagination.sync="paginationControl"
+        :pagination="paginationControl"
         row-key="name"
-        :filter-method="myCustomSearchFilter"
+        v-model:filter-method="myCustomSearchFilter"
       >
         <!-- selection="single"
-        :selected.sync="formData.selectQRDownload"-->
+        :selected="formData.selectQRDownload"-->
         <q-td
-          slot="body-cell-createDate"
-          slot-scope="props"
+          v-slot:body-cell-createDate="props"
           :props="props"
         >{{ props.row.createDate | moment("Do MMM Y") }}</q-td>
-        <q-td slot="body-cell-action" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-action="props" :props="props">
           <div class="row no-wrap no-padding">
             <q-btn
               dense
@@ -36,9 +35,9 @@
           </div>
         </q-td>
 
-        <template slot="top" slot-scope="props">
+        <template v-slot:top="props">
           <div class="col-md-6">
-            <q-search
+            <q-input
               clearable
               v-model.trim="filter"
               separator

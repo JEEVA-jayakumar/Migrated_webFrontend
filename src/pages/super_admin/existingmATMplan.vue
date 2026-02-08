@@ -3,28 +3,27 @@
     <div>
       <q-table
         table-class="customTableClass"
-        :data="tableData"
+        v-model:data="tableData"
         :columns="columns"
         :filter="filter"
-        :pagination.sync="paginationControl"
+        :pagination="paginationControl"
         row-key="name"
         :loading="toggleAjaxLoadFilter"
         :rows-per-page-options="[5,10,15,20]"
         @request="ajaxLoadAllLeadInfo"
              >
-        <q-td slot="body-cell-active" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-active="props" :props="props">
                <span v-if="props.row.leadSourceId.active==true" class="label text-positive">Active</span>
                 <span v-else-if="props.row.leadSourceId.active==false" class="label text-negative">DeActive</span>
                 <span v-else>NA</span>
           </q-td>
-          <q-td class="group" slot="body-cell-lock" slot-scope="props" :props="props">
+          <q-td class="group" v-slot:body-cell-lock="props" :props="props">
           <q-btn v-if="props.row.leadSourceId.active==false" flat color="blue" @click="activateMatmUser(props.row.id)"><img src="statics/lock.png" style="height:35px;width:35px"></q-btn>
           <q-btn v-else-if="props.row.leadSourceId.active==true" flat color="blue" @click="deactivateMatmUser(props.row.id)"><img src="statics/unlock.png" style="height:35px;width:35px"></q-btn>
           
         </q-td>
           <q-td
-          slot="body-cell-sourceName"
-          slot-scope="props"
+          v-slot:body-cell-sourceName="props"
           :props="props"
           class="cursor-pointer"
           @click.native="toggleLeadInformation(props.row.leadSourceId.sourceName)"
@@ -32,15 +31,14 @@
           <span class="label text-primary"> {{props.row.leadSourceId.sourceName}}</span>
         </q-td>
          <q-td
-          slot="body-cell-deviceName"
-          slot-scope="props"
+          v-slot:body-cell-deviceName="props"
           :props="props"
           class="cursor-pointer"
           @click.native="toggleLeadInformation(props.row.deviceId.deviceName)"
         >
           <span class="label text-primary"> {{props.row.deviceId.deviceName}}</span>
         </q-td>
-        <q-td slot="body-cell-planName" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-planName="props" :props="props">
           <q-btn
             align="left"
             dense
@@ -54,7 +52,7 @@
             class="capitalize"
           />
         </q-td>
-        <!-- <q-td slot="body-cell-action" slot-scope="props" :props="props">
+        <!-- <q-td v-slot:body-cell-action="props" :props="props">
            <q-btn
             highlight
             push
@@ -64,7 +62,7 @@
             @click="editPlanDetails(props.row)"
           >Edit Plan Details</q-btn>
         </q-td> -->
-        <q-td slot="body-cell-delete" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-delete="props" :props="props">
            <q-btn
             highlight
             push
@@ -75,12 +73,12 @@
           >Delete Plan Details</q-btn>
         </q-td>
 
-        <template slot="top" slot-scope="props">
+        <template v-slot:top="props">
           <!--START: table filter,search -->
           <div class="col-md-12 group">
             <div class="row">
               <div class="col-md-6">
-                <q-search
+                <q-input
                   clearable
                   color="grey-9"
                   v-model.trim="filterSearch"

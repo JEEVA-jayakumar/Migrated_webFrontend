@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-modal
+    <q-dialog
       minimized
       v-model="propToggleModal"
       @hide="toggleModal"
@@ -10,7 +10,7 @@
       :content-css="{padding:'30px',minWidth: '30vw'}"
     >
       <div class="column group">
-        <div class="q-title text-weight-regular q-py-md">Add Merchant Document Type</div>
+        <div class="text-h6 text-weight-regular q-py-md">Add Merchant Document Type</div>
         <div>
           <q-select
             color="grey-9"
@@ -97,7 +97,7 @@
           >Save</q-btn>
         </div>
       </div>
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 
@@ -107,7 +107,7 @@ import {
   required,
   maxValue,
   minValue
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 export default {
   // name: 'ComponentName',

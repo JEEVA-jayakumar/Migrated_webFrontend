@@ -1,3 +1,4 @@
+import { api } from '../boot/axios';
 
 import Vue from "vue"
 
@@ -34,7 +35,7 @@ const FileDownload1 = {
       var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
       if (request.from && request.to) {
         // console.log("==========", request)
-        return await Vue.http
+        return await api
           .get("crm-request/download-crm-reports?from=" + request.from + "&to=" + request.to, {
             responseType: 'arraybuffer'
           })
@@ -48,7 +49,7 @@ const FileDownload1 = {
           });
       } else {
         console.log("==========", request)
-        return await Vue.http
+        return await api
           .get("crm-request/download-crm-reports", {
             responseType: 'arraybuffer'
           })
@@ -69,7 +70,7 @@ const FileDownload1 = {
         var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
         if (request.from && request.to) {
           // console.log("==========", request)
-          return await Vue.http
+          return await api
             .get("crm-request/download-crm-reports?from=" + request.from + "&to=" + request.to, {
               responseType: 'arraybuffer'
             })
@@ -83,7 +84,7 @@ const FileDownload1 = {
             });
         } else {
           console.log("==========", request)
-          return await Vue.http
+          return await api
             .get("crm-request/download-crm-reports", {
               responseType: 'arraybuffer'
             })

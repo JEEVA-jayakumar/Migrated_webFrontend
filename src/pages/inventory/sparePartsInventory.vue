@@ -7,7 +7,7 @@
         <div
           class="
             col-6 col-sm-4 col-md-8
-            q-title
+            text-h6
             text-weight-regular text-grey-9
           "
         >
@@ -26,7 +26,7 @@
               :val="item.value"
               :label="item.label"
             />
-            <div class="text-negative q-py-xs group q-caption"
+            <div class="text-negative q-py-xs group text-caption"
                     v-if="$v.flag.$error"
                     align="right" width="25px"
                   >
@@ -209,7 +209,7 @@ import {
   maxValue,
   minValue,
   decimal
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import VueBarcodeScanner from "vue-barcode-scanner";
 Vue.use(VueBarcodeScanner);
 import { mapGetters, mapActions } from "vuex";

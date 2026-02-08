@@ -1,6 +1,6 @@
 <template>
     <div>
-        <q-modal 
+        <q-dialog
         minimized
         v-model="toggleModal"  
         no-backdrop-dismiss	
@@ -10,7 +10,7 @@
           <div class="q-pa-md">
               <div class="column">
                   <div class="col-md-12 bottom-border">
-                      <div class="q-title text-weight-regular q-py-sm">POD Number</div>
+                      <div class="text-h6 text-weight-regular q-py-sm">POD Number</div>
                   </div>
                   <div class="col-md-8 q-pt-md" align="left">
                       <q-input color="grey-9" v-model="formData.podNumber" float-label="Enter POD Number" placeholder="POD Number" />
@@ -31,7 +31,7 @@
                   </div>
               </div>
           </div>
-        </q-modal>
+        </q-dialog>
     </div>
 </template>
 <script>

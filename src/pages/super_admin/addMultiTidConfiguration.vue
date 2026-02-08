@@ -2,20 +2,20 @@
   <div>
     <!--padding:'30px',minWidth: '30vw'-->
     <!--minWidth:'50%',height:'auto',maxHeight:'50vh',margin:'20px',padding:'20px'-->
-    <q-modal
+    <q-dialog
       class="customModalOverlay"
       v-model="toggleModel"
       :content-css="{padding:'30px',minWidth: '30vw'}"
     >
       <div class="column">
-        <div class="q-py-sm q-title bottom-border">Add New Configurations</div>
+        <div class="q-py-sm text-h6 bottom-border">Add New Configurations</div>
         <div class="q-py-sm">
           <div class="col-md-5 col-sm-4 col-xs-12 q-pa-sm">
           <q-card style="width:100%">
-            <q-card-separator />
-            <q-card-main>
+            <q-separator />
+            <q-card-section>
               <q-item>
-                <q-item-main>
+                <q-item-section>
                   <q-select
                     color="grey-9"
                     v-model="formData.leadSource"
@@ -23,8 +23,8 @@
                     float-label="Select lead source"
                     placeholder="Lead source"
                   />
-                </q-item-main>
-                <q-item-side right>
+                </q-item-section>
+                <q-item-section right>
                   <q-btn
                     round
                     dense
@@ -35,7 +35,7 @@
                     icon="add"
                     class="no-margin"
                   />
-                </q-item-side>
+                </q-item-section>
               </q-item>
               <q-item>
                   <!-- <p> VAS Types</p> -->
@@ -46,7 +46,7 @@
                     <label>{{ menu.value.spare_parts_types }}</label>
                   </div>
                 </div> -->
-                <q-item-main>
+                <q-item-section>
                   <q-select
                     color="grey-9"
                     v-model="formData.vas"
@@ -54,8 +54,8 @@
                     float-label="Select VAS"
                     placeholder="Select VAS"
                   />
-                </q-item-main>
-                <q-item-side right>
+                </q-item-section>
+                <q-item-section right>
                   <q-btn
                     round
                     dense
@@ -66,7 +66,7 @@
                     icon="add"
                     class="no-margin"
                   />
-                </q-item-side>
+                </q-item-section>
                   <!-- <div class="col" align="right">
                     <q-btn
                     round
@@ -81,7 +81,7 @@
                   </div> -->
               </q-item>
               <q-item>
-                <q-item-main>
+                <q-item-section>
                   <q-select
                     color="grey-9"
                     v-model="formData.masterHost"
@@ -89,8 +89,8 @@
                     float-label="Select Host"
                     placeholder="Select Host"
                   />
-                </q-item-main>
-                <q-item-side right>
+                </q-item-section>
+                <q-item-section right>
                   <q-btn
                     round
                     dense
@@ -101,10 +101,10 @@
                     icon="add"
                     class="no-margin"
                   />
-                </q-item-side>
+                </q-item-section>
               </q-item>
                 <q-item>
-              <q-item-main>
+              <q-item-section>
                 <q-select
                   color="grey-9"
                   v-model="formData.institution"
@@ -112,8 +112,8 @@
                   float-label="Select Mars Instance"
                   placeholder="Select Mars Instance"
                 />
-              </q-item-main>
-              <q-item-side right>
+              </q-item-section>
+              <q-item-section right>
                 <q-btn
                   round
                   dense
@@ -124,10 +124,10 @@
                   icon="add"
                   class="no-margin"
                 />
-              </q-item-side>
+              </q-item-section>
             </q-item>
             <!-- <q-item>
-              <q-item-main>
+              <q-item-section>
                 <q-select
                   color="grey-9"
                   v-model="formData.plan"
@@ -135,8 +135,8 @@
                   float-label="Select TID Group"
                   placeholder="Select TID Group"
                 />
-              </q-item-main>
-              <q-item-side right>
+              </q-item-section>
+              <q-item-section right>
                 <q-btn
                   round
                   dense
@@ -147,9 +147,9 @@
                   icon="add"
                   class="no-margin"
                 />
-              </q-item-side>
+              </q-item-section>
             </q-item> -->
-            </q-card-main>
+            </q-card-section>
             <q-card-actions vertical align="end">
              <q-btn label="submit" @click="fnsubmit(formData)" color="purple-9" />
             </q-card-actions>
@@ -157,7 +157,7 @@
         </div>
         </div>
       </div>
-    </q-modal>
+    </q-dialog>
     
         <!-- END >> Table >> MDR details -->
   

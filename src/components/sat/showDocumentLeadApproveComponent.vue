@@ -1,7 +1,7 @@
 <template>
   <div>
        <!-- Approve model -->
-        <q-modal 
+        <q-dialog
         v-model="toggleModel" 
         @hide="emitToggleRemarks" 
         @escape-key="emitToggleRemarks"  
@@ -9,7 +9,7 @@
         > 
 
           <!-- START >> Give reason to approve(optional) document -->
-          <div class="q-title q-mb-sm">{{document}}</div>
+          <div class="text-h6 q-mb-sm">{{document}}</div>
           <q-input
               type="textarea"
               placedholder="Type.." 
@@ -24,7 +24,7 @@
           <q-btn icon="block" color="grey-5" @click="emitToggleRemarks" class="q-ma-sm float-right text-dark" align="right" v-close-overlay label="Cancel" />
           <!-- END >> Give reason to approve(optional) document -->
           <!-- <pre>{{formData}}</pre> -->
-        </q-modal>
+        </q-dialog>
   </div>
 </template>
 
@@ -38,7 +38,7 @@ import {
   alpha,
   alphaNum,
   numeric,
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import { date } from "quasar";
 import { mapGetters, mapActions } from "vuex";
 export default {

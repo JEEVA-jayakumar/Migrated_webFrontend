@@ -4,7 +4,7 @@
         <div>
             <div class="row bottom-border q-px-md q-py-md items-center">
                 <!--START: table title -->
-                <div class="col-6 col-md-6 q-title text-weight-regular text-grey-9">Aggregator Inventory With Region
+                <div class="col-6 col-md-6 text-h6 text-weight-regular text-grey-9">Aggregator Inventory With Region
                 </div>
             </div>
             <div class="row bottom-border group q-px-md q-py-md items-center text-weight-regular text-grey-9">
@@ -35,24 +35,24 @@
 
 
 
-            <!--START: table lead validation -->
+            <!--STARTv-model: table lead validation -->
             <q-table row-key="name" :filter="filter" :data="regionalItems" class="q-py-none" :columns="columns"
-                title="Lead Validation" table-class="customTableClass" :pagination.sync="paginationControl">
+                title="Lead Validation" table-class="customTableClass" :pagination="paginationControl">
                 <!--START: table body modification  device-->
-                <q-td slot="body-cell-region" slot-scope="props" :props="props">{{
+                <q-td v-slot:body-cell-region="props" :props="props">{{
                     props.row.region == null ?
                         'NA' : props.row.region.regionAreaName
                 }}</q-td>
-                <q-td slot="body-cell-device" slot-scope="props" :props="props">{{
+                <q-td v-slot:body-cell-device="props" :props="props">{{
                     props.row.aggregatorDevice == null ?
                         'NA' : props.row.aggregatorDevice.deviceName
                 }}</q-td>
-                <q-td slot="body-cell-aggregator" slot-scope="props" :props="props">{{
+                <q-td v-slot:body-cell-aggregator="props" :props="props">{{
                     props.row.aggregator == null ?
                         'NA' : props.row.aggregator.name
                 }}</q-td>
                 <!-- aggregator -->
-                <q-td slot="body-cell-action" slot-scope="props" :props="props">
+                <q-td v-slot:body-cell-action="props" :props="props">
                     <div class="row no-wrap no-padding">
                         <q-btn dense no-caps no-wrap label="Modify" icon="far fa-plus-square" size="md"
                             @click="fnShowAggregatorsEditRegion(props.row)" flat class="text-light-blue">
@@ -65,7 +65,7 @@
                 <template slot="top" class="bottom-border">
                     <!--START: table filter,search -->
                     <div class="col-md-5">
-                        <q-search clearable color="grey-9" v-model="filter" placeholder="Type.."
+                        <q-input clearable color="grey-9" v-model="filter" placeholder="Type.."
                             float-label="Search SerialNumber & podNumber..." class="q-mr-lg q-py-sm" />
                     </div>
                     <!--END: table filter,search -->

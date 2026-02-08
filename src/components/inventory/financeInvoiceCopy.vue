@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-modal
+    <q-dialog
       v-model="toggleModal"
       @hide="emitToggleinventoryBulkUpload(toggleModal)"
       @escape-key="emitToggleinventoryBulkUpload(toggleModal)"
@@ -60,19 +60,19 @@
             </div>
             <div v-else align="left">
               <q-card dense class="q-pa-xs">
-                <q-card-title>
+                <q-card-section>
                   Uploaded Files
-                </q-card-title>
-                <q-card-separator />
-                <q-card-main>
+                </q-card-section>
+                <q-separator />
+                <q-card-section>
                   <div
                     v-for="(file, index) in formData.fileSelected"
                     :key="index"
                   >
                     <q-item dense>
-                      <q-item-side icon="attach_file" />
-                      <q-item-main>{{ file.name }}</q-item-main>
-                      <q-item-side>
+                      <q-item-section icon="attach_file" />
+                      <q-item-section>{{ file.name }}</q-item-section>
+                      <q-item-section>
                         <q-btn
                           class="fa fa-close"
                           size="sm"
@@ -81,10 +81,10 @@
                           label="Remove"
                           icon="clear"
                         />
-                      </q-item-side>
+                      </q-item-section>
                     </q-item>
                   </div>
-                </q-card-main>
+                </q-card-section>
               </q-card>
             </div>
           </div>
@@ -100,7 +100,7 @@
           </div>
         </div>
       </div>
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 <script>

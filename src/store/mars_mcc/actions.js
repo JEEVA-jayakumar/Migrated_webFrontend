@@ -1,10 +1,11 @@
+import { api } from '../../boot/axios';
 import api from "../api.js";
 import Vue from "vue";
 export const MCC_FROM_MARS = ({
   commit,
   rootState
 }, request) => {
-  return Vue.http
+  return api
     .get(rootState.GlobalVariables.STATE_MARS_API + 'mcc')
     .then(response => {
       commit("SET_MCC_FROM_MARS", response.data);
@@ -15,7 +16,7 @@ export const QR_MCC_FROM_MARS = ({
   commit,
   rootState
 }, request) => {
-  return Vue.http
+  return api
     .get(rootState.GlobalVariables.STATE_MARS_API + 'mcc')
     .then(response => {
       // console.log("SET_QR_MCC_FROM_MARS---------->>>>",response.data.items)

@@ -1,6 +1,6 @@
 <template>
   <div>
-     <q-modal 
+     <q-dialog
         minimized
         v-model="toggleAddDeviceModal"  
         @hide="emitfaultyInventoryComponent()" 
@@ -71,7 +71,7 @@
           </div>
         </div>
       </form>
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 
@@ -86,7 +86,7 @@ import {
   alpha,
   alphaNum,
   numeric
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 export default {
   props: ["propfaultyInventoryComponent", "propDeviceTypes"],
   components: {

@@ -1,3 +1,4 @@
+import { api } from '../boot/axios';
 import Vue from 'vue';
 import api from "./api.js";
 import _ from 'lodash';
@@ -82,7 +83,7 @@ const APP_Devices = {
     FETCH_APP_DEVICES_DATA({
       commit
     }, request) {
-      return Vue.http
+      return api
         .get("https://qaapp.bijlipay.co.in:8085/staticApi/plan-and-deivce-list-based-on-lead-source/"+ request)
         .then(response => {
           commit("API_RESPONSE_LOG", response);
@@ -94,7 +95,7 @@ const APP_Devices = {
     VERIFY_MOB_NUM({
       commit
     }, request) {
-      return Vue.http
+      return api
       .post("https://smart.bijlipay.co.in:9000/otp/getmbl" , request)
         .then(response => {
           commit("API_RESPONSE_LOG", response);
@@ -104,7 +105,7 @@ const APP_Devices = {
     SEND_OTP({
       commit
     }, request) {
-      return Vue.http
+      return api
       .get("https://smart.bijlipay.co.in:9000/otp/otpinput?mblNo=" + JSON.parse(localStorage.getItem("u_i")).user.contactNumber + '&cmd=generate%20otp')
         .then(response => {
           commit("API_RESPONSE_LOG", response);
@@ -114,7 +115,7 @@ const APP_Devices = {
     VERIFY_OTP_DATA({
       commit
     }, request) {
-      return Vue.http
+      return api
       .get("https://smart.bijlipay.co.in:9000/otp/otpsms/" + JSON.parse(localStorage.getItem("u_i")).user.contactNumber + '/' + request)
         .then(response => {
           commit("API_RESPONSE_LOG", response);
@@ -124,7 +125,7 @@ const APP_Devices = {
     VERIFY_KSN({
       commit
     }, request) {
-      return Vue.http.get("https://qaapp.bijlipay.co.in:8085/api/switch-enable-ksn/" + request)
+      return api.get("https://qaapp.bijlipay.co.in:8085/api/switch-enable-ksn/" + request)
         .then(response => {
           commit("API_RESPONSE_LOG", response);
           commit("SET_KSN", response)

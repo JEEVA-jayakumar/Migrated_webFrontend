@@ -1,5 +1,5 @@
 <template>
-  <q-modal
+  <q-dialog
     minimized
     position="right"
     v-model="toggleModal"
@@ -10,7 +10,7 @@
   >
     <div class="row items-center bottom-border q-py-sm">
       <div class="col">
-        <div class="q-title text-weight-regular">Manage devices</div>
+        <div class="text-h6 text-weight-regular">Manage devices</div>
       </div>
       <div class="col" align="right">
         <q-btn outline round color="dark" size="sm" icon="clear" @click="emitModalClose"/>
@@ -18,7 +18,7 @@
     </div>
 
     <!-- <q-card>
-      <q-card-main class="q-pa-md">
+      <q-card-section class="q-pa-md">
         <div class="column group">
           <div>
             <q-input v-model="formData.device" 
@@ -33,19 +33,19 @@
             <q-btn align="right" v-else @click="fnFinalCreate(formData)" color="purple-9">Save</q-btn>
           </div>
         </div>
-      </q-card-main>
+      </q-card-section>
     </q-card>-->
     <q-table
-      :data="getAllDevicesInfo"
+      v-model:data="getAllDevicesInfo"
       table-class="customSATableClass"
       :columns="columns"
       :filter="filterSearch"
-      :pagination.sync="paginationControl"
+      :pagination="paginationControl"
       :filter-method="myCustomSearchFilter"
       row-key="name"
       color="grey-9"
     >
-      <q-td slot="body-cell-action" slot-scope="props" :props="props">
+      <q-td v-slot:body-cell-action="props" :props="props">
         <div class="row no-wrap no-padding">
           <q-btn
             dense
@@ -72,10 +72,10 @@
         </div>
       </q-td>
 
-      <template slot="top" slot-scope="props">
+      <template v-slot:top="props">
         <!--START: table filter,search -->
         <div class="col-8">
-          <q-search
+          <q-input
             clearable
             color="grey-9"
             v-model="filterSearch"
@@ -115,11 +115,11 @@
       @emitfnForDeviceTypeTable="ajaxLoadDataForDeviceTypeTable"
     ></showEditDeviceType>
     <!--END: Show edit DeviceTypes -->
-  </q-modal>
+  </q-dialog>
 </template>
 
 <script>
-import { required } from "vuelidate/lib/validators";
+import { required } from "@vuelidate/validators";
 import showCreateDeviceType from "../../components/super_admin/showCreateDeviceTypes.vue";
 import showEditDeviceType from "../../components/super_admin/showEditDeviceTypes.vue";
 import { mapGetters, mapActions } from "vuex";

@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <q-modal
+    <q-dialog
       minimized
       no-backdrop-dismiss
       class="customModalOverlay"
@@ -9,7 +9,7 @@
     >
       <div class="row q-pa-md">
         <div
-          class="col-12 q-title text-center text-weight-regular bottom-border text-custom-color"
+          class="col-12 text-h6 text-center text-weight-regular bottom-border text-custom-color"
         >
           <b>CONTACT DETAILS</b>
         </div>
@@ -54,7 +54,7 @@
           </q-card-actions>
         </q-card>
       </div>
-    </q-modal>
+    </q-dialog>
   </q-page>
 </template>
 
@@ -70,7 +70,7 @@ import {
   alpha,
   alphaNum,
   numeric
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 export default {
   props: ["propShowUpdateContactDetails", "propRowDetails"],

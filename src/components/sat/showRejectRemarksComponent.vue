@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-datetime
+    <q-input
       minimal
       modal
       format="YYYY-MM-DD"
@@ -65,7 +65,7 @@ import {
   alpha,
   alphaNum,
   numeric
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 
 export default {

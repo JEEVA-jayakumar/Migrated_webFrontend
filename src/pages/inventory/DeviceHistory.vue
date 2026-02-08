@@ -2,9 +2,9 @@
   <q-page>
     <!-- content -->
     <div>
-      <!--START: table title -->
+      <!--STARTv-model: table title -->
       <div
-        class="col-md-12 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
+        class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
       >Device History</div>
       <!--END: table title -->
       <!--START: table lead validation -->
@@ -16,22 +16,22 @@
         :data="tableData"
         :filter="filter"
         :rows-per-page-options="[100,200,300,400,500]"
-        :pagination.sync="paginationControl"
+        :pagination="paginationControl"
         :loading="toggleAjaxLoadFilter"
         @request="ajaxLoadAllLeadInfo"
       >
-         <q-td slot="body-cell-installationDate" slot-scope="props" :props="props">
+         <q-td v-slot:body-cell-installationDate="props" :props="props">
           <span class="label">{{props.row.installationDate | moment("Do MMM Y")}}</span>
         </q-td>
-          <q-td slot="body-cell-deInstallationDate" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-deInstallationDate="props" :props="props">
           <span class="label">{{props.row.deInstallationDate | moment("Do MMM Y")}}</span>
         </q-td>
         
      
-        <template slot="top" slot-scope="props" class="bottom-border">
+        <template v-slot:top="props" class="bottom-border">
           <!--START: table  :rows-per-page-options="[5,10,15,20,25]"filter,search -->
           <div class="col">
-            <q-search
+            <q-input
               clearable
               color="grey-9"
               v-model="filter"

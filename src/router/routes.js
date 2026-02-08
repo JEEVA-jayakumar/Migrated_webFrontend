@@ -34,7 +34,7 @@ import aggregatorLeadValidation from "../pages/sat/aggregatorLeadValidation.vue"
 import Changemanagement from "../pages/sat/changemanagement.vue";
 import Changemanagementterminal from "../pages/sat/changemanagementterminal.vue";
 import BijlipaySat from "../pages/sat/BijlipaySat.vue";
-import deactivelist from "../pages/sat/deactivelist"
+import deactivelist from "../pages/sat/DeactiveList"
 import AggregatorSat from "../pages/sat/AggregatorSat.vue";
 import ChangemanagementEditData from "../pages/sat/changemanagementeditdata.vue";
 import ChangemanagementEditDataKyc from "../pages/sat/changemanagementeditdatakyc.vue";
@@ -1664,7 +1664,7 @@ const routes = [
 
   {
     // Always leave this as last one
-    path: "*",
+    path: "/:catchAll(.*)*",
     component: error_404,
   },
 ];

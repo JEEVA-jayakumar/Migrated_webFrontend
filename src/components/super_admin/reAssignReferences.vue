@@ -1,5 +1,5 @@
 <template>
-  <q-modal
+  <q-dialog
     maximized
     no-backdrop-dismiss
     no-esc-dismiss
@@ -10,7 +10,7 @@
       <!-- <pre>{{addtnLeadInformation}}</pre> -->
       <!--START: table title -->
       <div class="row items-center q-px-lg q-py-md text-weight-regular bottom-border text-grey-9">
-        <div class="col q-title">References Details</div>
+        <div class="col text-h6">References Details</div>
         <div class="col-auto">
           <q-btn size="sm" round @click="emitToggleRemarks" outline color="dark" icon="clear"/>
         </div>
@@ -20,7 +20,7 @@
       <div class="row">
         <div class="col-3">
           <q-list link>
-            <q-list-header>Hierarchy List</q-list-header>
+            <q-item-label header>Hierarchy List</q-item-label header>
             <q-item
               v-for="(item, index) in propRowDetails.hierarchyList"
               :key="index"
@@ -30,22 +30,22 @@
           </q-list>
         </div>
         <div class="col-9">
-          <!--START: table lead validation -->
+          <!--STARTv-model: table lead validation -->
           <q-table
             table-class="customTableClass"
             class="q-py-none"
             :data="tableData"
             :columns="columns"
             selection="multiple"
-            :selected.sync="formData.selectedReferencesToReAssign"
-            :filter="filter"
-            :pagination.sync="paginationControl"
+            :selected="formData.selectedReferencesToReAssign"
+            v-model:filter="filter"
+            :pagination="paginationControl"
             row-key="id"
           >
-            <template slot="top" slot-scope="props" class="bottom-border">
+            <template v-slot:top="props" class="bottom-border">
               <!--START: table filter,search -->
               <div class="col-md-5">
-                <q-search
+                <q-input
                   clearable
                   color="grey-9"
                   v-model="filter"
@@ -74,7 +74,7 @@
         </div>
       </div>
     </div>
-  </q-modal>
+  </q-dialog>
 </template>
 
 <script>

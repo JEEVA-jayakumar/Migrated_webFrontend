@@ -1,5 +1,5 @@
 <template>
-  <q-modal 
+  <q-dialog
   minimized
   no-backdrop-dismiss	
   no-esc-dismiss	
@@ -9,7 +9,7 @@
   >
     <form>
       <div class="column group">
-        <div class="q-title">
+        <div class="text-h6">
           Update Device Address
         </div>
         <!-- <pre>{{stateInformation}}</pre> -->
@@ -49,12 +49,12 @@
         </div>
       </div>
     </form>
-  </q-modal>
+  </q-dialog>
 </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-import { required } from "vuelidate/lib/validators";
+import { required } from "@vuelidate/validators";
 
 export default {
   name: "DeviceAddressModal",

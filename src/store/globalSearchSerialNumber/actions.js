@@ -1,3 +1,4 @@
+import { api } from '../../boot/axios';
 import Vue from "vue";
 import api from "../api.js";
 function COMMON_FILE_DOWNLOAD(response) {
@@ -106,7 +107,7 @@ export const FETCH_DOC_VIEW_TICKET = ({ commit }, request) => {
 };
 
 export const DOC_DOWNLOAD = ({ commit, rootState }, request) => {
-  return Vue.http
+  return api
     .get(rootState.GlobalVariables.ASSETSURL + '/' + request, {
       responseType: 'blob'  
     })

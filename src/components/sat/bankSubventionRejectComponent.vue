@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-modal
+    <q-dialog
       no-esc-dismiss
       no-backdrop-dismiss
       v-model="toggleModel"
@@ -9,7 +9,7 @@
     >
       <!-- START >> Lead reject -->
       <div class="column group">
-        <div class="q-title q-py-md">Are you sure want to reject?</div>
+        <div class="text-h6 q-py-md">Are you sure want to reject?</div>
         <div>
           <q-input
             v-model="formData.leadVerificationStatus.reason"
@@ -38,13 +38,13 @@
         </div>
       </div>
       <!-- END >> Lead reject -->
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 
 <script>
 import { date } from "quasar";
-import { required } from "vuelidate/lib/validators";
+import { required } from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 
 export default {

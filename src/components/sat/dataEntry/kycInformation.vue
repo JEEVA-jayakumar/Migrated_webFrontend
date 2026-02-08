@@ -16,33 +16,33 @@
             :key="subIndex"
           >
             <div class="row">
-              <div class="col-4 q-body-1">Document</div>
+              <div class="col-4 text-body1">Document</div>
               <div
-                class="col-8 q-body-1 text-weight-bold text-negative"
+                class="col-8 text-body1 text-weight-bold text-negative"
                 v-if="item.documentType == ''"
               >NA</div>
-              <div class="col-8 q-body-1" v-else>{{item.documentType}}</div>
+              <div class="col-8 text-body1" v-else>{{item.documentType}}</div>
             </div>
             <div class="row">
-              <div class="col-4 q-body-1">Sub document</div>
+              <div class="col-4 text-body1">Sub document</div>
               <div
-                class="col-8 q-body-1 text-weight-bold text-negative"
+                class="col-8 text-body1 text-weight-bold text-negative"
                 v-if="item.subDocumentType == ''"
               >NA</div>
               <div
-                class="col-8 q-body-1 text-weight-bold text-positive"
+                class="col-8 text-body1 text-weight-bold text-positive"
                 v-else
               >{{item.subDocumentType}}</div>
             </div>
             <div class="row">
               <div class="col-12" v-show="item.uploadedDocuments.length > 0">
                 <div
-                  class="q-caption"
+                  class="text-caption"
                   v-for="(document, documentIndex) in item.uploadedDocuments"
                   :key="documentIndex"
                 >{{document.fileName}}</div>
               </div>
-              <div class="q-caption" v-show="item.uploadedDocuments.length == 0">
+              <div class="text-caption" v-show="item.uploadedDocuments.length == 0">
                 <div class="text-weight-bold text-negative">No document available</div>
               </div>
             </div>

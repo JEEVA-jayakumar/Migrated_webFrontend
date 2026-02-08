@@ -5,7 +5,7 @@
         <div class="q-pa-sm">
           <div class="row gutter-sm q-py-sm items-center bottom-border">
             <div>
-              <div class="q-title text-weight-regular">Add New User</div>
+              <div class="text-h6 text-weight-regular">Add New User</div>
             </div>
           </div>
         </div>
@@ -185,7 +185,7 @@ import {
   alpha,
   alphaNum,
   numeric
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 export default {
   data() {

@@ -38,75 +38,75 @@
               />
                 <q-tab name="simStatus" label="Sim Status" slot="title" />
               <q-tab name="deviceAllocationRequest" label="REQUEST" slot="title" />
-              <q-tab-pane name="spare">
+              <q-tab-panel name="spare">
                 <spareParts
                   @emittedForTotalSerialNumbers="
                     fnAjaxFetchAllDeviceDetailsWithCount
                   "
                 />
-              </q-tab-pane>
-              <!--<q-tab-pane name="spareSo">
+              </q-tab-panell>
+              <!--<q-tab-panel name="spareSo">
                 <sparePartsSo
                   @emittedForTotalSerialNumbers="
                     fnAjaxFetchAllDeviceDetailsWithCount
                   "
                 />
-              </q-tab-pane> -->
-              <q-tab-pane name="count">
+              </q-tab-panell> -->
+              <q-tab-panel name="count">
                 <inventoryCount
                   @emittedForTotalSerialNumbers="
                     fnAjaxFetchAllDeviceDetailsWithCount
                   "
                 />
-              </q-tab-pane>
+              </q-tab-panell>
   
-              <q-tab-pane name="Socount">
+              <q-tab-panel name="Socount">
                 <inventoryCount
                   @emittedForTotalSerialNumbers="
                     fnAjaxFetchAllDeviceDetailsWithCount
                   "
                 />
-              </q-tab-pane>
+              </q-tab-panell>
   
-              <q-tab-pane name="dispatch">
+              <q-tab-panel name="dispatch">
                 <dispatchedInventory
                   @fetchDeviceDetailsWithCount="
                     fnAjaxFetchAllDeviceDetailsWithCount
                   "
                 />
-              </q-tab-pane>
-              <q-tab-pane name="damage">
+              </q-tab-panell>
+              <q-tab-panel name="damage">
                 <showAddDamagedDevices
                   :propDeviceTypes="getAllRegionalInventoryDeviceDetailsWithCount"
                 />
-              </q-tab-pane>
-              <!-- <q-tab-pane name="faulty">
+              </q-tab-panell>
+              <!-- <q-tab-panel name="faulty">
                 <inventoryFaulty />
-              </q-tab-pane>-->
+              </q-tab-panell>-->
   
-              <q-tab-pane name="allocatetoso">
+              <q-tab-panel name="allocatetoso">
                 <inventoryallocatetoso />
-              </q-tab-pane>
+              </q-tab-panell>
   
-              <q-tab-pane name="inventorywithSo">
+              <q-tab-panel name="inventorywithSo">
                 <inventorywithso />
-              </q-tab-pane>
+              </q-tab-panell>
   
-              <q-tab-pane name="inventorywithResellar">
+              <q-tab-panel name="inventorywithResellar">
                 <inventorywithResellar />
-              </q-tab-pane>
-              <q-tab-pane name="inventorywithResellarDetails">
+              </q-tab-panell>
+              <q-tab-panel name="inventorywithResellarDetails">
                 <inventorywithResellarDetails />
-              </q-tab-pane>
-              <q-tab-pane name="AllocateSotoSo">
+              </q-tab-panell>
+              <q-tab-panel name="AllocateSotoSo">
                 <allocateSOtoSO />
-              </q-tab-pane>
-              <q-tab-pane name="simStatus">
+              </q-tab-panell>
+              <q-tab-panel name="simStatus">
                 <simStatus/>
-              </q-tab-pane>
-              <q-tab-pane name="deviceAllocationRequest">
+              </q-tab-panell>
+              <q-tab-panel name="deviceAllocationRequest">
                 <deviceAllocationRequest />
-              </q-tab-pane>
+              </q-tab-panell>
             </q-tabs>
           </div>
         </div>

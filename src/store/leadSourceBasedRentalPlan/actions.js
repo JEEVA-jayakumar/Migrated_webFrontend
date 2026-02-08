@@ -1,10 +1,11 @@
+import { api } from '../../boot/axios';
 import api from "../api.js";
 import Vue from "vue";
 // export const LEAD_BASED_RENTAL = ({
 //     commit
 // }, request) => {
 //     console.log("ACTION LEAD_BASED_RENTAL -------->",JSON.stringify(request))
-//     return Vue.http.get("https://qaapp.bijlipay.co.in:8085/staticApi/plan-and-deivce-list-based-on-lead-source/" + request).then(response => {
+//     return api.get("https://qaapp.bijlipay.co.in:8085/staticApi/plan-and-deivce-list-based-on-lead-source/" + request).then(response => {
 //         let rental = [];
 //         response.data.data.plan.map(function (value, key) {
 //             rental.push({
@@ -22,7 +23,7 @@ export const LEAD_AND_DEVICE_BASED_RENTAL1 = ({
     console.log("ACTION LEAD_AND_DEVICE_BASED_RENTAL 124345 -------->",JSON.stringify(request))
     // let leadSource = JSON.parse(request.leadSource);
     // let device = JSON.parse(request.device);
-    return Vue.http.get("https://qaapp.bijlipay.co.in:8085/staticApi/plan-and-deivce-list-based-on-lead-source/" + request.leadSource+"/"+request.device).then(response => {
+    return api.get("https://qaapp.bijlipay.co.in:8085/staticApi/plan-and-deivce-list-based-on-lead-source/" + request.leadSource+"/"+request.device).then(response => {
         let rental = [];
         response.data.data.plan.map(function (value, key) {
             rental.push({
@@ -41,7 +42,7 @@ export const LEAD_AND_DEVICE_BASED_RENTAL = ({
     console.log("ACTION LEAD_AND_DEVICE_BASED_RENTAL 124345 -------->",JSON.stringify(request))
     // let leadSource = JSON.parse(request.leadSource);
     // let device = JSON.parse(request.device);
-    return Vue.http.get("https://qaapp.bijlipay.co.in:8085/staticApi/plan-and-deivce-list-based-on-lead-source/" + request.leadSource.id+"/"+request.device.id).then(response => {
+    return api.get("https://qaapp.bijlipay.co.in:8085/staticApi/plan-and-deivce-list-based-on-lead-source/" + request.leadSource.id+"/"+request.device.id).then(response => {
         let rental = [];
         response.data.data.plan.map(function (value, key) {
             rental.push({

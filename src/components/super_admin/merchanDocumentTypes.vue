@@ -1,5 +1,5 @@
 <template>
-  <q-modal
+  <q-dialog
     minimized
     position="right"
     v-model="toggleModal"
@@ -12,7 +12,7 @@
       <div class="col-8">
         <div class="row group">
           <div class="col-12">
-            <div class="q-title text-weight-regular">Manage merchant document types</div>
+            <div class="text-h6 text-weight-regular">Manage merchant document types</div>
           </div>
           <div class="col-12">
             <q-select
@@ -49,18 +49,18 @@
       />
 
       <!-- Targets -->
-      <q-tab-pane name="tab-1">
+      <q-tab-panel name="tab-1">
         <q-table
-          :data="merchantDocumentTypesList"
+          v-model:data="merchantDocumentTypesList"
           table-class="customSATableClass"
           :columns="merchantActiveDocumentcolumns"
           :filter="filterSearch"
-          :pagination.sync="paginationControl"
+          :pagination="paginationControl"
           :filter-method="myCustomSearchFilter"
           row-key="name"
           color="grey-9"
         >
-          <q-td slot="body-cell-action" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-action="props" :props="props">
             <div class="row no-wrap no-padding">
               <q-btn
                 dense
@@ -87,10 +87,10 @@
             </div>
           </q-td>
 
-          <template slot="top" slot-scope="props">
+          <template v-slot:top="props">
             <!--START: table filter,search -->
             <div class="col-8">
-              <q-search
+              <q-input
                 clearable
                 color="grey-9"
                 v-model="filterSearch"
@@ -109,22 +109,22 @@
                 @click="fnshowCreateMerchantDocumentType()"
               />
             </div>
-            <!--END: table filter,search -->
+            <!--ENDv-model: table filter,search -->
           </template>
         </q-table>
-      </q-tab-pane>
-      <q-tab-pane name="tab-2">
+      </q-tab-panell>
+      <q-tab-panel name="tab-2">
         <q-table
           :data="merchantDocumentTypesDeactivatedList"
           table-class="customSATableClass"
           :columns="merchantDeactiveDocumentcolumns"
           :filter="deActivatedSearch"
-          :pagination.sync="paginationControl"
+          :pagination="paginationControl"
           :filter-method="myCustomSearchFilter"
           row-key="name"
           color="grey-9"
         >
-          <q-td slot="body-cell-action" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-action="props" :props="props">
             <div class="row no-wrap no-padding">
               <q-btn
                 dense
@@ -140,10 +140,10 @@
             </div>
           </q-td>
 
-          <template slot="top" slot-scope="props">
+          <template v-slot:top="props">
             <!--START: table filter,search -->
             <div class="col-8">
-              <q-search
+              <q-input
                 clearable
                 color="grey-9"
                 v-model="deActivatedSearch"
@@ -154,7 +154,7 @@
             <!--END: table filter,search -->
           </template>
         </q-table>
-      </q-tab-pane>
+      </q-tab-panell>
     </q-tabs>
 
     <!--START: Show create MerchantDocumentTypes -->
@@ -175,11 +175,11 @@
       @emitfnshowMerchantDocumentTypes="refreshMerchantDocumentTypeList"
     ></showEditMerchantDocumentType>
     <!--END: Show edit MerchantDocumentTypes -->
-  </q-modal>
+  </q-dialog>
 </template>
 
 <script>
-import { required } from "vuelidate/lib/validators";
+import { required } from "@vuelidate/validators";
 import showCreateMerchantDocumentType from "./createMerchantDocumentType.vue";
 import showEditMerchantDocumentType from "./editMerchantDocumentType.vue";
 import { mapGetters, mapActions } from "vuex";

@@ -2,7 +2,7 @@
   <div>
     <q-list no-border class="no-padding">
       <!-- START >> (Mandatory) Application form  -->
-      <q-collapsible
+      <q-expansion-item
         separator
         opened
         :group="toggleCollapsible"
@@ -12,14 +12,14 @@
         icon="attach_file"
         label="Application form"
       >
-        <q-item v-if="showDocumentPreview" separator class="q-body-1">
-          <q-item-main v-if="propGetShortInfo.applicationFileMimeType.includes('pdf')">
+        <q-item v-if="showDocumentPreview" separator class="text-body1">
+          <q-item-section v-if="propGetShortInfo.applicationFileMimeType.includes('pdf')">
             <div @click="fnDocumentUrl(propGetShortInfo.applicationFile)" class="ellipsis">
               <q-btn round size="sm" icon="fas fa-file-pdf" color="primary" />
               &nbsp;{{propGetShortInfo.applicationFile}}
             </div>
-          </q-item-main>
-          <q-item-main v-if="propGetShortInfo.applicationFileMimeType.includes('image')">
+          </q-item-section>
+          <q-item-section v-if="propGetShortInfo.applicationFileMimeType.includes('image')">
             <!-- START >>If document type is image format -->
             <div
               class="images"
@@ -32,9 +32,9 @@
               />
             </div>
             <!-- END >>If document type is image format -->
-          </q-item-main>
+          </q-item-section>
         </q-item>
-      </q-collapsible>
+      </q-expansion-item>
       <!-- END >> (Mandatory) Application form  -->
       <!-- START >>Loop through cooked(in store) array for documents -->
       <!-- START >> (Not Mandatory) Other attached documents  -->
@@ -42,7 +42,7 @@
         class="no-padding"
         v-if="Object.keys(propLeadDocumentInformation).length > 0 && showDocumentPreview"
       >
-        <q-item-main>
+        <q-item-section>
           <div v-for="(documents,index) in propLeadDocumentInformation" :key="index">
             <!-- START >> View type is 0, direct documents  will be visible -->
            
@@ -50,8 +50,8 @@
               class="row items-center full-width"
               v-if="index.toString()==documents[0].subDocumentType"
             >
-              <div class="col-md-12 q-body-1">
-                <q-collapsible
+              <div class="col-md-12 text-body1">
+                <q-expansion-item
                   separator
                   opened
                   :group="toggleCollapsible"
@@ -61,16 +61,16 @@
                   class="full-width"
                 >
                   <template slot="header">
-                    <q-item-side
+                    <q-item-section
                       :color="documents[0].kycException?'amber-9':''"
                       :icon="documents[0].kycException? 'warning' :'attach_file'"
                     />
-                    <q-item-main
-                      class="q-body-1"
+                    <q-item-section
+                      class="text-body1"
                       :sublabel="documents[0].uploadedDocuments.length + 'Document(s)'"
                       :label="index"
                     />
-                    <q-item-side v-if="documents[0].documentVerifiedStatus == 2" right>
+                    <q-item-section v-if="documents[0].documentVerifiedStatus == 2" right>
                       <q-btn
                         round
                         size="xs"
@@ -87,34 +87,34 @@
                         icon="fas fa-times"
                         @click="fnDocumentRejectModal(documents[0])"
                       />
-                    </q-item-side>
-                    <q-item-side v-else right>
+                    </q-item-section>
+                    <q-item-section v-else right>
                       <span
                         v-if="documents[0].documentVerifiedStatus == 1"
-                        class="q-body-1 text-weight-medium text-positive"
+                        class="text-body1 text-weight-medium text-positive"
                       >Approved</span>
                       <span
                         v-if="documents[0].documentVerifiedStatus == 3"
-                        class="q-body-1 text-weight-medium text-negative"
+                        class="text-body1 text-weight-medium text-negative"
                       >Rejected</span>
-                    </q-item-side>
+                    </q-item-section>
                   </template>
                   <div v-if="documents[0].uploadedDocuments.length > 0">
                     <q-item
                       v-for="(item,subIndex) in documents[0].uploadedDocuments"
                       :key="subIndex"
                       separator
-                      class="q-body-1"
+                      class="text-body1"
                     >
-                      <q-item-main
+                      <q-item-section
                         @click="fnDocumentUrl(item.fileName)"
                         v-if="item.mimeType.includes('application')"
                         class="ellipsis"
                       >
                         <q-btn round size="sm" icon="fas fa-file-pdf" color="primary" />
                         &nbsp;{{propGetShortInfo.applicationFile}}
-                      </q-item-main>
-                      <q-item-main v-else-if="item.mimeType.includes('image')">
+                      </q-item-section>
+                      <q-item-section v-else-if="item.mimeType.includes('image')">
                         <!-- START >>If document type is image format -->
                         <div
                           class="images"
@@ -127,27 +127,27 @@
                           />
                         </div>
                         <!-- END >>If document type is image format -->
-                      </q-item-main>
-                      <q-item-main v-else>Invalid document type/ No document available</q-item-main>
+                      </q-item-section>
+                      <q-item-section v-else>Invalid document type/ No document available</q-item-section>
                     </q-item>
                   </div>
                   <div v-else>No document available</div>
-                </q-collapsible>
+                </q-expansion-item>
               </div>
             </div>
             <!-- END >> View type is 0, direct documents  will be visible -->
             <!-- START >> View type is 1, Category has sub category, hence defined in else part -->
             <div class="row items-center full-width" v-else>
-              <div class="col-md-12 q-body-1">
-                <q-collapsible separator opened :group="toggleCollapsible" class="full-width">
+              <div class="col-md-12 text-body1">
+                <q-expansion-item separator opened :group="toggleCollapsible" class="full-width">
                   <template slot="header">
-                    <q-item-side icon="apps" />
-                    <q-item-main
-                      class="q-body-1"
+                    <q-item-section icon="apps" />
+                    <q-item-section
+                      class="text-body1"
                       :sublabel="documents.length + 'Type(s)'"
                       :label="index"
                     />
-                    <q-item-side v-if="fnToggleVerificationButtonStatus(documents)" right>
+                    <q-item-section v-if="fnToggleVerificationButtonStatus(documents)" right>
                       <q-btn
                         round
                         size="xs"
@@ -164,37 +164,37 @@
                         icon="fas fa-times"
                         @click="fnDocumentRejectModal(documents[0])"
                       />
-                    </q-item-side>
-                    <q-item-side v-else right>
+                    </q-item-section>
+                    <q-item-section v-else right>
                       <span
                         v-if="fnToggleVerificationButtonStatusAfterAction(documents)"
-                        class="q-body-1 text-weight-medium text-positive"
+                        class="text-body1 text-weight-medium text-positive"
                       >Approved</span>
                       <span
                         v-else-if="fnToggleVerificationButtonStatusAfterActionRejection(documents)"
-                        class="q-body-1 text-weight-medium text-negative"
+                        class="text-body1 text-weight-medium text-negative"
                       >Rejected</span>
                       <span v-else></span>
-                    </q-item-side>
+                    </q-item-section>
                   </template>
                   <div
                     class="row items-center full-width"
                     v-for="(subDocument,subIndex) in documents"
                     :key="subIndex"
                   >
-                    <div class="col-md-12 q-body-1">
-                      <q-collapsible separator opened multiline class="full-width">
+                    <div class="col-md-12 text-body1">
+                      <q-expansion-item separator opened multiline class="full-width">
                         <template slot="header">
-                          <q-item-side
+                          <q-item-section
                             :color="subDocument.kycException?'amber-9':''"
                             :icon="subDocument.kycException? 'warning' :'attach_file'"
                           />
-                          <q-item-main
-                            class="q-body-1"
+                          <q-item-section
+                            class="text-body1"
                             :sublabel="subDocument.uploadedDocuments.length + 'Document(s)'"
                             :label="subDocument.subDocumentType"
                           />
-                          <q-item-side v-if="subDocument.documentVerifiedStatus == 2" right>
+                          <q-item-section v-if="subDocument.documentVerifiedStatus == 2" right>
                             <q-btn
                               round
                               size="xs"
@@ -211,34 +211,34 @@
                               icon="fas fa-times"
                               @click="fnDocumentRejectModal(subDocument)"
                             />
-                          </q-item-side>
-                          <q-item-side v-else right class="desktop-only cordova-only">
+                          </q-item-section>
+                          <q-item-section v-else right class="desktop-only cordova-only">
                             <span
                               v-if="subDocument.documentVerifiedStatus == 1"
-                              class="q-body-1 text-weight-medium text-positive"
+                              class="text-body1 text-weight-medium text-positive"
                             >Approved</span>
                             <span
                               v-if="subDocument.documentVerifiedStatus == 3"
-                              class="q-body-1 text-weight-medium text-negative"
+                              class="text-body1 text-weight-medium text-negative"
                             >Rejected</span>
-                          </q-item-side>
+                          </q-item-section>
                         </template>
                         <div v-if="subDocument.uploadedDocuments.length > 0">
                           <q-item
                             v-for="(item,subIndex) in subDocument.uploadedDocuments"
                             :key="subIndex"
                             separator
-                            class="q-body-1"
+                            class="text-body1"
                           >
-                            <q-item-main
+                            <q-item-section
                               @click="fnDocumentUrl(item.fileName)"
                               v-if="item.mimeType.includes('application')"
                               class="ellipsis"
                             >
                               <q-btn round size="sm" icon="fas fa-file-pdf" color="primary" />
                               &nbsp;{{item.fileName}}
-                            </q-item-main>
-                            <q-item-main v-else-if="item.mimeType.includes('image')">
+                            </q-item-section>
+                            <q-item-section v-else-if="item.mimeType.includes('image')">
                               <!-- START >>If document type is image format -->
                               <div
                                 class="images"
@@ -251,20 +251,20 @@
                                 />
                               </div>
                               <!-- END >>If document type is image format -->
-                            </q-item-main>
-                            <q-item-main v-else>Invalid document type/ No document available</q-item-main>
+                            </q-item-section>
+                            <q-item-section v-else>Invalid document type/ No document available</q-item-section>
                           </q-item>
                         </div>
                         <div v-else>No document available</div>
-                      </q-collapsible>
+                      </q-expansion-item>
                     </div>
                   </div>
-                </q-collapsible>
+                </q-expansion-item>
               </div>
             </div>
             <!-- END >> View type is 1, Category has sub category, hence defined in else part -->
           </div>
-        </q-item-main>
+        </q-item-section>
       </q-item>
       <!-- END >>Loop through cooked(in store) array for documents -->
       <!-- END >> (Not Mandatory) Other attached documents  -->

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-modal
+    <q-dialog
       v-model="toggleModal"
       no-backdrop-dismiss
       class="q-mt-lg capitalize"
@@ -24,7 +24,7 @@
     
       <form>
         <div class="column group">
-          <div class="q-title"></div>
+          <div class="text-h6"></div>
           <div>
             <div class="row">
                 <div class="col-sm-2"></div>
@@ -60,13 +60,13 @@
     
       </form>
 
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-import { required } from "vuelidate/lib/validators";
+import { required } from "@vuelidate/validators";
 import phonepeCallLogs from "./phonepeCallLogs.vue"
 export default {
   name: "phonepeCrmToSatRemarks",

@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <q-modal
+    <q-dialog
       minimized
       no-backdrop-dismiss
       class="customModalOverlay"
@@ -11,13 +11,13 @@
     >
 
       <div class="row">
-        <div class="col-12 q-title q-pa-md text-weight-regular bottom-border">
+        <div class="col-12 text-h6 q-pa-md text-weight-regular bottom-border">
           Serial Number Remarks
         </div>
         <!-- START >> Setup MDR details -->
         <div class="col-md-5 col-sm-4 col-xs-12 q-pa-sm">
           <q-card style="width:250%">
-            <q-card-main>
+            <q-card-section>
               <q-list no-border>
                 <div class="col-md-12">
                   <q-input
@@ -33,7 +33,7 @@
                   />
                 </div>
               </q-list>
-            </q-card-main>
+            </q-card-section>
             <q-card-actions align="end">
               <q-btn
                 flat
@@ -52,7 +52,7 @@
           </q-card>
         </div>
       </div>
-    </q-modal>
+    </q-dialog>
   </q-page>
 </template>
 
@@ -68,7 +68,7 @@ import {
   alpha,
   alphaNum,
   numeric
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 export default {
   props: ["propShowUpdateDemapping", "propRowDetails"],

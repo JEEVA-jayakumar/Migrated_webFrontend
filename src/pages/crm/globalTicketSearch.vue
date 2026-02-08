@@ -2,11 +2,11 @@
   <q-page>
     <!-- content -->
     <div>
-      <div class="col-md-12 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9" 
+      <div class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
       > CRM Global Ticket Search</div>
       <div class="row gutter-x-xs gutter-y-xs q-pt-md  items-end">
         <div class="col-md-4">
-          <q-search
+          <q-input
             inverted-light
             color="light"
             clearable
@@ -33,7 +33,7 @@
       class="row gutter-x-xs gutter-y-xs justify-center q-pt-lg q-mr-lg q-ml-lg q-mt-lg q-mb-lg dFont" style="min-height: calc(80vh - 52px);" >
       <div class="row" align="center">
         <q-icon name="warning" color="warning" size="4rem" />
-        <div class="q-subheading text-bold text-grey-9" style="align-self: center;" > No Data Available </div>
+        <div class="text-subtitle1 text-bold text-grey-9" style="align-self: center;" > No Data Available </div>
       </div>
     </div>
 
@@ -45,12 +45,12 @@
         >
           <div class="col-lg-4 col-md-6 col-sm-12">
             <q-card class="q-card q-py-md items-center round-borders q-pa-sm algn1">
-              <q-card-title style="background-color: #680663;">
-                <div class="q-subheading text-bold text-white">
+              <q-card-section style="background-color: #680663;">
+                <div class="text-subtitle1 text-bold text-white">
                   Merchant Details </div>
-              </q-card-title>
-              <q-card-separator></q-card-separator>
-              <q-card-main>
+              </q-card-section>
+              <q-separator></q-separator>
+              <q-card-section>
                 <div v-if="tableData != ''">
                   <div class="col">
                     <div
@@ -93,7 +93,7 @@
                     </div>
                   </div>
                 </div>
-              </q-card-main>
+              </q-card-section>
             </q-card>
           </div>
           </div>
@@ -106,13 +106,13 @@
         >
           <div class="col-lg-4 col-md-6 col-sm-12 no-wrap	">
             <q-card class="q-card q-py-md round-borders q-pa-sm algn2">
-              <q-card-title style="background-color: #680663;">
-                <div class="q-subheading text-bold text-white">
+              <q-card-section style="background-color: #680663;">
+                <div class="text-subtitle1 text-bold text-white">
                   Ticket Status
                 </div>
-              </q-card-title>
-              <q-card-separator></q-card-separator>
-              <q-card-main>
+              </q-card-section>
+              <q-separator></q-separator>
+              <q-card-section>
                 <div v-if="tableData != ''">
                   <div class="row gutter-x-xs gutter-y-xs q-pa-sm text-grey-9">
                     <span class="col-md-4 text-weight-medium">{{
@@ -169,7 +169,7 @@
                     }}</span>
                   </div>
                 </div>
-              </q-card-main>
+              </q-card-section>
             </q-card>
           </div>
         </div>

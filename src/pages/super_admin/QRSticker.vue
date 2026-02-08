@@ -12,17 +12,17 @@
               label="Implement QR for Lead Sources"
               slot="title"
             />
-            <q-tab-pane name="createQRSticker">
+            <q-tab-panel name="createQRSticker">
               <createQRSticker />
-            </q-tab-pane>
+            </q-tab-panell>
 
-            <q-tab-pane name="downloadQRcodes">
+            <q-tab-panel name="downloadQRcodes">
               <downloadQRcodes />
-            </q-tab-pane>
+            </q-tab-panell>
 
-            <q-tab-pane name="implementQRleadsources">
+            <q-tab-panel name="implementQRleadsources">
               <implementQRleadsources />
-            </q-tab-pane>
+            </q-tab-panell>
           </q-tabs>
         </div>
       </div>

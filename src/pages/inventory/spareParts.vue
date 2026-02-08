@@ -13,20 +13,20 @@
             <q-tab name="sparePartsInventory" label="Spare Parts Inventory" slot="title" />
              <q-tab name="sparePodList" label="Spare Pod List" slot="title" />
             
-            <q-tab-pane name="sparePartsInventory">
+            <q-tab-panel name="sparePartsInventory">
               <sparePartsAddStocks
                 @emittedForTotalSerialNumbers="
                   fnAjaxFetchAllDeviceDetailsWithCount
                 "
               />
-            </q-tab-pane>
-            <q-tab-pane name="sparePodList">
+            </q-tab-panell>
+            <q-tab-panel name="sparePodList">
               <sparePartsPodList
                 @emittedForTotalSerialNumbers="
                   fnAjaxFetchAllDeviceDetailsWithCount
                 "
               />
-            </q-tab-pane>
+            </q-tab-panell>
           </q-tabs>
         </div>
       </div>

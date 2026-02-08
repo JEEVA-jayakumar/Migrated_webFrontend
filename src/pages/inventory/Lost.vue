@@ -1,9 +1,9 @@
 <template>
   <q-page>
     <div>
-      <!--START: table title -->
+      <!--STARTv-model: table title -->
       <div
-        class="col-md-12 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
+        class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
       >
       Bijlipay Lost Or Stolen Devices
       </div>
@@ -23,20 +23,19 @@
         :data="tableData"
         color="grey-9"
         :filter="filterSearch"
-        :pagination.sync="paginationControl"
+        :pagination="paginationControl"
         :rows-per-page-options="[5,10,15,20,25]"
         :loading="toggleAjaxLoadFilter"
         @request="ajaxLoadAllLeadInfo"
       >
        <q-td
-          slot="body-cell-updated_at"
-          slot-scope="props"
+          v-slot:body-cell-updated_at="props"
           :props="props"
         >{{ props.row.updatedAt ==null? "NA" : props.row.updatedAt | moment("Do MMM Y") }}</q-td>
         <template slot="top">
           <!--START: table filter,search -->
           <div class="col-md-5">
-            <q-search
+            <q-input
               clearable
               color="grey-9"
               v-model="filterSearch"

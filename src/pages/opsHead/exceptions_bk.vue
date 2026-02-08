@@ -1,9 +1,9 @@
 <template>
   <q-page>
     <div>
-      <!--START: table title -->
+      <!--STARTv-model: table title -->
       <div
-        class="col-md-12 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
+        class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
       >Exceptions</div>
       <!--END: table title -->
       <!-- <pre>{{tableData}}</pre> -->
@@ -13,12 +13,11 @@
         :columns="columns"
         :filter="filterSearch"
         :filter-method="myCustomSearchFilter"
-        :pagination.sync="paginationControl"
+        :pagination="paginationControl"
         row-key="name"
       >
         <q-tr
-          slot="body"
-          slot-scope="props"
+          v-slot:body="props"
           :props="props"
           @click.native="fnRowClick(props.row)"
           @mouseover.native="fnRowMouseOver(props.row.__index)"
@@ -64,7 +63,7 @@
           </q-td>
         </q-tr>
 
-        <template slot="top" slot-scope="props">
+        <template v-slot:top="props">
           <!--START: table fullscreen mode -->
           <!-- <div class="col-md-4" align="right">
                   <q-btn
@@ -78,7 +77,7 @@
           <!--END: table fullscreen mode -->
           <!--START: table search -->
           <div class="col-md-5">
-            <q-search
+            <q-input
               clearable
               v-model="filterSearch"
               separator
@@ -91,7 +90,7 @@
           <!--END: table search -->
           <!--START: table filter dropdown -->
           <!-- <div class="col-md-3">
-                  <q-datetime 
+                  <q-input
                     v-model="filters.filter_date" 
                     float-label="Date Filter"
                     type="date"

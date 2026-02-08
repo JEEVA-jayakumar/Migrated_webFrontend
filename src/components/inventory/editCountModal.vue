@@ -1,13 +1,13 @@
 <template>
 <div>
-  <q-modal  v-model="toggleModal"
+  <q-dialog  v-model="toggleModal"
       no-backdrop-dismiss
       no-esc-dismiss
       :content-css="{ padding: '10px', maxWidth: '50vw', minHeight: '' }">
 <div class="q-pa-md">
   <div class="column">
     <div class="col-md-12 bottom-border">
-      <div class="q-title text-weight-regular q-py-sm">Update QR Count</div>
+      <div class="text-h6 text-weight-regular q-py-sm">Update QR Count</div>
       </div>
       <div class="col-md-8 q-pt-md" align="left">
         <q-input type="number" color="grey-9"
@@ -22,10 +22,10 @@
     </div>
   </div>
 </div>
-  </q-modal>
+  </q-dialog>
 </div>
 </template>
-<script> import { minValue, required,}from "vuelidate/lib/validators";
+<script> import { minValue, required,}from "@vuelidate/validators";
 import { mapGetters, mapActions } from 'vuex'
 export default {
   props: ['propseditCountModal', 'propsAllPendingQrItem'],

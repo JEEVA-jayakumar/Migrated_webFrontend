@@ -1,14 +1,14 @@
 <template>
     <div>
-       <q-modal 
+       <q-dialog
        v-model="showRejectModel" 
        @hide="emitToggleReject(showRejectModel)" 
        @escape-key="emitToggleReject(showRejectModel)"  
        :content-css="{padding:'50px'}"
        >
         <div>
-          <div align="center" class="q-subheading q-mb-md capitalize">{{propShowRejectComponent.leadName}}</div>
-          <div align="center" class="text-light-blue q-title q-mb-md">#{{propShowRejectComponent.leadNumber}}</div>
+          <div align="center" class="text-subtitle1 q-mb-md capitalize">{{propShowRejectComponent.leadName}}</div>
+          <div align="center" class="text-light-blue text-h6 q-mb-md">#{{propShowRejectComponent.leadNumber}}</div>
           <div align="left" class="text-weight-light text-grey-8 q-mb-md">Reason</div>
           <div class="gutter-xs">
             <q-radio 
@@ -39,7 +39,7 @@
             class="float-right q-ma-sm" @click="emitToggleReject(showRejectModel)">Cancel
           </q-btn>
         </div>
-      </q-modal>
+      </q-dialog>
     </div>
 </template>
 <script>
@@ -52,7 +52,7 @@ import {
   alpha,
   alphaNum,
   numeric
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 export default {
   props: ["showRejectModel", "propShowRejectComponent"],

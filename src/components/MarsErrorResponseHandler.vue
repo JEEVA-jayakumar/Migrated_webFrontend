@@ -1,5 +1,5 @@
 <template>
-  <div class="q-py-xs group q-caption">
+  <div class="q-py-xs group text-caption">
     <q-chip color="primary">value</q-chip>
     <span>{{error.value}}</span>
     <br>

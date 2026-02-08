@@ -1,14 +1,14 @@
 <template>
     <div>
-       <q-modal 
+       <q-dialog
        v-model="showRejectLeadModel" 
        @hide="emitToggleReject(showRejectLeadModel)" 
        @escape-key="emitToggleReject(showRejectLeadModel)"  
        :content-css="{padding:'50px'}"
        >
         <div>
-          <div align="center" class="q-subheading q-mb-md capitalize">{{propShowRejectLeadComponent.merchantName}}</div>
-          <div align="center" class="text-light-blue q-title q-mb-md">#{{propShowRejectLeadComponent.leadNumber}}</div>
+          <div align="center" class="text-subtitle1 q-mb-md capitalize">{{propShowRejectLeadComponent.merchantName}}</div>
+          <div align="center" class="text-light-blue text-h6 q-mb-md">#{{propShowRejectLeadComponent.leadNumber}}</div>
            <div class="col-md-12">
                      <q-input
                     color="grey-9"
@@ -21,7 +21,7 @@
                   />
         </div>
         <div class="col-md-12">
-          <div align="center" class="col-md-10 text-light-blue q-title q-mb-md">Reason Type</div>
+          <div align="center" class="col-md-10 text-light-blue text-h6 q-mb-md">Reason Type</div>
             <q-radio 
             @blur="$v.formData.leadVerificationStatus.reasonType.$touch"      
             :error="$v.formData.leadVerificationStatus.reasonType.$error" 
@@ -41,7 +41,7 @@
             
           </div>
         <!-- <div class="col-md-12">
-           <div align="center" class="col-md-10 text-light-blue q-title q-mb-md">Reason</div> -->
+           <div align="center" class="col-md-10 text-light-blue text-h6 q-mb-md">Reason</div> -->
            <q-input
             type="textarea"
             placeholder="Type Your Reason Here...."
@@ -61,7 +61,7 @@
             class="float-right q-ma-sm" @click="emitToggleReject(showRejectLeadModel)">Cancel
           </q-btn>
         </div>
-      </q-modal>
+      </q-dialog>
     </div>
 </template>
 <script>
@@ -74,7 +74,7 @@ import {
   alpha,
   alphaNum,
   numeric
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 export default {
   props: ["showRejectLeadModel", "propShowRejectLeadComponent"],

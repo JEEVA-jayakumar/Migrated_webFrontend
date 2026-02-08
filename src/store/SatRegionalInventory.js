@@ -1,3 +1,4 @@
+import { api } from '../boot/axios';
 import api from "./api.js";
 import Vue from "vue"
 
@@ -124,7 +125,7 @@ const SatRegionalInventory = {
       commit,
       rootState
     }, request) {
-      return Vue.http
+      return api
         .post(rootState.GlobalVariables.SIM_ACTIVATION_UPLOAD+"/"+request.simData,request.file, {
           // headers: {
           //   "Content-Type": 'multipart/form-data',
@@ -151,7 +152,7 @@ const SatRegionalInventory = {
       commit,
       rootState
     }, request) {
-      return Vue.http
+      return api
         .post(rootState.GlobalVariables.SIM_DEACTIVATION_UPLOAD +"/"+request.simData,request.file, {
           
           responseType: "arraybuffer",
@@ -173,7 +174,7 @@ const SatRegionalInventory = {
       commit,
       rootState
     }, request) {
-      return Vue.http
+      return api
         .post(rootState.GlobalVariables.SIM_ACTIVATION_UPLOAD_CENTRAL_INVENTORY ,request.file, {
           responseType: "arraybuffer",
         });
@@ -185,7 +186,7 @@ const SatRegionalInventory = {
       commit,
       rootState
     }, request) {
-      return Vue.http
+      return api
         .post(rootState.GlobalVariables.SIM_DEACTIVATION_UPLOAD_CENTRAL_INVENTORY,request.file, {
           // headers: {
           //   "Content-Type": 'multipart/form-data',
@@ -286,7 +287,7 @@ const SatRegionalInventory = {
     /*END >> Module>> all lead validations*/
 
     TICKET_CREATION_BULK_UPLOAD({ commit, rootState }, request) {
-      return Vue.http.post(rootState.GlobalVariables.TICKET_CREATION_UPLOAD, request.file,
+      return api.post(rootState.GlobalVariables.TICKET_CREATION_UPLOAD, request.file,
         {
           headers: {
             "Content-Type": 'multipart/form-data',
@@ -300,7 +301,7 @@ const SatRegionalInventory = {
       commit,
       rootState
     }, request) {
-      return Vue.http.post(rootState.GlobalVariables.TICKET_CLOSE_UPLOAD, request.file,
+      return api.post(rootState.GlobalVariables.TICKET_CLOSE_UPLOAD, request.file,
         {
           headers: {
             "Content-Type": 'multipart/form-data',
@@ -314,7 +315,7 @@ const SatRegionalInventory = {
       commit,
       rootState
     }, request) {
-      return Vue.http.post(rootState.GlobalVariables.TICKET_ASSIGN_UPLOAD, request.file,
+      return api.post(rootState.GlobalVariables.TICKET_ASSIGN_UPLOAD, request.file,
         {
           headers: {
             "Content-Type": 'multipart/form-data',

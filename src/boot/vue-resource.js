@@ -1,3 +1,4 @@
+import { api } from './axios';
 // import something here
 
 import vueResource from "vue-resource";
@@ -29,30 +30,30 @@ export default ({
   // Final production url so far
   // const apiHost = "http://182.156.237.85:9081/api/";
   // const apiHost = "http://13.232.119.156:8080/api/";
-  Vue.http.options.root = apiHost;
-  Vue.http.headers.common["Access-Control-Allow-Origin"] = "*";
-  Vue.http.headers.common["Content-Type"] = "application/json";
-  Vue.http.headers.common["X-Frame-Options"] = "SAMEORIGIN";
+  api.options.root = apiHost;
+  api.headers.common["Access-Control-Allow-Origin"] = "*";
+  api.headers.common["Content-Type"] = "application/json";
+  api.headers.common["X-Frame-Options"] = "SAMEORIGIN";
 
 
-  // Vue.http.headers.common["NII"] = localStorage.getItem("aa_t") || "";
+  // api.headers.common["NII"] = localStorage.getItem("aa_t") || "";
   // console.log('vlaue', localStorage.getItem("aa_t"))
   // console.log('NIL', localStorage.getItem("aa_t"))
-  // Vue.http.headers.common["NII"] = localStorage.getItem("aaa_t")
+  // api.headers.common["NII"] = localStorage.getItem("aaa_t")
 
 
-  // Vue.http.options.emulateJSON = true;
-  // Vue.http.options.emulateHTTP = true;
+  // api.options.emulateJSON = true;
+  // api.options.emulateHTTP = true;
   
   // window.localStorage.clear();
-  Vue.http.interceptors.push(function (request, next) {
+  api.interceptors.push(function (request, next) {
     if (
       !request.url.includes("authorization/login") &&
       !request.url.includes("authorization/password")
     ) {
-      Vue.http.headers.common["Authorization"] =
+      api.headers.common["Authorization"] =
         "Token " + localStorage.getItem("auth_token");
-      Vue.http.headers.common["NII"] =
+      api.headers.common["NII"] =
         localStorage.getItem("aa_t")
       // console.log("axis" + localStorage.getItem("aa_t"))
 

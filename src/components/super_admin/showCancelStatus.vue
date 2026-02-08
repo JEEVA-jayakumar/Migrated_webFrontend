@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-modal   minimized
+    <q-dialog   minimized
         v-model="toggleModel"
         @hide="emitfnShowCancelStatus"
         @escape-key="emitfnShowCancelStatus"
@@ -9,7 +9,7 @@
        <form>
         <div class="row gutter-sm q-py-sm items-center">
         <div  class="col-md-12">
-         <div class="q-title text-weight-regular"> Add Service</div>
+         <div class="text-h6 text-weight-regular"> Add Service</div>
         </div>
         <div class="col-md-12">
          <q-input
@@ -30,11 +30,11 @@
           </div>
         </div>
        </form>
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 <script>
-import { required } from 'vuelidate/lib/validators'
+import { required } from '@vuelidate/validators'
 import { mapGetters, mapActions } from 'vuex'
 export default {
   props: ['propShowCancelStatus', 'propRowDetails3'],

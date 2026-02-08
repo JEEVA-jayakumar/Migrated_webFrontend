@@ -2,8 +2,8 @@
   <q-page>
     <!-- content -->
     <div>
-      <!--START: table title -->
-      <div class="col-md-12 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9">Aggregator Inventory with Merchant</div>
+      <!--STARTv-model: table title -->
+      <div class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9">Aggregator Inventory with Merchant</div>
       <!--END: table title -->
       <!-- <div class="row bottom-border q-px-md q-py-md items-center text-weight-regular text-grey-9">
         <div class="col-md-4">
@@ -15,16 +15,16 @@
 
       <!--START: table lead validation -->
       <q-table table-class="customTableClass" class="q-py-none" :data="tableData" :columns="columns" :filter="filter"
-        :rows-per-page-options="[100, 200, 300, 400, 500]" :pagination.sync="paginationControl"
+        :rows-per-page-options="[100, 200, 300, 400, 500]" :pagination="paginationControl"
         :loading="toggleAjaxLoadFilter" @request="ajaxLoadAllLeadInfo">
         <!-- :rows-per-page-options="[100,200,300,400,500]" -->
-        <q-td slot="body-cell-deviceStatusDate" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-deviceStatusDate="props" :props="props">
           <span class="label">{{ props.row.deviceStatusDate | moment("Do MMM Y") }}</span>
         </q-td>
         <template slot="top" class="bottom-border">
           <!--START: table filter,search -->
           <div class="col">
-            <q-search clearable color="grey-9" v-model="filter" placeholder="Type.."
+            <q-input clearable color="grey-9" v-model="filter" placeholder="Type.."
               float-label="Search by Device Serial Number, MID, TID, Merchant Name" class="q-mr-lg q-py-sm" />
           </div>
 

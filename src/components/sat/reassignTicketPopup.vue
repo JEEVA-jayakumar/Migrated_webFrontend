@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <q-modal
+    <q-dialog
       minimized
       no-backdrop-dismiss
       class="customModalOverlay"
@@ -8,7 +8,7 @@
       :content-css="{ padding: '6px', minWidth: '60vw' }"
     >
       <div class="row q-pa-md">
-        <div class="col-12 q-title text-weight-regular bottom-border">
+        <div class="col-12 text-h6 text-weight-regular bottom-border">
           Action Bar
         </div>
         <q-card class="q-pa-md" style="width: 150%">
@@ -94,7 +94,7 @@
           </q-card-actions>
         </q-card>
       </div>
-    </q-modal>
+    </q-dialog>
     <assignHistoryPopup
       v-if="propShowUpdateAssignHistoryPopup"
       :propShowUpdateAssignHistoryPopup="propShowUpdateAssignHistoryPopup"
@@ -116,7 +116,7 @@ import {
   alpha,
   alphaNum,
   numeric
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 import assignHistoryPopup from "../../components/sat/assignHistoryPopup.vue";
 export default {

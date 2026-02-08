@@ -1,6 +1,6 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-     <q-layout-header style="margin-left:0px" class="shadow-0 z-top" flat>
+     <q-header style="margin-left:0px" class="shadow-0 z-top" flat>
       <q-toolbar
     class="bg-custom-light-grey bottom-border"
     color="grey-9"
@@ -28,30 +28,30 @@
             <span class="mobile-hide capitalize text-weight-regular">{{getUserName}}</span>
             <img src="https://pdc.techinasia.com/wp-content/uploads/2018/03/user60.png" style="height:30px;width:30px" class="vertical-middle">
             <!-- Direct child of target -->
-            <q-popover class="shadow-8 " anchor="bottom middle" self="top middle" style="min-width:350px">
+            <q-menu class="shadow-8 " anchor="bottom middle" self="top middle" style="min-width:350px">
               <q-list separator link class="no-padding">
                 <q-item v-close-overlay @click.native="showNotification">
-                  <q-item-side icon="fas fa-user" inverted color="dark" />
-                  <q-item-main>
-                    <q-item-tile label>My Account</q-item-tile>
-                  </q-item-main>
+                  <q-item-section icon="fas fa-user" inverted color="dark" />
+                  <q-item-section>
+                    <q-item-label label>My Account</q-item-label>
+                  </q-item-section>
                 </q-item>
                 <q-item v-close-overlay @click.native="$router.push('/login')">
-                  <q-item-side icon="fas fa-sign-out-alt" inverted color="dark" />
-                  <q-item-main>
-                    <q-item-tile label>Logout</q-item-tile>
-                  </q-item-main>
+                  <q-item-section icon="fas fa-sign-out-alt" inverted color="dark" />
+                  <q-item-section>
+                    <q-item-label label>Logout</q-item-label>
+                  </q-item-section>
                 </q-item>
               </q-list>
-            </q-popover>
+            </q-menu>
           </q-btn>
         </div>
       </div>
     </q-toolbar-title>
   </q-toolbar>
-    </q-layout-header>
+    </q-header>
 
-    <q-layout-drawer
+    <q-drawer
       class="shadow-9"
       v-model="leftDrawerOpen"
       content-class="no-shadow"
@@ -66,10 +66,10 @@
       >
 
         <q-item v-for="menu in menus" :key="menu.id" :to="menu.to" class="menu-main-item-color">
-          <q-item-main class="menu-item-color">{{menu.name}}</q-item-main>
+          <q-item-section class="menu-item-color">{{menu.name}}</q-item-section>
         </q-item>
       </q-list>
-    </q-layout-drawer>
+    </q-drawer>
 
     <q-page-container>
       <transition

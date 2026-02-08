@@ -1,3 +1,4 @@
+import { api } from '../boot/axios';
 import api from "./api.js";
 import Vue from "vue";
 function COMMON_FILE_DOWNLOAD(response) {
@@ -58,7 +59,7 @@ const InventoryCentral = {
   actions: {
 
     async STATIC_QR_LEAD_VALIDATION_DOWNLOAD_FILE({ commit }, request) {
-      return await Vue.http
+      return await api
         .get("download-file", {
           responseType: "arraybuffer"
         })
@@ -75,7 +76,7 @@ const InventoryCentral = {
       commit,
       rootState
     }, request) {
-      return Vue.http
+      return api
         .post(rootState.GlobalVariables.SAT_STATICQRFILEUPLOADURL,request.file, {
           headers: {
             "Content-Type": 'multipart/form-data',

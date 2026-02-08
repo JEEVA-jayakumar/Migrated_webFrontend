@@ -3,7 +3,7 @@
     <q-pull-to-refresh :distance="30" :handler="PullToRefresh" inline>
       <div class="row">
         <div
-          class="col-md-12 q-title q-px-lg q-py-md text-weight-regular text-grey-9 bottom-border"
+          class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular text-grey-9 bottom-border"
         >Exception Queue</div>
         <div class="col-md-4 col-sm-12 col-xs-12">
           <!-- KYC exception queue header -->
@@ -14,10 +14,10 @@
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <q-item class="bg-light-blue relative-position">
-                  <q-item-main>
-                    <q-item-tile label text-color="grey-12">KYC exceptions queue</q-item-tile>
-                  </q-item-main>
-                  <q-item-side>
+                  <q-item-section>
+                    <q-item-label label text-color="grey-12">KYC exceptions queue</q-item-label>
+                  </q-item-section>
+                  <q-item-section>
                     <q-btn
                       round
                       color="grey-12"
@@ -25,7 +25,7 @@
                       style="border: 3px solid rgb(32, 169, 244);"
                       text-color="light-blue"
                     >{{getExceptionQueueInfo.KYCExceptionCount}}</q-btn>
-                  </q-item-side>
+                  </q-item-section>
                 </q-item>
               </div>
             </div>
@@ -53,14 +53,14 @@
                   <div class="row">
                     <div class="gutter-xs col-md-5 col-sm-6 col-xs-12 text-weight-light">
                       <div
-                        class="q-caption text-light-blue cursor-pointer"
+                        class="text-caption text-light-blue cursor-pointer"
                         @click.stop="toggleLeadInformation(item)"
                       >#{{item.leadNumber}}</div>
-                      <div class="q-caption no-margin text-dark capitalize">{{item.leadName}}</div>
+                      <div class="text-caption no-margin text-dark capitalize">{{item.leadName}}</div>
                     </div>
                     <div class="gutter-xs col-md-7 col-sm-6 col-xs-12 text-weight-light">
-                      <div class="q-caption text-dark">{{item.SOName}}</div>
-                      <div class="q-caption text-dark">
+                      <div class="text-caption text-dark">{{item.SOName}}</div>
+                      <div class="text-caption text-dark">
                         Date of Updation :
                         <span
                           class="text-primary"
@@ -73,7 +73,7 @@
               <div class="bottom-border q-ma-sm" v-else>
                 <div class="row">
                   <div class="col-md-12 col-sm-12 col-xs-12 text-weight-light" align="center">
-                    <div class="q-caption text-dark q-pa-md">No data to display</div>
+                    <div class="text-caption text-dark q-pa-md">No data to display</div>
                   </div>
                 </div>
               </div>
@@ -90,10 +90,10 @@
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <q-item class="bg-green-7">
-                  <q-item-main>
-                    <q-item-tile label text-color="grey-12">Bank Subvention Queue</q-item-tile>
-                  </q-item-main>
-                  <q-item-side>
+                  <q-item-section>
+                    <q-item-label label text-color="grey-12">Bank Subvention Queue</q-item-label>
+                  </q-item-section>
+                  <q-item-section>
                     <q-btn
                       round
                       color="grey-12"
@@ -101,7 +101,7 @@
                       style="border: 3px solid rgb(67, 159, 71);"
                       text-color="green-8"
                     >{{getExceptionQueueInfo.BankExceptionCount}}</q-btn>
-                  </q-item-side>
+                  </q-item-section>
                 </q-item>
               </div>
             </div>
@@ -128,14 +128,14 @@
                   <div class="row">
                     <div class="gutter-xs col-md-5 col-sm-6 col-xs-12 text-weight-light">
                       <div
-                        class="q-caption text-light-blue cursor-pointer"
+                        class="text-caption text-light-blue cursor-pointer"
                         @click.stop="toggleLeadInformation(item)"
                       >#{{item.leadNumber}}</div>
-                      <div class="q-caption no-margin text-dark capitalize">{{item.leadName}}</div>
+                      <div class="text-caption no-margin text-dark capitalize">{{item.leadName}}</div>
                     </div>
                     <div class="gutter-xs col-md-7 col-sm-6 col-xs-12 text-weight-light">
-                      <div class="q-caption text-dark">{{item.createdBy.name}}</div>
-                      <div class="q-caption text-dark">
+                      <div class="text-caption text-dark">{{item.createdBy.name}}</div>
+                      <div class="text-caption text-dark">
                         Date of Updation :
                         <span
                           class="text-primary"
@@ -148,7 +148,7 @@
               <div class="bottom-border q-ma-sm" v-else>
                 <div class="row">
                   <div class="col-md-12 col-sm-12 col-xs-12 text-weight-light" align="center">
-                    <div class="q-caption text-dark q-pa-md">No data to display</div>
+                    <div class="text-caption text-dark q-pa-md">No data to display</div>
                   </div>
                 </div>
               </div>
@@ -165,10 +165,10 @@
             <div class="row">
               <div class="col-md-12 col-sm-12 col-xs-12">
                 <q-item class="bg-red-7">
-                  <q-item-main>
-                    <q-item-tile label text-color="grey-12">Pricing Exception Queue</q-item-tile>
-                  </q-item-main>
-                  <q-item-side>
+                  <q-item-section>
+                    <q-item-label label text-color="grey-12">Pricing Exception Queue</q-item-label>
+                  </q-item-section>
+                  <q-item-section>
                     <q-btn
                       round
                       color="grey-12"
@@ -176,7 +176,7 @@
                       style="border: 3px solid rgb(244, 67, 55);"
                       text-color="red-6"
                     >{{getExceptionQueueInfo.PricingExceptionCount}}</q-btn>
-                  </q-item-side>
+                  </q-item-section>
                 </q-item>
               </div>
             </div>
@@ -204,14 +204,14 @@
                   <div class="row gutter-sm">
                     <div class="gutter-xs col-md-5 col-sm-6 col-xs-12 text-weight-light">
                       <div
-                        class="q-caption text-light-blue cursor-pointer"
+                        class="text-caption text-light-blue cursor-pointer"
                         @click.stop="toggleLeadInformation(item)"
                       >#{{item.leadNumber}}</div>
-                      <div class="q-caption no-margin text-dark capitalize">{{item.leadName}}</div>
+                      <div class="text-caption no-margin text-dark capitalize">{{item.leadName}}</div>
                     </div>
                     <div class="gutter-xs col-md-7 col-sm-6 col-xs-12 text-weight-light">
-                      <div class="q-caption text-dark capitalize">{{item.createdBy.name}}</div>
-                      <div class="q-caption text-dark capitalize">Assigned to : RSM {{item.name}}</div>
+                      <div class="text-caption text-dark capitalize">{{item.createdBy.name}}</div>
+                      <div class="text-caption text-dark capitalize">Assigned to : RSM {{item.name}}</div>
                     </div>
                   </div>
                 </div>
@@ -219,7 +219,7 @@
               <div class="bottom-border q-ma-sm" v-else>
                 <div class="row">
                   <div class="col-md-12 col-sm-12 col-xs-12 text-weight-light" align="center">
-                    <div class="q-caption text-dark q-pa-md">No data to display</div>
+                    <div class="text-caption text-dark q-pa-md">No data to display</div>
                   </div>
                 </div>
               </div>

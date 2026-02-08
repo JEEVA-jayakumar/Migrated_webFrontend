@@ -1,6 +1,6 @@
 <template>
     <div>
-        <q-modal 
+        <q-dialog
         v-model="toggleModal"  
         @hide="emitToggleCheque(toggleModal)" 
         @escape-key="emitToggleCheque(toggleModal)"  
@@ -9,7 +9,7 @@
           <div class="q-pa-md">
               <div class="row text-center">
                   <div class="col-md-12 justify-center">
-                      <div class="q-title text-weight-regular">Reject Exception</div>
+                      <div class="text-h6 text-weight-regular">Reject Exception</div>
                   </div>
                   <div class="col-md-12 q-pt-md" align="left">
                       <q-input type="textarea" color="grey-9" v-model="formData.leadVerificationStatus.reason" float-label="Enter reason for reject" placeholder="type.." />
@@ -28,7 +28,7 @@
                   </div>
               </div>
           </div>
-        </q-modal>
+        </q-dialog>
     </div>
 </template>
 <script>

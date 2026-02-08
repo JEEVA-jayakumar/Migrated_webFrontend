@@ -33,10 +33,10 @@
       <div class="col group" v-for="(item,index) in formData.scannedItems" :key="index">
         <q-card class="shadow-4">
           <q-list highlight separator>
-            <q-list-header style="border-bottom: 1px solid #ccc;">
+            <q-item-label header style="border-bottom: 1px solid #ccc;">
               <q-icon style="color:#202c3f" name="fas fa-tablet-alt"/>
               {{item.device.deviceName}}
-            </q-list-header>
+            </q-item-label header>
             <q-scroll-area
               style="height:400px"
               :thumb-style="{
@@ -55,8 +55,8 @@
                   v-for="(subItem,subIndex) in item.deviceSerialNumbers"
                   :key="subIndex"
                 >
-                  <q-item-main class="q-body-1">{{subItem}}</q-item-main>
-                  <q-item-side>
+                  <q-item-section class="text-body1">{{subItem}}</q-item-section>
+                  <q-item-section>
                     <q-btn
                       round
                       size="sm"
@@ -64,13 +64,13 @@
                       icon="clear"
                       @click="fnRemoveScannedItems(index,subIndex)"
                     />
-                  </q-item-side>
+                  </q-item-section>
                 </q-item>
               </div>
               <div v-else>
                 <q-item>
-                  <q-item-main class="q-body-1">No data to display</q-item-main>
-                  <q-item-side>
+                  <q-item-section class="text-body1">No data to display</q-item-section>
+                  <q-item-section>
                     <q-btn
                       round
                       size="sm"
@@ -78,7 +78,7 @@
                       @click="fnRemoveDeviceTypeFromList(index)"
                       icon="clear"
                     />
-                  </q-item-side>
+                  </q-item-section>
                 </q-item>
               </div>
             </q-scroll-area>

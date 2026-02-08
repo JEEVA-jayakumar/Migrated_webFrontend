@@ -2,8 +2,8 @@
   <q-page>
     <!-- content -->
     <div>
-      <q-table :data="getAllDevicesInfo" table-class="customSATableClass" :columns="columns" :filter="filterSearch" :pagination.sync="paginationControl" :filter-method="myCustomSearchFilter" row-key="name" color="grey-9">
-        <q-td slot="body-cell-action" slot-scope="props" :props="props">
+      <q-table v-model:data="getAllDevicesInfo" table-class="customSATableClass" :columns="columns" :filter="filterSearch" :pagination="paginationControl" :filter-method="myCustomSearchFilter" row-key="name" color="grey-9">
+        <q-td v-slot:body-cell-action="props" :props="props">
           <pre>{{props.row}}  </pre>
           <div class="row no-wrap no-padding">
             <q-btn dense no-caps no-wrap label="Modify" icon="far fa-plus-square" size="md" @click="fnShowEditDeviceTypes(props.row)" flat class="text-light-blue">
@@ -13,7 +13,7 @@
           </div>
         </q-td>
 
-        <template slot="top" slot-scope="props">
+        <template v-slot:top="props">
           <div class="col-md-6 q-my-md" align="right">
             <q-btn no-caps no-wrap label="Add New Device" class="q-mt-lg text-weight-regular" color="purple-9" icon="far fa-plus-square" size="md" @click="fnshowCreateDeviceType()"/>
           </div>
@@ -21,7 +21,7 @@
 
           <!--START: table filter,search -->
           <div class="col-md-5">
-              <q-search
+              <q-input
                 clearable
                 color="grey-9"
                 v-model="filterSearch"

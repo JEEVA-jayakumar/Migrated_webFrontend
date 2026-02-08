@@ -9,7 +9,7 @@
         :columns="columns"
         row-key="name"
       >
-        <q-td slot="body-cell-action" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-action="props" :props="props">
           <div class="row no-wrap no-padding">
             <q-btn
               dense
@@ -26,7 +26,7 @@
             </q-btn>-->
           </div>
         </q-td>
-        <q-td slot="body-cell-update" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-update="props" :props="props">
           <div class="row no-wrap no-padding">
             <q-btn
               dense
@@ -43,7 +43,7 @@
             </q-btn>-->
           </div>
         </q-td>
-        <!-- <q-td slot="body-cell-status" slot-scope="props" :props="props">
+        <!-- <q-td v-slot:body-cell-status="props" :props="props">
             <span class="label text-negative" v-if="props.row.status == $TRANSACTION_STATUS">Pending</span>
             <span class="label text-positive" v-else-if="props.row.status">Success</span>
             <span class="label text-amber" v-else>NA</span>
@@ -65,7 +65,7 @@ import {
   alpha,
   alphaNum,
   numeric
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 export default {
   name: "inventoryAllocation",

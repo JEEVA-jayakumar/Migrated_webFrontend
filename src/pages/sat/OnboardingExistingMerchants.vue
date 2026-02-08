@@ -3,7 +3,7 @@
     <!-- content -->
     <q-card>
       <!-- <div
-        class="col-md-12 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
+        class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
       >
         <b><h1 style="font-size:18px;">UPLOAD CSV FILE</h1></b>
       </div> -->
@@ -57,20 +57,20 @@
                       </div>
                       <div v-else align="left">
                         <q-card dense class="q-pa-xs">
-                          <q-card-title>
+                          <q-card-section>
                             Uploaded File
-                          </q-card-title>
-                          <q-card-separator />
-                          <q-card-main>
+                          </q-card-section>
+                          <q-separator />
+                          <q-card-section>
                             <q-item dense>
-                              <q-item-side icon="attach_file" />
-                              <q-item-main>{{
+                              <q-item-section icon="attach_file" />
+                              <q-item-section>{{
                                 formData.fileSelected[0].name
-                              }}</q-item-main>
-                              <q-item-side></q-item-side>
+                              }}</q-item-section>
+                              <q-item-section></q-item-section>
                             </q-item>
-                          </q-card-main>
-                          <q-card-separator />
+                          </q-card-section>
+                          <q-separator />
                           <q-card-actions align="end">
                             <q-btn
                               size="10px"
@@ -174,7 +174,7 @@
                   slot="title"
                   label="Assigned"
                 />
-                <q-tab-pane name="assigned">
+                <q-tab-panel name="assigned">
                   <div class="row items-center gutter-y-sm">
                     <div
                       class="col-md-3 col-sm-12 col-xs-12 text-grey-7 text-weight-medium q-px-md"
@@ -232,7 +232,7 @@
                                 formData.marsDeviceIdsCookedUnAssinged.length ==
                                 0
                                   ? true
-                                  : false
+                                  v-model: false
                               "
                               label="Un-Assign"
                               class="common-dark-blue"
@@ -250,8 +250,8 @@
                     table-class="customTableClass"
                     :filter="filterSearch"
                     selection="multiple"
-                    :pagination.sync="paginationControl"
-                    :selected.sync="formData.marsDeviceIdsCookedUnAssinged"
+                    :pagination="paginationControl"
+                    v-model:selected="formData.marsDeviceIdsCookedUnAssinged"
                     row-key="id"
                     :loading="tableAjaxLoading"
                     :rows-per-page-options="[5, 10, 15, 20]"
@@ -259,24 +259,22 @@
                     @request="ajaxLoadAllLeadInfo"
                   >
                     <!-- selection="multiple" -->
-                    <!-- <q-td v-if="props.row.leadInformation != null" slot="body-cell-leadNumber" slot-scope="props"
+                    <!-- <q-td v-if="props.row.leadInformation != null" v-slot:body-cell-leadNumber="props"
                             :props="props" class="cursor-pointer"
                             @click.native="toggleLeadInformation(props.row.leadInformation)">
                             <span class="label text-primary"># {{ props.row.leadInformation.leadNumber }}</span>
                         </q-td> -->
-                    <!-- <q-td v-if="props.row.leadInformation != null" slot="body-cell-submitToMarsDate"
-                            slot-scope="props" :props="props">{{
+                    <!-- <q-td v-if="props.row.leadInformation != null" v-slot:body-cell-submitToMarsDate="props" :props="props">{{
                                 props.row.leadInformation.submitToMarsDate | moment("Do MMM Y")
                             }}</q-td> -->
-                    <!-- <q-td v-if="props.row.leadInformation != null" slot="body-cell-createdAt" slot-scope="props"
+                    <!-- <q-td v-if="props.row.leadInformation != null" v-slot:body-cell-createdAt="props"
                             :props="props">{{ props.row.createdAt | moment("Do MMM Y") }}</q-td>
-                        <q-td v-if="props.row.leadInformation != null" slot="body-cell-deviceAddress" slot-scope="props"
+                        <q-td v-if="props.row.leadInformation != null" v-slot:body-cell-deviceAddress="props"
                             :props="props" class="customTd customCellLength">
                             <div>{{ props.row.deviceAddress }}</div>
                         </q-td> -->
                     <q-td
-                      slot="body-cell-tid"
-                      slot-scope="props"
+                      v-slot:body-cell-tid="props"
                       :props="props"
                       class="customTd"
                     >
@@ -285,8 +283,7 @@
                       </div>
                     </q-td>
                     <q-td
-                      slot="body-cell-mid"
-                      slot-scope="props"
+                      v-slot:body-cell-mid="props"
                       :props="props"
                       class="customTd"
                     >
@@ -296,7 +293,7 @@
                     </q-td>
                     <template slot="top">
                       <div class="col-md-5">
-                        <q-search
+                        <q-input
                           clearable
                           color="grey-9"
                           v-model="filterSearch"
@@ -307,9 +304,9 @@
                       </div>
                     </template>
                   </q-table>
-                  <!--END: table Data -->
-                </q-tab-pane>
-                <q-tab-pane name="unAssigned">
+                  <!--ENDv-model: table Data -->
+                </q-tab-panell>
+                <q-tab-panel name="unAssigned">
                   <!--START: table Data -->
                   <q-table
                     :data="tableData1"
@@ -317,28 +314,26 @@
                     table-class="customTableClass"
                     :filter="filterSearch1"
                     selection="multiple"
-                    :selected.sync="formData.marsDeviceIdsCooked"
-                    :pagination.sync="paginationControl1"
+                    :selected="formData.marsDeviceIdsCooked"
+                    v-model:pagination="paginationControl1"
                     row-key="id"
                     :loading="tableAjaxLoading1"
                     :rows-per-page-options="[5, 10, 15, 20]"
                     color="dark"
                     @request="ajaxLoadAllLeadInfo1"
                   >
-                    <!-- <q-td v-if="props.row.leadInformation != null" slot="body-cell-leadNumber" slot-scope="props"
+                    <!-- <q-td v-if="props.row.leadInformation != null" v-slot:body-cell-leadNumber="props"
                             :props="props" class="cursor-pointer"
                             @click.native="toggleLeadInformation(props.row.leadInformation)">
                             <span class="label text-primary"># {{ props.row.leadInformation.leadNumber }}</span>
                         </q-td>
-                        <q-td v-if="props.row.leadInformation != null" slot="body-cell-submitToMarsDate"
-                            slot-scope="props" :props="props">{{
+                        <q-td v-if="props.row.leadInformation != null" v-slot:body-cell-submitToMarsDate="props" :props="props">{{
                                 props.row.leadInformation.submitToMarsDate | moment("Do MMM Y")
                             }}</q-td>
-                        <q-td v-if="props.row.leadInformation != null" slot="body-cell-createdAt" slot-scope="props"
+                        <q-td v-if="props.row.leadInformation != null" v-slot:body-cell-createdAt="props"
                             :props="props">{{ props.row.createdAt | moment("Do MMM Y") }}</q-td> -->
                     <q-td
-                      slot="body-cell-tid"
-                      slot-scope="props"
+                      v-slot:body-cell-tid="props"
                       :props="props"
                       class="customTd"
                     >
@@ -347,8 +342,7 @@
                       </div>
                     </q-td>
                     <q-td
-                      slot="body-cell-mid"
-                      slot-scope="props"
+                      v-slot:body-cell-mid="props"
                       :props="props"
                       class="customTd"
                     >
@@ -356,7 +350,7 @@
                         {{ props.row.mid == "" ? "NA" : props.row.mid }}
                       </div>
                     </q-td>
-                    <!-- <q-td v-if="props.row.leadInformation != null" slot="body-cell-deviceAddress" slot-scope="props"
+                    <!-- <q-td v-if="props.row.leadInformation != null" v-slot:body-cell-deviceAddress="props"
                             :props="props" class="customTd customCellLength">
                             <div>
                                 {{ props.row.deviceAddress }}
@@ -364,7 +358,7 @@
                         </q-td> -->
                     <template slot="top">
                       <div class="col-md-5">
-                        <q-search
+                        <q-input
                           clearable
                           color="grey-9"
                           v-model="filterSearch1"
@@ -376,7 +370,7 @@
                     </template>
                   </q-table>
                   <!--END: table Data -->
-                </q-tab-pane>
+                </q-tab-panell>
               </q-tabs>
               <div class="row items-center gutter-y-sm">
                 <div class="col-md-9 col-sm-12 col-xs-12">

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-modal
+    <q-dialog
       @hide="emitToggleRemarks"
       @escape-key="emitToggleRemarks"
       v-model="toggleModal"
@@ -49,7 +49,7 @@
         :propPDFDetailsFinance="PDFDetails"
         @togglePDFModal="fnPDFViewModal"
       ></financePdfComponent>
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 <script>

@@ -10,8 +10,8 @@ import {
   maxValue,
   minValue,
   decimal,
-} from "vuelidate/lib/validators";
-import { helpers } from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
+import { helpers } from "@vuelidate/validators";
 const panCard = helpers.regex(
   "panCard",
   /^([a-zA-Z]){5}([0-9]){4}([a-zA-Z]){1}?$/

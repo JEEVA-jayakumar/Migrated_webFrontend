@@ -1,6 +1,6 @@
 <template>
     <div>
-      <q-modal
+      <q-dialog
       minimized no-backdrop-dismiss
       class="customModalOverlay"
       v-model="VpaDataToggle"
@@ -12,7 +12,7 @@
         <q-btn flat size="md" icon="close" @click="emitVpaModalList(VpaDataToggle)"></q-btn>
       </div>
       <div class="row items-center q-px-lg q-py-md text-weight-regular bottom-border text-grey-9">
-      <div class="col q-title">VPA LIST</div>
+      <div class="col text-h6">VPA LIST</div>
 
     </div>
       <q-table
@@ -23,15 +23,15 @@
         row-key="name"
       >
 
-      <q-td slot="body-cell-Sno" slot-scope="props" :props="props">{{ props.row.id == null ? 'NA' : props.row.id
+      <q-td v-slot:body-cell-Sno="props" :props="props">{{ props.row.id == null ? 'NA' : props.row.id
 
             }}</q-td>
                {{ props }}
-             <q-td slot="body-cell-Vpa" slot-scope="props" :props="props">{{ props.row.vpa == null ? 'NA' : props.row.vpa
+             <q-td v-slot:body-cell-Vpa="props" :props="props">{{ props.row.vpa == null ? 'NA' : props.row.vpa
             }}</q-td>
     </q-table>
 
-      </q-modal>
+      </q-dialog>
     </div>
   </template>
 
@@ -44,7 +44,7 @@ import {
   alpha,
   alphaNum,
   numeric
-} from 'vuelidate/lib/validators'
+} from '@vuelidate/validators'
 import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'QrVpa',

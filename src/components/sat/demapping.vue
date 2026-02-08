@@ -3,7 +3,7 @@
     <div>
       <!--START: table title -->
       <div
-        class="col-md-12 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
+        class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
       >
         DE-Mapping
       </div>
@@ -25,15 +25,15 @@
           </div>
         </div>
       <!-- content -->
-      <!--START: table lead validation -->
+      <!--STARTv-model: table lead validation -->
       <q-table
         table-class="customTableClass"
         :data="tableData"
         :columns="columns"
         :filter="filter"
-        :pagination.sync="paginationControl"
+        :pagination="paginationControl"
         selection="multiple"
-        :selected.sync="formData.marsDeviceIdsDemapping"
+        v-model:selected="formData.marsDeviceIdsDemapping"
         row-key="id"
         :loading="toggleAjaxLoadFilter"
         :rows-per-page-options="[5, 10, 15, 20, 25]"
@@ -41,8 +41,7 @@
         @request="ajaxLoadAllLeadInfo"
       >
         <q-td
-          slot="body-cell-leadNumber"
-          slot-scope="props"
+          v-slot:body-cell-leadNumber="props"
           :props="props"
           class="cursor-pointer"
           @click.native="toggleLeadInformation(props.row.leadInformation)"
@@ -56,7 +55,7 @@
           <!--START: table filter,search,excel download -->
 
           <div class="col-5">
-            <q-search
+            <q-input
               clearable
               v-model="filter"
               separator

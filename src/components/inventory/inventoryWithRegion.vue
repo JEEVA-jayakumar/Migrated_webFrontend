@@ -1,12 +1,12 @@
 <template>
     <div>
-        <q-modal minimized no-backdrop-dismiss class="customModalOverlay" v-model="toggleModel"
+        <q-dialog minimized no-backdrop-dismiss class="customModalOverlay" v-model="toggleModel"
             @hide="emitfnshowEditRegion()" @escape-key="emitfnshowEditRegion()"
             :content-css="{ padding: '30px', minWidth: '40vw' }">
             <form>
                 <div class="column group">
                     <div class="col-md-12">
-                        <div class="q-title text-weight-regular">Edit Pod And Region</div>
+                        <div class="text-h6 text-weight-regular">Edit Pod And Region</div>
                     </div>
                     <!-- @click="clickFields($event)"-->
                     <div class="col-md-12">
@@ -32,12 +32,12 @@
                     </div>
                 </div>
             </form>
-        </q-modal>
+        </q-dialog>
     </div>
 </template>
 
 <script>
-import { required, maxLength, minLength } from "vuelidate/lib/validators";
+import { required, maxLength, minLength } from "@vuelidate/validators";
 
 import { mapGetters, mapActions } from "vuex";
 export default {

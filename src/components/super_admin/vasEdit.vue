@@ -1,6 +1,6 @@
 <template>
     <div>
-      <q-modal
+      <q-dialog
         minimized
         v-model="propToggleModal"
         @hide="toggleModal"
@@ -11,7 +11,7 @@
         <form>
           <div class="row gutter-sm q-py-sm items-center">
             <div class="col-md-12">
-              <div class="q-title text-weight-regular">Edit VAS</div>
+              <div class="text-h6 text-weight-regular">Edit VAS</div>
             </div>
           </div>
           <div class="row gutter-sm q-py-sm items-center">
@@ -28,7 +28,7 @@
               />
             </div>
             <!-- <div class="col-md-12">
-              <p class="q-caption">Multi-TID</p>
+              <p class="text-caption">Multi-TID</p>
                 <q-radio
                        disable
                       :error="$v.formData.multiTidEnabled.$error"
@@ -92,12 +92,12 @@
             </div>
           </div>
         </form>
-      </q-modal>
+      </q-dialog>
     </div>
   </template>
   
   <script>
-  import { integer, required } from "vuelidate/lib/validators";
+  import { integer, required } from "@vuelidate/validators";
   import { mapGetters, mapActions } from "vuex";
   export default {
     // name: 'ComponentName',

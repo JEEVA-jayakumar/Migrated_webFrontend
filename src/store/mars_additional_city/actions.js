@@ -1,10 +1,11 @@
+import { api } from '../../boot/axios';
 import api from "../api.js";
 import Vue from "vue";
 export const CITY_FORM_ADDITIONAL_TID = ({
   commit,
   rootState
 }, request) => {
-  return Vue.http
+  return api
     .get(rootState.GlobalVariables.STATE_MARS_API + 
       'city/'+ request)
     .then(response => {

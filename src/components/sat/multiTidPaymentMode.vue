@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-modal
+    <q-dialog
       class="customModalOverlay"
       v-model="toggleModel"
       @hide="emitToggleReject(toggleModel)"
@@ -8,7 +8,7 @@
       :content-css="{ padding: '100px', minWidth: '70vw' }"
     >
       <div>
-        <div align="center" class="q-subheading q-mb-md capitalize">
+        <div align="center" class="text-subtitle1 q-mb-md capitalize">
           {{
             this.propShowRejectComponent.data.institutionCode == "112"
               ? "DBS INSTANCE"
@@ -35,7 +35,7 @@
               : null
           }}
         </div>
-        <div align="center" class="text-light-blue q-title q-mb-md">
+        <div align="center" class="text-light-blue text-h6 q-mb-md">
           <span>#{{ this.propShowRejectComponent.data.baseTid }}</span> |
           {{ this.propShowRejectComponent.data.rrId }} |
           {{ this.propShowRejectComponent.data.scheme }}
@@ -120,7 +120,7 @@
           </q-btn>
         </div>
       </div>
-    </q-modal>
+    </q-dialog>
     <additionalInfo
       v-if="showRejectAdditionalInfo"
       :showRejectAdditionalInfo="showRejectAdditionalInfo"
@@ -152,7 +152,7 @@ import {
   maxValue,
   minValue,
   decimal,
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 Vue.use(Vuelidate);
 import { date } from "quasar";
 import moment from "moment";
@@ -164,7 +164,7 @@ import Vue from "vue";
 import viewLeadDocumentsDataEntryComponent from "./viewLeadDocumentsDataEntryComponent.vue";
 // import MarsErrorResponse from "../MarsErrorResponseHandler.vue";
 
-import { helpers } from "vuelidate/lib/validators";
+import { helpers } from "@vuelidate/validators";
 const today = new Date();
 const { startOfDate, addToDate, subtractFromDate } = date;
 const panCard = helpers.regex(

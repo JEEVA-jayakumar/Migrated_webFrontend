@@ -1,11 +1,11 @@
 <template>
   <div>
-    <q-modal v-model="toggleModal" @hide="emitToggleinventoryBulkUpload(toggleModal)"
+    <q-dialog v-model="toggleModal" @hide="emitToggleinventoryBulkUpload(toggleModal)"
       @escape-key="emitToggleinventoryBulkUpload(toggleModal)" :content-css="{ padding: '10px', maxWidth: '50vw' }">
       <div class="q-pa-md">
         <div class="row text-center justify-center">
           <div class="col-md-12 q-py-sm bottom-border">
-            <div class="q-title text-grey-9">Aggregator Add New Device - Bulk Upload</div>
+            <div class="text-h6 text-grey-9">Aggregator Add New Device - Bulk Upload</div>
           </div>
           <!-- <div class="col-md-8 q-py-md" align="left">
             <q-select color="grey-9" v-model="formData.aggregator" float-label="Select Aggregator" radio
@@ -34,20 +34,20 @@
             </div>
             <div v-else align="left">
               <q-card dense class="q-pa-xs">
-                <q-card-title>
+                <q-card-section>
                   Uploaded File
-                </q-card-title>
-                <q-card-separator />
-                <q-card-main>
+                </q-card-section>
+                <q-separator />
+                <q-card-section>
                   <q-item dense>
-                    <q-item-side icon="attach_file" />
-                    <q-item-main>{{
+                    <q-item-section icon="attach_file" />
+                    <q-item-section>{{
                       formData.fileSelected[0].name
-                    }}</q-item-main>
-                    <q-item-side></q-item-side>
+                    }}</q-item-section>
+                    <q-item-section></q-item-section>
                   </q-item>
-                </q-card-main>
-                <q-card-separator />
+                </q-card-section>
+                <q-separator />
                 <q-card-actions align="end">
                   <q-btn outline size="sm" color="negative" @click="removeBulkUploadFile" label="Remove" icon="clear" />
                 </q-card-actions>
@@ -60,7 +60,7 @@
           </div>
         </div>
       </div>
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 <script>

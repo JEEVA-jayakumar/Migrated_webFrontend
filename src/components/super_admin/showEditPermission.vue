@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-modal 
+    <q-dialog
     minimized no-backdrop-dismiss
     class="customModalOverlay"
     v-model="propShowEditPermissionToggle"  
@@ -11,7 +11,7 @@
       <form> 
         <div class="column q-pa-md bottom-border">
           <div class="col-md-12">
-            <div class="q-title text-weight-regular">Edit Permission</div>
+            <div class="text-h6 text-weight-regular">Edit Permission</div>
           </div>
         </div>
         <div class="column q-pa-md">
@@ -32,7 +32,7 @@
           </div>
         </div>
       </form>
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 
@@ -45,7 +45,7 @@ import {
   alpha,
   alphaNum,
   numeric
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 export default {
   props: ["propRowDetails", "propShowEditPermission"],

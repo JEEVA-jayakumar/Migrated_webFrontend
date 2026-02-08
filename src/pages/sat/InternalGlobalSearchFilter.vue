@@ -3,13 +3,13 @@
     <!-- content -->
     <div>
       <div
-        class="col-md-12 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
+        class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
       >
         Bijlipay Global Serial Number/TID Search
       </div>
       <div class="row gutter-x-xs gutter-y-xs q-pt-md justify-around items-end">
         <div class="col-md-6">
-          <q-search
+          <q-input
             clearable
             color="grey-9"
             @blur="$v.formData.searchTerm.$touch"
@@ -71,7 +71,7 @@
     >
       <div class="row" align="center">
         <q-icon name="warning" color="warning" size="4rem" />
-        <div class="q-subheading text-bold text-grey-9" style="align-self: center">
+        <div class="text-subtitle1 text-bold text-grey-9" style="align-self: center">
           No Data Available
         </div>
       </div>
@@ -84,22 +84,22 @@
     >
       <div class="col-lg-4 col-md-6 col-sm-12">
         <q-card class="q-card q-py-md items-center round-borders q-pa-sm">
-          <q-card-title>
+          <q-card-section>
             <div
               v-if="tableData.length > 0 && viewopen == 1"
-              class="q-subheading text-bold text-grey-9"
+              class="text-subtitle1 text-bold text-grey-9"
             >
               Lead Status
             </div>
             <div
               v-if="tableData.length > 0 && viewopen == 2"
-              class="q-subheading text-bold text-grey-9"
+              class="text-subtitle1 text-bold text-grey-9"
             >
               QR Lead Status
             </div>
-          </q-card-title>
-          <q-card-separator></q-card-separator>
-          <q-card-main>
+          </q-card-section>
+          <q-separator></q-separator>
+          <q-card-section>
             <div v-if="tableData.length > 0 && viewopen == 1">
               <div class="row gutter-x-xs gutter-y-xs q-pa-sm text-grey-9">
                 <span class="col-md-4 text-weight-medium">{{
@@ -266,16 +266,16 @@
             > -->
               </div>
             </div>
-          </q-card-main>
+          </q-card-section>
         </q-card>
       </div>
       <div class="col-lg-4 col-md-6 col-sm-12">
         <q-card class="q-card q-py-md round-borders q-pa-sm">
-          <q-card-title>
-            <div class="q-subheading text-bold text-grey-9">Tid Status</div>
-          </q-card-title>
-          <q-card-separator></q-card-separator>
-          <q-card-main>
+          <q-card-section>
+            <div class="text-subtitle1 text-bold text-grey-9">Tid Status</div>
+          </q-card-section>
+          <q-separator></q-separator>
+          <q-card-section>
             <div v-if="tableData.length > 0">
               <div
                 v-if="tdata.tidStatus == 6"
@@ -391,16 +391,16 @@
                 >
               </div>
             </div>
-          </q-card-main>
+          </q-card-section>
         </q-card>
       </div>
       <div class="col-lg-4 col-md-6 col-sm-12 no-wrap">
         <q-card class="q-card q-py-md round-borders q-pa-sm">
-          <q-card-title>
-            <div class="q-subheading text-bold text-grey-9">Serial Number Status</div>
-          </q-card-title>
-          <q-card-separator></q-card-separator>
-          <q-card-main>
+          <q-card-section>
+            <div class="text-subtitle1 text-bold text-grey-9">Serial Number Status</div>
+          </q-card-section>
+          <q-separator></q-separator>
+          <q-card-section>
             <div v-if="tableData.length > 0">
               <div class="row gutter-x-xs gutter-y-xs q-pa-sm text-grey-9">
                 <span class="col-md-4 text-weight-medium">{{
@@ -548,7 +548,7 @@
                 >
               </div>
             </div>
-          </q-card-main>
+          </q-card-section>
         </q-card>
       </div>
     </div>
@@ -561,7 +561,7 @@
 </template>
 <script>
 import { mapGetters, mapActions } from "vuex";
-import { required, minLength, maxLength } from "vuelidate/lib/validators";
+import { required, minLength, maxLength } from "@vuelidate/validators";
 const deCapitalizeFirstLetter = ([first, ...rest], locale = navigator.language) =>
   first === undefined ? "" : first.toLocaleLowerCase(locale) + rest.join("");
 export default {

@@ -71,7 +71,7 @@ import {
   alphaNum,
   numeric,
   sameAs
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 
 export default {
   name: "passwordrecovery",

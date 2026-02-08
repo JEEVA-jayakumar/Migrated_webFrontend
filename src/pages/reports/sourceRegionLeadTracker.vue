@@ -2,7 +2,7 @@
   <q-page>
     <div>
       <!--START: table title -->
-      <div class="col-md-12 q-title q-px-md q-py-md text-weight-regular bottom-border text-grey-9">Sourcewise Region Device Tracker</div>
+      <div class="col-md-12 text-h6 q-px-md q-py-md text-weight-regular bottom-border text-grey-9">Sourcewise Region Device Tracker</div>
       <div class="row q-pa-md">
         <div class="col-6 group">
           <p>Choose one from the below or you can choose start and end date manually</p>
@@ -18,8 +18,8 @@
       </div>
       <div class="row q-pa-md">
         <div class="col-6 group">
-          <q-datetime type="date" modal v-model="formData.from" color="grey-9" float-label="Start date"/>
-          <q-datetime type="date" modal v-model="formData.to" color="grey-9" float-label="End date"/>
+          <q-input type="date" modal v-model="formData.from" color="grey-9" float-label="Start date"/>
+          <q-input type="date" modal v-model="formData.to" color="grey-9" float-label="End date"/>
         </div>
         <div class="col-12 group">
           <q-btn class="common-dark-blue" @click="downloadReport()" label="Download" />

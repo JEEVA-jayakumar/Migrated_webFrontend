@@ -3,10 +3,10 @@
     <!-- content -->
     <div>
      
-      <q-pull-to-refresh :handler="PullToRefresh" inline>
+      <q-pull-to-refresh v-model:handler="PullToRefresh" inline>
         <!--START: table title -->
         <div
-          class="col-md-12 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
+          class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
         >
           Aggregators Send To Repair
         </div>
@@ -26,14 +26,14 @@
         :data="tableData"
         color="grey-9"
         :filter="filterSearch"
-        :pagination.sync="paginationControl"
+        :pagination="paginationControl"
         :rows-per-page-options="[5,10,15,20,25]"
         :loading="toggleAjaxLoadFilter"
         @request="ajaxLoadAllLeadInfo2"
         >
 
           <!--START: table header -->
-          <q-tr slot="top-row" slot-scope="props">
+          <q-tr v-slot:top-row="props">
             <q-th v-for="col in props.columns" :key="col.name" :props="props">{{
               col.label
             }}</q-th>
@@ -41,7 +41,7 @@
           
 
           <!--END: table header -->
-          <template slot="body" slot-scope="props">
+          <template v-slot:body="props">
             <!--START: table rows -->
             <q-tr :props="props" class="bottom-border">
               <q-td auto-width key="aggregatorDevice" :props="props">{{
@@ -77,7 +77,7 @@
           <template slot="top" class="bottom-border">
             <!--START: table filter,search -->
             <div class="col-md-5">
-              <q-search
+              <q-input
                 clearable
                 color="grey-9"
                 v-model="filterSearch"

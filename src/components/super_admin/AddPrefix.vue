@@ -1,30 +1,30 @@
 <template>
   <div>
-    <q-modal minimized v-model="propToggleModal" @hide="toggleModal" @escape-key="toggleModal"
+    <q-dialog minimized v-model="propToggleModal" @hide="toggleModal" @escape-key="toggleModal"
       class="customModalOverlay" :content-css="{ padding: '30px', minWidth: '30vw' }">
       <form>
         <div class="row gutter-sm q-py-sm items-center">
           <div class="col-md-12">
-            <div class="q-title text-weight-regular">Add Prefix</div>
+            <div class="text-h6 text-weight-regular">Add Prefix</div>
           </div>
         </div>
         <div class="row gutter-sm q-py-sm items-center">
           <q-card style="width:100%">
-            <q-card-main>
+            <q-card-section>
               <q-list no-border>
 
                 <q-item>
-                  <q-item-main>
+                  <q-item-section>
                     <q-select color="grey-9" v-model="formData.leadSource" :options="dropDown.leadSourceOptions"
                       float-label="Select lead source" placeholder="Lead source" />
-                  </q-item-main>
+                  </q-item-section>
                 </q-item>
                 <q-item>
-                  <q-item-main>
+                  <q-item-section>
                     <q-input color="grey-9" v-model="formData.prefix" @blur="$v.formData.prefix.$touch"
                       :error="$v.formData.prefix.$error" float-label="Enter prefix* (3 digits)"
                       placeholder="Enter prefix* (3 digits)" />
-                    <div class="text-negative q-py-xs group q-caption" v-if="$v.formData.prefix.$error">
+                    <div class="text-negative q-py-xs group text-caption" v-if="$v.formData.prefix.$error">
                       <div v-if="
                         $v.formData.prefix.$params
                           .required
@@ -48,10 +48,10 @@
                         }}
                       </div>
                     </div>
-                  </q-item-main>
+                  </q-item-section>
                 </q-item>
               </q-list>
-            </q-card-main>
+            </q-card-section>
           </q-card>
 
         </div>
@@ -63,12 +63,12 @@
           </div>
         </div>
       </form>
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
   
 <script>
-import { integer, required, minLength, maxLength } from "vuelidate/lib/validators";
+import { integer, required, minLength, maxLength } from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 export default {
   // name: 'ComponentName',

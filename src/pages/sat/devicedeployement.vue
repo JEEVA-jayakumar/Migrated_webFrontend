@@ -14,7 +14,7 @@
               <!-- @input="planSelected" -->
             </div>
             <div class="col-xs-12 col-sm-6">
-              <q-datetime
+              <q-input
                 format="DD/MM/YYYY"
                 v-model="merchant.paymentDetails.installationDate"
                 class="no-margin"
@@ -23,7 +23,7 @@
               <!-- @input="planSelected" -->
             </div>
             <div class="col-xs-12 col-sm-6">
-              <q-datetime
+              <q-input
                 format="DD/MM/YYYY"
                 v-model="merchant.paymentDetails.deinstallationDate"
                 class="no-margin"
@@ -66,7 +66,7 @@ import {
   maxValue,
   minValue,
   decimal
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import moment from "moment";
 import { mapGetters, mapActions } from "vuex";
 import { uid, filter } from "quasar";
@@ -74,7 +74,7 @@ import Vue from "vue";
 import MarsErrorResponse from "../../components/MarsErrorResponseHandler.vue";
 import showPdfModalComponent from "../../components/sat/showPdfModalComponent.vue";
 
-import { helpers } from "vuelidate/lib/validators";
+import { helpers } from "@vuelidate/validators";
 
 const gstn = helpers.regex(
   "gstn",

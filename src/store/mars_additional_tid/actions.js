@@ -1,3 +1,4 @@
+import { api } from '../../boot/axios';
 import api from "../api.js";
 import Vue from "vue";
 export const ADDITIONAL_TID_FROM_MARS = ({
@@ -12,7 +13,7 @@ export const ADDITIONAL_TID_FROM_MARS = ({
 };
 
 if(res == 104){
-  return Vue.http
+  return api
   .post(rootState.GlobalVariables.STATE_MARS_AXIS_ON_BOARD_API_URL + 'additionalTerminals',request,
   { 
     headers: headers
@@ -23,7 +24,7 @@ if(res == 104){
     return response
   })
 }else{
-  return Vue.http
+  return api
   .post(rootState.GlobalVariables.STATE_MARS_ON_BOARD_API_URL + 'additionalTerminals',request,
   { 
     headers: headers

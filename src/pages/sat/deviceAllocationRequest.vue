@@ -1,32 +1,32 @@
 <template>
   <q-page>
     <div
-      class="col-md-12 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
+      class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
     > Device Request</div>
    
     <q-table
       table-class="customTableClass"
-      :data="tableData"
+      v-model:data="tableData"
       :columns="columns"
       :filter="filter"
-      :pagination.sync="paginationControl"
+      :pagination="paginationControl"
       :loading="toggleAjaxLoadFilter"
       :rows-per-page-options="[5, 10, 15, 20]"
       @request="ajaxLoadAllLeadInfo"
     >
       
-      <q-td slot="body-cell-soName" slot-scope="props" :props="props">{{
+      <q-td v-slot:body-cell-soName="props" :props="props">{{
         props.row.soName == null
           ? "NA"
           : props.row.soName
       }}</q-td>
    
-      <!-- <q-td slot="body-cell-deviceStatusDate" slot-scope="props" :props="props">
+      <!-- <q-td v-slot:body-cell-deviceStatusDate="props" :props="props">
         <span class="label">{{
           props.row.deviceStatusDate | moment("Do MMM Y")
         }}</span>
       </q-td>   -->
-       <q-td slot="body-cell-action" slot-scope="props" :props="props">
+       <q-td v-slot:body-cell-action="props" :props="props">
         <q-btn 
          v-if="props.row.status == 0"
           highlight
@@ -54,7 +54,7 @@
        </div>
        
       </q-td>
-      <!-- <q-td slot="body-cell-action2" slot-scope="props" :props="props"  > -->
+      <!-- <q-td v-slot:body-cell-action2="props" :props="props"  > -->
        
        <!-- <q-td auto-width key="action" :props="props">
               <q-btn
@@ -71,7 +71,7 @@
       <template slot="top" class="bottom-border">
         <!--START: table filter,search,excel download -->
         <div class="col-5">
-          <q-search
+          <q-input
             clearable
             v-model="filter"
             separator
@@ -123,7 +123,7 @@ const { startOfDate, addToDate, subtractFromDate } = date;
 import moment from "moment";
 
 import deviceAllocationRequest from "../../components/sat/rejectDeviceRequest.vue";
-import { req } from "vuelidate/lib/validators/common";
+import { req } from "@vuelidate/validators";
 
 
 export default {

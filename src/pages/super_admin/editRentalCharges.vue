@@ -1,19 +1,19 @@
 <template>
   <q-page>
-    <q-modal
+    <q-dialog
       minimized no-backdrop-dismiss
       class="customModalOverlay"
       v-model="toggleModel"
       :content-css="{ padding: '25px', minWidth: '40vw' }"
     >
       <div class="row">
-        <div class="col-12 q-title q-pa-md text-weight-regular bottom-border">
+        <div class="col-12 text-h6 q-pa-md text-weight-regular bottom-border">
           Existing Rental charge
         </div>
         <!-- START >> Setup MDR details -->
         <div class="col-md-5 col-sm-4 col-xs-12 q-pa-sm">
           <q-card style="width:150%">
-            <q-card-main>
+            <q-card-section>
               <q-list no-border>
                 <div class="col-md-12">
                   <q-select
@@ -71,7 +71,7 @@
                   />
                 </div>
               </q-list>
-            </q-card-main>
+            </q-card-section>
             <q-card-actions  align="end">
               <q-btn
               flat
@@ -113,7 +113,7 @@
         ></showMerchantModalComponent>
         <!--END: Show lead source -->
       </div>
-    </q-modal>
+    </q-dialog>
   </q-page>
 </template>
 

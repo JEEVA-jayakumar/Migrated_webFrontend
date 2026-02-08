@@ -1,9 +1,9 @@
 <template>
   <q-page>
     <div>
-      <!--START: table title -->
+      <!--STARTv-model: table title -->
       <div
-        class="col-md-12 q-title q-px-lg q-py-md text-weight-regular text-grey-9"
+        class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular text-grey-9"
       ></div>
       <!--END: table title -->
       <!-- //Common lead information in popup -->
@@ -21,24 +21,23 @@
         :data="tableData"
         color="grey-9"
         :filter="filterSearch"
-        :pagination.sync="paginationControl"
+        :pagination="paginationControl"
         :rows-per-page-options="[5, 10, 15, 20, 25]"
         :loading="toggleAjaxLoadFilter"
         @request="ajaxLoadAllLeadInfo"
       >
-        <q-td slot="body-cell-updated_date" slot-scope="props" :props="props">{{
+        <q-td v-slot:body-cell-updated_date="props" :props="props">{{
           props.row.updated_date == null
             ? "NA"
             : props.row.updated_date | moment("Do MMM Y")
         }}</q-td>
-        <q-td slot="body-cell-created_date" slot-scope="props" :props="props">{{
+        <q-td v-slot:body-cell-created_date="props" :props="props">{{
           props.row.created_date == null
             ? "NA"
             : props.row.created_date | moment("Do MMM Y")
         }}</q-td>
         <q-td
-          slot="body-cell-regionAreaName"
-          slot-scope="props"
+          v-slot:body-cell-regionAreaName="props"
           :props="props"
           >{{
             props.row.allocate_region == null
@@ -46,10 +45,10 @@
               : props.row.allocate_region.regionAreaName
           }}</q-td
         >
-        <q-td slot="body-cell-name" slot-scope="props" :props="props">{{
+        <q-td v-slot:body-cell-name="props" :props="props">{{
           props.row.allocate_so == null ? "NA" : props.row.allocate_so.name+" | "+props.row.allocate_so.employeeID
         }}</q-td>
-        <q-td slot="body-cell-status" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-status="props" :props="props">
         <span class="label text-positive" v-if="props.row.status == 1"
             >Created</span
           >
@@ -72,7 +71,7 @@
           <span class="label text-negative" v-else>NA</span>
         </q-td>
 
-        <q-td slot="body-cell-action" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-action="props" :props="props">
           <q-btn
             highlight
             push
@@ -87,7 +86,7 @@
         <template slot="top">
           <!--START: table filter,search -->
           <div class="col-md-5">
-            <q-search
+            <q-input
               clearable
               color="grey-9"
               v-model="filterSearch"

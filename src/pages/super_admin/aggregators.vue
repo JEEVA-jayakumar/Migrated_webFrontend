@@ -6,14 +6,14 @@
             <q-tabs class="shadow-1" color="grey-1">
                 <q-tab default color="dark" name="active" slot="title" label="Active Aggregators" />
                 <q-tab color="dark" name="deactive" slot="title" label="Deactive Aggregators" />
-                <q-tab-pane name="active">
-                    <q-table :data="activeTableData" table-class="customSATableClass" :columns="columns"
-                        :filter="filterSearch" :pagination.sync="paginationControl"
+                <q-tab-panel name="active">
+                    <q-table v-model:data="activeTableData" table-class="customSATableClass" :columns="columns"
+                        :filter="filterSearch" :pagination="paginationControl"
                         :filter-method="myCustomSearchFilter" row-key="name" color="grey-9">
-                        <!-- <q-td slot="body-cell-regionGroup" slot-scope="props" :props="props">{{ props.row.regionName
+                        <!-- <q-td v-slot:body-cell-regionGroup="props" :props="props">{{ props.row.regionName
                                 == null ? "NA" : props.row.regionName
                         }}</q-td> -->
-                        <q-td slot="body-cell-action" slot-scope="props" :props="props">
+                        <q-td v-slot:body-cell-action="props" :props="props">
                             <div class="row no-wrap no-padding">
                                 <q-btn dense no-caps no-wrap label="Modify" icon="far fa-plus-square" size="md"
                                     @click="fnShowEditAggregator(props.row)" flat class="text-light-blue"></q-btn>
@@ -22,11 +22,11 @@
                             </div>
                         </q-td>
 
-                        <template slot="top" slot-scope="props">
+                        <template v-slot:top="props">
                             <!--END: table title -->
                             <!--START: table filter,search -->
                             <div class="col-6">
-                                <q-search clearable color="grey-9" v-model="filterSearch" placeholder="Type.."
+                                <q-input clearable color="grey-9" v-model="filterSearch" placeholder="Type.."
                                     class="q-mr-lg" />
                             </div>
                             <!--END: table filter,search -->
@@ -36,16 +36,16 @@
                             </div>
                         </template>
                     </q-table>
-                </q-tab-pane>
+                </q-tab-panell>
 
-                <q-tab-pane name="deactive">
-                    <q-table :data="deActiveTableData" table-class="customSATableClass" :columns="columns1"
-                        :filter="filterSearch" :pagination.sync="paginationControl"
+                <q-tab-panel name="deactive">
+                    <q-table v-model:data="deActiveTableData" table-class="customSATableClass" :columns="columns1"
+                        :filter="filterSearch" :pagination="paginationControl"
                         :filter-method="myCustomSearchFilter" row-key="name" color="grey-9">
-                        <!-- <q-td slot="body-cell-regionGroup" slot-scope="props" :props="props">{{ props.row.regionName
+                        <!-- <q-td v-slot:body-cell-regionGroup="props" :props="props">{{ props.row.regionName
                                 == null ? "NA" : props.row.regionName
                         }}</q-td> -->
-                        <q-td slot="body-cell-action1" slot-scope="props" :props="props">
+                        <q-td v-slot:body-cell-action1="props" :props="props">
                             <div class="row no-wrap no-padding">
                                 <q-btn dense no-caps no-wrap label="Active" icon="far fa-plus-square" size="md"
                                     @click="fnActivate(props.row)" flat class="positive"></q-btn>
@@ -54,11 +54,11 @@
                             </div>
                         </q-td>
 
-                        <template slot="top" slot-scope="props">
+                        <template v-slot:top="props">
                             <!--END: table title -->
                             <!--START: table filter,search -->
                             <div class="col-6">
-                                <q-search clearable color="grey-9" v-model="filterSearch" placeholder="Type.."
+                                <q-input clearable color="grey-9" v-model="filterSearch" placeholder="Type.."
                                     class="q-mr-lg" />
                             </div>
                             <!--END: table filter,search -->
@@ -68,7 +68,7 @@
                             </div> -->
                         </template>
                     </q-table>
-                </q-tab-pane>
+                </q-tab-panell>
                 <!-- We can't disable regiongroup because existing flow through errors-->
 
 

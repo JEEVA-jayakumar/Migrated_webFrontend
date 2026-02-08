@@ -1,13 +1,13 @@
 <template>
   <div>
-    <q-modal
+    <q-dialog
       v-model="toggleModal"
       @hide="emitForgotPasswordToggle(toggleModal)"
       @escape-key="emitForgotPasswordToggle(toggleModal)"
       :content-css="{padding:'30px',minWidth:'35vw'}"
     >
       <div>
-        <div class="q-title q-py-md">Forgot Password</div>
+        <div class="text-h6 q-py-md">Forgot Password</div>
         <q-input
           v-model.trim="formData.email"
           class="text-weight-regular text-grey-8 q-py-md"
@@ -30,11 +30,11 @@
           @click="emitForgotPasswordToggle(toggleModal)"
         >Cancel</q-btn>
       </div>
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 <script>
-import { required, email } from "vuelidate/lib/validators";
+import { required, email } from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 export default {
   props: ["propShowForgetPassword"],

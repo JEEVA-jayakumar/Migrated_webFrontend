@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-modal
+    <q-dialog
       minimized
       class="customModalOverlay"
       v-model="toggleModel"
@@ -11,7 +11,7 @@
       <form>
         <div class="column group">
           <div class="col-md-12">
-            <div class="q-title text-weight-regular">Edit POD</div>
+            <div class="text-h6 text-weight-regular">Edit POD</div>
           </div>
           <div class="col-md-12">
             <q-input
@@ -43,12 +43,12 @@
           </div>
         </div>
       </form>
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 
 <script>
-import { required, maxLength, minLength } from "vuelidate/lib/validators";
+import { required, maxLength, minLength } from "@vuelidate/validators";
 
 import { mapGetters, mapActions } from "vuex";
 export default {

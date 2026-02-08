@@ -4,10 +4,10 @@
       <div class="col-md-12">
         <div class="row items-center">
           <div class="col-3">
-            <div class="q-caption text-weight-medium">Domestic Debit Card below 2000</div>
+            <div class="text-caption text-weight-medium">Domestic Debit Card below 2000</div>
           </div>
           <div class="col">
-            <div class="q-caption text-weight-medium q-py-sm" align="center">Merchant Disc Fee</div>
+            <div class="text-caption text-weight-medium q-py-sm" align="center">Merchant Disc Fee</div>
             <div class="row group bg-green-2">
               <div class="col">
                 <q-input
@@ -42,7 +42,7 @@
             </div>
           </div>
           <div class="col" v-if="showOnlyIfSharingModelIsEnabled">
-            <div class="q-caption text-weight-medium q-py-sm" align="center">Sharing Disc Fee</div>
+            <div class="text-caption text-weight-medium q-py-sm" align="center">Sharing Disc Fee</div>
             <div class="row group bg-yellow-2">
               <div class="col">
                 <q-input
@@ -79,7 +79,7 @@
         </div>
         <div class="row items-center">
           <div class="col-3">
-            <div class="q-caption text-weight-medium">Domestic Debit Card above 2000</div>
+            <div class="text-caption text-weight-medium">Domestic Debit Card above 2000</div>
           </div>
           <div class="col">
             <div class="row group bg-green-2">
@@ -153,7 +153,7 @@
 
         <div class="row items-center">
           <div class="col-3">
-            <div class="q-caption text-weight-medium">Standard/Classic (1st Stab)</div>
+            <div class="text-caption text-weight-medium">Standard/Classic (1st Stab)</div>
           </div>
           <div class="col">
             <div class="row group bg-green-2">
@@ -226,7 +226,7 @@
         </div>
         <div class="row items-center">
           <div class="col-3">
-            <div class="q-caption text-weight-medium">Premium/Platinum (2nd Stab)</div>
+            <div class="text-caption text-weight-medium">Premium/Platinum (2nd Stab)</div>
           </div>
           <div class="col">
             <div class="row group bg-green-2">
@@ -299,7 +299,7 @@
         </div>
         <div class="row items-center">
           <div class="col-3">
-            <div class="q-caption text-weight-medium">Super Premium/Signature (3rd Stab)</div>
+            <div class="text-caption text-weight-medium">Super Premium/Signature (3rd Stab)</div>
           </div>
           <div class="col">
             <div class="row group bg-green-2">
@@ -372,7 +372,7 @@
         </div>
         <div class="row items-center">
           <div class="col-3">
-            <div class="q-caption text-weight-medium">Commercial/Coporate 4th Stab</div>
+            <div class="text-caption text-weight-medium">Commercial/Coporate 4th Stab</div>
           </div>
           <div class="col">
             <div class="row group bg-green-2">
@@ -445,7 +445,7 @@
         </div>
         <div class="row items-center">
           <div class="col-3">
-            <div class="q-caption text-weight-medium">International Debit Card</div>
+            <div class="text-caption text-weight-medium">International Debit Card</div>
           </div>
           <div class="col">
             <div class="row group bg-green-2">
@@ -518,7 +518,7 @@
         </div>
         <div class="row items-center">
           <div class="col-3">
-            <div class="q-caption text-weight-medium">International Credit Card</div>
+            <div class="text-caption text-weight-medium">International Credit Card</div>
           </div>
           <div class="col">
             <div class="row group bg-green-2">
@@ -591,7 +591,7 @@
         </div>
         <div class="row items-center">
           <div class="col-3">
-            <div class="q-caption text-weight-medium">Onus</div>
+            <div class="text-caption text-weight-medium">Onus</div>
           </div>
           <div class="col">
             <div class="row group bg-green-2">
@@ -664,7 +664,7 @@
         </div>
         <div class="row items-center">
           <div class="col-3">
-            <div class="q-caption text-weight-medium">mVISA</div>
+            <div class="text-caption text-weight-medium">mVISA</div>
           </div>
           <div class="col">
             <div class="row group bg-green-2">
@@ -737,7 +737,7 @@
         </div>
         <div class="row items-center">
           <div class="col-3">
-            <div class="q-caption text-weight-medium">Master Pass</div>
+            <div class="text-caption text-weight-medium">Master Pass</div>
           </div>
           <div class="col">
             <div class="row group bg-green-2">
@@ -810,7 +810,7 @@
         </div>
         <div class="row items-center">
           <div class="col-3">
-            <div class="q-caption text-weight-medium">Cash at POS</div>
+            <div class="text-caption text-weight-medium">Cash at POS</div>
           </div>
           <div class="col">
             <div class="row group bg-green-2">
@@ -911,7 +911,7 @@ import {
   decimal,
   between,
   numeric
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 export default {
   // name: 'ComponentName',
   props: [

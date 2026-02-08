@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-modal
+    <q-dialog
       minimized
       v-model="toggleModel"
       @hide="emitfnshowEditDeviceTypes"
@@ -9,7 +9,7 @@
       :content-css="{padding:'30px',minWidth:'30vw'}"
     >
       <form>
-        <div class="q-title text-weight-regular q-py-md bottom-border">
+        <div class="text-h6 text-weight-regular q-py-md bottom-border">
           <q-icon name="border_color" size="25px" color="purple-9"/>Modify Device
         </div>
 
@@ -80,12 +80,12 @@
           </div>
         </div>
       </form>
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 
 <script>
-import { required, maxValue } from "vuelidate/lib/validators";
+import { required, maxValue } from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 
 export default {

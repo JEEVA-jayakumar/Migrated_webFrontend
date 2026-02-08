@@ -18,7 +18,7 @@
                 </div>
                 <div v-else class="row group">
                   <div>
-                    <q-alert color="purple-9" icon="info">No data available to display</q-alert>
+                    <q-banner color="purple-9" icon="info">No data available to display</q-banner>
                   </div>
                 </div>
               </div>
@@ -27,45 +27,45 @@
           <q-tab default color="dark" name="tab-1" slot="title" label="Pending QR" />
           <q-tab color="dark" name="tab-2" slot="title" label="Approved QR" />
           <q-tab color="dark" name="tab-3" slot="title" label="Allocate To SO" />
-          <q-tab-pane name="tab-1">
+          <q-tab-panel name="tab-1">
             <div class="row items-center">
             
               <div class="col-8"></div>
-              <q-search class="col-4" clearable color="grey-9" placeholder="Type.." v-model="filter"
+              <q-input class="col-4" clearable color="grey-9" placeholder="Type.." v-model="filter"
                 float-label="Search By POD Number" />
             </div>
-            <q-table table-class="customTableClass" class="q-py-none" :data="tableData" :columns="columns"
-              :filter="filter" :rows-per-page-options="[5, 10, 15]" :pagination.sync="paginationControl"
+            <q-table table-class="customTableClass" class="q-py-none" v-model:data="tableData" :columns="columns"
+              :filter="filter" :rows-per-page-options="[5, 10, 15]" :pagination="paginationControl"
               :loading="toggleAjaxLoadFilter" @request="ajaxLoadAllLeadInfo">
-              <q-td slot="body-cell-updatedAt" slot-scope="props" :props="props">{{
+              <q-td v-slot:body-cell-updatedAt="props" :props="props">{{
                 props.row == null ? "NA" : props.row.updatedAt |
               moment("Do MMM Y")
               }}</q-td>
-              <q-td slot="body-cell-Action" slot-scope="props" :props="props">
+              <q-td v-slot:body-cell-Action="props" :props="props">
                 <q-btn dense no-caps no-wrap label="Approve" icon="edit" size="md" @click="ApproveIncomingData(props.row)"
                   flat class="text-primary">
                 </q-btn>
 
               </q-td>
             </q-table>
-          </q-tab-pane>
-          <q-tab-pane name="tab-2">
+          </q-tab-panell>
+          <q-tab-panel name="tab-2">
             <div class="row">
               <div class="col-8"></div>
-              <q-search class="col-4" v-model="filter1" clearable color="grey-9" placeholder="Type.."
+              <q-input class="col-4" v-model="filter1" clearable color="grey-9" placeholder="Type.."
                 float-label="Search By POD Number" />
             </div>
-            <q-table table-class="customTableClass" class="q-py-none" :data="tableData1" :columns="columns2"
-              :filter="filter1" :rows-per-page-options="[5, 10, 15]" :pagination.sync="paginationControl1"
+            <q-table table-class="customTableClass" class="q-py-none" v-model:data="tableData1" :columns="columns2"
+              :filter="filter1" :rows-per-page-options="[5, 10, 15]" :pagination="paginationControl1"
               :loading="toggleAjaxLoadFilter1" @request="ajaxLoadAllLeadInfo1">
-              <q-td slot="body-cell-updatedAt" slot-scope="props" :props="props">{{
+              <q-td v-slot:body-cell-updatedAt="props" :props="props">{{
                 props.row.updatedAt |
                 moment("Do MMM Y")
               }}</q-td>
             </q-table>
 
-          </q-tab-pane>
-          <q-tab-pane name="tab-3">
+          </q-tab-panell>
+          <q-tab-panel name="tab-3">
             <div>
               <!-- <div class="col-md-9 col-sm-12 col-xs-12">
                 <div v-if="this.formData.count != null" class="row">
@@ -81,7 +81,7 @@
                 </div>
                 <div v-else class="row group">
                   <div>
-                    <q-alert color="purple-9" icon="info">No data available to display</q-alert>
+                    <q-banner color="purple-9" icon="info">No data available to display</q-banner>
                   </div>
                 </div>
               </div> -->
@@ -143,53 +143,53 @@
               <q-tab default color="dark" name="tab-4" slot="title" label="Pending List" />
               <q-tab default color="dark" name="tab-5" slot="title" label="Approved List" />
               <q-tab default color="dark" name="tab-6" slot="title" label="Rejected List" />
-              <q-tab-pane name="tab-4">
+              <q-tab-panel name="tab-4">
                 <div class="row">
               <div class="col-8"></div>
-              <q-search class="col-4" v-model="filter4" clearable color="grey-9" placeholder="Type.."
+              <q-input class="col-4" v-model="filter4" clearable color="grey-9" placeholder="Type.."
                 float-label="Search By POD Number" />
             </div>
-            <q-table table-class="customTableClass" class="q-py-none" :data="tableData4" :columns="columns4"
-              :filter="filter4" :rows-per-page-options="[5, 10, 15]" :pagination.sync="paginationControl4"
+            <q-table table-class="customTableClass" class="q-py-none" v-model:data="tableData4" :columns="columns4"
+              :filter="filter4" :rows-per-page-options="[5, 10, 15]" :pagination="paginationControl4"
               :loading="toggleAjaxLoadFilter4" @request="ajaxLoadAllLeadInfo4">
-              <q-td slot="body-cell-createdAt" slot-scope="props" :props="props">{{
+              <q-td v-slot:body-cell-createdAt="props" :props="props">{{
                 props.row.createdAt |
                 moment("Do MMM Y")
               }}</q-td>
             </q-table>
-              </q-tab-pane>
-              <q-tab-pane name="tab-5">
+              </q-tab-panell>
+              <q-tab-panel name="tab-5">
                 <div class="row">
               <div class="col-8"></div>
-              <q-search class="col-4" v-model="filter5" clearable color="grey-9" placeholder="Type.."
+              <q-input class="col-4" v-model="filter5" clearable color="grey-9" placeholder="Type.."
                 float-label="Search By POD Number" />
             </div>
-            <q-table table-class="customTableClass" class="q-py-none" :data="tableData5" :columns="columns5"
-              :filter="filter5" :rows-per-page-options="[5, 10, 15]" :pagination.sync="paginationControl5"
+            <q-table table-class="customTableClass" class="q-py-none" v-model:data="tableData5" :columns="columns5"
+              :filter="filter5" :rows-per-page-options="[5, 10, 15]" :pagination="paginationControl5"
               :loading="toggleAjaxLoadFilter5" @request="ajaxLoadAllLeadInfo5">
-              <q-td slot="body-cell-createdAt" slot-scope="props" :props="props">{{
+              <q-td v-slot:body-cell-createdAt="props" :props="props">{{
                 props.row.createdAt |
                 moment("Do MMM Y")
               }}</q-td>
             </q-table>
-              </q-tab-pane>
-              <q-tab-pane name="tab-6">
+              </q-tab-panell>
+              <q-tab-panel name="tab-6">
                 <div class="row">
               <div class="col-8"></div>
-              <q-search class="col-4" v-model="filter6" clearable color="grey-9" placeholder="Type.."
+              <q-input class="col-4" v-model="filter6" clearable color="grey-9" placeholder="Type.."
                 float-label="Search By POD Number" />
             </div>
-            <q-table table-class="customTableClass" class="q-py-none" :data="tableData6" :columns="columns6"
-              :filter="filter6" :rows-per-page-options="[5, 10, 15]" :pagination.sync="paginationControl6"
+            <q-table table-class="customTableClass" class="q-py-none" v-model:data="tableData6" :columns="columns6"
+              :filter="filter6" :rows-per-page-options="[5, 10, 15]" :pagination="paginationControl6"
               :loading="toggleAjaxLoadFilter6" @request="ajaxLoadAllLeadInfo6">
-              <q-td slot="body-cell-createdAt" slot-scope="props" :props="props">{{
+              <q-td v-slot:body-cell-createdAt="props" :props="props">{{
                 props.row.createdAt |
                 moment("Do MMM Y")
               }}</q-td>
             </q-table>
-              </q-tab-pane>
+              </q-tab-panell>
             </q-tabs>
-          </q-tab-pane>
+          </q-tab-panell>
         </q-tabs>
       </div>
       <div v-if="toggleAjaxLoadFilter || toggleAjaxLoadFilter1" class="fullscreen spinner-overlay">
@@ -204,7 +204,7 @@
 <script>
 import Vue from 'vue'
 import { request } from 'http'
-import { minValue, required,}from "vuelidate/lib/validators";
+import { minValue, required,}from "@vuelidate/validators";
 import { mapGetters, mapActions } from 'vuex'
 import staticQrRegionApprove from '../../components/sat/staticQrRegionApprove.vue'
 export default {

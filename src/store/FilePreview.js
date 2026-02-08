@@ -1,3 +1,4 @@
+import { api } from '../boot/axios';
 import api from "./api.js";
 import Vue from "vue";
 
@@ -76,7 +77,7 @@ const FilePreview = {
     actions: {
         /*START >> Module>> view media tracker*/
         FETCH_MEDIA_USING_FILE_NAME({ commit, rootState }, request) {
-            return Vue.http
+            return api
                 .post(rootState.ASSETSURL + '/' + request)
                 .then(response => {
                     console.log("FETCH_MEDIA_USING_FILE_NAME >> ", response.data.data)

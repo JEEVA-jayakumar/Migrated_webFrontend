@@ -1,8 +1,9 @@
+import { api } from '../boot/axios';
 import Vue from "vue";
 
 export default {
   get(url, request) {
-    return Vue.http
+    return api
       .get(url, {
         params: request
       })
@@ -10,25 +11,25 @@ export default {
       .catch(error => Promise.reject(error));
   },
   post(url, request) {
-    return Vue.http
+    return api
       .post(url, request)
       .then(response => Promise.resolve(response))
       .catch(error => Promise.reject(error));
   },
   put(url, request) {
-    return Vue.http
+    return api
       .put(url, request)
       .then(response => Promise.resolve(response))
       .catch(error => Promise.reject(error));
   },
   patch(url, request) {
-    return Vue.http
+    return api
       .patch(url, request)
       .then(response => Promise.resolve(response))
       .catch(error => Promise.reject(error));
   },
   delete(url, request) {
-    return Vue.http
+    return api
       .delete(url, {
         body: request
       })

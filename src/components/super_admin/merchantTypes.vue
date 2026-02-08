@@ -1,16 +1,16 @@
 <template>
-  <q-modal
+  <q-dialog
     minimized
     position="right"
     v-model="toggleModal"
     no-backdrop-dismiss
     @escape-key="emitModalClose"
     class="customModalOverlay"
-    :content-css="{padding:'60px 25px',minWidth:'40vw',minHeight:'100vh'}"
+    v-model:content-css="{padding:'60px 25px',minWidth:'40vw',minHeight:'100vh'}"
   >
     <div class="row items-center bottom-border q-py-sm">
       <div class="col">
-        <div class="q-title text-weight-regular">Manage merchant types</div>
+        <div class="text-h6 text-weight-regular">Manage merchant types</div>
       </div>
       <div class="col" align="right">
         <q-btn outline round color="dark" size="sm" icon="clear" @click="emitModalClose"/>
@@ -27,18 +27,18 @@
       />
 
       <!-- Targets -->
-      <q-tab-pane name="tab-1">
+      <q-tab-panel name="tab-1">
         <q-table
           :data="merchantTypesList"
           table-class="customSATableClass"
           :columns="columns"
           :filter="filterSearch"
-          :pagination.sync="paginationControl"
+          :pagination="paginationControl"
           :filter-method="myCustomSearchFilter"
           row-key="name"
           color="grey-9"
         >
-          <q-td slot="body-cell-action" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-action="props" :props="props">
             <div class="row no-wrap no-padding">
               <q-btn
                 dense
@@ -65,10 +65,10 @@
             </div>
           </q-td>
 
-          <template slot="top" slot-scope="props">
+          <template v-slot:top="props">
             <!--START: table filter,search -->
             <div class="col-8">
-              <q-search
+              <q-input
                 clearable
                 color="grey-9"
                 v-model="filterSearch"
@@ -87,22 +87,22 @@
                 @click="fnshowCreateMerchantType()"
               />
             </div>
-            <!--END: table filter,search -->
+            <!--ENDv-model: table filter,search -->
           </template>
         </q-table>
-      </q-tab-pane>
-      <q-tab-pane name="tab-2">
+      </q-tab-panell>
+      <q-tab-panel name="tab-2">
         <q-table
           :data="merchantTypesDeactivatedList"
           table-class="customSATableClass"
           :columns="columns"
           :filter="deActivatedSearch"
-          :pagination.sync="paginationControl"
+          :pagination="paginationControl"
           :filter-method="myCustomSearchFilter"
           row-key="name"
           color="grey-9"
         >
-          <q-td slot="body-cell-action" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-action="props" :props="props">
             <div class="row no-wrap no-padding">
               <q-btn
                 dense
@@ -118,10 +118,10 @@
             </div>
           </q-td>
 
-          <template slot="top" slot-scope="props">
+          <template v-slot:top="props">
             <!--START: table filter,search -->
             <div class="col-8">
-              <q-search
+              <q-input
                 clearable
                 color="grey-9"
                 v-model="deActivatedSearch"
@@ -132,7 +132,7 @@
             <!--END: table filter,search -->
           </template>
         </q-table>
-      </q-tab-pane>
+      </q-tab-panell>
     </q-tabs>
 
     <!--START: Show create MerchantTypes -->
@@ -150,11 +150,11 @@
       @emitfnshowMerchantTypes="refreshMerchantTypeList"
     ></showEditMerchantType>
     <!--END: Show edit MerchantTypes -->
-  </q-modal>
+  </q-dialog>
 </template>
 
 <script>
-import { required } from "vuelidate/lib/validators";
+import { required } from "@vuelidate/validators";
 import showCreateMerchantType from "./createMerchantTypes.vue";
 import showEditMerchantType from "./editMerchantTypes.vue";
 import { mapGetters, mapActions } from "vuex";

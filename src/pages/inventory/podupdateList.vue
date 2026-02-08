@@ -3,16 +3,16 @@
     <!-- content -->
     <div>
       <q-table
-        :data="getAllPodList"
+        v-model:data="getAllPodList"
         table-class="customSATableClass"
         :columns="columns"
         :filter="filter"
-        :pagination.sync="serverPagination"
+        :pagination="serverPagination"
         :rows-per-page-options="[5,10,15,20]"
         row-key="name"
         color="grey-9"
       >
-        <q-td slot="body-cell-action" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-action="props" :props="props">
           <div class="row no-wrap no-padding">
             <q-btn
               dense
@@ -31,19 +31,17 @@
         </q-td>
 
         <q-td
-          slot="body-cell-receivedAt"
-          slot-scope="props"
+          v-slot:body-cell-receivedAt="props"
           :props="props"
         >{{ props.row.receivedAt | moment("Do MMM Y") }}</q-td>
         <q-td
-          slot="body-cell-DeviceList"
-          slot-scope="props"
+          v-slot:body-cell-DeviceList="props"
           :props="props"
         >{{ props.row.device.createDate | moment("Do MMM Y") }}</q-td>
 
-        <template slot="top" slot-scope="props">
+        <template v-slot:top="props">
           <div class="col-md-5">
-            <q-search
+            <q-input
               clearable
               v-model="filter"
               separator

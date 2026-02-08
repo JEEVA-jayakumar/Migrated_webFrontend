@@ -3,13 +3,13 @@
     <div>
       <staticQrGeneralLeadInformation
         v-if="propToggleLeadInformation"
-        :leadInformation="addtnLeadInformation"
+        v-model:leadInformation="addtnLeadInformation"
         :propToggleLeadInformationPop="propToggleLeadInformation"
         @closeLeadInformation="toggleLeadInformation"
       />
       <q-pull-to-refresh :distance="30" :handler="PullToRefresh" inline>
         <div
-          class="col-md-12 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
+          class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
         >
           Static QR Lead Validation
         </div>
@@ -21,17 +21,16 @@
           :columns="columns"
           row-key="name"
           :filter="filter"
-          :pagination.sync="paginationControl"
+          :pagination="paginationControl"
           :rows-per-page-options="[5, 10, 15, 20]"
           :loading="toggleAjaxLoadFilter"
           @request="ajaxLoadAllLeadInfo"
         >
-          <q-td slot="body-cell-createdAt" slot-scope="props" :props="props">{{
+          <q-td v-slot:body-cell-createdAt="props" :props="props">{{
             props.row.date | moment("Do MMM Y")
           }}</q-td>
           <q-td
-            slot="body-cell-leadNumber"
-            slot-scope="props"
+            v-slot:body-cell-leadNumber="props"
             :props="props"
             class="cursor-pointer"
             @click.native="toggleLeadInformation(props.row)"
@@ -46,21 +45,20 @@
               ># {{ props.row.leadNumber }}</span
             >
           </q-td>
-          <q-td slot="body-cell-leadName" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-leadName="props" :props="props">
             <span class="capitalize">{{ props.row.marketingName }}</span>
           </q-td>
-          <q-td slot="body-cell-state" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-state="props" :props="props">
             <span class="capitalize">{{ props.row.state }}</span>
           </q-td>
 
           <q-td
-            slot="body-cell-assignedTo.name"
-            slot-scope="props"
+            v-slot:body-cell-assignedTo.name="props"
             :props="props"
           >
             <span class="capitalize">{{ props.row.salesOfficerName }}</span>
           </q-td>
-          <!-- <q-td slot="body-cell-leadStatus" slot-scope="props" :props="props">
+          <!-- <q-td v-slot:body-cell-leadStatus="props" :props="props">
             <span class="label text-primary" v-if="props.row.leadStatus == 1"
               >Pending With Bank Details</span
             >
@@ -119,7 +117,7 @@
             >
             <span class="label text-negative" v-else>Pending</span>
           </q-td> -->
-          <q-td slot="body-cell-leadStatus" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-leadStatus="props" :props="props">
             <span class="label text-primary" v-if="props.row.leadStatus == 1"
               >Pending With Bank Details</span
             >
@@ -209,7 +207,7 @@
             >
             <span class="label text-negative" v-else>Pending</span>
           </q-td>
-          <q-td slot="body-cell-action" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-action="props" :props="props">
             <q-btn
               class="btn1"
               v-if="(props.row.leadStatus == 4 && props.row.referbackStatus == false)"
@@ -275,8 +273,7 @@
           </q-td>
 
           <q-td
-            slot="body-cell-verifiedFinanceStatus"
-            slot-scope="props"
+            v-slot:body-cell-verifiedFinanceStatus="props"
             :props="props"
           >
             <span
@@ -296,9 +293,9 @@
             >
             <span class="label text-negative" v-else>Pending</span>
           </q-td>
-          <template slot="top" slot-scope="props" class="bottom-border , row">
+          <template v-slot:top="props" class="bottom-border , row">
             <div class="col-md-4">
-              <q-search
+              <q-input
                 clearable
                 color="grey-9"
                 v-model="filter"

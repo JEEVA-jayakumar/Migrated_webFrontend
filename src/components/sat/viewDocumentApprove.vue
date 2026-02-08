@@ -1,11 +1,11 @@
 <template>
   <div>
-    <q-modal minimized class="customModalOverlay" v-model="toggleModel" @hide="emitfnshowConvertToSat()"
+    <q-dialog minimized class="customModalOverlay" v-model="toggleModel" @hide="emitfnshowConvertToSat()"
       :content-css="{ padding: '50px', minWidth: '40vw' }">
       <form>
         <div class="column group">
           <div class="col-md-12">
-            <div class="q-title text-weight-regular">Approve the Lead</div>
+            <div class="text-h6 text-weight-regular">Approve the Lead</div>
           </div>
 
           <div class="col-md-12">
@@ -18,7 +18,7 @@
           </div>
           <!-- <div class="col-md-12">
            
-            <q-datetime
+            <q-input
               format="DD/MM/YYYY"
               v-model="merchant.paymentDetails.installationDate"
               class="no-margin"
@@ -28,7 +28,7 @@
           <!-- <div class="col-md-12">
           
             <div class="col-xs-12 col-sm-6">
-              <q-datetime
+              <q-input
                 format="DD/MM/YYYY"
                 v-model="merchant.paymentDetails.deinstallationDate"
                 class="no-margin"
@@ -44,12 +44,12 @@
           </div>
         </div>
       </form>
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 
 <script>
-  import { required, maxLength, minLength } from "vuelidate/lib/validators";
+  import { required, maxLength, minLength } from "@vuelidate/validators";
 
   import { mapGetters, mapActions } from "vuex";
   export default {

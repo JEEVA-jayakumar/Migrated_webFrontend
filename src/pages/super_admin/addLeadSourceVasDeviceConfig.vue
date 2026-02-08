@@ -1,33 +1,33 @@
 <template>
   <q-page>
     <div class="row">
-      <div class="col-12 q-title q-pa-md text-weight-regular bottom-border">LeadSource And Vas,Device Config</div>
+      <div class="col-12 text-h6 q-pa-md text-weight-regular bottom-border">LeadSource And Vas,Device Config</div>
       <!-- START >> Setup MDR details -->
       <div class="col-md-5 col-sm-4 col-xs-12 q-pa-sm">
         <q-card style="width:100%">
-          <q-card-main>
+          <q-card-section>
             <q-list no-border>
 
               <q-item>
-                <q-item-main>
+                <q-item-section>
                   <q-select color="grey-9" v-model="formData.leadSourceDeviceVasMapping.leadSource" :options="dropDown.leadSourceOptions"
                     float-label="Select lead source" placeholder="Lead source" />
-                </q-item-main>
+                </q-item-section>
               </q-item>
               <q-item>
-                <q-item-main>
+                <q-item-section>
                   <q-select color="grey-9" v-model="formData.leadSourceDeviceVasMapping.device" :options="dropDown.deviceOptions"
                     float-label="Select Device" placeholder="Select Device" />
-                </q-item-main>
+                </q-item-section>
               </q-item>
               <q-item>
-                <q-item-main>
+                <q-item-section>
                   <q-select multiple color="grey-9" v-model="formData.vasList" :options="dropDown.vasOptions"
                     float-label="Select VAS" placeholder="Select VAS" />
-                </q-item-main>
+                </q-item-section>
               </q-item>
             </q-list>
-          </q-card-main>
+          </q-card-section>
           <q-card-actions vertical align="end">
             <q-btn label="submit" @click="fnsubmit(formData)" color="purple-9" />
             <!-- <q-btn label="submit" @click="fnsubmit(formData)" color="purple-9" /> -->
@@ -45,7 +45,7 @@ import {
   maxLength,
   integer,
   email
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 
 import { mapGetters, mapActions } from "vuex";
 export default {

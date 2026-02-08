@@ -1,20 +1,20 @@
 <template>
     <q-page>
         <div>
-            <q-table :data="tableData2" :columns="columnDataclosed"
+            <q-table v-model:data="tableData2" :columns="columnDataclosed"
                         table-class="customTableClass" :filter=" filterSearch" 
-                        :selected.sync="formData.marsDeviceIdsCooked" :pagination.sync=" paginationControl" row-key="id"
+                        :selected="formData.marsDeviceIdsCooked" v-model:pagination=" paginationControl" row-key="id"
                         :loading="tableAjaxLoading" :rows-per-page-options="[5, 10, 15, 20]" color="dark"
                         @request=" ajaxLoadAllLeadInfo">
                        
                          <!--START: table header -->
-                         <q-tr slot="top-row" slot-scope="props">
+                         <q-tr v-slot:top-row="props">
                             <q-th auto-width></q-th>
                             <q-th v-for="col in props.columns" :key="col.name" :props="props">{{ col.label }}</q-th>
                         </q-tr>
                         <!--END: table header -->
                         <!--START: Table body -->
-                        <template slot="body" slot-scope="props">
+                        <template v-slot:body="props">
                             <!--START: table rows -->
                             <q-tr :props="props" class="bottom-border">
                                 
@@ -78,7 +78,7 @@
                             <!-- START: table expand values -->
                             <q-tr v-show="props.row.expand" :props="props" class="wordWrapCustom bottom-border">
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">Request Type
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">Request Type
                                     </div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id" :props="props">
@@ -89,7 +89,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">IssueType</div>
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">IssueType</div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
                                             :props="props">
@@ -98,7 +98,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">SubTicket Status</div>
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">SubTicket Status</div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
                                             :props="props">
@@ -109,7 +109,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">Schedule Date</div>
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">Schedule Date</div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
                                             :props="props">
@@ -118,7 +118,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">Pod Number</div>
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">Pod Number</div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
                                             :props="props">
@@ -127,7 +127,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">Service Remarks
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">Service Remarks
                                     </div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id" :props="props">
@@ -136,7 +136,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">Cancel Reason</div>
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">Cancel Reason</div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
                                             :props="props">
@@ -145,7 +145,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">Issue Remark</div>
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">Issue Remark</div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
                                             :props="props">
@@ -154,7 +154,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">Remark</div>
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">Remark</div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
                                             :props="props">
@@ -163,7 +163,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">Latitude</div>
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">Latitude</div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
                                             :props="props">
@@ -172,7 +172,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">Longitude</div>
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">Longitude</div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
                                             :props="props">
@@ -181,7 +181,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">Implementation Form</div>
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">Implementation Form</div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
                                             :props="props">
@@ -190,7 +190,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">Picture Of Shop</div>
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">Picture Of Shop</div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
                                             :props="props">
@@ -199,7 +199,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">Old Sim Number</div>
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">Old Sim Number</div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
                                             :props="props">
@@ -208,7 +208,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">Old Sim Network</div>
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">Old Sim Network</div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
                                             :props="props">
@@ -217,7 +217,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">New Sim Number</div>
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">New Sim Number</div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
                                             :props="props">
@@ -226,7 +226,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">New Sim Network</div>
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">New Sim Network</div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
                                             :props="props">
@@ -235,7 +235,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">Scan Sim Number</div>
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">Scan Sim Number</div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
                                             :props="props">
@@ -244,7 +244,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">Scan Device</div>
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">Scan Device</div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
                                             :props="props">
@@ -253,7 +253,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">Part Type</div>
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">Part Type</div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
                                             :props="props">
@@ -262,7 +262,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">Paper Roll Count</div>
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">Paper Roll Count</div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
                                             :props="props">
@@ -274,7 +274,7 @@
                             </template>
                         <template slot="top">
                             <div class="col-md-5">
-                                <q-search clearable color="grey-9" v-model=" filterSearch" placeholder="Type.."
+                                <q-input clearable color="grey-9" v-model=" filterSearch" placeholder="Type.."
                                 float-label="Search By ServiceReqTicketId, TID .." class="q-mr-lg q-py-sm" />
                             </div>
                         </template>

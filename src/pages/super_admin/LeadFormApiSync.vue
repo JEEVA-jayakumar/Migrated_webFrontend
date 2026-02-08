@@ -1,15 +1,15 @@
 <template>
     <q-page>
       <div class="row">
-        <div class="col-12 q-title q-pa-md text-weight-regular bottom-border"></div>
+        <div class="col-12 text-h6 q-pa-md text-weight-regular bottom-border"></div>
         <div class="col-md-5 col-sm-4 col-xs-12 q-pa-sm">
-          <div class="q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"><strong>MARS API SYNC - LEAD FORM</strong>
+          <div class="text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"><strong>MARS API SYNC - LEAD FORM</strong>
           </div>
           <q-card style="width:1047px">
-            <q-card-main>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <q-card-section>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
               <q-list no-border>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
                 <q-item>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                  <q-item-main>
+                  <q-item-section>
                    <textarea 
                    disabled 
                    id="textboxid" 
@@ -19,17 +19,17 @@
                    v-model="formData.tokenLeadForm"
                    class="text-weight-regular text-grey-8"
                    ></textarea>
-                  </q-item-main>
+                  </q-item-section>
                 </q-item>
               </q-list>
-            </q-card-main>
-          <q-card-main>
-                  <q-item-main align="center">
+            </q-card-section>
+          <q-card-section>
+                  <q-item-section align="center">
                     <q-btn class="common-btn"
               color="purple-9" :disabled="this.formData.tokenLeadForm == ''" toggle-color="primary" size="15px" label="Submit"
                 @click="fnFinalSubmit(formData)" />
-              </q-item-main>
-            </q-card-main>
+              </q-item-section>
+            </q-card-section>
           </q-card>
         </div>
       </div>
@@ -47,7 +47,7 @@
     minValue,
     alphaNum,
     email
-  } from "vuelidate/lib/validators";
+  } from "@vuelidate/validators";
   import { mapGetters, mapActions } from "vuex";
   Vue.use(Vuelidate)
   

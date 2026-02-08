@@ -1,9 +1,9 @@
 <template>
   <q-page>
-    <!-- <q-pull-to-refresh :handler="PullToRefresh" inline></q-pull-to-refresh> -->
+    <!-- <q-pull-to-refresh v-model:handler="PullToRefresh" inline></q-pull-to-refresh> -->
       <!--START: table title -->
       <div
-        class="col-md-12 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
+        class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
       >Aggregator Lead Validation</div>
       <!--END: table title -->
       <!-- //Common lead information in popup -->
@@ -20,7 +20,7 @@
         :data="tableData"
         :columns="columns"
         :filter="filter"
-        :pagination.sync="paginationControl"
+        :pagination="paginationControl"
         row-key="name"
         :loading="toggleAjaxLoadFilter"
         :rows-per-page-options="[5,10,15,20]"
@@ -29,13 +29,12 @@
       <q-td
       />
        <!--START: table header -->
-        <q-tr slot="top-row" slot-scope="props">
+        <q-tr v-slot:top-row="props">
         <q-th v-for="col in props.columns" :key="col.name" :props="props">{{ col.label }}</q-th>  
         </q-tr>
         <!--END: table header -->
          <q-td 
-         slot="body-cell-leadNumber" 
-         slot-scope="props" 
+         v-slot:body-cell-leadNumber="props"
          :props="props"
          class="cursor-pointer"
          @click.native="toggleLeadInformation(props.row)"
@@ -43,15 +42,14 @@
           <span class="label text-primary"> {{props.row.leadNumber}}</span>
           
         </q-td>
-        <q-td slot="body-cell-contactName" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-contactName="props" :props="props">
           <span class="label text-primary"> {{props.row.leadInformation.contactName}}</span>
         </q-td>
         <q-td
-            slot="body-cell-date"
-            slot-scope="props"
+            v-slot:body-cell-date="props"
             :props="props"
           >{{ props.row.date | moment("Do MMM Y") }}</q-td>
-         <q-td slot="body-cell-verifiedFinanceStatus" slot-scope="props" :props="props">
+         <q-td v-slot:body-cell-verifiedFinanceStatus="props" :props="props">
             <span
               class="label text-positive"
               v-if="props.row.verifiedFinanceStatus== $VERIFIED_FINANCE_STATUS_SUCCESS"
@@ -66,7 +64,7 @@
             >Rejected</span>
             <span class="label" v-else>NA</span>
           </q-td>
-          <q-td slot="body-cell-leadStatus" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-leadStatus="props" :props="props">
             <span
               class="label text-positive"
               v-if="props.row.verifiedFinanceStatus== $LEAD_STATUS_SUBMIT_TO_SAT_LEAD && props.row.verifiedFinanceStatus== $VERIFIED_FINANCE_STATUS_SUCCESS"
@@ -108,30 +106,28 @@
 
             <span class="label text-negative" v-else>Pending</span>
           </q-td>
-        <q-td slot="body-cell-mid" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-mid="props" :props="props">
           <span class="label text-primary"># {{props.row.mid}}</span>
         </q-td>
        
-        <q-td slot="body-cell-contactNumber" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-contactNumber="props" :props="props">
           <span class="label text-primary"> {{props.row.leadInformation.contactNumber}}</span>
         </q-td>
         <!-- <q-td
-          slot="body-cell-leadNumber"
-          slot-scope="props"
+          v-slot:body-cell-leadNumber="props"
           :props="props"    
         >
           <span class="label text-primary"># {{props.row.leadInformation.leadNumber}}</span>
         </q-td> -->
-        <!-- <q-td slot="body-cell-date" slot-scope="props" :props="props">
+        <!-- <q-td v-slot:body-cell-date="props" :props="props">
           <span class="label text-primary"># {{props.row.date}}</span>
         </q-td> -->
         <q-td
-          slot="body-cell-leadAddress"
-          slot-scope="props"
+          v-slot:body-cell-leadAddress="props"
           :props="props"
         >{{props.row.leadInformation == null? 'NA':props.row.leadInformation.leadAddress}}</q-td>
         
-        <!-- <q-td slot="body-cell-action" slot-scope="props" :props="props">
+        <!-- <q-td v-slot:body-cell-action="props" :props="props">
             @click.native="toggleLeadInformation(props.row.leadInformation.leadNumber)"
               class="cursor-pointer"
            <q-btn
@@ -146,7 +142,7 @@
         <template slot="top"  class="bottom-border" >
           <!--START: table filter,search,excel download -->
           <div class="col-5">
-            <q-search
+            <q-input
               clearable
               v-model="filter"
               separator

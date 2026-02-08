@@ -124,7 +124,7 @@
         />
       </div>
       <div class="col-md-6 col-sm-12 col-xs-12">
-        <q-datetime
+        <q-input
           format="DD/MM/YYYY"
           format-model="number"
           @blur="$v.merchant.businessInformation.memberSince.$touch"
@@ -163,7 +163,7 @@ import {
   email,
   decimal,
   between
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 const timeValidate = helpers.regex(
   "timeValidate",
   /^(?:\d|[01]\d|2[0-3])\.[0-5]\d$/

@@ -1,5 +1,5 @@
 <template>
-  <q-modal
+  <q-dialog
     minimized
     position="right"
     v-model="toggleModal"
@@ -10,7 +10,7 @@
   >
     <div class="row items-center bottom-border q-py-sm">
       <div class="col">
-        <div class="q-title text-weight-regular">Manage plan</div>
+        <div class="text-h6 text-weight-regular">Manage plan</div>
       </div>
       <div class="col" align="right">
         <q-btn outline round color="dark" size="sm" icon="clear" @click="emitModalClose"/>
@@ -18,7 +18,7 @@
     </div>
 
     <q-card>
-      <q-card-main class="q-pa-md">
+      <q-card-section class="q-pa-md">
         <div class="column group">
           <div>
             <q-input
@@ -41,22 +41,22 @@
             <q-btn align="right" v-else @click="fnFinalCreate(formData)" color="purple-9">Save</q-btn>
           </div>
         </div>
-      </q-card-main>
+      </q-card-section>
     </q-card>
 
     <div class="row">
       <div>
         <q-table
-          :data="tableData"
+          v-model:data="tableData"
           table-class="customSATableClass"
           :columns="columns"
           :filter="filterSearch"
-          :pagination.sync="paginationControl"
+          :pagination="paginationControl"
           :filter-method="myCustomSearchFilter"
           row-key="name"
           color="grey-9"
         >
-          <q-td slot="body-cell-action" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-action="props" :props="props">
             <div class="row no-wrap no-padding">
               <q-btn
                 dense
@@ -82,10 +82,10 @@
               ></q-btn>-->
             </div>
           </q-td>
-          <template slot="top" slot-scope="props">
+          <template v-slot:top="props">
             <!--START: table filter,search-->
             <div class="col">
-              <q-search
+              <q-input
                 clearable
                 color="grey-9"
                 v-model="filterSearch"
@@ -99,11 +99,11 @@
         </q-table>
       </div>
     </div>
-  </q-modal>
+  </q-dialog>
 </template>
 
 <script>
-import { required } from "vuelidate/lib/validators";
+import { required } from "@vuelidate/validators";
 import { mapActions, mapGetters } from "vuex";
 export default {
   props: ["propToggleModal"],

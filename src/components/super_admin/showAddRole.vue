@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-modal
+    <q-dialog
       minimized
       no-backdrop-dismiss
       no-esc-dismiss
@@ -16,7 +16,7 @@
           bottom-border
           text-grey-9
         ">
-        <div class="col q-title" icon="far fa-bell">Add Role/Permissions</div>
+        <div class="col text-h6" icon="far fa-bell">Add Role/Permissions</div>
      
         </div>
         <div class="column group q-py-sm">
@@ -66,13 +66,13 @@
 
      
 
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-import { required, minLength, maxLength } from "vuelidate/lib/validators";
+import { required, minLength, maxLength } from "@vuelidate/validators";
 export default {
   name: "changePassword",
   props: ["propsToggleModal1"],

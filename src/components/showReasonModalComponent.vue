@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-modal 
+    <q-dialog
         minimized
          @hide="emitToggleRemarks" 
         @escape-key="emitToggleRemarks"  
@@ -9,27 +9,27 @@
         class="customModalOverlay"
     >
         <div class="row group">
-            <div class="col-12 q-title q-py-md">
+            <div class="col-12 text-h6 q-py-md">
               Remarks
             </div>
             <div class="col-12 q-py-md">
               <span v-if="itemDetails == null">
-                <q-alert
+                <q-banner
                     color="primary"
                     icon="info"
                     appear
                     class="q-mb-sm"
                 >
                     No remarks given
-                </q-alert>
+                </q-banner>
               </span>
               <span v-else>{{itemDetails}}</span>
             </div>
-            <div class="col-12 q-title q-py-md" align="right">
+            <div class="col-12 text-h6 q-py-md" align="right">
              <q-btn icon="clear" color="grey-5" class="text-dark" @click="emitToggleRemarks" label="Close"/>
             </div>
         </div>
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 

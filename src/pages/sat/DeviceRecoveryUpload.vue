@@ -4,7 +4,7 @@
     <div>
       <div class="row bottom-border q-px-md q-py-md items-center">
         <!--START: table title -->
-        <div class="col-md-8 q-title text-weight-regular text-grey-9">Aggregator Add Device Recovery- Scan & Upload</div>
+        <div class="col-md-8 text-h6 text-weight-regular text-grey-9">Aggregator Add Device Recovery- Scan & Upload</div>
         <!--END: table title -->
       </div>
       <div class="row bottom-border q-px-md q-py-md items-center text-weight-regular text-grey-9">
@@ -29,19 +29,19 @@
           <q-btn v-if="tempTableData.length > 0" class="common-btn q-py-xs" label="Upload" @click="finalSubmit" />
           <q-btn v-else class="disabled common-btn q-py-xs no-pointer-events" label="Upload" @click="finalSubmit" />
         </div>
-        <!--END: table title -->
+        <!--ENDv-model: table title -->
       </div>
       <!--START: table Data -->
       <q-table :data="tempTableData" :columns="columnData" table-class="customTableClass shadow-0"
-        :filter="filterSearch" :pagination.sync="paginationControl" row-key="index" :loading="tableAjaxLoading"
+        :filter="filterSearch" :pagination="paginationControl" row-key="index" :loading="tableAjaxLoading"
         color="light-blue">
-        <q-td slot="body-cell-action" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-action="props" :props="props">
           <q-btn @click="removeScannedItems(props.row)" label="Remove" icon="close" color="red-6" size="sm" />
         </q-td>
         <template slot="top">
           <!--START: table filter,search -->
           <div class="col-md-5">
-            <q-search clearable color="grey-9" v-model="filterSearch" placeholder="Type.." float-label="Search .."
+            <q-input clearable color="grey-9" v-model="filterSearch" placeholder="Type.." float-label="Search .."
               class="q-mr-lg q-py-sm" />
           </div>
           <!--END: table filter,search -->

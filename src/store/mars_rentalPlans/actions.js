@@ -1,10 +1,11 @@
+import { api } from '../../boot/axios';
 import api from "../api.js";
 import Vue from "vue";
 export const RENTAL_PLAN_FROM_MARS = ({
   commit,
   rootState
 }, request) => {
-  return Vue.http
+  return api
     .get(rootState.GlobalVariables.STATE_MARS_API + 'rental-plan?institutionCode=' + request)
     .then(response => {
       // console.log(response)

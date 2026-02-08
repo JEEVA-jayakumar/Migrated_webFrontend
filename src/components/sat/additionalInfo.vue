@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-modal
+    <q-dialog
       class="customModalOverlay"
       v-model="toggleModel"
       @hide="emitToggleReject(toggleModel)"
@@ -8,9 +8,9 @@
       :content-css="{ padding: '100px', minWidth: '70vw' }"
     >
       <div
-        class="q-title q-px-lg q-py-md text-center justify-center text-weight-regular bottom-border text-grey-9"
+        class="text-h6 q-px-lg q-py-md text-center justify-center text-weight-regular bottom-border text-grey-9"
       >
-        <div class="col q-title">Additional Info</div>
+        <div class="col text-h6">Additional Info</div>
       </div>
       <q-card>
         <div class="q-px-md">
@@ -226,11 +226,11 @@
           </div>
         </div>
       </q-card>
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 <script>
-import { required } from "vuelidate/lib/validators";
+import { required } from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 import moment from "moment";
 import { date } from "quasar";

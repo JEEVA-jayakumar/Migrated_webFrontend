@@ -4,32 +4,30 @@
     <div>
       <!-- <pre>{{getAllRegionsData}}</pre> -->
       <!-- <pre>{{getAllHierarchiesData}}</pre> -->
-      <div class="col-12 q-title q-my-lg text-weight-regular">Spare Parts Types</div>
+      <div class="col-12 text-h6 q-my-lg text-weight-regular">Spare Parts Types</div>
       <q-tabs class="shadow-1" color="grey-1" >
         <q-tab default color="dark" name="active" slot="title" label="Active " />
         <q-tab color="dark" name="deactive" slot="title" label="Deactive" />
-        <q-tab-pane name="active">
+        <q-tab-panel name="active">
           <q-table
-         :data="activeTableData"
+         v-model:data="activeTableData"
           table-class="customSATableClass"
           :columns="columns"
           :filter="filterSearch"
-          :pagination.sync="paginationControl"
+          :pagination="paginationControl"
           :filter-method="myCustomSearchFilter"
           row-key="name"
           color="grey-9"
 >
 <q-td
-    slot="body-cell-created_date"
-    slot-scope="props"
+    v-slot:body-cell-created_date="props"
     :props="props"
   >{{ props.row.created_date | moment("Do MMM Y") }}</q-td>
   <q-td
-    slot="body-cell-updated_date"
-    slot-scope="props"
+    v-slot:body-cell-updated_date="props"
     :props="props"
   >{{ props.row.updated_date | moment("Do MMM Y") }}</q-td>
-<q-td slot="body-cell-action" slot-scope="props" :props="props">
+<q-td v-slot:body-cell-action="props" :props="props">
   <div class="row no-wrap no-padding">
     <q-btn
       dense
@@ -56,7 +54,7 @@
   </div>
 </q-td>
 
-<template slot="top" slot-scope="props">
+<template v-slot:top="props">
   <!--START: table title -->
  
   <!-- <div class="col-md-6 q-my-md" align="right">
@@ -65,7 +63,7 @@
   <!--END: table title -->
   <!--START: table filter,search -->
   <div class="col-6">
-    <q-search
+    <q-input
       clearable
       color="grey-9"
       v-model="filterSearch"
@@ -86,30 +84,28 @@
       </div>
 </template>
 </q-table>
- </q-tab-pane>
-<q-tab-pane name="deactive">
+ </q-tab-panell>
+<q-tab-panel name="deactive">
           <q-table
-         :data="deActiveTableData"
+         v-model:data="deActiveTableData"
           table-class="customSATableClass"
           :columns="columns1"
           :filter="filterSearch"
-          :pagination.sync="paginationControl"
+          :pagination="paginationControl"
           :filter-method="myCustomSearchFilter"
           row-key="name"
           color="grey-9"
           @select="ajaxSpareData"
 >
 <q-td
-    slot="body-cell-created_date"
-    slot-scope="props"
+    v-slot:body-cell-created_date="props"
     :props="props"
   >{{ props.row.created_date | moment("Do MMM Y") }}</q-td>
   <q-td
-    slot="body-cell-updated_date"
-    slot-scope="props"
+    v-slot:body-cell-updated_date="props"
     :props="props"
   >{{ props.row.updated_date | moment("Do MMM Y") }}</q-td>
-<q-td slot="body-cell-action" slot-scope="props" :props="props">
+<q-td v-slot:body-cell-action="props" :props="props">
   <div class="row no-wrap no-padding">
     <q-btn
       dense
@@ -125,7 +121,7 @@
   </div>
 </q-td>
 
-<template slot="top" slot-scope="props">
+<template v-slot:top="props">
   <!--START: table title -->
  
   <!-- <div class="col-md-6 q-my-md" align="right">
@@ -134,7 +130,7 @@
   <!--END: table title -->
   <!--START: table filter,search -->
   <div class="col-6">
-    <q-search
+    <q-input
       clearable
       color="grey-9"
       v-model="filterSearch"
@@ -145,7 +141,7 @@
   <!--END: table filter,search -->
 </template>
 </q-table>
-        </q-tab-pane>
+        </q-tab-panell>
       </q-tabs>
      
 

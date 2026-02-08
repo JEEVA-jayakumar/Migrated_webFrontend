@@ -1,3 +1,4 @@
+import { api } from '../boot/axios';
 
 import Vue from "vue"
 
@@ -34,7 +35,7 @@ const FileDownload1 = {
       var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
       if (request.from && request.to) {
         // console.log("==========", request)
-        return await Vue.http
+        return await api
           .get("download-deviceHist?from=" + request.from + "&to=" + request.to, {
             responseType: 'arraybuffer'
           })
@@ -50,7 +51,7 @@ const FileDownload1 = {
           });
       } else {
         console.log("==========", request)
-        return await Vue.http
+        return await api
           .get("download-deviceHist", {
             responseType: 'arraybuffer'
           })
@@ -68,7 +69,7 @@ const FileDownload1 = {
       // else if(request.mid && request.fromDate && request.toDate)
       //   {
       //   // console.log("==========", request)
-      //   let response = await Vue.http.get("https://bportal.bijlipay.co.in:6060/api/download-settlement-report?mid="+request.mid+"&fromDate="+request.fromDate +"&toDate="+request.toDate, {
+      //   let response = await api.get("https://bportal.bijlipay.co.in:6060/api/download-settlement-report?mid="+request.mid+"&fromDate="+request.fromDate +"&toDate="+request.toDate, {
       //     responseType: 'arraybuffer'
       //   });
       //   let blob = new Blob([response.data], {
@@ -82,7 +83,7 @@ const FileDownload1 = {
       //     else if(request.tid && request.fromDate && request.toDate)
       //     {
       //     console.log("==========", request)
-      //     let response = await Vue.http.get("https://bportal.bijlipay.co.in:6060/api/download-settlement-report?tid="+request.tid+"&fromDate="+request.fromDate +"&toDate="+request.toDate, {
+      //     let response = await api.get("https://bportal.bijlipay.co.in:6060/api/download-settlement-report?tid="+request.tid+"&fromDate="+request.fromDate +"&toDate="+request.toDate, {
       //       responseType: 'arraybuffer'
       //     });
       //     let blob = new Blob([response.data], {
@@ -96,7 +97,7 @@ const FileDownload1 = {
       //    else if(request.mname && request.fromDate && request.toDate)
       //    {
       //    console.log("==========", request)
-      //    let response = await Vue.http.get("https://bportal.bijlipay.co.in:6060/api/download-settlement-report?mName="+request.mname+"&fromDate="+request.fromDate +"&toDate="+request.toDate, {
+      //    let response = await api.get("https://bportal.bijlipay.co.in:6060/api/download-settlement-report?mName="+request.mname+"&fromDate="+request.fromDate +"&toDate="+request.toDate, {
       //     responseType: 'arraybuffer'
       //    });
       //    let blob = new Blob([response.data], {
@@ -109,7 +110,7 @@ const FileDownload1 = {
       //    }
       //    else if(request.fromDate && request.toDate){
       //       console.log("==========", request)
-      //       let response = await Vue.http.get("https://bportal.bijlipay.co.in:6060/api/download-settlement-report?fromDate="+request.fromDate +"&toDate="+request.toDate, {
+      //       let response = await api.get("https://bportal.bijlipay.co.in:6060/api/download-settlement-report?fromDate="+request.fromDate +"&toDate="+request.toDate, {
       //         responseType: 'arraybuffer'
       //       });
       //       let blob = new Blob([response.data], {
@@ -122,7 +123,7 @@ const FileDownload1 = {
       //    }
       //    else if(request.mid){
       //     console.log("==========", request)
-      //     let response = await Vue.http.get("https://bportal.bijlipay.co.in:6060/api/download-settlement-report?mid="+request.mid, {
+      //     let response = await api.get("https://bportal.bijlipay.co.in:6060/api/download-settlement-report?mid="+request.mid, {
       //       responseType: 'arraybuffer'
       //     });
       //     let blob = new Blob([response.data], {
@@ -135,7 +136,7 @@ const FileDownload1 = {
       //    }
       //    else if(request.tid){
       //    console.log("==========", request)
-      //    let response = await Vue.http.get("https://bportal.bijlipay.co.in:6060/api/download-settlement-report?tid="+request.tid, {
+      //    let response = await api.get("https://bportal.bijlipay.co.in:6060/api/download-settlement-report?tid="+request.tid, {
       //     responseType: 'arraybuffer'
       //    });
       //    let blob = new Blob([response.data], {
@@ -148,7 +149,7 @@ const FileDownload1 = {
       //    }
       //    else if(request.mname){
       //    console.log("==========", request)
-      //    let response = await Vue.http.get("https://bportal.bijlipay.co.in:6060/api/download-settlement-report?mName="+request.mname, {
+      //    let response = await api.get("https://bportal.bijlipay.co.in:6060/api/download-settlement-report?mName="+request.mname, {
       //     responseType: 'arraybuffer'
       //    });
       //    let blob = new Blob([response.data], {
@@ -174,7 +175,7 @@ const FileDownload1 = {
     //   var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     //   if (request.from && request.to) {
     //     // console.log("==========", request)
-    //     return await Vue.http
+    //     return await api
     //       .get("aggregator-inventory/agg-download-device-history/" + request.aggregator + "?from=" + request.from + "&to=" + request.to, {
     //         responseType: 'arraybuffer'
     //       })
@@ -190,7 +191,7 @@ const FileDownload1 = {
     //       });
     //   } else {
     //     console.log("==========", request)
-    //     return await Vue.http
+    //     return await api
     //       .get("aggregator-inventory/agg-download-device-history/" + request.aggregator, {
     //         responseType: 'arraybuffer'
     //       })
@@ -218,7 +219,7 @@ const FileDownload1 = {
       var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
       if (request.from && request.to) {
         // console.log("==========", request)
-        return await Vue.http
+        return await api
           .get("aggregator-inventory/agg-download-device-history/"+JSON.parse(localStorage.getItem("selectedTab").split('|')[1])+"?from=" + request.from + "&to=" + request.to, {
             responseType: 'arraybuffer'
           })
@@ -234,7 +235,7 @@ const FileDownload1 = {
           });
       } else {
         console.log("==========", request)
-        return await Vue.http
+        return await api
           .get("aggregator-inventory/agg-download-device-history/"+JSON.parse(localStorage.getItem("selectedTab").split('|')[1]), {
             responseType: 'arraybuffer'
           })

@@ -22,7 +22,7 @@
 
           <div v-else class="row group">
             <div>
-              <q-alert color="primary" icon="info">No data available to display</q-alert>
+              <q-banner color="primary" icon="info">No data available to display</q-banner>
             </div>
           </div>
           <!-- </q-card> -->
@@ -37,25 +37,25 @@
         <q-tab color="dark" name="allocatedSo" slot="title" label="So Pod List" />
         <q-tab color="dark" name="createSoPod" slot="title" label="Create So Pod" />
 
-        <q-tab-pane name="allocatedSo">
+        <q-tab-panel name="allocatedSo">
           <allocatedSo />
-        </q-tab-pane>
+        </q-tab-panell>
 
-        <q-tab-pane name="incomingPods">
-          <q-table :data="tableData" table-class="customSATableClass" :columns="columns" :filter="filterSearch"
-            :pagination.sync="paginationControl" :filter-method="myCustomSearchFilter" row-key="name" color="grey-9"
+        <q-tab-panel name="incomingPods">
+          <q-table v-model:data="tableData" table-class="customSATableClass" :columns="columns" :filter="filterSearch"
+            :pagination="paginationControl" :filter-method="myCustomSearchFilter" row-key="name" color="grey-9"
             @request="ajaxLoadAllLeadInfo">
-            <q-td slot="body-cell-createdAt" slot-scope="props" :props="props">{{
+            <q-td v-slot:body-cell-createdAt="props" :props="props">{{
                 props.row.created_date == null
                   ? "NA"
                   : props.row.created_date | moment("Do MMM Y")
             }}</q-td>
-            <q-td slot="body-cell-updated_date" slot-scope="props" :props="props">{{
+            <q-td v-slot:body-cell-updated_date="props" :props="props">{{
                 props.row.updated_date == null
                   ? "NA"
                   : props.row.updated_date | moment("Do MMM Y")
             }}</q-td>
-            <q-td slot="body-cell-status" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-status="props" :props="props">
               <span class="label text-positive" v-if="props.row.status == 1">Created</span>
               <span class="label text-primary" v-else-if="props.row.status == 2">Assigned to R.I</span>
               <span class="label text-orange" v-else-if="props.row.status == 3">Approved By R.I</span>
@@ -67,17 +67,17 @@
 
               <span class="label text-negative" v-else>NA</span>
             </q-td>
-            <q-td slot="body-cell-owner" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-owner="props" :props="props">
               <span class="label text-positive" v-if="props.row.owner == 1">Central Inventory</span>
               <span class="label text-primary" v-else-if="props.row.owner == 2">Regional Inventory</span>
               <span class="label text-primary" v-else-if="props.row.owner == 3">SO</span>
             </q-td>
-            <q-td slot="body-cell-regionAreaName" slot-scope="props" :props="props">{{
+            <q-td v-slot:body-cell-regionAreaName="props" :props="props">{{
                 props.row.allocate_region == null
                   ? "NA"
                   : props.row.allocate_region.regionAreaName
             }}</q-td>
-            <q-td slot="body-cell-action" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-action="props" :props="props">
               <div class="row no-wrap no-padding">
 
                 <q-btn dense no-caps no-wrap label="Reject" icon="far fa-minus-square" size="md"
@@ -87,9 +87,9 @@
               </div>
             </q-td>
 
-            <template slot="top" slot-scope="props">
+            <template v-slot:top="props">
               <!--START: table title -->
-              <!--<div class="col-12 q-title q-my-lg text-weight-regular">
+              <!--<div class="col-12 text-h6 q-my-lg text-weight-regular">
            Incoming Pod
           </div> -->
               <!-- <div class="col-md-6 q-my-md" align="right">
@@ -99,28 +99,28 @@
               <!--START: table filter,search
             @click="fnShowAddNewServiceType(props.row)" -->
               <div class="col-3">
-                <q-search clearable color="grey-9" v-model="filterSearch" float-label="Search By POD Number" placeholder="Type.." class="q-mr-lg" />
+                <q-input clearable color="grey-9" v-model="filterSearch" float-label="Search By POD Number" placeholder="Type.." class="q-mr-lg" />
               </div>
-              <!--END: table filter,search -->
+              <!--ENDv-model: table filter,search -->
             </template>
           </q-table>
-        </q-tab-pane>
-        <q-tab-pane name="stocks">
+        </q-tab-panell>
+        <q-tab-panel name="stocks">
           <q-table :data="tableData1" table-class="customSATableClass" :columns="columns1" :filter="filterSearch1"
-            :pagination.sync="paginationControl1" :filter-method="myCustomSearchFilter" row-key="name" color="grey-9"
+            :pagination="paginationControl1" :filter-method="myCustomSearchFilter" row-key="name" color="grey-9"
             @request="ajaxLoadAllLeadInfo1">
-            <q-td slot="body-cell-createdAt" slot-scope="props" :props="props">{{
+            <q-td v-slot:body-cell-createdAt="props" :props="props">{{
                 props.row.created_date == null
                   ? "NA"
                   : props.row.created_date | moment("Do MMM Y")
             }}</q-td>
-            <q-td slot="body-cell-updated_date" slot-scope="props" :props="props">{{
+            <q-td v-slot:body-cell-updated_date="props" :props="props">{{
                 props.row.updated_date == null
                   ? "NA"
                   : props.row.updated_date | moment("Do MMM Y")
             }}</q-td>
             
-            <q-td slot="body-cell-status" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-status="props" :props="props">
               <span class="label text-positive" v-if="props.row.status == 1">Created</span>
               <span class="label text-primary" v-else-if="props.row.status == 2">Assigned to R.I</span>
               <span class="label text-orange" v-else-if="props.row.status == 3">Approved By R.I</span>
@@ -132,20 +132,20 @@
 
               <span class="label text-negative" v-else>NA</span>
             </q-td>
-            <q-td slot="body-cell-owner" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-owner="props" :props="props">
               <span class="label text-positive" v-if="props.row.owner == 1">Central Inventory</span>
               <span class="label text-primary" v-else-if="props.row.owner == 2">Regional Inventory</span>
               <span class="label text-primary" v-else-if="props.row.owner == 3">SO</span>
             </q-td>
-            <q-td slot="body-cell-regionAreaName" slot-scope="props" :props="props">{{
+            <q-td v-slot:body-cell-regionAreaName="props" :props="props">{{
                 props.row.allocate_region == null
                   ? "NA"
                   : props.row.allocate_region.regionAreaName
             }}</q-td>
 
-            <template slot="top" slot-scope="props">
+            <template v-slot:top="props">
               <!--START: table title -->
-              <!--<div class="col-12 q-title q-my-lg text-weight-regular">
+              <!--<div class="col-12 text-h6 q-my-lg text-weight-regular">
             Stocks
           </div> -->
               <!-- <div class="col-md-6 q-my-md" align="right">
@@ -154,7 +154,7 @@
               <!--END: table title -->
               <!--START: table filter,search -->
               <div class="col-3">
-                <q-search clearable color="grey-9" v-model="filterSearch1" float-label="Search By POD Number" placeholder="Type.." class="q-mr-lg" />
+                <q-input clearable color="grey-9" v-model="filterSearch1" float-label="Search By POD Number" placeholder="Type.." class="q-mr-lg" />
               </div>
               <!-- <div class="col-3" align="right">
                 <q-btn
@@ -179,8 +179,8 @@
           </div> :data="tableData2"-->
             </template>
           </q-table>
-        </q-tab-pane>
-        <q-tab-pane name="createSoPod">
+        </q-tab-panell>
+        <q-tab-panel name="createSoPod">
           <template>
             <div class="col-sm-3">
               <div class="row">
@@ -223,7 +223,7 @@
 
             </div>
           </template>
-        </q-tab-pane>
+        </q-tab-panell>
       </q-tabs>
        
 
@@ -260,7 +260,7 @@ import {
   maxValue,
   minValue,
   decimal
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import { stringify } from "json5";
 export default {
   name: "getserviceRequestGetTypes",

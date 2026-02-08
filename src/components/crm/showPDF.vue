@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-modal
+    <q-dialog
       @hide="emitToggleRemarks"
       @escape-key="emitToggleRemarks"
       v-model="toggleModal"
@@ -32,7 +32,7 @@
       <div class="col-md-12 group" align="right">
         <q-btn align="right" @click="Download()" color="purple-9">Download</q-btn>
       </div>
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 

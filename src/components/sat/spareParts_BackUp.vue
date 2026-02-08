@@ -37,7 +37,7 @@
             <q-btn
               no-caps
               :disabled="
-                formData.marsDeviceIdsCooked.length == 0 ? true : false    
+                formData.marsDeviceIdsCooked.length == 0 ? true v-model: false
               "
               label="Assign"
               class="common-dark-blue"
@@ -53,29 +53,29 @@
         :columns="columns"
         :filter="filter"
         selection="multiple"
-        :selected.sync="formData.marsDeviceIdsCooked"
-        :pagination.sync="paginationControl"
+        :selected="formData.marsDeviceIdsCooked"
+        v-model:pagination="paginationControl"
         row-key="id"
         :loading="toggleAjaxLoadFilter"
         :rows-per-page-options="[5, 10, 15, 20]"
         color="dark"
         @request="ajaxLoadAllLeadInfo"
       >
-        <q-tr slot="top-row" slot-scope="props">
+        <q-tr v-slot:top-row="props">
           <q-th v-for="col in props.columns" :key="col.name" :props="props">{{
             col.label
           }}</q-th>
         </q-tr>
         <!--END: table header -->
-        <q-td slot="body-cell-mid" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-mid="props" :props="props">
           <span class="label text-primary"># {{ props.row.mid }}</span>
         </q-td>
-        <q-td slot="body-cell-regionAreaName" slot-scope="props" :props="props">{{
+        <q-td v-slot:body-cell-regionAreaName="props" :props="props">{{
           props.row.allocate_region == null
             ? "NA"
             : props.row.allocate_region.regionAreaName
         }}</q-td>
-         <q-td slot="body-cell-name" slot-scope="props" :props="props">{{
+         <q-td v-slot:body-cell-name="props" :props="props">{{
           props.row.created_by == null
             ? "NA"
             : props.row.created_by.name
@@ -83,7 +83,7 @@
         <template slot="top" class="bottom-border">
           <!--START: table filter,search,excel download -->
           <div class="col-5">
-            <q-search
+            <q-input
               clearable
               v-model="filter"
               separator

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-modal
+    <q-dialog
       minimized no-backdrop-dismiss v-model="toggleModel"
       :content-css="{padding: '10px', maxWidth: '50vw'}"
     > 
@@ -8,7 +8,7 @@
         <div class="row text-center justify-center">
           <div class="col-md-12 q-py-sm bottom-border">
      
-            <div class="q-title text-grey-9">
+            <div class="text-h6 text-grey-9">
               Sim Activation - Bulk Upload
             </div>
                     
@@ -65,20 +65,20 @@
             </div>
             <div v-else align="left">
               <q-card dense class="q-pa-xs">
-                <q-card-title>
+                <q-card-section>
                   Uploaded File
-                </q-card-title>
-                <q-card-separator />
-                <q-card-main>
+                </q-card-section>
+                <q-separator />
+                <q-card-section>
                   <q-item dense>
-                    <q-item-side icon="attach_file" />
-                    <q-item-main>{{
+                    <q-item-section icon="attach_file" />
+                    <q-item-section>{{
                       formData.fileSelected[0].name
-                    }}</q-item-main>
-                    <q-item-side></q-item-side>
+                    }}</q-item-section>
+                    <q-item-section></q-item-section>
                   </q-item>
-                </q-card-main>
-                <q-card-separator />
+                </q-card-section>
+                <q-separator />
                 <q-card-actions align="end">
                   <q-btn
                     outline
@@ -108,7 +108,7 @@
         </div>
       </div>
 
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 
@@ -125,7 +125,7 @@ import {
   alphaNum,
   numeric,
   sameAs
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 Vue.use(Vuelidate);
 import { date } from "quasar";
 const today = new Date();

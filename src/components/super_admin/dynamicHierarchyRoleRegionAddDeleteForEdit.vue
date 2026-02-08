@@ -1,6 +1,6 @@
 <template>
     <div>
-      <q-modal 
+      <q-dialog
         class="customModalOverlay"
         minimized
         v-model="toggleModel"  
@@ -10,7 +10,7 @@
       >       
         <div class="row group">
           <div class="col-md-12 col-sm-12 col-xs-12 q-py-sm bottom-border">
-              <span class="q-title">User Mapping Information</span>
+              <span class="text-h6">User Mapping Information</span>
           </div>
           <pre>{{userMapping}}</pre>
             <div class="col-md-12 col-sm-12 col-xs-12">
@@ -58,14 +58,14 @@
             <q-btn size="md" align="right" color="purple-9" @click="emitfnToggleModel(userMapping)"> Done </q-btn>
           </div>
         </div>
-      </q-modal>
+      </q-dialog>
     </div>
 
 </template>
 <script>
 import { mapGetters, mapActions } from "vuex";
 
-import { required, requiredIf } from "vuelidate/lib/validators";
+import { required, requiredIf } from "@vuelidate/validators";
 export default {
   props: [
     "propDynamicHierarchyRoleRegion",

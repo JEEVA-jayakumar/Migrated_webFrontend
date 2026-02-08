@@ -1,6 +1,6 @@
 <template>
     <div>
-      <q-modal v-model="toggleModal" class="q-mt-lg capitalize" @hide="emitToggleRemarks" @escape-key="emitToggleRemarks"
+      <q-dialog v-model="toggleModal" class="q-mt-lg capitalize" @hide="emitToggleRemarks" @escape-key="emitToggleRemarks"
         :content-css="{minWidth:'30vw',padding:'20px'}">
         <div class="row items-center bottom-border q-py-sm">
           <div class="col">Scan POD Number</div>
@@ -13,9 +13,9 @@
   
         <form>
           <div class="column group">
-            <div class="q-title"></div>
+            <div class="text-h6"></div>
           </div> 
-          <!-- <q-item-main class="q-body-1">{{this.formData.podNumber.podNumber}}</q-item-main> -->
+          <!-- <q-item-section class="text-body1">{{this.formData.podNumber.podNumber}}</q-item-section> -->
           <!-- <p>{{ formData.podNumber.podNumber }}</p> -->
           <q-input v-model="formData.podNumber.podNumber" readonly  float-label="POD Number"/>
           <div class="group" >
@@ -23,7 +23,7 @@
             <q-btn @click="openScannerComp" v-if="scannerToggleOption"  color="blue" outline class="q-py-xs " label="Start scan" style="float: inline-end;"/>
           </div>
         </form>
-      </q-modal>
+      </q-dialog>
     </div>
   </template>
       
@@ -32,7 +32,7 @@
     import VueBarcodeScanner from "vue-barcode-scanner";
   Vue.use(VueBarcodeScanner);
   import { mapGetters, mapActions } from "vuex";
-  import { required } from "vuelidate/lib/validators";
+  import { required } from "@vuelidate/validators";
   
   export default {
     name: "phonepePaperRoll",

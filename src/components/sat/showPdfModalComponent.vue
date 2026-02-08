@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-modal
+    <q-dialog
       @hide="emitToggleRemarks"
       @escape-key="emitToggleRemarks"
       v-model="toggleModal"
@@ -24,7 +24,7 @@
         </div>
       </div>
       <!--END >> PDF viewer, third party plugin -->
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 

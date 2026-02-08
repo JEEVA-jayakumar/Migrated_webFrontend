@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-modal
+    <q-dialog
       minimized
       no-backdrop-dismiss
       no-esc-dismiss
@@ -9,7 +9,7 @@
     >
       <form>
         <div class="column group">
-          <div class="q-title q-py-md">Are you sure want to reject?</div>
+          <div class="text-h6 q-py-md">Are you sure want to reject?</div>
           <div>
             <q-input
               v-model="formData.leadInformation.reason"
@@ -40,7 +40,7 @@
           </div>
         </div>
       </form>
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 
@@ -53,7 +53,7 @@ import {
   alpha,
   alphaNum,
   numeric
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 
 export default {

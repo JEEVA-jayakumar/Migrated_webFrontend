@@ -4,23 +4,23 @@
       <!-- <div class="row bottom-border q-px-md q-py-md items-center text-weight-regular text-grey-9">
         <div class="col-md-4">
           <q-select color="grey-9" v-model="aggregator" float-label="Select Aggregator" radio
-            :options="aggregatorOptions" @input="getaggregator" />
+            v-model:options="aggregatorOptions" @input="getaggregator" />
         </div>
       </div> -->
       <div>
         <q-table table-class="customTableClass" :data="tableData" :columns="columns" :filter="filter"
-          :pagination.sync="paginationControl" row-key="name" @request="ajaxLoadAllLeadInfo">
-          <q-td slot="body-cell-created_at" slot-scope="props" :props="props">{{
+          :pagination="paginationControl" row-key="name" @request="ajaxLoadAllLeadInfo">
+          <q-td v-slot:body-cell-created_at="props" :props="props">{{
             props.row.created_at == null ? "NA" :
               props.row.created_at | moment("Do MMM Y")
           }}</q-td>
-          <q-td slot="body-cell-updated_at" slot-scope="props" :props="props">{{
+          <q-td v-slot:body-cell-updated_at="props" :props="props">{{
             props.row.updated_at == null ? "NA" :
               props.row.updated_at | moment("Do MMM Y")
           }}</q-td>
-          <template slot="top" slot-scope="props">
+          <template v-slot:top="props">
             <div class="col-md-5">
-              <q-search clearable v-model="filter" separator color="grey-9" placeholder="Type.."
+              <q-input clearable v-model="filter" separator color="grey-9" placeholder="Type.."
                 float-label="Pod Number, Device Type" class="q-mr-lg q-py-sm" />
             </div>
             <div class="col-md-5">

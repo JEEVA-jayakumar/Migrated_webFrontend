@@ -3,7 +3,7 @@
     <div>
       <!--START: table title -->
       <div
-        class="col-md-12 q-title q-px-md q-py-md text-weight-regular bottom-border text-grey-9"
+        class="col-md-12 text-h6 q-px-md q-py-md text-weight-regular bottom-border text-grey-9"
       >Proxy Lead Miselling Tracker</div>
       <div class="row q-pa-md">
         <div class="col-6 group">
@@ -68,14 +68,14 @@
       </div>
       <div class="row q-pa-md">
         <div class="col-6 group">
-          <q-datetime
+          <q-input
             type="date"
             modal
             v-model="formData.from"
             color="grey-9"
             float-label="Start date"
           />
-          <q-datetime
+          <q-input
             type="date"
             modal
             v-model="formData.to"

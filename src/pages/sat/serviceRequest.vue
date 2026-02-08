@@ -4,7 +4,7 @@
     <div>
       <div
         class="
-          q-title q-px-lg q-py-md
+          text-h6 q-px-lg q-py-md
           text-weight-regular
           bottom-border
           text-grey-9
@@ -98,7 +98,7 @@
             <q-btn
               no-caps
               :disabled="
-                formData.marsDeviceIdsCooked.length == 0 ? true : false
+                formData.marsDeviceIdsCooked.length == 0 ? true v-model: false
               "
               label="Submit"
               class="common-dark-blue"
@@ -139,15 +139,15 @@
           slot="title"
           label="Unassigned"
         />
-        <q-tab-pane name="unAssigned">
+        <q-tab-panel name="unAssigned">
           <!--START: table Data    :data="tableData1" -->
           <q-table
             :columns="columnDataUnassigned"
             table-class="customTableClass"
             :filter="filterSearch1"
             selection="multiple"
-            :selected.sync="formData.marsDeviceIdsCooked"
-            :pagination.sync="paginationControl1"
+            :selected="formData.marsDeviceIdsCooked"
+            v-model:pagination="paginationControl1"
             row-key="id"
             :loading="tableAjaxLoading1"
             :rows-per-page-options="[5, 10, 15, 20]"
@@ -155,8 +155,7 @@
             @request="ajaxLoadAllLeadInfo1"
           >
             <q-td
-              slot="body-cell-leadNumber"
-              slot-scope="props"
+              v-slot:body-cell-leadNumber="props"
               :props="props"
               class="cursor-pointer"
               @click.native="toggleLeadInformation(props.row.leadInformation)"
@@ -166,38 +165,33 @@
               >
             </q-td>
             <q-td
-              slot="body-cell-submitToMarsDate"
-              slot-scope="props"
+              v-slot:body-cell-submitToMarsDate="props"
               :props="props"
               >{{
                 props.row.leadInformation.submitToMarsDate | moment("Do MMM Y")
               }}</q-td
             >
             <q-td
-              slot="body-cell-createdAt"
-              slot-scope="props"
+              v-slot:body-cell-createdAt="props"
               :props="props"
               >{{ props.row.createdAt | moment("Do MMM Y") }}</q-td
             >
             <q-td
-              slot="body-cell-tid"
-              slot-scope="props"
+              v-slot:body-cell-tid="props"
               :props="props"
               class="customTd"
             >
               <div class="text-primary">{{ props.row.tid }}</div>
             </q-td>
             <q-td
-              slot="body-cell-mid"
-              slot-scope="props"
+              v-slot:body-cell-mid="props"
               :props="props"
               class="customTd"
             >
               <div class="text-primary">{{ props.row.mid }}</div>
             </q-td>
             <q-td
-              slot="body-cell-deviceAddress"
-              slot-scope="props"
+              v-slot:body-cell-deviceAddress="props"
               :props="props"
               class="customTd customCellLength"
             >
@@ -208,7 +202,7 @@
             <template slot="top">
               <!--START: table filter,search -->
               <!-- <div class="col-md-5">
-                <q-search
+                <q-input
                   clearable
                   color="grey-9"
                   v-model="filterSearch1"
@@ -217,21 +211,21 @@
                   class="q-mr-lg q-py-sm"
                 />
               </div> -->
-              <!--END: table filter,search -->
+              <!--ENDv-model: table filter,search -->
             </template>
           </q-table>
           <!--END: table Data -->
-        </q-tab-pane>
+        </q-tab-panell>
         <q-tab color="dark" name="assigned" slot="title" label="Assigned" />
 
-        <q-tab-pane name="assigned">
+        <q-tab-panel name="assigned">
           <!--START: table Data    :data="tableData" -->
           <q-table
             :columns="columnDataAssigned"
             table-class="customTableClass"
             :filter="filterSearch"
-            :pagination.sync="paginationControl"
-            :selected.sync="formData.marsDeviceIdsCookedUnAssinged"
+            :pagination="paginationControl"
+            v-model:selected="formData.marsDeviceIdsCookedUnAssinged"
             row-key="id"
             :loading="tableAjaxLoading"
             :rows-per-page-options="[5, 10, 15, 20]"
@@ -239,14 +233,13 @@
             @request="ajaxLoadAllLeadInfo"
           >
             <!-- selection="multiple" -->
-            <!-- <template slot="body" slot-scope="props">
+            <!-- <template v-slot:body="props">
                  <q-tr :props="props" class="">
 
                  </q-tr>
             </template> -->
             <q-td
-              slot="body-cell-leadNumber"
-              slot-scope="props"
+              v-slot:body-cell-leadNumber="props"
               :props="props"
               class="cursor-pointer"
               @click.native="toggleLeadInformation(props.row.leadInformation)"
@@ -256,22 +249,19 @@
               >
             </q-td>
             <q-td
-              slot="body-cell-submitToMarsDate"
-              slot-scope="props"
+              v-slot:body-cell-submitToMarsDate="props"
               :props="props"
               >{{
                 props.row.leadInformation.submitToMarsDate | moment("Do MMM Y")
               }}</q-td
             >
             <q-td
-              slot="body-cell-createdAt"
-              slot-scope="props"
+              v-slot:body-cell-createdAt="props"
               :props="props"
               >{{ props.row.createdAt | moment("Do MMM Y") }}</q-td
             >
             <q-td
-              slot="body-cell-deviceAddress"
-              slot-scope="props"
+              v-slot:body-cell-deviceAddress="props"
               :props="props"
               class="customTd customCellLength"
             >
@@ -279,22 +269,20 @@
             </q-td>
 
             <q-td
-              slot="body-cell-tid"
-              slot-scope="props"
+              v-slot:body-cell-tid="props"
               :props="props"
               class="customTd"
             >
               <div class="text-primary">{{ props.row.tid }}</div>
             </q-td>
             <q-td
-              slot="body-cell-mid"
-              slot-scope="props"
+              v-slot:body-cell-mid="props"
               :props="props"
               class="customTd"
             >
               <div class="text-primary">{{ props.row.mid }}</div>
             </q-td>
-            <q-td slot="body-cell-action" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-action="props" :props="props">
               <q-btn
                 highlight
                 push
@@ -320,7 +308,7 @@
             <template slot="top">
               <!--START: table filter,search -->
               <!-- <div class="col-md-5">
-                <q-search
+                <q-input
                   clearable
                   color="grey-9"
                   v-model="filterSearch"
@@ -331,18 +319,18 @@
               </div> -->
             </template>
           </q-table>
-          <!--END: table Data -->
-        </q-tab-pane>
+          <!--ENDv-model: table Data -->
+        </q-tab-panell>
         <q-tab color="dark" name="closed" slot="title" label="Closed" />
-        <q-tab-pane name="closed">
+        <q-tab-panel name="closed">
           <!--START: table Data -->
           <q-table
             :data="closedDatas"
             :columns="columns"
             table-class="customTableClass"
             :filter="filterSearch2"
-            :pagination.sync="paginationControl2"
-            :selected.sync="formData.marsDeviceIdsCookedUnAssinged"
+            :pagination="paginationControl2"
+            v-model:selected="formData.marsDeviceIdsCookedUnAssinged"
             row-key="id"
             :loading="tableAjaxLoading"
             :rows-per-page-options="[5, 10, 15, 20]"
@@ -350,14 +338,13 @@
             @request="ajaxLoadAllLeadInfoClosed"
           >
             <!-- selection="multiple" -->
-            <!-- <template slot="body" slot-scope="props">
+            <!-- <template v-slot:body="props">
                  <q-tr :props="props" class="">
 
                  </q-tr>
             </template> -->
             <q-td
-              slot="body-cell-leadNumber"
-              slot-scope="props"
+              v-slot:body-cell-leadNumber="props"
               :props="props"
               class="cursor-pointer"
               @click.native="toggleLeadInformation(props.row.leadInformation)"
@@ -367,22 +354,19 @@
               >
             </q-td>
             <q-td
-              slot="body-cell-submitToMarsDate"
-              slot-scope="props"
+              v-slot:body-cell-submitToMarsDate="props"
               :props="props"
               >{{
                 props.row.leadInformation.submitToMarsDate | moment("Do MMM Y")
               }}</q-td
             >
             <q-td
-              slot="body-cell-createdAt"
-              slot-scope="props"
+              v-slot:body-cell-createdAt="props"
               :props="props"
               >{{ props.row.createdAt | moment("Do MMM Y") }}</q-td
             >
             <q-td
-              slot="body-cell-deviceAddress"
-              slot-scope="props"
+              v-slot:body-cell-deviceAddress="props"
               :props="props"
               class="customTd customCellLength"
             >
@@ -390,22 +374,20 @@
             </q-td>
 
             <q-td
-              slot="body-cell-tid"
-              slot-scope="props"
+              v-slot:body-cell-tid="props"
               :props="props"
               class="customTd"
             >
               <div class="text-primary">{{ props.row.tid }}</div>
             </q-td>
             <q-td
-              slot="body-cell-mid"
-              slot-scope="props"
+              v-slot:body-cell-mid="props"
               :props="props"
               class="customTd"
             >
               <div class="text-primary">{{ props.row.mid }}</div>
             </q-td>
-            <q-td slot="body-cell-action" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-action="props" :props="props">
               <q-btn
                 highlight
                 push
@@ -431,7 +413,7 @@
             <template slot="top">
               <!--START: table filter,search -->
               <!-- <div class="col-md-5">
-                <q-search
+                <q-input
                   clearable
                   color="grey-9"
                   v-model="filterSearch2"
@@ -443,7 +425,7 @@
             </template>
           </q-table>
           <!--END: table Data -->
-        </q-tab-pane>
+        </q-tab-panell>
       </q-tabs>
       <div class="row items-center gutter-y-sm">
         <div class="col-md-9 col-sm-12 col-xs-12">

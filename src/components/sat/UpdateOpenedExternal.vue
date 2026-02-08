@@ -1,19 +1,19 @@
 <template>
     <q-page>
-        <q-modal minimized no-backdrop-dismiss class="customModalOverlay" v-model="toggleModel"
+        <q-dialog minimized no-backdrop-dismiss class="customModalOverlay" v-model="toggleModel"
             :content-css="{ padding: '50px', minWidth: '30vw' }">
-            <!-- <q-modal
+            <!-- <q-dialog
         minimized no-backdrop-dismiss v-model="toggleModel"
         :content-css="{padding:'30px',minWidth: '40vw'}"
       >  -->
             <div class="row">
-                <div class="col-12 q-title q-pa-md text-weight-regular bottom-border">
+                <div class="col-12 text-h6 q-pa-md text-weight-regular bottom-border">
                     RE-Assign
                 </div>
                 <!-- START >> Setup MDR details -->
                 <div class="col-md-5 col-sm-4 col-xs-12 q-pa-sm">
                     <q-card style="width:250%">
-                        <q-card-main>
+                        <q-card-section>
                             <q-list no-border>
                                 <div class="col-md-12">
                                     <q-select filter clearable color="grey-9" v-model="formData.so" :options="assignToOptions"
@@ -29,7 +29,7 @@
                                         align="left" value="" v-model="formData.reason" />
                                 </div>
                             </q-list>
-                        </q-card-main>
+                        </q-card-section>
                         <q-card-actions align="end">
                             <q-btn flat align="right" class="bg-white text-weight-regular text-grey-8"
                                 @click="emitfnshowUpdateOpenedExternal()">Cancel</q-btn>
@@ -39,7 +39,7 @@
                 </div>
                 <!-- END >> Setup MDR details -->
             </div>
-        </q-modal>
+        </q-dialog>
     </q-page>
 </template>
   
@@ -55,7 +55,7 @@ import {
     alpha,
     alphaNum,
     numeric
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 export default {
     props: ["propShowUpdateOpenedExternal", "propRowDetails"],

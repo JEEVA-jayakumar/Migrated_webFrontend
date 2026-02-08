@@ -15,13 +15,13 @@
             <q-tab name="external" label="Aggregator Implementation Queue" slot="title" />
            
            
-            <q-tab-pane name="internal">
+            <q-tab-panel name="internal">
               <internalimplementationRequest/>
-            </q-tab-pane>
+            </q-tab-panell>
            
-            <q-tab-pane name="external">
+            <q-tab-panel name="external">
               <externalimplementationRequest/>
-            </q-tab-pane>
+            </q-tab-panell>
           </q-tabs>
         </div>
       </div>

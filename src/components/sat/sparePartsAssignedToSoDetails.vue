@@ -7,7 +7,7 @@
     <div
           class="
             col-6 col-sm-4 col-md-8
-            q-title
+            text-h6
             text-weight-regular text-grey-9
           "
         >
@@ -134,7 +134,7 @@ import {
   maxValue,
   minValue,
   decimal
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import VueBarcodeScanner from "vue-barcode-scanner";
 Vue.use(VueBarcodeScanner);
 import { mapGetters, mapActions } from "vuex";

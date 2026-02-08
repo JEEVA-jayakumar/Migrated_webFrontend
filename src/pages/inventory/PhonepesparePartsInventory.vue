@@ -6,7 +6,7 @@
         <!--START: table title -->
         <div class="
             col-6 col-sm-4 col-md-8
-            q-title
+            text-h6
             text-weight-regular text-grey-9
           ">
           Aggregator Allocation Type / So
@@ -16,7 +16,7 @@
           <div class="group">
             <q-radio v-for="(item, index) in flagOptions" :key="index" color="grey-9" v-model.trim="flag"
               @blur="$v.flag.$touch" :error="$v.flag.$error" :val="item.value" :label="item.label" />
-            <div class="text-negative q-py-xs group q-caption" v-if="$v.flag.$error" align="right" width="25px">
+            <div class="text-negative q-py-xs group text-caption" v-if="$v.flag.$error" align="right" width="25px">
               <div>
                 <q-icon color="negative" name="warning" />&nbsp;Required Field
               </div>
@@ -131,7 +131,7 @@ import {
   maxValue,
   minValue,
   decimal
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import VueBarcodeScanner from "vue-barcode-scanner";
 Vue.use(VueBarcodeScanner);
 import { mapGetters, mapActions } from "vuex";

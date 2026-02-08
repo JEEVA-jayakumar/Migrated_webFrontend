@@ -1,3 +1,4 @@
+import { api } from '../../boot/axios';
 import api from "../api.js";
 import Vue from "vue";
 import moment from "moment";
@@ -30,12 +31,12 @@ export const CMS_EDIT_MDR = ({
         'NII': res
     };
     if(res == 104){
-        return Vue.http.put(rootState.GlobalVariables.STATE_MARS_AXIS_ON_BOARD_API_URL +
+        return api.put(rootState.GlobalVariables.STATE_MARS_AXIS_ON_BOARD_API_URL +
             "merchant/" + request.url.id + "/updateMdr", request.params, {
             headers: headers
         })
     }else{
-        return Vue.http.put(rootState.GlobalVariables.STATE_MARS_ON_BOARD_API_URL +
+        return api.put(rootState.GlobalVariables.STATE_MARS_ON_BOARD_API_URL +
             "merchant/" + request.url.id + "/updateMdr", request.params, {
             headers: headers
         })
@@ -57,12 +58,12 @@ export const CMS_EDIT_MERCHANT = ({
     };
 
     if(res == 104){
-        return Vue.http.put(rootState.GlobalVariables.STATE_MARS_AXIS_ON_BOARD_API_URL +
+        return api.put(rootState.GlobalVariables.STATE_MARS_AXIS_ON_BOARD_API_URL +
             "merchant/" + request.url.id + "/update", request.params, {
             headers: headers
         })
     }else{
-        return Vue.http.put(rootState.GlobalVariables.STATE_MARS_ON_BOARD_API_URL +
+        return api.put(rootState.GlobalVariables.STATE_MARS_ON_BOARD_API_URL +
             "merchant/" + request.url.id + "/update", request.params, {
             headers: headers
         })
@@ -93,13 +94,13 @@ export const CMS_EDIT_TERMINAL = ({
     };
 
     if(res == 104){
-        return Vue.http.put(rootState.GlobalVariables.STATE_MARS_AXIS_ON_BOARD_API_URL +
+        return api.put(rootState.GlobalVariables.STATE_MARS_AXIS_ON_BOARD_API_URL +
             "terminal/" + request.terminal.id + "/update", request.terminalparams,
             {
                 headers: headers
             })
     }else{
-        return Vue.http.put(rootState.GlobalVariables.STATE_MARS_ON_BOARD_API_URL +
+        return api.put(rootState.GlobalVariables.STATE_MARS_ON_BOARD_API_URL +
             "terminal/" + request.terminal.id + "/update", request.terminalparams,
             {
                 headers: headers
@@ -132,13 +133,13 @@ export const CMS_EDIT_TERMINAL_DEVICE = ({
     };
 
 if(res == 104){
-    return Vue.http.put(rootState.GlobalVariables.STATE_MARS_AXIS_ON_BOARD_API_URL +
+    return api.put(rootState.GlobalVariables.STATE_MARS_AXIS_ON_BOARD_API_URL +
         "terminal/" + request.terminal.id + "/installation", request.terminalparams,
         {
             headers: headers
         })
 } else{
-    return Vue.http.put(rootState.GlobalVariables.STATE_MARS_ON_BOARD_API_URL +
+    return api.put(rootState.GlobalVariables.STATE_MARS_ON_BOARD_API_URL +
         "terminal/" + request.terminal.id + "/installation", request.terminalparams,
         {
             headers: headers
@@ -163,7 +164,7 @@ if(res == 104){
     let headers = {
         'NII': res
     };
-    return Vue.http.put(rootState.GlobalVariables.STATE_MARS_EDC_ON_BOARD_API_URL +
+    return api.put(rootState.GlobalVariables.STATE_MARS_EDC_ON_BOARD_API_URL +
         "terminal/" + request.terminal.id + "/installation", request.terminalparams,
         {
             headers: headers
@@ -175,7 +176,7 @@ export const CMS_STATUS_CHANGE = ({
     commit,
     rootState
 }, request) => {
-    return Vue.http
+    return api
         .put(rootState.GlobalVariables.STATE_APP_API + 'submit-cms-data-to-mars/' + request)
         .then(response => {
             console.log(response);
@@ -196,12 +197,12 @@ export const CMS_EDIT_KYC = ({
     };
 
 if(res == 104){
-    return Vue.http.put(rootState.GlobalVariables.STATE_MARS_AXIS_ON_BOARD_API_URL +
+    return api.put(rootState.GlobalVariables.STATE_MARS_AXIS_ON_BOARD_API_URL +
         "merchant/" + request.url.id + "/updateKyc", request.params, {
         headers: headers
     })
 } else {
-    return Vue.http.put(rootState.GlobalVariables.STATE_MARS_ON_BOARD_API_URL +
+    return api.put(rootState.GlobalVariables.STATE_MARS_ON_BOARD_API_URL +
         "merchant/" + request.url.id + "/updateKyc", request.params, {
         headers: headers
     })    

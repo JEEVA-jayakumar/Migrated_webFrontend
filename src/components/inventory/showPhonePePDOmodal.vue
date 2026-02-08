@@ -1,13 +1,13 @@
 <template>
   <div>
-    <q-modal v-model="toggleModal" no-backdrop-dismiss no-esc-dismiss
+    <q-dialog v-model="toggleModal" no-backdrop-dismiss no-esc-dismiss
       :content-css="{ padding: '10px', maxWidth: '50vw', minHeight: '' }">
       <!-- Scanned Devices: {{this.propAllScannedItemArr.scannedItems}} -->
       <div class="q-pa-md">
         <div class="column">
           <!-- <pre>{{propAllScannedItemArr}}</pre> -->
           <div class="col-md-12 bottom-border">
-            <div class="q-title text-weight-regular q-py-sm">Aggregator POD Number</div>
+            <div class="text-h6 text-weight-regular q-py-sm">Aggregator POD Number</div>
           </div>
           <div class="col-md-8 q-pt-md" align="left">
             <q-input color="grey-9" v-model="formData.podNumber" float-label="Enter POD Number"
@@ -21,7 +21,7 @@
           </div>
 
           <!-- <div class="col-md-12 bottom-border">
-              <div class="q-title text-weight-regular q-py-sm">Device Count</div>
+              <div class="text-h6 text-weight-regular q-py-sm">Device Count</div>
             </div>
             <div class="col-md-8 q-pt-md" align="left">
               <q-input
@@ -37,7 +37,7 @@
           </div>
         </div>
       </div>
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 <script>

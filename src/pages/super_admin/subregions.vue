@@ -3,17 +3,17 @@
     <!-- content -->
     <div>
       <q-table
-        :data="getAllPincodes"
+        v-model:data="getAllPincodes"
         table-class="customSATableClass"
         :columns="columns"
         :filter="filter"
-        :pagination.sync="serverPagination"
+        :pagination="serverPagination"
         row-key="name"
         :loading="loading"
         @request="searchRequest"
         color="grey-9"
       >
-        <q-td slot="body-cell-action" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-action="props" :props="props">
           <div class="row no-wrap no-padding">
             <q-btn
               dense
@@ -31,9 +31,9 @@
           </div>
         </q-td>
 
-        <template slot="top" slot-scope="props">
+        <template v-slot:top="props">
           <!--START: table title -->
-          <div class="col-md-6 q-title q-mt-lg text-weight-regular">Pincodes</div>
+          <div class="col-md-6 text-h6 q-mt-lg text-weight-regular">Pincodes</div>
 
           <div class="col-md-6 q-my-md" align="right">
             <q-btn
@@ -51,7 +51,7 @@
 
           <!--START: table filter,search -->
           <div class="col-md-5">
-            <q-search
+            <q-input
               clearable
               color="grey-9"
               v-model="filter"

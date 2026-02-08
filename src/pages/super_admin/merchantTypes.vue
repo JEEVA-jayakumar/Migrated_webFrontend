@@ -1,7 +1,7 @@
 <template>
   <q-page>
     <div class="row">
-      <div class="col-12 q-title q-pa-md text-weight-regular bottom-border">Manage Document Types</div>
+      <div class="col-12 text-h6 q-pa-md text-weight-regular bottom-border">Manage Document Types</div>
       <!-- START >> Setup MDR details -->
       <div class="col-md-12 col-sm-12 col-xs-12 q-pa-sm group">
         <div class="row gutter-x-xs">
@@ -99,17 +99,17 @@
             label="De-Actived List"
             name="tab-2"
           />
-          <q-tab-pane name="tab-1">
+          <q-tab-panel name="tab-1">
             <q-table
               table-class="customTableClass"
-              :data="activatedTableData"
+              v-model:data="activatedTableData"
               :columns="activatedColumns"
               :filter="filterSearch"
-              :pagination.sync="pagination"
+              :pagination="pagination"
               row-key="name"
               color="grey-9"
             >
-              <q-td slot="body-cell-action" slot-scope="props" :props="props">
+              <q-td v-slot:body-cell-action="props" :props="props">
                 <div class="row no-wrap no-padding">
                   <q-btn
                     dense
@@ -135,10 +135,10 @@
                   ></q-btn>
                 </div>
               </q-td>
-              <template slot="top" slot-scope="props" class="bottom-border">
+              <template v-slot:top="props" class="bottom-border">
                 <!--START: table filter,search -->
                 <div class="col-md-5">
-                  <q-search
+                  <q-input
                     clearable
                     color="grey-9"
                     v-model="filterSearch"
@@ -147,21 +147,21 @@
                     class="q-mr-lg q-py-sm"
                   />
                 </div>
-                <!--END: table filter,search -->
+                <!--ENDv-model: table filter,search -->
               </template>
             </q-table>
-          </q-tab-pane>
-          <q-tab-pane name="tab-2">
+          </q-tab-panell>
+          <q-tab-panel name="tab-2">
             <q-table
               table-class="customTableClass"
               :data="deActivatedTableData"
               :columns="deActivatedColumns"
               :filter="filterSearch"
-              :pagination.sync="pagination"
+              :pagination="pagination"
               row-key="name"
               color="grey-9"
             >
-              <q-td slot="body-cell-action" slot-scope="props" :props="props">
+              <q-td v-slot:body-cell-action="props" :props="props">
                 <div class="row no-wrap no-padding">
                   <q-btn
                     dense
@@ -187,10 +187,10 @@
                   ></q-btn>
                 </div>
               </q-td>
-              <template slot="top" slot-scope="props" class="bottom-border">
+              <template v-slot:top="props" class="bottom-border">
                 <!--START: table filter,search -->
                 <div class="col-md-5">
-                  <q-search
+                  <q-input
                     clearable
                     color="grey-9"
                     v-model="filterSearch"
@@ -202,7 +202,7 @@
                 <!--END: table filter,search -->
               </template>
             </q-table>
-          </q-tab-pane>
+          </q-tab-panell>
         </q-tabs>
       </div>
       <!-- END >> Table >> MDR details -->
@@ -235,7 +235,7 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-import { required } from "vuelidate/lib/validators";
+import { required } from "@vuelidate/validators";
 /* START >> Modal components Merchant Document Type, device, merchant type */
 import merchantTypes from "../../components/super_admin/merchantTypes.vue";
 import merchanDocumentTypes from "../../components/super_admin/merchanDocumentTypes.vue";

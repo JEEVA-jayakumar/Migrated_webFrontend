@@ -7,15 +7,15 @@
         <q-tab default color="dark" name="active" slot="title" label="Active Hierarchy" />
         <q-tab color="dark" name="deactive" slot="title" label="Deactive Hierarchy" />
 
-        <q-tab-pane name="active">
+        <q-tab-panel name="active">
           <!-- <div>
              {{getAllHierarchiesData}}
           </div> -->
-          <q-table :data="activeTableData" table-class="customSATableClass" :columns="columns" :filter="filterSearch"
-            :pagination.sync="paginationControl" :filter-method="myCustomSearchFilter" row-key="name" color="grey-9"
+          <q-table v-model:data="activeTableData" table-class="customSATableClass" :columns="columns" :filter="filterSearch"
+            :pagination="paginationControl" :filter-method="myCustomSearchFilter" row-key="name" color="grey-9"
             @request="ajaxLoadDataForHierarchyTable">
 
-            <q-td slot="body-cell-action" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-action="props" :props="props">
               <div class="row no-wrap no-padding">
                 <q-btn dense no-caps no-wrap label="Disable" icon="far fa-plus-square" size="md"
                   @click="fnDisable(props.row)" flat class="text-light-blue">
@@ -25,9 +25,9 @@
                 <!-- </q-btn> -->
               </div>
             </q-td>
-            <template slot="top" slot-scope="props">
+            <template v-slot:top="props">
               <!--START: table title -->
-              <!-- <div class="col-12 q-title q-my-lg text-weight-regular">Hierarchy</div> -->
+              <!-- <div class="col-12 text-h6 q-my-lg text-weight-regular">Hierarchy</div> -->
               <!-- <div class="col-md-6 q-my-md" align="right">
             <q-btn no-caps no-wrap label="Add New Hierarchy" class="q-mt-lg text-weight-regular" color="purple-9"  icon="far fa-plus-square" size="md" @click="fnshowCreateHierarchy()"/>
           </div> -->
@@ -35,26 +35,26 @@
 
               <!--START: table filter,search -->
               <div class="col-md-6">
-                <q-search clearable color="grey-9" v-model="filterSearch" placeholder="Type.." class="q-mr-lg" />
+                <q-input clearable color="grey-9" v-model="filterSearch" placeholder="Type.." class="q-mr-lg" />
               </div>
               <div class="col-md-12" align="right">
                 <q-btn no-caps class="text-weight-regular" @click="$router.push('/super/admin/add/New/Hierarchy')"
                   label="Add New Hierarchy" color="purple-9" size="md" />
               </div>
-              <!--END: table filter,search -->
+              <!--ENDv-model: table filter,search -->
             </template>
           </q-table>
-        </q-tab-pane>
+        </q-tab-panell>
 
-        <q-tab-pane name="deactive">
+        <q-tab-panel name="deactive">
           <!-- <div>
              {{getAllHierarchiesData}}
           </div> -->
           <q-table :data="deActiveTableData" table-class="customSATableClass" :columns="columns1"
-            :filter="filterSearch1" :pagination.sync="paginationControl1" :filter-method="myCustomSearchFilter"
+            :filter="filterSearch1" :pagination="paginationControl1" :filter-method="myCustomSearchFilter"
             row-key="name" color="grey-9" @request="ajaxLoadDataForHierarchyTable">
 
-            <q-td slot="body-cell-action" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-action="props" :props="props">
               <div class="row no-wrap no-padding">
                 <q-btn dense no-caps no-wrap label="Active" icon="far fa-plus-square" size="md"
                   @click="fnactive(props.row)" flat class="text-light-blue">
@@ -64,9 +64,9 @@
                 <!-- </q-btn> -->
               </div>
             </q-td>
-            <template slot="top" slot-scope="props">
+            <template v-slot:top="props">
               <!--START: table title -->
-              <!-- <div class="col-12 q-title q-my-lg text-weight-regular">Hierarchy</div> -->
+              <!-- <div class="col-12 text-h6 q-my-lg text-weight-regular">Hierarchy</div> -->
               <!-- <div class="col-md-6 q-my-md" align="right">
             <q-btn no-caps no-wrap label="Add New Hierarchy" class="q-mt-lg text-weight-regular" color="purple-9"  icon="far fa-plus-square" size="md" @click="fnshowCreateHierarchy()"/>
           </div> -->
@@ -74,7 +74,7 @@
 
               <!--START: table filter,search -->
               <div class="col-md-6">
-                <q-search clearable color="grey-9" v-model="filterSearch1" placeholder="Type.." class="q-mr-lg" />
+                <q-input clearable color="grey-9" v-model="filterSearch1" placeholder="Type.." class="q-mr-lg" />
               </div>
               <!-- <div class="col-md-12" align="right">
             <q-btn
@@ -89,7 +89,7 @@
               <!--END: table filter,search -->
             </template>
           </q-table>
-        </q-tab-pane>
+        </q-tab-panell>
 
 
       </q-tabs>

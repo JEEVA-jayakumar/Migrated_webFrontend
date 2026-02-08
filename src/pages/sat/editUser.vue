@@ -1,6 +1,6 @@
 <template>
   <div>
-     <q-modal 
+     <q-dialog
         position="right"
         class="customModalOverlay"
         maximized
@@ -14,7 +14,7 @@
              <div class="q-pa-sm">
                 <div class="row gutter-sm q-py-sm items-center bottom-border">
                   <div class="col-md-8">
-                    <div class="q-title text-weight-regular">Edit User</div>
+                    <div class="text-h6 text-weight-regular">Edit User</div>
                   </div>
                   <div class="col-md-2">
                     <q-btn flat size="md" align="right" class="bg-white text-weight-regular text-grey-8" @click="emitfnShowEditUser(showEditUser)">Cancel
@@ -45,7 +45,7 @@
               <div class="q-pa-md">
                 <div class="row gutter-sm q-py-sm">
                   <div class="col-md-12">
-                    <div class="q-title text-weight-regular">User Details</div>
+                    <div class="text-h6 text-weight-regular">User Details</div>
                   </div>
                   <div class="col-md-6">
                     <q-input v-model="formData.addUserDetails.name" 
@@ -119,7 +119,7 @@
               <div class="q-pa-md">
                 <div class="row gutter-sm q-py-md items-center">
                   <div class="col-md-12">
-                    <div class="q-title text-weight-regular">Role*</div>
+                    <div class="text-h6 text-weight-regular">Role*</div>
                   </div>
                   <div v-for="propFilterRole in propFilterRoles" :key="propFilterRole.value">
                       <q-checkbox 
@@ -133,7 +133,7 @@
                       </q-chip>
                     </q-checkbox>
                   </div>  
-                  <div class="col-md-12 text-red text-weight-medium q-caption" 
+                  <div class="col-md-12 text-red text-weight-medium text-caption"
                   v-if="!$v.formData.addUserDetails.tempRoles.required">*Role is mandatory</div>
                 </div>
               </div>
@@ -141,7 +141,7 @@
             </div>
 
         </form>
-    </q-modal>
+    </q-dialog>
 
   </div>
 </template>
@@ -155,7 +155,7 @@ import {
   alpha,
   alphaNum,
   numeric
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 export default {
   props: [

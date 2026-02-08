@@ -1,37 +1,37 @@
 <template>
     <q-page>
         <div>
-            <div class="col-md-6 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9">Aggregator Device
+            <div class="col-md-6 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9">Aggregator Device
                 Recovery</div>
-            <q-table table-class="customTableClass" :data="tableData" :columns="columns" :filter="filter"
-                :pagination.sync="paginationControl" row-key="name" @request="fnajaxLoadingData">
-                <q-td slot="body-cell-serialNumber" slot-scope="props" :props="props">{{
+            <q-table table-class="customTableClass" v-model:data="tableData" :columns="columns" :filter="filter"
+                :pagination="paginationControl" row-key="name" @request="fnajaxLoadingData">
+                <q-td v-slot:body-cell-serialNumber="props" :props="props">{{
                     props.row.aggregatorRegionalInventory == null ? "NA" :
                         props.row.aggregatorRegionalInventory.serialNumber
                 }}</q-td>
-                <q-td slot="body-cell-podNumber" slot-scope="props" :props="props">{{
+                <q-td v-slot:body-cell-podNumber="props" :props="props">{{
                     props.row.aggregatorRegionalInventory == null ? "NA" :
                         props.row.aggregatorRegionalInventory.podNumber
                 }}</q-td>
-                <q-td slot="body-cell-deviceName" slot-scope="props" :props="props">{{
+                <q-td v-slot:body-cell-deviceName="props" :props="props">{{
                     props.row.aggregatorRegionalInventory == null ? "NA" :
                         props.row.aggregatorRegionalInventory.aggregatorDevice.deviceName
                 }}</q-td>
-                <q-td slot="body-cell-tid" slot-scope="props" :props="props">{{
+                <q-td v-slot:body-cell-tid="props" :props="props">{{
                     props.row.tid == null ? "NA" :
                         props.row.tid
                 }}</q-td>
-                <q-td slot="body-cell-mid" slot-scope="props" :props="props">{{
+                <q-td v-slot:body-cell-mid="props" :props="props">{{
                     props.row.mid == null ? "NA" :
                         props.row.mid
                 }}</q-td>
-                <q-td slot="body-cell-leadNumber" slot-scope="props" :props="props">{{
+                <q-td v-slot:body-cell-leadNumber="props" :props="props">{{
                     props.row.leadInformation == null ? "NA" :
                         props.row.leadInformation.leadNumber
                 }}</q-td>
-                <template slot="top" slot-scope="props">
+                <template v-slot:top="props">
                     <div class="col-md-5">
-                        <q-search clearable v-model="filter" separator color="grey-9" placeholder="Type.."
+                        <q-input clearable v-model="filter" separator color="grey-9" placeholder="Type.."
                             float-label="Search TID, MID" class="q-mr-lg q-py-sm" />
                     </div>
                     <div class="col-md-2">
@@ -46,16 +46,16 @@
                         label="Add Phonepe Device Recovery Manufacturer">
                         <q-list link>
                             <q-item to="DeviceRecoveryUpload">
-                                <q-item-side icon="search" />
-                                <q-item-main>
-                                    <q-item-tile label>Scan and Upload</q-item-tile>
-                                </q-item-main>
+                                <q-item-section icon="search" />
+                                <q-item-section>
+                                    <q-item-label label>Scan and Upload</q-item-label>
+                                </q-item-section>
                             </q-item>
                             <q-item @click.native="fnPhonePeBulkUpload">
-                                <q-item-side icon="attach_file" />
-                                <q-item-main>
-                                    <q-item-tile label>Bulk upload</q-item-tile>
-                                </q-item-main>
+                                <q-item-section icon="attach_file" />
+                                <q-item-section>
+                                    <q-item-label label>Bulk upload</q-item-label>
+                                </q-item-section>
                             </q-item>
                         </q-list>
                     </q-btn-dropdown>
