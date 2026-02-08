@@ -5,14 +5,14 @@
         <div class="q-pa-sm">
           <div class="row gutter-sm q-py-sm items-center bottom-border">
             <div>
-              <div class="q-title text-weight-regular">Add New User</div>
+              <div class="text-h6 text-weight-regular">Add New User</div>
             </div>
           </div>
         </div>
 
         <div class="q-pa-sm">
           <div class="row gutter-sm q-py-sm items-center">
-            <div class="full-width q-body-1 text-weight-medium">Mapping Information:</div>
+            <div class="full-width text-body1 text-weight-medium">Mapping Information:</div>
             <div
               class="col-md-4 group"
               v-for="(value,index) in formData.addUserDetails.userMapSets"
@@ -81,7 +81,7 @@
         <div class="q-pa-md">
           <div class="row gutter-sm q-py-sm">
             <div class="col-md-12">
-              <div class="q-title text-weight-regular">User Details</div>
+              <div class="text-h6 text-weight-regular">User Details</div>
             </div>
             <div class="col-md-6">
               <q-input
@@ -243,7 +243,7 @@ import {
   alpha,
   alphaNum,
   numeric
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 import dynamicHierarchyRoleRegionAddDelete from "../../components/super_admin/dynamicHierarchyRoleRegionAddDelete.vue";
 import dynamicHierarchyRoleRegionAddDeleteForEdit from "../../components/super_admin/dynamicHierarchyRoleRegionAddDeleteForEdit.vue";

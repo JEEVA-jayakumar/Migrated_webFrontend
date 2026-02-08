@@ -4,19 +4,19 @@
       <!-- Merchant details -->
       <div class="flex items-stretch q-ma-xs">
         <div class="col-12 col-lg-3">
-          <div class="q-title q-my-md capitalize">{{formData.shortLead.leadName}}</div>
+          <div class="text-h6 q-my-md capitalize">{{formData.shortLead.leadName}}</div>
           <div
             class="text-light-blue cursor-pointer"
             @click="toggleLeadInformation(formData.shortLead)"
           ># {{formData.shortLead.leadNumber}}</div>
         </div>
         <div class="col-12 col-lg-3">
-          <div class="q-title q-my-md">Contact</div>
+          <div class="text-h6 q-my-md">Contact</div>
           <p class="no-margin">{{formData.shortLead.contactNumber}}</p>
           <p>{{formData.shortLead.alternateContactNumber}}</p>
         </div>
         <div class="col-12 col-lg-3">
-          <div class="q-title q-my-md">Address</div>
+          <div class="text-h6 q-my-md">Address</div>
           <p
             v-if="formData.shortLead.leadAddress != null"
             class="capitalize no-margin"
@@ -24,7 +24,7 @@
           <p class="capitalize no-margin">{{formData.shortLead.city}}, {{formData.shortLead.state}}</p>
         </div>
         <div class="col-12 col-lg-3">
-          <div class="q-title q-my-md">Remarks</div>
+          <div class="text-h6 q-my-md">Remarks</div>
           <div
             class="capitalize no-margin text-negative"
             v-if="formData.shortLead.marsReason != null"
@@ -34,7 +34,7 @@
       </div>
 
       <q-list>
-        <q-collapsible
+        <q-expansion-item
           icon="info"
           group="primary"
           label="Merchant details"
@@ -47,52 +47,52 @@
               <!-- Device -->
               <div class="col">
                 <q-card class="border-1 q-custom-class" flat>
-                  <q-card-title class="q-pa-sm items-center bottom-border-dark bg-grey-4">
+                  <q-card-section class="q-pa-sm items-center bottom-border-dark bg-grey-4">
                     <div class="row items-center">
-                      <div class="col q-caption text-weight-medium">
+                      <div class="col text-caption text-weight-medium">
                         Device -
                         {{formData.shortLead.deviceCount}}
                         {{formData.shortLead.device.deviceName}}
                       </div>
                     </div>
-                  </q-card-title>
-                  <q-card-separator />
-                  <q-card-main class="q-pa-sm text-grey-9">
+                  </q-card-section>
+                  <q-separator />
+                  <q-card-section class="q-pa-sm text-grey-9">
                     <q-list separator no-border class="no-padding">
                       <q-item>
-                        <q-item-main class="q-caption">
-                          <q-item-tile>Plan</q-item-tile>
-                        </q-item-main>
-                        <q-item-side class="q-caption" align="center">
-                          <q-item-tile>{{formData.shortLead.plan.planName}}</q-item-tile>
-                        </q-item-side>
+                        <q-item-section class="text-caption">
+                          <q-item-label>Plan</q-item-label>
+                        </q-item-section>
+                        <q-item-section class="text-caption" align="center">
+                          <q-item-label>{{formData.shortLead.plan.planName}}</q-item-label>
+                        </q-item-section>
                       </q-item>
                       <q-item>
-                        <q-item-main class="q-caption">
-                          <q-item-tile>Setup Fees</q-item-tile>
-                        </q-item-main>
-                        <q-item-side class="q-caption" align="center">
-                          <q-item-tile>Rs. {{formData.shortLead.setupFees}}</q-item-tile>
-                        </q-item-side>
+                        <q-item-section class="text-caption">
+                          <q-item-label>Setup Fees</q-item-label>
+                        </q-item-section>
+                        <q-item-section class="text-caption" align="center">
+                          <q-item-label>Rs. {{formData.shortLead.setupFees}}</q-item-label>
+                        </q-item-section>
                       </q-item>
                       <q-item>
-                        <q-item-main class="q-caption">
-                          <q-item-tile>Recurring Fees</q-item-tile>
-                        </q-item-main>
-                        <q-item-side class="q-caption" align="center">
-                          <q-item-tile>Rs. {{formData.shortLead.recurringFees}}</q-item-tile>
-                        </q-item-side>
+                        <q-item-section class="text-caption">
+                          <q-item-label>Recurring Fees</q-item-label>
+                        </q-item-section>
+                        <q-item-section class="text-caption" align="center">
+                          <q-item-label>Rs. {{formData.shortLead.recurringFees}}</q-item-label>
+                        </q-item-section>
                       </q-item>
                       <q-item>
-                        <q-item-main class="q-caption">
-                          <q-item-tile>Merchant Category</q-item-tile>
-                        </q-item-main>
-                        <q-item-side class="q-caption" align="center">
-                          <q-item-tile>{{formData.shortLead.merchantCategory.merchantCategoryName}}</q-item-tile>
-                        </q-item-side>
+                        <q-item-section class="text-caption">
+                          <q-item-label>Merchant Category</q-item-label>
+                        </q-item-section>
+                        <q-item-section class="text-caption" align="center">
+                          <q-item-label>{{formData.shortLead.merchantCategory.merchantCategoryName}}</q-item-label>
+                        </q-item-section>
                       </q-item>
                     </q-list>
-                  </q-card-main>
+                  </q-card-section>
                 </q-card>
               </div>
 
@@ -100,68 +100,68 @@
               <div v-if="formData.shortLead.leadCategory == 2" class="col">
                 <div class="group">
                   <q-card v-if="formData.shortLead.kyc" class="border-1" flat>
-                    <q-card-title class="q-pa-sm bottom-border-dark bg-grey-4">
+                    <q-card-section class="q-pa-sm bottom-border-dark bg-grey-4">
                       <div class="row items-center">
-                        <div class="col-auto q-caption text-weight-medium">Exception KYC</div>
+                        <div class="col-auto text-caption text-weight-medium">Exception KYC</div>
                       </div>
-                    </q-card-title>
-                    <q-card-separator />
-                    <q-card-main class="no-padding">
+                    </q-card-section>
+                    <q-separator />
+                    <q-card-section class="no-padding">
                       <div class="row items-center q-pa-sm q-py-md">
                         <div class="col-md-3 col-sm-12 col-xs-12">
-                          <span class="q-caption text-faded">Reason</span>
+                          <span class="text-caption text-faded">Reason</span>
                         </div>
                         <div class="col-md-9 col-sm-12 col-xs-12">
                           <span
-                            class="q-caption text-faded"
+                            class="text-caption text-faded"
                             v-if="formData.shortLead.reason == null"
                           >Reason not specified</span>
-                          <span class="q-caption text-faded" v-else>{{formData.shortLead.reason}}</span>
+                          <span class="text-caption text-faded" v-else>{{formData.shortLead.reason}}</span>
                         </div>
                       </div>
-                    </q-card-main>
+                    </q-card-section>
                   </q-card>
                 </div>
                 <div class="group">
                   <q-card class="border-1" flat v-if=" formData.shortLead.bankSubvention">
-                    <q-card-title class="q-pa-sm bottom-border-dark bg-grey-4">
+                    <q-card-section class="q-pa-sm bottom-border-dark bg-grey-4">
                       <div class="row items-center">
-                        <div class="col-auto q-caption text-weight-medium">Exception Bank Subvention</div>
+                        <div class="col-auto text-caption text-weight-medium">Exception Bank Subvention</div>
                       </div>
-                    </q-card-title>
-                    <q-card-main class="no-padding">
+                    </q-card-section>
+                    <q-card-section class="no-padding">
                       <div class="row items-center q-pa-sm q-py-md">
                         <div class="col-md-3 col-sm-12 col-xs-12">
-                          <div class="q-caption text-faded">Reason</div>
+                          <div class="text-caption text-faded">Reason</div>
                         </div>
                         <div class="col-md-9 col-sm-12 col-xs-12">
                           <div
-                            class="q-caption text-faded"
+                            class="text-caption text-faded"
                             v-if="formData.shortLead.reason == null"
                           >Reason not specified</div>
-                          <div class="q-caption text-faded" v-else>{{formData.shortLead.reason}}</div>
+                          <div class="text-caption text-faded" v-else>{{formData.shortLead.reason}}</div>
                         </div>
                       </div>
-                    </q-card-main>
+                    </q-card-section>
                   </q-card>
                 </div>
                 <div class="group">
                   <q-card v-if="formData.shortLead.pricing" class="q-ma-xs border-1" flat>
-                    <q-card-title class="q-pa-sm bottom-border-dark bg-grey-4">
+                    <q-card-section class="q-pa-sm bottom-border-dark bg-grey-4">
                       <div class="row items-center">
-                        <div class="col-auto q-caption text-weight-medium">Exception Pricing</div>
+                        <div class="col-auto text-caption text-weight-medium">Exception Pricing</div>
                       </div>
-                    </q-card-title>
-                    <q-card-main class="no-padding">
+                    </q-card-section>
+                    <q-card-section class="no-padding">
                       <div class="row items-center q-pa-sm q-py-md">
                         <div class="col-md-3 col-sm-12 col-xs-12">
-                          <div class="q-caption text-faded">Reason</div>
+                          <div class="text-caption text-faded">Reason</div>
                         </div>
                         <div class="col-md-9 col-sm-12 col-xs-12">
-                          <div class="q-caption text-faded">{{formData.shortLead.reason}}</div>
+                          <div class="text-caption text-faded">{{formData.shortLead.reason}}</div>
                         </div>
                       </div>
-                    </q-card-main>
+                    </q-card-section>
                   </q-card>
                 </div>
               </div>
@@ -169,26 +169,26 @@
               <!-- Payment -->
               <div class="col">
                 <q-card class="border-1 q-custom-class" flat>
-                  <q-card-title class="q-pa-sm bottom-border-dark bg-grey-4">
-                    <div class="col-auto q-caption text-weight-medium">Payment</div>
-                  </q-card-title>
-                  <q-card-separator />
-                  <q-card-main class="q-pa-sm text-grey-9">
+                  <q-card-section class="q-pa-sm bottom-border-dark bg-grey-4">
+                    <div class="col-auto text-caption text-weight-medium">Payment</div>
+                  </q-card-section>
+                  <q-separator />
+                  <q-card-section class="q-pa-sm text-grey-9">
                     <q-list dense no-border class="no-padding">
                       <q-item class="q-pa-sm">
-                        <q-item-main class="q-caption">Payment mode:</q-item-main>
-                        <q-item-side class="q-caption" align="center">
+                        <q-item-section class="text-caption">Payment mode:</q-item-section>
+                        <q-item-section class="text-caption" align="center">
                           <span v-if="formData.shortLead.paymentOption == 1">IMPS/NEFT</span>
                           <span v-else-if="formData.shortLead.paymentOption == 2">Cheque</span>
                           <span v-else-if="formData.shortLead.paymentOption == 3">Swipe</span>
-                        </q-item-side>
+                        </q-item-section>
                       </q-item>
                       <q-item class="q-pa-sm">
-                        <q-item-main class="q-caption">Reference:</q-item-main>
-                        <q-item-side
-                          class="q-caption"
+                        <q-item-section class="text-caption">Reference:</q-item-section>
+                        <q-item-section
+                          class="text-caption"
                           align="center"
-                        >{{formData.shortLead.referenceNumber == ''?'NA':formData.shortLead.referenceNumber}}</q-item-side>
+                        >{{formData.shortLead.referenceNumber == ''?'NA':formData.shortLead.referenceNumber}}</q-item-section>
                       </q-item>
                     </q-list>
                     <q-item v-if="formData.shortLead.paymentOption == 2">
@@ -231,76 +231,76 @@
                         />
                       </viewer>
                     </q-item>
-                  </q-card-main>
+                  </q-card-section>
                 </q-card>
               </div>
 
               <!-- MDR -->
               <div class="col">
                 <q-card class="border-1 q-custom-class" flat>
-                  <q-card-title class="q-pa-sm bottom-border-dark bg-grey-4">
-                    <div class="col-auto q-caption text-weight-medium">MDR</div>
-                  </q-card-title>
-                  <q-card-separator />
-                  <q-card-main class="q-pa-sm text-grey-9">
+                  <q-card-section class="q-pa-sm bottom-border-dark bg-grey-4">
+                    <div class="col-auto text-caption text-weight-medium">MDR</div>
+                  </q-card-section>
+                  <q-separator />
+                  <q-card-section class="q-pa-sm text-grey-9">
                     <q-list separator dense no-border class="no-padding">
                       <q-item>
-                        <q-item-main class="q-caption">Debit &lt;= 2000</q-item-main>
-                        <q-item-side
-                          class="q-caption"
+                        <q-item-section class="text-caption">Debit &lt;= 2000</q-item-section>
+                        <q-item-section
+                          class="text-caption"
                           align="center"
-                        >{{formData.shortLead.debitLessthanAmount}}%</q-item-side>
+                        >{{formData.shortLead.debitLessthanAmount}}%</q-item-section>
                       </q-item>
                       <q-item>
-                        <q-item-main class="q-caption">
-                          <q-item-tile class="q-caption">Debit > 2000</q-item-tile>
-                        </q-item-main>
-                        <q-item-side
-                          class="q-caption"
+                        <q-item-section class="text-caption">
+                          <q-item-label class="text-caption">Debit > 2000</q-item-label>
+                        </q-item-section>
+                        <q-item-section
+                          class="text-caption"
                           align="center"
-                        >{{formData.shortLead.debitGreaterthanAmount}}%</q-item-side>
+                        >{{formData.shortLead.debitGreaterthanAmount}}%</q-item-section>
                       </q-item>
                       <q-item>
-                        <q-item-main>
-                          <q-item-tile class="q-caption">Std CC</q-item-tile>
-                        </q-item-main>
-                        <q-item-side class="q-caption" align="center">
-                          <q-item-tile class="q-caption">{{formData.shortLead.stdCC}}%</q-item-tile>
-                        </q-item-side>
+                        <q-item-section>
+                          <q-item-label class="text-caption">Std CC</q-item-label>
+                        </q-item-section>
+                        <q-item-section class="text-caption" align="center">
+                          <q-item-label class="text-caption">{{formData.shortLead.stdCC}}%</q-item-label>
+                        </q-item-section>
                       </q-item>
                       <q-item>
-                        <q-item-main>
-                          <q-item-tile class="q-caption">Premium CC</q-item-tile>
-                        </q-item-main>
-                        <q-item-side class="q-caption" align="center">
-                          <q-item-tile class="q-caption">
-                            <div class="q-caption">{{formData.shortLead.premiumCC}}%</div>
-                          </q-item-tile>
-                        </q-item-side>
+                        <q-item-section>
+                          <q-item-label class="text-caption">Premium CC</q-item-label>
+                        </q-item-section>
+                        <q-item-section class="text-caption" align="center">
+                          <q-item-label class="text-caption">
+                            <div class="text-caption">{{formData.shortLead.premiumCC}}%</div>
+                          </q-item-label>
+                        </q-item-section>
                       </q-item>
                       <q-item>
-                        <q-item-main>
-                          <q-item-tile class="q-caption">Corp Pre CC</q-item-tile>
-                        </q-item-main>
-                        <q-item-side class="q-caption" align="center">
-                          <q-item-tile class="q-caption">{{formData.shortLead.corpCC}}%</q-item-tile>
-                        </q-item-side>
+                        <q-item-section>
+                          <q-item-label class="text-caption">Corp Pre CC</q-item-label>
+                        </q-item-section>
+                        <q-item-section class="text-caption" align="center">
+                          <q-item-label class="text-caption">{{formData.shortLead.corpCC}}%</q-item-label>
+                        </q-item-section>
                       </q-item>
                       <q-item>
-                        <q-item-main>
-                          <q-item-tile class="q-caption">Intl Pre CC</q-item-tile>
-                        </q-item-main>
-                        <q-item-side class="q-caption" align="center">
-                          <q-item-tile class="q-caption">{{formData.shortLead.intlCC}}%</q-item-tile>
-                        </q-item-side>
+                        <q-item-section>
+                          <q-item-label class="text-caption">Intl Pre CC</q-item-label>
+                        </q-item-section>
+                        <q-item-section class="text-caption" align="center">
+                          <q-item-label class="text-caption">{{formData.shortLead.intlCC}}%</q-item-label>
+                        </q-item-section>
                       </q-item>
                       <q-item>
-                        <q-item-main>
-                          <q-item-tile class="q-caption">Super Pre CC</q-item-tile>
-                        </q-item-main>
-                        <q-item-side class="q-caption" align="center">
-                          <q-item-tile class="q-caption">{{formData.shortLead.superPremiumlCC}}%</q-item-tile>
-                        </q-item-side>
+                        <q-item-section>
+                          <q-item-label class="text-caption">Super Pre CC</q-item-label>
+                        </q-item-section>
+                        <q-item-section class="text-caption" align="center">
+                          <q-item-label class="text-caption">{{formData.shortLead.superPremiumlCC}}%</q-item-label>
+                        </q-item-section>
                       </q-item>
                       <q-item class="q-pa-sm" v-if="formData.shortLead.posEnable">
                         <q-checkbox
@@ -309,18 +309,18 @@
                           readonly
                           color="grey-9"
                         >
-                          <small class="q-caption">Enable Cash@POS Cash @POS incentive Rs. 5"</small>
+                          <small class="text-caption">Enable Cash@POS Cash @POS incentive Rs. 5"</small>
                         </q-checkbox>
                       </q-item>
                     </q-list>
-                  </q-card-main>
+                  </q-card-section>
                 </q-card>
               </div>
             </div>
           </div>
-        </q-collapsible>
+        </q-expansion-item>
 
-        <q-collapsible
+        <q-expansion-item
           opened
           icon="file_copy"
           group="primary"
@@ -329,7 +329,7 @@
           inset-separator
         >
           <showMarsForm :propLeadDeatils="formData.shortLead"></showMarsForm>
-        </q-collapsible>
+        </q-expansion-item>
       </q-list>
       <!-- START >> COMPONENT: View PDF  -->
       <showPdfModalComponent

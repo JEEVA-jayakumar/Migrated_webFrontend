@@ -16,18 +16,18 @@
           slot="title"
           label="Deactive Issue Mapping"
         />
-        <q-tab-pane name="tab-1">
+        <q-tab-panel name="tab-1">
           <q-table
-            :data="tableData"
+            v-model:data="tableData"
             table-class="customSATableClass"
             :columns="columns1"
             :filter="filterSearch"
-            :pagination.sync="paginationControl"
+            :pagination="paginationControl"
             :filter-method="myCustomSearchFilter1"
             row-key="name"
             color="grey-9"
           >
-            <q-td slot="body-cell-action" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-action="props" :props="props">
               <div class="row no-wrap no-padding">
                 <q-btn
                   dense
@@ -54,8 +54,7 @@
               </div>
             </q-td>
             <!-- <q-td
-              slot="body-cell-serviceReqIssueTypeSets"
-              slot-scope="props"
+              v-slot:body-cell-serviceReqIssueTypeSets="props"
               :props="props"
             >
               <div
@@ -67,7 +66,7 @@
                 </q-chip>
               </div>
             </q-td> -->
-            <!-- <q-td slot="body-cell-serviceRequestStatusSets" slot-scope="props" :props="props">
+            <!-- <q-td v-slot:body-cell-serviceRequestStatusSets="props" :props="props">
                 <div class="row no-wrap group" v-for="menu in props.row.serviceRequestStatusSets" >
                   <q-chip color="light" class="text-dark">
                     {{ menu.serviceRequestStatus != null ? menu.serviceRequestStatus.name : "NA" }}
@@ -75,9 +74,9 @@
                 </div>
               </q-td> -->
 
-            <template slot="top" slot-scope="props">
+            <template v-slot:top="props">
               <div class="col-3">
-                  <q-search clearable color="grey-9" v-model="filterSearch" placeholder="Search by Issue Name" class="q-mr-lg" />
+                  <q-input clearable color="grey-9" v-model="filterSearch" placeholder="Search by Issue Name" class="q-mr-lg" />
                 </div>
               <div class="col-7" align="right">
                 <q-btn
@@ -91,22 +90,21 @@
               </div>
             </template>
           </q-table>
-        </q-tab-pane>
+        </q-tab-panell>
 
-        <q-tab-pane name="tab-2">
+        <q-tab-panel name="tab-2">
           <q-table
-            :data="tableData1"
+            v-model:data="tableData1"
             table-class="customSATableClass"
             :columns="columns2"
             :filter="filterSearch1"
-            :pagination.sync="paginationControl2"
+            :pagination="paginationControl2"
             :filter-method="myCustomSearchFilter2"
             row-key="name"
             color="grey-9"
           >
             <!-- <q-td
-              slot="body-cell-serviceReqIssueTypeSets"
-              slot-scope="props"
+              v-slot:body-cell-serviceReqIssueTypeSets="props"
               :props="props"
             >
               <div
@@ -118,7 +116,7 @@
                 </q-chip>
               </div>
             </q-td> -->
-            <!-- <q-td slot="body-cell-serviceRequestStatusSets" slot-scope="props" :props="props">
+            <!-- <q-td v-slot:body-cell-serviceRequestStatusSets="props" :props="props">
                 <div class="row no-wrap group" v-for="menu in props.row.serviceRequestStatusSets" >
                   <q-chip color="light" class="text-dark">
                     {{ menu.serviceRequestStatus != null ? menu.serviceRequestStatus.name : "NA"}}
@@ -126,7 +124,7 @@
                 </div>
               </q-td> -->
 
-            <q-td slot="body-cell-action1" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-action1="props" :props="props">
               <div class="row no-wrap no-padding">
                 <q-btn
                   dense
@@ -142,13 +140,13 @@
               </div>
             </q-td>
 
-            <template slot="top" slot-scope="props">
+            <template v-slot:top="props">
               <div class="col-3">
-                  <q-search clearable color="grey-9" v-model="filterSearch1" placeholder="Search by Issue Name" class="q-mr-lg" />
+                  <q-input clearable color="grey-9" v-model="filterSearch1" placeholder="Search by Issue Name" class="q-mr-lg" />
                 </div>
             </template>
           </q-table>
-        </q-tab-pane>
+        </q-tab-panell>
       </q-tabs>
 
       <!--START: Show edit  service Parts -->

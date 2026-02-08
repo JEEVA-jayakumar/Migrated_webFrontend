@@ -40,7 +40,7 @@
               :class="[activeDispatchedItemId === index ? 'shadow-8' : 'shadow-0']"
               :style="item.device.colorCode == null? 'background:#ccc' : 'background:'+item.device.colorCode"
             >
-              <q-card-main>
+              <q-card-section>
                 <div class="row text-dark">
                   <div class="col-md-8">
                     <div>{{item.device.deviceName}}</div>
@@ -48,10 +48,10 @@
                   </div>
                   <div class="col-md-4" align="right">
                     <div>Count</div>
-                    <div class="q-title">{{item.count}}</div>
+                    <div class="text-h6">{{item.count}}</div>
                   </div>
                 </div>
-              </q-card-main>
+              </q-card-section>
             </q-card>
           </div>
         </div>
@@ -72,13 +72,13 @@
         table-class="customTableClass"
         class="q-py-none"
         :data="getAllRegionalInventoryPDOBasedDevicesWithCount.regionalInventoryList"
-        :columns="columnData"
+        v-model:columns="columnData"
         :filter="filter"
-        :pagination.sync="paginationControl"
+        :pagination="paginationControl"
         :loading="toggleAjaxLoadFilter"
         row-key="name"
       >
-        <q-td slot="body-cell-inboundVerified" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-inboundVerified="props" :props="props">
           <q-btn flat v-if="props.row.inboundVerifiedStatus == 1" icon="check" color="positive" />
           <q-btn
             flat
@@ -88,12 +88,12 @@
           />
           <q-btn flat color="amber-9" v-else icon="warning" />
         </q-td>
-        <template slot="top" slot-scope="props" class="bottom-border">
+        <template v-slot:top="props" class="bottom-border">
           <!--START: table filter,search -->
           <div class="col-md-12">
             <div class="row group`">
               <div class="col-12 col-lg-4">
-                <q-search
+                <q-input
                   clearable
                   color="grey-9"
                   v-model="filter"

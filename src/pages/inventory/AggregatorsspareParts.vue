@@ -13,20 +13,20 @@
               <q-tab name="PhonepespareParts" label="Aggregator Spare Parts" slot="title" />
                <q-tab name="PhonepesparePodList" label="Aggregator Spare Pod List" slot="title" />
               
-              <q-tab-pane name="PhonepespareParts">
+              <q-tab-panel name="PhonepespareParts">
                 <PhonepesparePartsAddStocks
                   @emittedForTotalSerialNumbers="
                     fnAjaxFetchAllDeviceDetailsWithCount
                   "
                 />
-              </q-tab-pane>
-              <q-tab-pane name="PhonepesparePodList">
+              </q-tab-panell>
+              <q-tab-panel name="PhonepesparePodList">
                 <PhonepesparePartsPodList
                   @emittedForTotalSerialNumbers="
                     fnAjaxFetchAllDeviceDetailsWithCount
                   "
                 />
-              </q-tab-pane>
+              </q-tab-panell>
             </q-tabs>
           </div>
         </div>

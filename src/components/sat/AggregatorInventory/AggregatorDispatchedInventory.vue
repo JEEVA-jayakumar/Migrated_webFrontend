@@ -38,7 +38,7 @@
                             <q-card class="text-white q-pa-sm"
                                 :class="[activeDispatchedItemId === index ? 'shadow-8' : 'shadow-0']"
                                 :style="item.aggregatorDevice.colorCode == null ? 'background:#ccc' : 'background:' + item.aggregatorDevice.colorCode">
-                                <q-card-main>
+                                <q-card-section>
                                     <div class="row text-dark">
                                         <div class="col-md-8">
                                             <div>{{ item.aggregatorDevice.deviceName }}</div>
@@ -46,10 +46,10 @@
                                         </div>
                                         <div class="col-md-4" align="right">
                                             <div>Count</div>
-                                            <div class="q-title">{{ item.count }}</div>
+                                            <div class="text-h6">{{ item.count }}</div>
                                         </div>
                                     </div>
-                                </q-card-main>
+                                </q-card-section>
                             </q-card>
                         </div>
                     </div>
@@ -66,21 +66,21 @@
                         inventory
                     </p>
                 </div>
-                <!--START: table damaged device -->
+                <!--STARTv-model: table damaged device -->
                 <q-table title="Lead Validation" table-class="customTableClass" class="q-py-none"
                     :data="deviceregionalInventoryList" :columns="columnData" :filter="filter"
-                    :pagination.sync="paginationControl" :loading="toggleAjaxLoadFilter" row-key="name">
-                    <q-td slot="body-cell-inboundVerified" slot-scope="props" :props="props">
+                    :pagination="paginationControl" :loading="toggleAjaxLoadFilter" row-key="name">
+                    <q-td v-slot:body-cell-inboundVerified="props" :props="props">
                         <q-btn flat v-if="props.row.inboundVerifiedStatus == 1" icon="check" color="positive" />
                         <q-btn flat v-else-if="props.row.inboundVerifiedStatus == 2" icon="clear" color="negative" />
                         <q-btn flat color="amber-9" v-else icon="warning" />
                     </q-td>
-                    <template slot="top" slot-scope="props" class="bottom-border">
+                    <template v-slot:top="props" class="bottom-border">
                         <!--START: table filter,search -->
                         <div class="col-md-12">
                             <div class="row group`">
                                 <div class="col-12 col-lg-4">
-                                    <q-search clearable color="grey-9" v-model="filter"
+                                    <q-input clearable color="grey-9" v-model="filter"
                                         placeholder="Search by device name, serial no" />
                                 </div>
                                 <div class="col-12 col-lg-8 group" align="right">

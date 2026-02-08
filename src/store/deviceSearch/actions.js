@@ -1,10 +1,11 @@
+import { api } from '../../boot/axios';
 // import api from "../api.js";
 // import Vue from "vue";
 // export const FETCH_ALL_SERIAL_NUMBER = ({
 //   commit,
 //   rootState
 // }, request) => {
-//   return Vue.http
+//   return api
 //     .get("search-device-by-mid-tid-mobile?serialNumber=" + request)
 //     // https://qaapp.bijlipay.co.in:8085/api/search-device-by-mid-tid-mobile/7239505
 //     .then(response => {

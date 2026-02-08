@@ -3,7 +3,7 @@
      <div class="col-md-7 q-px-xl">
         <div class="row  gutter-md">
           <div class="col-md-8" align="center">
-             <div class="col-12 q-title q-my-lg text-weight-regular">Existing M-ATM Plan</div>
+             <div class="col-12 text-h6 q-my-lg text-weight-regular">Existing M-ATM Plan</div>
           </div>
           <!-- <div class="col-md-5">
             <q-select
@@ -93,7 +93,7 @@ import {
   alpha,
   alphaNum,
   numeric
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 export default {
   components: {

@@ -1,3 +1,4 @@
+import { api } from '../boot/axios';
 
 import Vue from "vue"
 
@@ -34,7 +35,7 @@ const FileDownload1 = {
     var date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
   if(request.from && request.to){
       // console.log("==========", request)
-      return await Vue.http
+      return await api
       .get( "download-indian-implementation-report?from=" + request.from + "&to=" + request.to, {
         responseType: 'arraybuffer'
       })
@@ -51,7 +52,7 @@ const FileDownload1 = {
       });
   }else {
       console.log("==========", request)
-      return await  Vue.http
+      return await  api
       .get("download-indian-implementation-report", {
         responseType: 'arraybuffer'
       })

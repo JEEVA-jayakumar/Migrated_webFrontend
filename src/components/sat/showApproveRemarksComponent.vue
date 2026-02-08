@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-modal
+    <q-dialog
       minimized
       no-backdrop-dismiss
       no-esc-dismiss
@@ -10,9 +10,9 @@
       <!-- START >> Lead approval -->
       <form>
         <div class="column group">
-          <div class="q-title q-py-md">Approval confirmation</div>
+          <div class="text-h6 q-py-md">Approval confirmation</div>
           <div>
-            <q-datetime
+            <q-input
               minimal
               popover
               format="YYYY-MM-DD"
@@ -64,7 +64,7 @@
         </div>
       </form>
       <!-- END >> Lead approval -->
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 
@@ -78,7 +78,7 @@ import {
   alpha,
   alphaNum,
   numeric
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 
 export default {

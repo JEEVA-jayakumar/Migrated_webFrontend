@@ -1,53 +1,53 @@
 <template>
   <q-page>
     <div class="row">
-      <div class="col-12 q-title q-pa-md text-weight-regular bottom-border">Add MDR details</div>
+      <div class="col-12 text-h6 q-pa-md text-weight-regular bottom-border">Add MDR details</div>
       <!-- START >> Setup MDR details -->
       <div class="col-md-5 col-sm-4 col-xs-12 q-pa-sm">
         <q-card style="width:100%">
-          <q-card-main>
+          <q-card-section>
             <q-list no-border>
               <q-item>
-                <q-item-main>
+                <q-item-section>
                   <q-select
                     color="grey-9"
                     v-model="formData.leadSource"
                     :options="dropDown.leadSourceOptions"
                     float-label="Select lead source"
                   />
-                </q-item-main>
-                <q-item-side right>
+                </q-item-section>
+                <q-item-section right>
                   <q-btn round @click="fnManageLeadSource" size="sm" icon="add" color="purple-9" />
-                </q-item-side>
+                </q-item-section>
               </q-item>
               <q-item>
-                <q-item-main>
+                <q-item-section>
                   <q-select
                     color="grey-9"
                     v-model="formData.device"
                     :options="dropDown.deviceOptions"
                     float-label="Select device"
                   />
-                </q-item-main>
-                <q-item-side right>
+                </q-item-section>
+                <q-item-section right>
                   <q-btn round @click="fnManageDevice" size="sm" icon="add" color="purple-9" />
-                </q-item-side>
+                </q-item-section>
               </q-item>
                 <q-item>
-                <q-item-main>
+                <q-item-section>
                   <q-select
                     color="grey-9"
                     v-model="formData.marsDevice"
                     :options="dropDown.marsDeviceOptions"
                     float-label="Mars Device Model"
                   />
-                </q-item-main>
-                <!-- <q-item-side right>
+                </q-item-section>
+                <!-- <q-item-section right>
                   <q-btn round @click="fnManageDevice" size="sm" icon="add" color="purple-9" />
-                </q-item-side>-->
+                </q-item-section>-->
               </q-item>
               <q-item>
-                <q-item-main>
+                <q-item-section>
                   <q-select
                     color="grey-9"
                     v-model="formData.merchantType"
@@ -55,14 +55,14 @@
                     float-label="Select merchant category type"
                     @input="fnCategoryBasedMdr(formData)"
                   />
-                </q-item-main>
-                <!-- <q-item-side right>
+                </q-item-section>
+                <!-- <q-item-section right>
                   <q-btn round @click="fnManageMerchantType" size="sm" icon="add" color="purple-9"/>
-                </q-item-side>-->
+                </q-item-section>-->
               </q-item>
                
               <q-item>
-                <q-item-main>
+                <q-item-section>
                   <q-input
                     color="grey-9"
                     type="number"
@@ -70,10 +70,10 @@
                     placeholder="Debit <= 2000 %"
                     float-label="Debit <= 2000 %"
                   />
-                </q-item-main>
+                </q-item-section>
               </q-item>
               <q-item>
-                <q-item-main>
+                <q-item-section>
                   <q-input
                     color="grey-9"
                     type="number"
@@ -81,10 +81,10 @@
                     float-label="Debit > 2000 %"
                     placeholder="Debit > 2000 %"
                   />
-                </q-item-main>
+                </q-item-section>
               </q-item>
               <q-item>
-                <q-item-main>
+                <q-item-section>
                   <q-input
                     color="grey-9"
                     type="number"
@@ -92,10 +92,10 @@
                     float-label="Std CC %"
                     placeholder="Std CC %"
                   />
-                </q-item-main>
+                </q-item-section>
               </q-item>
               <q-item>
-                <q-item-main>
+                <q-item-section>
                   <q-input
                     color="grey-9"
                     type="number"
@@ -103,10 +103,10 @@
                     float-label="Premium CC %"
                     placeholder="Premium CC %"
                   />
-                </q-item-main>
+                </q-item-section>
               </q-item>
               <q-item>
-                <q-item-main>
+                <q-item-section>
                   <q-input
                     color="grey-9"
                     type="number"
@@ -114,10 +114,10 @@
                     float-label="Corp Pre CC %"
                     placeholder="Corp Pre CC %"
                   />
-                </q-item-main>
+                </q-item-section>
               </q-item>
               <q-item>
-                <q-item-main>
+                <q-item-section>
                   <q-input
                     color="grey-9"
                     type="number"
@@ -125,10 +125,10 @@
                     float-label="Intl Pre CC %"
                     placeholder="Intl Pre CC %"
                   />
-                </q-item-main>
+                </q-item-section>
               </q-item>
               <q-item>
-                <q-item-main>
+                <q-item-section>
                   <q-input
                     color="grey-9"
                     type="number"
@@ -136,10 +136,10 @@
                     float-label="Super Pre CC %"
                     placeholder="Super Pre CC %"
                   />
-                </q-item-main>
+                </q-item-section>
               </q-item>
             </q-list>
-          </q-card-main>
+          </q-card-section>
           <q-card-actions vertical align="end">
             <!-- <q-btn label="EXSITING MDR PLAN" @click="fnEditMdrPlan(formData)" color="purple-9" /> -->
             <q-btn label="submit" @click="fnsubmit(formData)" color="purple-9" />
@@ -150,15 +150,15 @@
       <!-- START >> Table >> MDR details -->
       <div class="col-md-7 col-sm-8 col-xs-12">
         <!-- <q-table
-          :data="tableData"
+          v-model:data="tableData"
           table-class="customSATableClass"
           :columns="columns"
           :filter="filterSearch"
-          :pagination.sync="paginationControl"
+          :pagination="paginationControl"
           row-key="name"
           color="grey-9"
         >
-          <q-td slot="body-cell-action" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-action="props" :props="props">
             <div class="row no-wrap no-padding">
               <q-btn
                 dense
@@ -185,10 +185,10 @@
             </div>
           </q-td>
 
-          <template slot="top" slot-scope="props">
+          <template v-slot:top="props">
         <--START: table filter,search-->
         <!-- <div class="col"> -->
-        <!-- <q-search
+        <!-- <q-input
                 clearable
                 color="grey-9"
                 v-model="filterSearch"

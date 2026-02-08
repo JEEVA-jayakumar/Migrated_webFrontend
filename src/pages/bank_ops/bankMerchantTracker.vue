@@ -3,13 +3,13 @@
     <!-- //Common lead information in popup -->
     <generalLeadInformation
       v-if="propToggleLeadInformation"
-      :leadInformation="addtnLeadInformation"
+      v-model:leadInformation="addtnLeadInformation"
       :propToggleLeadInformationPop="propToggleLeadInformation"
       @closeLeadInformation="toggleLeadInformation"
     />
     <!--START: table title -->
     <div
-      class="col-md-12 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
+      class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
     >Merchant Tracker</div>
     <!--END: table title -->
     <!--START: table lead validation -->
@@ -18,35 +18,31 @@
       :data="getAllMerchantTrackerInfo"
       :columns="columns"
       :filter="filter"
-      :pagination.sync="paginationControl"
+      :pagination="paginationControl"
       row-key="name"
     >
       <!--START: table body modification -->
       <q-td
-        slot="body-cell-createdAt"
-        slot-scope="props"
+        v-slot:body-cell-createdAt="props"
         :props="props"
       >{{props.row.createdAt | moment("Do MMM Y")}}</q-td>
       <q-td
-        slot="body-cell-shortleadDate"
-        slot-scope="props"
+        v-slot:body-cell-shortleadDate="props"
         :props="props"
       >{{props.row.shortleadDate | moment("Do MMM Y")}}</q-td>
       <q-td
-        slot="body-cell-leadSource"
-        slot-scope="props"
+        v-slot:body-cell-leadSource="props"
         :props="props"
       >{{props.row.leadSource.sourceName}}</q-td>
       <q-td
-        slot="body-cell-lead_id"
-        slot-scope="props"
+        v-slot:body-cell-lead_id="props"
         :props="props"
         class="cursor-pointer"
         @click.native="toggleLeadInformation(props.row)"
       >
         <span class="label text-primary"># {{props.row.leadNumber}}</span>
       </q-td>
-      <q-td slot="body-cell-leadStatus" slot-scope="props" :props="props">
+      <q-td v-slot:body-cell-leadStatus="props" :props="props">
         <q-chip
           class="text-positive text-weight-bold"
           v-if="props.row.leadStatus == $LEAD_STATUS_SHORT_LEAD"
@@ -101,7 +97,7 @@
         >Implementation Approved</q-chip>
       </q-td>
       <!--END: table body modification -->
-      <template slot="top" slot-scope="props">
+      <template v-slot:top="props">
         <!--START: table fullscreen mode -->
         <!-- <div class="col-md-4" align="right">
             <q-btn
@@ -115,7 +111,7 @@
         <!--END: table fullscreen mode -->
         <!--START: table filter,search -->
         <!-- <div class="col-md-5">
-            <q-search
+            <q-input
               clearable
               color="grey-9"
               v-model="filter"
@@ -149,7 +145,7 @@
             />
           </div>
           <div class="col-md-3">
-            <q-datetime 
+            <q-input
               v-model="model" 
               float-label="Date Filter"
               type="date"

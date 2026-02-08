@@ -1,10 +1,10 @@
 <template>
     <q-page>
       
-      <!-- <q-pull-to-refresh :handler="PullToRefresh" inline></q-pull-to-refresh> -->
+      <!-- <q-pull-to-refresh v-model:handler="PullToRefresh" inline></q-pull-to-refresh> -->
         <!--START: table title -->
         <div
-          class="col-md-12 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
+          class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
         >POS Inventory</div>
         <!--END: table title -->
         <!-- //Common lead information in popup -->
@@ -21,36 +21,36 @@
           :data="tableData"
           :columns="columns"
           :filter="filter"
-          :pagination.sync="paginationControl"
+          :pagination="paginationControl"
           row-key="name"
           :loading="toggleAjaxLoadFilter"
           :rows-per-page-options="[5,10,15,20]"
           @request="ajaxLoadAllLeadInfo"
         >
          <!--START: table header -->
-          <q-tr slot="top-row" slot-scope="props">
+          <q-tr v-slot:top-row="props">
           <q-th v-for="col in props.columns" :key="col.name" :props="props">{{ col.label }}</q-th>  
           </q-tr>
           <!--END: table header -->
 
-          <q-td slot="body-cell-deviceType" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-deviceType="props" :props="props">
             <span class="label text-primary">
               {{ props.row.device ? props.row.device.deviceName : 'NA' }}
             </span>
           </q-td>
 
 
-          <q-td slot="body-cell-deviceCount" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-deviceCount="props" :props="props">
           {{props.row == null? 'NA':props.row.deviceCount}}</q-td>
 
 
-          <q-td slot="body-cell-dateofSubmission" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-dateofSubmission="props" :props="props">
             <span class="label">{{props.row.financeSubmissionDate | moment("Do MMM Y")}}</span>
           </q-td>
-          <template slot="top" slot-scope="props" class="bottom-border">
+          <template v-slot:top="props" class="bottom-border">
           <!--START: table  :rows-per-page-options="[5,10,15,20,25]"filter,search -->
           <div class="col">
-            <q-search
+            <q-input
               clearable
               color="grey-9"
               v-model="filter"
@@ -74,7 +74,7 @@
           <!--END: table filter,search -->
         </template>
 
-          <q-td slot="body-cell-action" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-action="props" :props="props">
                   <q-btn
                     v-if ="props.row.status == 0"
                     push
@@ -113,7 +113,7 @@
                     >View Invoice Copy</q-btn
                   >
                 </q-td>
-          <!-- <q-td slot="body-cell-action" slot-scope="props" :props="props">
+          <!-- <q-td v-slot:body-cell-action="props" :props="props">
               <q-btn
                highlight
                push
@@ -123,9 +123,9 @@
                size="sm"
                >Approve</q-btn>
             </q-td> -->
-          <!-- <template slot="top" slot-scope="props" class="bottom-border" >
+          <!-- <template v-slot:top="props" class="bottom-border" >
             <div class="col-5">
-              <q-search
+              <q-input
                 clearable
                 v-model="filter"
                 separator

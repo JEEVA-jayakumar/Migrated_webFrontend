@@ -1,14 +1,14 @@
 <template>
   <q-page>
     <div class="row">
-      <div class="col-12 q-title q-pa-md text-weight-regular bottom-border">Add M-ATM plan</div>
+      <div class="col-12 text-h6 q-pa-md text-weight-regular bottom-border">Add M-ATM plan</div>
       <!-- START >> Setup MDR details -->
       <div class="col-md-5 col-sm-4 col-xs-12 q-pa-sm">
         <q-card style="width:100%">
-          <q-card-separator />
-          <q-card-main>
+          <q-separator />
+          <q-card-section>
             <q-item>
-              <q-item-main>
+              <q-item-section>
                 <q-select
                   color="grey-9"
                   v-model="formData.leadSource"
@@ -16,8 +16,8 @@
                   float-label="Select lead source"
                   placeholder="Lead source"
                 />
-              </q-item-main>
-              <!-- <q-item-side right>
+              </q-item-section>
+              <!-- <q-item-section right>
                 <q-btn
                   round
                   dense
@@ -28,10 +28,10 @@
                   icon="add"
                   class="no-margin"
                 />
-              </q-item-side> -->
+              </q-item-section> -->
             </q-item>
             <q-item>
-              <q-item-main>
+              <q-item-section>
                 <q-select
                   color="grey-9"
                   v-model="formData.device"
@@ -39,8 +39,8 @@
                   float-label="Select device"
                   placeholder="Device"
                 />
-              </q-item-main>
-              <!-- <q-item-side right>
+              </q-item-section>
+              <!-- <q-item-section right>
                 <q-btn
                   round
                   dense
@@ -51,10 +51,10 @@
                   icon="add"
                   class="no-margin"
                 />
-              </q-item-side> -->
+              </q-item-section> -->
             </q-item>
             <!-- <q-item>
-              <q-item-main>
+              <q-item-section>
                 <q-select
                   color="grey-9"
                   v-model="formData.plan"
@@ -63,8 +63,8 @@
                   placeholder="Plan"
                   @input="fnCategoryBasedRental(formData)"
                 />
-              </q-item-main>
-              <q-item-side right>
+              </q-item-section>
+              <q-item-section right>
                 <q-btn
                   round
                   dense
@@ -75,10 +75,10 @@
                   icon="add"
                   class="no-margin"
                 />
-              </q-item-side>
+              </q-item-section>
             </q-item> -->
             <q-item>
-              <q-item-main>
+              <q-item-section>
                 <q-input
                   color="grey-9"
                   type="text"
@@ -86,10 +86,10 @@
                   placeholder="Enter Your Plan"
                   float-label="Enter Your Plan"
                 />
-              </q-item-main>
+              </q-item-section>
             </q-item>
             <q-item>
-              <q-item-main>
+              <q-item-section>
                 <div class="col">
                   <q-input
                     color="grey-9"
@@ -99,10 +99,10 @@
                     float-label="Incentive Percentage *"
                   />
                 </div>
-              </q-item-main>
+              </q-item-section>
             </q-item>
              <q-item>
-              <q-item-main>
+              <q-item-section>
                 <div class="col">
                   <q-input
                     color="grey-9"
@@ -112,10 +112,10 @@
                     float-label="Minimum Transaction Value*"
                   />
                 </div>
-              </q-item-main>
+              </q-item-section>
             </q-item>
             <q-item>
-              <q-item-main>
+              <q-item-section>
                 <div class="col">
                   <q-input
                     color="grey-9"
@@ -125,9 +125,9 @@
                     float-label="Maximum Incentive Per Transaction *"
                   />
                 </div>
-              </q-item-main>
+              </q-item-section>
             </q-item>
-          </q-card-main>
+          </q-card-section>
           <q-card-actions vertical align="end">
             <!-- <q-btn
               label="EXSITING RENTAL PLAN"
@@ -143,16 +143,16 @@
       <!-- START >> Table >> rental charge details -->
       <!-- <div class="col-md-7 col-sm-8 col-xs-12">
         <q-table
-          :data="tableData"
+          v-model:data="tableData"
           table-class="customSATableClass"
           :columns="columns"
           :filter="filterSearch"
-          :pagination.sync="paginationControl"
+          :pagination="paginationControl"
           :filter-method="myCustomSearchFilter"
           row-key="name"
           color="grey-9"
         >
-          <q-td slot="body-cell-action" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-action="props" :props="props">
             <div class="row no-wrap no-padding">
               <q-btn
                 dense
@@ -179,10 +179,10 @@
             </div>
           </q-td>
 
-          <template slot="top" slot-scope="props">
+          <template v-slot:top="props">
       <!--START: table filter,search-->
       <!-- <div class="col">
-              <q-search
+              <q-input
                 clearable
                 color="grey-9"
                 v-model="filterSearch"

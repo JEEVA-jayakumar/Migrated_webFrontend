@@ -3,14 +3,14 @@
     <!-- Common component to view full lead information -->
     <generalLeadInformation
       v-if="propToggleLeadInformation"
-      :leadInformation="addtnLeadInformation"
+      v-model:leadInformation="addtnLeadInformation"
       :propToggleLeadInformationPop="propToggleLeadInformation"
       @closeLeadInformation="toggleLeadInformation"
     />
 
     <!--START: table title -->
     <div class="row bottom-border items-center">
-      <div class="col-md-8 q-title q-px-lg q-py-md text-weight-regular text-grey-9">Short Lead</div>
+      <div class="col-md-8 text-h6 q-px-lg q-py-md text-weight-regular text-grey-9">Short Lead</div>
       <div class="col-md-4 q-px-lg q-py-sm" align="right">
         <q-btn
           no-caps
@@ -28,18 +28,17 @@
       :data="getAllShortLeadInfo"
       :columns="columns"
       :filter="filter"
-      :pagination.sync="paginationControl"
+      :pagination="paginationControl"
       row-key="name"
     >
       <!--START: table body modification -->
-      <q-td slot="body-cell-date" slot-scope="props" :props="props">
+      <q-td v-slot:body-cell-date="props" :props="props">
         <span class="label">{{props.row.createdAt | moment("Do MMM Y")}}</span>
       </q-td>
       <!--END: table body modification -->
       <!--START: table body modification -->
       <q-td
-        slot="body-cell-lead_id"
-        slot-scope="props"
+        v-slot:body-cell-lead_id="props"
         :props="props"
         class="cursor-pointer"
         @click.native="toggleLeadInformation(props.row)"
@@ -47,7 +46,7 @@
         <span class="label text-primary"># {{props.row.leadNumber}}</span>
       </q-td>
       <!--END: table body modification -->
-      <template slot="top" slot-scope="props">
+      <template v-slot:top="props">
         <!--START: table fullscreen mode -->
         <!-- <div class="col-md-4" align="right">
               <q-btn
@@ -61,7 +60,7 @@
         <!--END: table fullscreen mode -->
         <!--START: table filter,search -->
         <div class="col-5">
-          <q-search
+          <q-input
             clearable
             color="grey-9"
             v-model="filter"

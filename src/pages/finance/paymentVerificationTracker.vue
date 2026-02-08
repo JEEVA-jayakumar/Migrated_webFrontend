@@ -1,10 +1,10 @@
 <template>
   <q-page>
     <div>
-      <q-pull-to-refresh :handler="PullToRefresh" inline>
+      <q-pull-to-refresh v-model:handler="PullToRefresh" inline>
         <!--START: table title -->
         <div
-          class="col-md-12 capitalize q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
+          class="col-md-12 capitalize text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
         >Finance</div>
         <q-tabs v-model="activeTab" class="shadow-1" color="grey-1" @select="goToQrMerchant">
           <q-tab default color="dark" name="tab-1" slot="title" label="Pos Merchant" />
@@ -13,7 +13,7 @@
 
         <!--END: table title -->
         <!-- table payment verification tracker -->
-        <q-tab-pane name="tab-1">
+        <q-tab-panel name="tab-1">
         <q-table
           table-class="customTableClass"
           :data="tableData"
@@ -21,19 +21,19 @@
           :filter="filter"
           row-key="field"
           color="grey-9"
-          :pagination.sync="paginationControl"
+          :pagination="paginationControl"
           :rows-per-page-options="[5,10,15,20]"
           @request="ajaxLoadAllPaymentTrackerInfo"
           table-style="word-break: break-all"
           class="payment_verification_table capitalize"
         >
           <!--START: table header -->
-          <q-tr slot="top-row" slot-scope="props">
+          <q-tr v-slot:top-row="props">
             <q-th v-for="col in props.columns" :key="col.name" :props="props">{{ col.label }}</q-th>
           </q-tr>
           <!--END: table header -->
           <!--START: Table body -->
-          <template slot="body" slot-scope="props">
+          <template v-slot:body="props">
             <!--START: table rows -->
             <q-tr :props="props" class="bottom-border">
               <!--START: table expand button :Checkbox -->
@@ -90,7 +90,7 @@
             <!-- START: table expand values -->
             <q-tr v-show="props.row.expand" :props="props" class="wordWrapCustom bottom-border">
               <q-td>
-                <div class="text-left q-caption text-grey-8 text-weight-medium">Rental Plan</div>
+                <div class="text-left text-caption text-grey-8 text-weight-medium">Rental Plan</div>
                 <div
                   class="text-left"
                   v-if="props.row.planName == '' || props.row.planName == null"
@@ -98,12 +98,12 @@
                 <div class="text-left" v-else>{{ props.row.planName }}</div>
               </q-td>
               <q-td>
-                <div class="text-left q-caption text-grey-8 text-weight-medium">Amount Collected</div>
+                <div class="text-left text-caption text-grey-8 text-weight-medium">Amount Collected</div>
                 <div class="text-left" v-if="props.row.amountCollected == null">NA</div>
                 <div class="text-left" v-else>{{ props.row.amountCollected }}</div>
               </q-td>
               <q-td>
-                <div class="text-left q-caption text-grey-8 text-weight-medium">Payment Type</div>
+                <div class="text-left text-caption text-grey-8 text-weight-medium">Payment Type</div>
                 <div v-if="props.row.paymentOption == 2" class="text-left">
                   <div>Cheque</div>
                   <div v-if="props.row.paymentDocumentMimeType != null">
@@ -144,7 +144,7 @@
                 <div v-else class="text-left">NA</div>
               </q-td>
               <q-td>
-                <div class="text-left q-caption text-grey-8 text-weight-medium">Payment Date</div>
+                <div class="text-left text-caption text-grey-8 text-weight-medium">Payment Date</div>
                 <div
                   class="text-left"
                   v-if="props.row.paymentMadeon == '' || props.row.paymentMadeon == null"
@@ -152,7 +152,7 @@
                 <div class="text-left" v-else>{{ props.row.paymentMadeon | moment("Do MMM Y") }}</div>
               </q-td>
               <q-td>
-                <div class="text-left q-caption text-grey-8 text-weight-medium">Payment Reference</div>
+                <div class="text-left text-caption text-grey-8 text-weight-medium">Payment Reference</div>
                 <div
                   class="text-left"
                   v-if="props.row.referenceNumber == '' || props.row.referenceNumber == null"
@@ -160,7 +160,7 @@
                 <div class="text-left" v-else>{{ props.row.referenceNumber }}</div>
               </q-td>
               <q-td>
-                <div class="text-left q-caption text-grey-8 text-weight-medium">Ref.No Count</div>
+                <div class="text-left text-caption text-grey-8 text-weight-medium">Ref.No Count</div>
                 <div
                   class="text-left"
                   v-if="props.row.referenceNumbercount == '' || props.row.referenceNumbercount == null"
@@ -173,7 +173,7 @@
               </q-td>
               <q-td colspan="2">
                 <div
-                  class="text-left q-caption text-grey-8 text-weight-medium"
+                  class="text-left text-caption text-grey-8 text-weight-medium"
                 >Document Uploaded by SAT</div>
                 <div
                   class="text-left"
@@ -221,7 +221,7 @@
           <template slot="top" >
             <!--START: table search -->
             <div class="col-md-5">
-              <q-search
+              <q-input
                 clearable
                 color="grey-9"
                 v-model="filter"
@@ -230,15 +230,15 @@
                 class="q-mr-lg q-py-sm"
               />
             </div>
-            <!--END: table search -->
+            <!--ENDv-model: table search -->
             <!--START: table filter dropdown -->
             <div class="col-md-3"></div>
             <!--END: table filter dropdown -->
           </template>
           <!--END: table search, filter -->
         </q-table>
-      </q-tab-pane>
-      <q-tab-pane name="tab-2">
+      </q-tab-panell>
+      <q-tab-panel name="tab-2">
         <q-table
           table-class="customTableClass"
           :data="tableData1"
@@ -246,19 +246,19 @@
           :filter="filter1"
           row-key="field"
           color="grey-9"
-          :pagination.sync="paginationControl1"
+          :pagination="paginationControl1"
           :rows-per-page-options="[5,10,15,20]"
           @request="ajaxLoadAllPaymentTrackerInfo1"
           table-style="word-break: break-all"
           class="payment_verification_table capitalize"
         >
           <!--START: table header -->
-          <q-tr slot="top-row" slot-scope="props">
+          <q-tr v-slot:top-row="props">
             <q-th v-for="col in props.columns1" :key="col.name" :props="props">{{ col.label }}</q-th>
           </q-tr>
           <!--END: table header -->
           <!--START: Table body -->
-          <template slot="body" slot-scope="props">
+          <template v-slot:body="props">
             <!--START: table rows -->
             <q-tr :props="props" class="bottom-border">
               <!--START: table expand button :Checkbox -->
@@ -315,7 +315,7 @@
             <!-- START: table expand values -->
             <q-tr v-show="props.row.expand" :props="props" class="wordWrapCustom bottom-border">
               <q-td>
-                <div class="text-left q-caption text-grey-8 text-weight-medium">Rental Plan</div>
+                <div class="text-left text-caption text-grey-8 text-weight-medium">Rental Plan</div>
                 <div
                   class="text-left"
                   v-if="props.row.plan == '' || props.row.plan == null"
@@ -323,12 +323,12 @@
                 <div class="text-left" v-else>{{ props.row.plan.planName }}</div>
               </q-td>
               <!-- <q-td>
-                <div class="text-left q-caption text-grey-8 text-weight-medium">Amount Collected</div>
+                <div class="text-left text-caption text-grey-8 text-weight-medium">Amount Collected</div>
                 <div class="text-left" v-if="props.row.amountCollected == null">NA</div>
                 <div class="text-left" v-else>{{ props.row.amountCollected }}</div>
               </q-td> -->
               <q-td>
-                <div class="text-left q-caption text-grey-8 text-weight-medium">Payment Type</div>
+                <div class="text-left text-caption text-grey-8 text-weight-medium">Payment Type</div>
                 <div v-if="props.row.neftId == '' || props.row.neftId == null " class="text-left">
                   <div>Cheque</div>
                   <div v-if="props.row.paymentDocumentMimeType != null">
@@ -371,7 +371,7 @@
                 <div v-else class="text-left">NA</div>
               </q-td>
               <!-- <q-td>
-                <div class="text-left q-caption text-grey-8 text-weight-medium">Payment Date</div>
+                <div class="text-left text-caption text-grey-8 text-weight-medium">Payment Date</div>
                 <div
                   class="text-left"
                   v-if="props.row.paymentMadeon == '' || props.row.paymentMadeon == null"
@@ -379,7 +379,7 @@
                 <div class="text-left" v-else>{{ props.row.paymentMadeon | moment("Do MMM Y") }}</div>
               </q-td> -->
               <q-td>
-                <div class="text-left q-caption text-grey-8 text-weight-medium">Payment Reference</div>
+                <div class="text-left text-caption text-grey-8 text-weight-medium">Payment Reference</div>
                 <div
                   class="text-left"
                   v-if="(props.row.chequeNumber == '' || props.row.chequeNumber == null) && (props.row.neftId == '' || props.row.neftId == null)"
@@ -387,7 +387,7 @@
                 <div class="text-left" v-else>{{( (props.row.chequeNumber != null || props.row.chequeNumber != '')? props.row.chequeNumber :props.row.neftId ) || ((props.row.neftId != null ||props.row.neftId != '')? props.row.neftId :props.row.chequeNumber ) }}</div>
               </q-td>
               <!-- <q-td>
-                <div class="text-left q-caption text-grey-8 text-weight-medium">Ref.No Count</div>
+                <div class="text-left text-caption text-grey-8 text-weight-medium">Ref.No Count</div>
                 <div
                   class="text-left"
                   v-if="props.row.referenceNumbercount == '' || props.row.referenceNumbercount == null"
@@ -400,7 +400,7 @@
               </q-td> -->
               <!-- <q-td colspan="2">
                 <div
-                  class="text-left q-caption text-grey-8 text-weight-medium"
+                  class="text-left text-caption text-grey-8 text-weight-medium"
                 >Document Uploaded by SAT</div>
                 <div
                   class="text-left"
@@ -448,7 +448,7 @@
           <template slot="top" >
             <!--START: table search -->
             <div class="col-md-5">
-              <q-search
+              <q-input
                 clearable
                 color="grey-9"
                 v-model="filter1"
@@ -464,7 +464,7 @@
           </template>
           <!--END: table search, filter -->
         </q-table>
-      </q-tab-pane>
+      </q-tab-panell>
     </q-tabs>
       </q-pull-to-refresh>
      

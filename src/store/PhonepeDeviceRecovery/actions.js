@@ -1,3 +1,4 @@
+import { api } from '../../boot/axios';
 import Vue from 'vue';
 import api from "../api.js";
 
@@ -86,7 +87,7 @@ function COMMON_FILE_DOWNLOAD(response) {
 }
 
 // export const DOWNLOAD_PHONEPE_DEVICE_RECOVERY_DATAS = async ({ commit }, request) => {
-//     return await Vue.http
+//     return await api
 //       .get("aggregator-inventory/agg-download-device-recovery-data-list", {
 //         responseType: "arraybuffer",
 //       })
@@ -100,7 +101,7 @@ function COMMON_FILE_DOWNLOAD(response) {
 //   };
 export const DOWNLOAD_PHONEPE_DEVICE_RECOVERY_DATAS = async ({ commit }, request) => {
   if (JSON.parse(localStorage.getItem("selectedTab").split('|')[1]) == '3') {
-    return await Vue.http
+    return await api
       .get("aggregator-inventory/agg-download-device-recovery-data-list", {
         responseType: "arraybuffer",
       })
@@ -113,7 +114,7 @@ export const DOWNLOAD_PHONEPE_DEVICE_RECOVERY_DATAS = async ({ commit }, request
       })
   }
   else {
-    return await Vue.http
+    return await api
       .get("aggregator-inventory/agg-download-device-recovery-list", {
         responseType: "arraybuffer",
       })
@@ -155,7 +156,7 @@ export const FEED_PHONEPE_RECOVERY_DEVICE_BULK_UPLOAD_DATA = ({
   commit,
   rootState
 }, request) => {
-  return Vue.http
+  return api
     // .post("aggregator-inventory/agg-add-bulk-recovery-device-inventory/"+ request.device_type +'/' + request.action, request.file,
     .put("aggregator-inventory/agg-add-bulk-recovery-device-to-inventory/" + JSON.parse(localStorage.getItem("selectedTab").split('|')[1]) + "/" + request.action, request.file, {
       headers: {

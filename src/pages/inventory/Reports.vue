@@ -17,21 +17,21 @@
               <q-tab name="InventorySummary" label="Inventory Summary" slot="title" />
             
   
-              <q-tab-pane name="Replacement">
+              <q-tab-panel name="Replacement">
                 <Replacement />
-              </q-tab-pane>
-              <q-tab-pane name="DeviceHistory">
+              </q-tab-panell>
+              <q-tab-panel name="DeviceHistory">
                 <DeviceHistory />
-              </q-tab-pane>
-              <q-tab-pane name="DeviceFSE">
+              </q-tab-panell>
+              <q-tab-panel name="DeviceFSE">
                 <DeviceFSE />
-              </q-tab-pane>
-              <q-tab-pane name="DeviceBP">
+              </q-tab-panell>
+              <q-tab-panel name="DeviceBP">
                 <DeviceBP />
-              </q-tab-pane>
-              <q-tab-pane name="InventorySummary">
+              </q-tab-panell>
+              <q-tab-panel name="InventorySummary">
                 <InventorySummary />
-              </q-tab-pane>
+              </q-tab-panell>
             </q-tabs>
           </div>
         </div>

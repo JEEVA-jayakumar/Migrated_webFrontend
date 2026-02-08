@@ -12,39 +12,39 @@
 
             <div class="col-md-4" style="border-right: 1px solid #ccc;">
                 <div class="q-ma-md">
-                    <div class="q-mb-md q-subheading">Region: {{ computedUserRegion }}</div>
+                    <div class="q-mb-md text-subtitle1">Region: {{ computedUserRegion }}</div>
                     <div>
                         <q-card class="no-shadow">
-                            <q-card-title class="no-padding">
-                                <div class="q-body-1">
+                            <q-card-section class="no-padding">
+                                <div class="text-body1">
                                     <strong>
                                         <h6>Inventory with Region</h6>
                                     </strong>
                                 </div>
-                            </q-card-title>
-                            <q-card-separator />
+                            </q-card-section>
+                            <q-separator />
                             <div
                                 @click="loadDevicesTableData($REGIONAL_INVENTORY_ALL_DEVICES, { name: 'Total Devices' })">
-                                <q-card-main align="center" class="cursor-pointer bg-grey-5"
+                                <q-card-section align="center" class="cursor-pointer bg-grey-5"
                                     :class="[activeItemId === $REGIONAL_INVENTORY_ALL_DEVICES ? 'shadow-5' : 'shadow-0']">
                                     <div>Count</div>
                                     <div>
                                         <big>{{ fngetAllAggregatorsRegionalInventorySerialNumbersByDevice() }}</big>
                                     </div>
-                                </q-card-main>
+                                </q-card-section>
                             </div>
                         </q-card>
                     </div>
                     <div class="row gutter-md">
                         <div class="col-md-6">
                             <q-card role="button" class="no-shadow cursor-pointer">
-                                <q-card-title class="no-padding">
-                                    <div class="q-body-1">Pending Allocation</div>
-                                </q-card-title>
-                                <q-card-separator />
+                                <q-card-section class="no-padding">
+                                    <div class="text-body1">Pending Allocation</div>
+                                </q-card-section>
+                                <q-separator />
                                 <div
                                     @click="loadDevicesTableData($REGIONAL_INVENTORY_PENDING_ALLOCATION_DEVICE, { name: 'Pending Allocation' })">
-                                    <q-card-main align="center" class="bg-grey-5"
+                                    <q-card-section align="center" class="bg-grey-5"
                                         :class="[activeItemId === $REGIONAL_INVENTORY_PENDING_ALLOCATION_DEVICE ? 'shadow-5' : 'shadow-0']">
                                         <div>Count</div>
                                         <div>
@@ -55,19 +55,19 @@
                                                 }}
                                             </big>
                                         </div>
-                                    </q-card-main>
+                                    </q-card-section>
                                 </div>
                             </q-card>
                         </div>
                         <div class="col-md-6">
                             <q-card role="button" class="no-shadow cursor-pointer">
-                                <q-card-title class="no-padding">
-                                    <div class="q-body-1">Allocated Devices</div>
-                                </q-card-title>
-                                <q-card-separator />
+                                <q-card-section class="no-padding">
+                                    <div class="text-body1">Allocated Devices</div>
+                                </q-card-section>
+                                <q-separator />
                                 <div
                                     @click="loadDevicesTableData($REGIONAL_INVENTORY_ALLOCATED_DEVICE, { name: 'Allocated Devices' })">
-                                    <q-card-main align="center" class="bg-grey-5"
+                                    <q-card-section align="center" class="bg-grey-5"
                                         :class="[activeItemId === $REGIONAL_INVENTORY_ALLOCATED_DEVICE ? 'shadow-5' : 'shadow-0']">
                                         <div>Count</div>
                                         <div>
@@ -78,19 +78,19 @@
                                                 }}
                                             </big>
                                         </div>
-                                    </q-card-main>
+                                    </q-card-section>
                                 </div>
                             </q-card>
                         </div>
                         <div class="col-md-6">
                             <q-card role="button" class="no-shadow cursor-pointer">
-                                <q-card-title class="no-padding">
-                                    <div class="q-body-1">Damaged Devices</div>
-                                </q-card-title>
-                                <q-card-separator />
+                                <q-card-section class="no-padding">
+                                    <div class="text-body1">Damaged Devices</div>
+                                </q-card-section>
+                                <q-separator />
                                 <div
                                     @click="loadDevicesTableData($REGIONAL_INVENTORY_DAMAGED_DEVICE, { name: 'Damaged Devices' })">
-                                    <q-card-main align="center" class="bg-grey-5"
+                                    <q-card-section align="center" class="bg-grey-5"
                                         :class="[activeItemId === $REGIONAL_INVENTORY_DAMAGED_DEVICE ? 'shadow-5' : 'shadow-0']">
                                         <div>Count</div>
                                         <div>
@@ -101,19 +101,19 @@
                                                 }}
                                             </big>
                                         </div>
-                                    </q-card-main>
+                                    </q-card-section>
                                 </div>
                             </q-card>
                         </div>
                         <div class="col-md-6">
                             <q-card role="button" class="no-shadow cursor-pointer">
-                                <q-card-title class="no-padding">
-                                    <div class="q-body-1">Inbound Devices</div>
-                                </q-card-title>
-                                <q-card-separator />
+                                <q-card-section class="no-padding">
+                                    <div class="text-body1">Inbound Devices</div>
+                                </q-card-section>
+                                <q-separator />
                                 <div
                                     @click="loadDevicesTableData($REGIONAL_INVENTORY_INBOUND_DEVICE, { name: 'Inbound Devices' })">
-                                    <q-card-main align="center" class="bg-grey-5"
+                                    <q-card-section align="center" class="bg-grey-5"
                                         :class="[activeItemId === $REGIONAL_INVENTORY_INBOUND_DEVICE ? 'shadow-5' : 'shadow-0']">
                                         <div>Count</div>
                                         <div>
@@ -124,19 +124,19 @@
                                                 }}
                                             </big>
                                         </div>
-                                    </q-card-main>
+                                    </q-card-section>
                                 </div>
                             </q-card>
                         </div>
                         <div class="col-md-6">
                             <q-card role="button" class="no-shadow cursor-pointer">
-                                <q-card-title class="no-padding">
-                                    <div class="q-body-1">Pending List From App Count</div>
-                                </q-card-title>
-                                <q-card-separator />
+                                <q-card-section class="no-padding">
+                                    <div class="text-body1">Pending List From App Count</div>
+                                </q-card-section>
+                                <q-separator />
                                 <div
                                     @click="loadDevicesTableData($REGIONAL_INVENTORY_FAULTY_DEVICE, { name: 'Faulty Inventory' })">
-                                    <q-card-main align="center" class="bg-grey-5"
+                                    <q-card-section align="center" class="bg-grey-5"
                                         :class="[activeItemId === $REGIONAL_INVENTORY_FAULTY_DEVICE ? 'shadow-5' : 'shadow-0']">
                                         <div>Count</div>
                                         <div>
@@ -147,7 +147,7 @@
                                                 }}
                                             </big>
                                         </div>
-                                    </q-card-main>
+                                    </q-card-section>
                                 </div>
                             </q-card>
                         </div>
@@ -159,18 +159,18 @@
                             v-for="(item, index) in getAllPhonePeRegionalInventoryDeviceDetailsWithCount.inventryCount"
                             :key="index">
                             <q-card role="button" class="no-shadow cursor-pointer">
-                                <q-card-title class="no-padding">
-                                    <div class="q-body-1">{{ item.aggregatorDevice.deviceName }}</div>
-                                </q-card-title>
-                                <q-card-separator />
+                                <q-card-section class="no-padding">
+                                    <div class="text-body1">{{ item.aggregatorDevice.deviceName }}</div>
+                                </q-card-section>
+                                <q-separator />
                                 <div @click="loadDevicesTableData(index, item)">
-                                    <q-card-main align="center" :style="'background:' + item.aggregatorDevice.colorCode"
+                                    <q-card-section align="center" :style="'background:' + item.aggregatorDevice.colorCode"
                                         :class="[activeItemId === index ? 'shadow-5' : 'shadow-0']">
                                         <div>Count</div>
                                         <div>
                                             <strong>{{ item.count }}</strong>
                                         </div>
-                                    </q-card-main>
+                                    </q-card-section>
                                 </div>
                             </q-card>
                         </div>
@@ -187,12 +187,12 @@
                           v-for="(item, index) in getAllPhonePeRegionalInventoryDeviceDetailsWithCount.BillPartnerList"
                           :key="index">
                           <q-card>
-                              <q-card-main>
+                              <q-card-section>
                                   <q-card role="button" class="no-shadow cursor-pointer">
-                                      <q-card-title class="no-padding">
-                                          <div class="q-body-1">{{ item.user.name }}</div>
-                                      </q-card-title>
-                                      <q-card-separator />
+                                      <q-card-section class="no-padding">
+                                          <div class="text-body1">{{ item.user.name }}</div>
+                                      </q-card-section>
+                                      <q-separator />
                                       <div>
                                           <div align="center">
                                               <br />
@@ -200,7 +200,7 @@
                                           </div>
                                       </div>
                                   </q-card>
-                              </q-card-main>
+                              </q-card-section>
                           </q-card>
                       </div>
                   </div>
@@ -210,15 +210,15 @@
             <div class="col-md-8">
                 <div class="row bottom-border q-pa-sm items-center">
                     <div class="text-weight-regular">
-                        <div class="text-grey-9 q-subheading q-py-sm">{{ inventoryCountTableTitle }}</div>
+                        <div class="text-grey-9 text-subtitle1 q-py-sm">{{ inventoryCountTableTitle }}</div>
                     </div>
                 </div>
-                <!--START: table lead validation -->
+                <!--STARTv-model: table lead validation -->
                 <q-table title="Lead Validation" table-class="customTableClass" class="q-py-none"
                     :data="getAllAggregatorsRegionalInventorySerialNumbersByDevice" :columns="columnData"
-                    :filter="filter" :pagination.sync="paginationControl" :loading="toggleAjaxLoadFilter"
+                    :filter="filter" :pagination="paginationControl" :loading="toggleAjaxLoadFilter"
                     row-key="name">
-                    <q-td slot="body-cell-action" slot-scope="props" :props="props" v-if="info == 6">
+                    <q-td v-slot:body-cell-action="props" :props="props" v-if="info == 6">
                         <div class="row no-wrap no-padding">
                             <q-btn dense no-caps no-wrap label="Usable" icon="fa fa-check square" size="md"
                                 @click="fnShowUsable(props.row)" flat class="text-light-blue"></q-btn>
@@ -226,15 +226,15 @@
                                 @click="fnShowFaulty(props.row)" flat class="text-negative"></q-btn>
                         </div>
                     </q-td>
-                    <q-td slot="body-cell-device_type" slot-scope="props" :props="props">{{
+                    <q-td v-slot:body-cell-device_type="props" :props="props">{{
                         props.row.aggregatorDevice
                             ==
                             null ? 'NA' : props.row.aggregatorDevice.deviceName
                     }}</q-td>
-                    <template slot="top" slot-scope="props" class="bottom-border">
+                    <template v-slot:top="props" class="bottom-border">
                         <!--START: table filter,search -->
                         <div class="col-md-6">
-                            <q-search clearable color="grey-9" v-model="filter"
+                            <q-input clearable color="grey-9" v-model="filter"
                                 placeholder="Search by SO Name, Serial Number" class="q-mr-lg q-py-sm" />
                         </div>
                         <div class="col-md-5">

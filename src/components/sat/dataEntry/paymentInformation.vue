@@ -2,7 +2,7 @@
   <div>
     <div class="row gutter-sm">
       <div class="col-md-6 col-sm-12 col-xs-12">
-        <p class="q-caption">Device Owned By</p>
+        <p class="text-caption">Device Owned By</p>
         <div class="group">
           <q-radio
             @blur="$v.merchant.paymentDetails.deviceOwnedBy.$touch"
@@ -51,7 +51,7 @@
         />
       </div>
       <div class="col-md-6 col-sm-12 col-xs-12">
-        <p class="q-caption">Cash @POS Enabled?</p>
+        <p class="text-caption">Cash @POS Enabled?</p>
         <div class="group">
           <q-radio
             disable
@@ -107,7 +107,7 @@
         />
       </div>
       <div class="col-md-6 col-sm-12 col-xs-12">
-        <p class="q-caption">Rental Type</p>
+        <p class="text-caption">Rental Type</p>
         <div class="group">
           <q-radio
             @blur="$v.merchant.paymentDetails.rentalType.$touch"
@@ -156,7 +156,7 @@
         />
       </div>
       <div v-if="merchant.paymentDetails.rentalType == 'A'" class="col-md-6 col-sm-12 col-xs-12">
-        <p class="q-caption">Advanced Rent Mode</p>
+        <p class="text-caption">Advanced Rent Mode</p>
         <div class="group">
           <q-radio
             @blur="$v.merchant.paymentDetails.advanceRentMode.$touch"
@@ -231,7 +231,7 @@ import {
   decimal,
   between,
   numeric
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 export default {
   // name: 'ComponentName',
   props: [

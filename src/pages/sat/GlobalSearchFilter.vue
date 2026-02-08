@@ -15,13 +15,13 @@
             <q-tab name="external" label="Phonepe Global Serial" slot="title" />
            
            
-            <q-tab-pane name="internal">
+            <q-tab-panel name="internal">
               <InternalGlobalSearchFilter/>
-            </q-tab-pane>
+            </q-tab-panell>
            
-            <q-tab-pane name="external">
+            <q-tab-panel name="external">
               <AggregatorGlobalSearchFilter/>
-            </q-tab-pane>
+            </q-tab-panell>
           </q-tabs>
         </div>
       </div>

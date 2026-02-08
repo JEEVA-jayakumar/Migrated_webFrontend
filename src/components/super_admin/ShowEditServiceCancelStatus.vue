@@ -1,6 +1,6 @@
 <template>
 <div>
-  <q-modal
+  <q-dialog
    minimized
         v-model="toggleModel"
         @hide="emitShowEditServiceCancelStatus"
@@ -11,7 +11,7 @@
 <form>
   <div class="row gutter-sm q-py-sm items-center">
     <div class="col-md-12">
-      <div class="q-title text-weight-regular">
+      <div class="text-h6 text-weight-regular">
         Modify Cancel Status Info
       </div>
     </div>
@@ -31,11 +31,11 @@
     </div>
   </div>
 </form>
-  </q-modal>
+  </q-dialog>
 </div>
 </template>
 <script>
-import { required } from 'vuelidate/lib/validators'
+import { required } from '@vuelidate/validators'
 import { mapGetters, mapActions } from 'vuex'
 export default {
   props: ['propShowEditServiceCancelStatus', 'propRowDetails5'],

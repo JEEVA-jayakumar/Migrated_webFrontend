@@ -1,3 +1,4 @@
+import { api } from '../boot/axios';
 import api from "./api.js";
 import Vue from "vue";
 
@@ -9,7 +10,7 @@ const BankUploadFile = {
       commit,
       rootState
     }, request) {
-      return Vue.http
+      return api
         .post("http://13.232.119.156:8080/apibanks/uploadbankso", request, {
           headers: {
             "Content-Type": 'multipart/form-data'

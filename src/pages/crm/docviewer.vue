@@ -1,12 +1,12 @@
 <template>
   <q-page>
     <div>
-      <div class="col-md-12 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9">
+      <div class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9">
         DOC Viewer
       </div>
       <div class="row gutter-x-xs gutter-y-xs q-pt-md justify-around items-end">
         <div class="col-md-6">
-          <q-search
+          <q-input
             clearable
             @clear="fnClearing"
             color="grey-9"
@@ -31,17 +31,17 @@
     </div>
   
     <div v-if="tableData.length != 0">
-      <q-table table-class="customTableClass" :data="tableData" :columns="columns" :pagination.sync="paginationControl" row-key="name" :loading="toggleAjaxLoadFilter" :rows-per-page-options="[5, 10, 15, 20]" @request="ajaxLoadAllLeadInfo">
-        <q-td slot="body-cell-tid" slot-scope="props" :props="props">
+      <q-table table-class="customTableClass" v-model:data="tableData" :columns="columns" :pagination="paginationControl" row-key="name" :loading="toggleAjaxLoadFilter" :rows-per-page-options="[5, 10, 15, 20]" @request="ajaxLoadAllLeadInfo">
+        <q-td v-slot:body-cell-tid="props" :props="props">
           <span class="label text-primary"># {{ props.row.tid }}</span>
         </q-td>
-        <q-td slot="body-cell-merchantName" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-merchantName="props" :props="props">
           <span > {{ props.row.leadInformation.contactName == null ? "NA"  :  props.row.leadInformation.contactName }}</span>
         </q-td>
-        <q-td slot="body-cell-regionAreaName" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-regionAreaName="props" :props="props">
           <span > {{ props.row.aggregatorRegionalInventory.region.regionAreaName == null ? "NA"  :  props.row.aggregatorRegionalInventory.region.regionAreaName }}</span>
         </q-td>
-        <q-td slot="body-cell-viewDocument" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-viewDocument="props" :props="props">
           <div v-if="props.row.implementationFormMimeType == null || props.row.implementationFormMimeType.includes('application/pdf')" class="cursor-pointer">
             <div @click="fnPDFViewModal(props.row.implementationForm)">
               <q-icon name="fas fa-file-pdf" color="primary" />
@@ -54,7 +54,7 @@
           </div>
           <div v-else>NA Document</div>
         </q-td>
-         <q-td slot="body-cell-pictureOfShop" slot-scope="props" :props="props">
+         <q-td v-slot:body-cell-pictureOfShop="props" :props="props">
           <div
             v-if="
               props.row.pictureOfShopMimeType == null ||
@@ -74,7 +74,7 @@
           </div>
           <div v-else>NA Document</div>
          </q-td>
-         <q-td slot="body-cell-cpvForm" slot-scope="props" :props="props">
+         <q-td v-slot:body-cell-cpvForm="props" :props="props">
           <div
             v-if="
               props.row.cpvFormMimeType == null ||
@@ -96,20 +96,20 @@
       </q-table>
     </div>
     <div v-else-if="tableData1.length != 0">
-      <q-table table-class="customTableClass" :data="tableData1" :columns="columns1" row-key="name" :pagination.sync="paginationControlchange" :rows-per-page-options="[5,10,15,20]" :loading="toggleAjaxLoadFilter" @request="ajaxLoadAllLeadInfo1">
-       <q-td slot="body-cell-tid" slot-scope="props" :props="props">
+      <q-table table-class="customTableClass" v-model:data="tableData1" :columns="columns1" row-key="name" :pagination="paginationControlchange" :rows-per-page-options="[5,10,15,20]" :loading="toggleAjaxLoadFilter" @request="ajaxLoadAllLeadInfo1">
+       <q-td v-slot:body-cell-tid="props" :props="props">
           <span class="label text-primary"># {{ props.row.serviceRequestData.tid }}</span>
         </q-td>
-        <q-td slot="body-cell-merchantName" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-merchantName="props" :props="props">
           <span > {{ props.row.serviceRequestData.meName == null ? "NA"  :  props.row.serviceRequestData.meName }}</span>
         </q-td>
-        <q-td slot="body-cell-regionAreaName" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-regionAreaName="props" :props="props">
           <span > {{ props.row.serviceRequestData.bpRegion.regionAreaName == null ? "NA"  :  props.row.serviceRequestData.bpRegion.regionAreaName }}</span>
         </q-td>
-        <q-td slot="body-cell-ticket" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-ticket="props" :props="props">
           <span > {{ props.row.serviceRequestData.serviceReqTicketId == null ? "NA"  :  props.row.serviceRequestData.serviceReqTicketId }}</span>
         </q-td>
-        <q-td slot="body-cell-pictureOfShop" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-pictureOfShop="props" :props="props">
           <div
             v-if="
               props.row.pictureOfShopMimeType == null ||
@@ -127,7 +127,7 @@
           </div>
           <div v-else>NA Document</div>
         </q-td>
-        <q-td slot="body-cell-viewDocument" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-viewDocument="props" :props="props">
           <div
             v-if="
               props.row.implementationFormMimeType == null ||
@@ -152,7 +152,7 @@
     <div v-else class="row gutter-x-xs gutter-y-xs justify-center q-pt-lg q-mr-lg q-ml-lg q-mt-lg q-mb-lg dFont" style="min-height: calc(80vh - 52px)">
       <div class="row" align="center">
         <q-icon name="warning" color="warning" size="4rem" />
-        <div class="q-subheading text-bold text-grey-9" style="align-self: center">
+        <div class="text-subtitle1 text-bold text-grey-9" style="align-self: center">
           No Data Available
         </div>
         </div>
@@ -173,7 +173,7 @@
 </template>
 <script>
 import { mapGetters, mapActions } from "vuex";
-import { required, minLength, maxLength } from "vuelidate/lib/validators";
+import { required, minLength, maxLength } from "@vuelidate/validators";
 import popup from 'src/components/crm/popup.vue'
 import showPDF from 'src/components/crm/showPDF.vue'
 export default {

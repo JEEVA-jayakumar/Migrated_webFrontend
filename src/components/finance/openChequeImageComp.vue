@@ -1,15 +1,15 @@
 <template>
     <div>
-        <q-modal 
+        <q-dialog
         v-model="showChequeImage"  
         @hide="emitToggleCheque(showRejectModel)" 
         @escape-key="emitToggleCheque(showRejectModel)"  
         :content-css="{padding:'5px',maxWidth: '75vw',}"
         >
-           <q-card-media overlay-position="full">
+           <q-img overlay-position="full">
                 <img :src="chequeImagevalue">
-            </q-card-media>
-        </q-modal>
+            </q-img>
+        </q-dialog>
     </div>
 </template>
 <script>

@@ -2,7 +2,7 @@
   <q-page>
     <!-- content -->
     <div
-      class="col-md-12 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
+      class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
     >
       Bijlipay Implementation Queue
     </div>
@@ -56,7 +56,7 @@
             <q-btn
               no-caps
               :disabled="
-                formData.marsDeviceIdsCooked.length == 0 ? true : false
+                formData.marsDeviceIdsCooked.length == 0 ? true v-model: false
               "
               label="Assign"
               class="common-dark-blue agnalgin1"
@@ -95,10 +95,10 @@
           slot="title"
           label="CANCELED MERCHANTS"
         /> -->
-        <q-tab-pane name="assigned">
+        <q-tab-panel name="assigned">
           <assigned />
-        </q-tab-pane>
-        <q-tab-pane name="unAssigned">
+        </q-tab-panell>
+        <q-tab-panel name="unAssigned">
           <!--START: table Data   :data="getImplementationQueueUnassignedList"  -->
           <q-table
             :data="tableData1"
@@ -106,8 +106,8 @@
             table-class="customTableClass"
             :filter="filterSearch"
             selection="multiple"
-            :selected.sync="formData.marsDeviceIdsCooked"
-            :pagination.sync="paginationControl1"
+            :selected="formData.marsDeviceIdsCooked"
+            v-model:pagination="paginationControl1"
             row-key="id"
             :rows-per-page-options="[10, 20, 50, 100, 150, 200]"
             :loading="tableAjaxLoading1"
@@ -115,8 +115,7 @@
             @request="ajaxLoadAllLeadInfo1"
           >
             <q-td
-              slot="body-cell-leadNumber"
-              slot-scope="props"
+              v-slot:body-cell-leadNumber="props"
               :props="props"
               class="cursor-pointer"
               @click.native="toggleLeadInformation(props.row.leadInformation)"
@@ -125,7 +124,7 @@
                 ># {{ props.row.leadInformation.leadNumber }}</span
               >
             </q-td>
-            <q-td slot="body-cell-LeadSource" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-LeadSource="props" :props="props">
               <span
                 :class="{
                   'text-red':
@@ -138,38 +137,33 @@
             </q-td>
 
             <q-td
-              slot="body-cell-submitToMarsDate"
-              slot-scope="props"
+              v-slot:body-cell-submitToMarsDate="props"
               :props="props"
               >{{
                 props.row.leadInformation.submitToMarsDate | moment("Do MMM Y")
               }}</q-td
             >
             <q-td
-              slot="body-cell-createdAt"
-              slot-scope="props"
+              v-slot:body-cell-createdAt="props"
               :props="props"
               >{{ props.row.createdAt | moment("Do MMM Y") }}</q-td
             >
             <!-- <q-td
-              slot="body-cell-tid"
-              slot-scope="props"
+              v-slot:body-cell-tid="props"
               :props="props"
               class="customTd"
             >
               <div class="text-primary">{{ props.row.tid }}</div>
             </q-td> -->
             <q-td
-              slot="body-cell-mid"
-              slot-scope="props"
+              v-slot:body-cell-mid="props"
               :props="props"
               class="customTd"
             >
               <div class="text-primary">{{ props.row.mid }}</div>
             </q-td>
             <q-td
-              slot="body-cell-deviceAddress"
-              slot-scope="props"
+              v-slot:body-cell-deviceAddress="props"
               :props="props"
               class="customTd customCellLength"
             >
@@ -185,10 +179,10 @@
                 {{ props.row.deviceAddress }}
               </div>
             </q-td>
-            <template slot="top" slot-scope="props">
+            <template v-slot:top="props">
               <!--START: table filter,search -->
               <div class="col-md-5">
-                <q-search
+                <q-input
                   clearable
                   color="grey-9"
                   v-model="filterSearch"
@@ -199,8 +193,8 @@
               </div>
             </template>
           </q-table>
-          <!--END: table Data -->
-        </q-tab-pane>
+          <!--ENDv-model: table Data -->
+        </q-tab-panell>
       </q-tabs>
 
       <!--END: table Footer -->
@@ -208,7 +202,7 @@
       <DeviceAddressModal
         v-if="showDeviceAddressModal"
         :showDeviceAddressModal="showDeviceAddressModal"
-        :currentDeviceInfo.sync="currentDeviceInfo"
+        :currentDeviceInfo="currentDeviceInfo"
         :stateInformation="getAllStatesData"
         :paginationControl="paginationControl"
         :selectedLeadItems="formData.marsDeviceIdsCooked"

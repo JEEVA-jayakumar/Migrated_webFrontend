@@ -1,15 +1,15 @@
 <template>
     <q-page>
       <div class="row">
-        <div class="col-12 q-title q-pa-md text-weight-regular bottom-border">Enter Latitude & Longitude</div>
+        <div class="col-12 text-h6 q-pa-md text-weight-regular bottom-border">Enter Latitude & Longitude</div>
         <!-- START >> Setup MDR details -->
         <div class="col-md-5 col-sm-4 col-xs-12 q-pa-sm">
           <q-card style="width:150%">
-            <q-card-main>
+            <q-card-section>
               <q-list no-border>
   
                 <q-item>
-                  <q-item-main>
+                  <q-item-section>
                     <q-input color="grey-9" v-model="formData.address" @blur="$v.formData.address.$touch"
                       :error="$v.formData.address.$error" float-label="Address" />
                       
@@ -17,26 +17,26 @@
                       <q-btn label="Search Address" @click="fnAddress(formData)" color="purple-9" />
                     </div>
   
-                  </q-item-main>
+                  </q-item-section>
                 </q-item>
   
                 <q-item>
-                  <q-item-main>
+                  <q-item-section>
                     <q-input color="grey-9" type="double" disable v-model="formData.latitude"
                       @blur="$v.formData.latitude.$touch" :error="$v.formData.latitude.$error"
                       float-label="Enter Latitude" placeholder="Add Latitude" />
-                  </q-item-main>
+                  </q-item-section>
                 </q-item>
   
                 <q-item>
-                  <q-item-main>
+                  <q-item-section>
                     <q-input color="grey-9" type="double" disable v-model="formData.longitude"
                       @blur="$v.formData.longitude.$touch" :error="$v.formData.longitude.$error"
                       float-label="Enter Longitude" placeholder="Add Longitude" />
-                  </q-item-main>
+                  </q-item-section>
                 </q-item>
               </q-list>
-            </q-card-main>
+            </q-card-section>
   
             <q-card-actions vertical align="end">
               <q-btn label="submit" @click="fnsubmit(formData)" color="purple-9" />
@@ -55,7 +55,7 @@
     integer,
     double,
     email
-  } from "vuelidate/lib/validators";
+  } from "@vuelidate/validators";
   /* START >> Modal components Lead source, device, merchant type */
   import showLeadSourceModalComponent from "../../components/super_admin/showLeadSourceModalComponents.vue";
   import showDeviceDetailModalComponent from "../../components/super_admin/showDeviceDetailModalComponents.vue";

@@ -1,6 +1,6 @@
 <template>
     <div>
-      <q-modal
+      <q-dialog
         v-model="toggleModal"
         no-backdrop-dismiss
         no-esc-dismiss
@@ -10,13 +10,13 @@
           <div class="column">
             <!-- <pre>{{propAllScannedItemArr}}</pre> -->
             <div class="col-md-12 bottom-border">
-              <div class="q-title text-weight-regular q-py-sm">Aggregator Send to repair</div>
+              <div class="text-h6 text-weight-regular q-py-sm">Aggregator Send to repair</div>
             </div>
             <div class="col-md-8 q-pt-md" align="left">
               <q-list dense separator>
                 <q-item v-for="(item,index) in formData.scannedItems" :key="index">
-                  <q-item-main>{{item.device.deviceName}}</q-item-main>
-                  <q-item-side>{{item.deviceSerialNumbers.length}} nos</q-item-side>
+                  <q-item-section>{{item.device.deviceName}}</q-item-section>
+                  <q-item-section>{{item.deviceSerialNumbers.length}} nos</q-item-section>
                 </q-item>
               </q-list>
             </div>
@@ -26,7 +26,7 @@
             </div>
           </div>
         </div>
-      </q-modal>
+      </q-dialog>
     </div>
   </template>
   <script>

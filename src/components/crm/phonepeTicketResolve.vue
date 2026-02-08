@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-modal
+    <q-dialog
       v-model="toggleModal"
       no-backdrop-dismiss
       class="q-mt-lg capitalize"
@@ -67,7 +67,7 @@
           <q-btn color="purple" :disable="this.formData.remarks == '' || this.formData.subIssue == ''" style="margin-top: 20px;" label="Submit" @click="fnResolve(resolveData)" />
         </div>
       </div>
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 

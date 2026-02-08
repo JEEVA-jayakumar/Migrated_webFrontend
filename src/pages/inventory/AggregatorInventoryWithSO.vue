@@ -1,7 +1,7 @@
 <template>
   <q-page>
     <div>
-      <div class="col-md-6 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9">Aggregator Inventory with SO/Bill Partner/Sub Region</div>
+      <div class="col-md-6 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9">Aggregator Inventory with SO/Bill Partner/Sub Region</div>
       <!--END: table title -->
       <!--START: table lead validation -->
       <!-- <div class="row bottom-border q-px-md q-py-md items-center text-weight-regular text-grey-9">
@@ -11,45 +11,40 @@
         </div>
       </div> -->
      
-        <q-table table-class="customTableClass" :data="this.getInventoryWithSOAggregatorList" :columns="columns"
-          :filter="filter" :pagination.sync="paginationControl" row-key="name">
+        <q-table table-class="customTableClass" :data="this.getInventoryWithSOAggregatorList" v-model:columns="columns"
+          :filter="filter" :pagination="paginationControl" row-key="name">
           <!-- <q-td
-          slot="body-cell-createdAt"
-          slot-scope="props"
+          v-slot:body-cell-createdAt="props"
           :props="props"
         >{{ props.row.createdAt | moment("Do MMM Y") }}</q-td>
         <q-td
-          slot="body-cell-receivedAt"
-          slot-scope="props"
+          v-slot:body-cell-receivedAt="props"
           :props="props"
         >{{ props.row.receivedAt | moment("Do MMM Y") }}</q-td>
 
         <q-td
-          slot="body-cell-receivedAt"
-          slot-scope="props"
+          v-slot:body-cell-receivedAt="props"
           :props="props"
         >{{ props.row.receivedAt ==null? "NA" : props.row.receivedAt | moment("Do MMM Y") }}</q-td>
         <q-td
-          slot="body-cell-DeviceList"
-          slot-scope="props"
+          v-slot:body-cell-DeviceList="props"
           :props="props"
         >{{ props.row.device.createDate | moment("Do MMM Y") }}</q-td>
         <q-td
-          slot="body-cell-ModifyDate"
-          slot-scope="props"
+          v-slot:body-cell-ModifyDate="props"
           :props="props"
         >{{ props.row.device.modifyDate | moment("Do MMM Y") }}</q-td>-->
-          <q-td slot="body-cell-created_at" slot-scope="props" :props="props">{{
+          <q-td v-slot:body-cell-created_at="props" :props="props">{{
             props.row.created_at == null ? "NA" :
               props.row.created_at | moment("Do MMM Y")
           }}</q-td>
-          <q-td slot="body-cell-updated_at" slot-scope="props" :props="props">{{
+          <q-td v-slot:body-cell-updated_at="props" :props="props">{{
             props.row.updated_at == null ? "NA" :
               props.row.updated_at | moment("Do MMM Y")
           }}</q-td>
-          <template slot="top" slot-scope="props">
+          <template v-slot:top="props">
             <div class="col-md-5">
-              <q-search clearable v-model="filter" separator color="grey-9" placeholder="Type.."
+              <q-input clearable v-model="filter" separator color="grey-9" placeholder="Type.."
               float-label="Pod Number, Device Type, Serial Number" class="q-mr-lg q-py-sm" />
             </div>
             <div class="col-md-5">
@@ -59,7 +54,7 @@
 
             </div>
             <div class="col-md-5">
-              <!-- <q-search
+              <!-- <q-input
                     clearable
                     color="grey-9"
                     v-model="filterSearch"

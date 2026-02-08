@@ -1,24 +1,24 @@
 <template>
   <q-page>
-    <q-modal
+    <q-dialog
       minimized
       no-backdrop-dismiss
       class="customModalOverlay"
       v-model="toggleModel"
       :content-css="{ padding: '25px', minWidth: '40vw' }"
     >
-      <!-- <q-modal
+      <!-- <q-dialog
       minimized no-backdrop-dismiss v-model="toggleModel"
       :content-css="{padding:'30px',minWidth: '40vw'}"
     >  -->
       <div class="row">
-        <div class="col-12 q-title q-pa-md text-weight-regular bottom-border">
+        <div class="col-12 text-h6 q-pa-md text-weight-regular bottom-border">
           Existing MDR Details
         </div>
         <!-- START >> Setup MDR details -->
         <div class="col-md-5 col-sm-4 col-xs-12 q-pa-sm">
           <q-card style="width:150%">
-            <q-card-main>
+            <q-card-section>
               <q-list no-border>
 
                 <div class="col-md-12">
@@ -70,7 +70,7 @@
                   <!-- v-if="(this.propRowDetails.device.isDevice == 1)&&(this.isDevice==1||this.propRowDetails.device.isDevice == 1)" -->
                   <div class="col-md-12">
                     <q-item class="mainclass">
-                      <q-item-main>
+                      <q-item-section>
                         <q-input
                           color="grey-9"
                           type="number"
@@ -80,7 +80,7 @@
                           :error="$v.formData.debitLessthanAmount.$error"
                           @blur="$v.formData.debitLessthanAmount.$touch"
                         />
-                      </q-item-main>
+                      </q-item-section>
                       <div
                         v-if="$v.formData.debitLessthanAmount.$error"
                         class="error-tooltip"
@@ -103,7 +103,7 @@
 
                   <div class="col-md-12">
                     <q-item class="mainclass">
-                      <q-item-main>
+                      <q-item-section>
                         <q-input
                           color="grey-9"
                           type="number"
@@ -113,7 +113,7 @@
                           :error="$v.formData.debitGreaterthanAmount.$error"
                           @blur="$v.formData.debitGreaterthanAmount.$touch"
                         />
-                      </q-item-main>
+                      </q-item-section>
                       <div
                         v-if="$v.formData.debitGreaterthanAmount.$error"
                         class="error-tooltip"
@@ -135,7 +135,7 @@
                   </div>
                   <div class="col-md-12">
                     <q-item class="mainclass">
-                      <q-item-main>
+                      <q-item-section>
                         <q-input
                           color="grey-9"
                           type="number"
@@ -145,7 +145,7 @@
                           :error="$v.formData.stdCC.$error"
                           @blur="$v.formData.stdCC.$touch"
                         />
-                      </q-item-main>
+                      </q-item-section>
                       <div
                         v-if="$v.formData.stdCC.$error"
                         class="error-tooltip"
@@ -168,7 +168,7 @@
 
                   <div class="col-md-12">
                     <q-item class="mainclass">
-                      <q-item-main>
+                      <q-item-section>
                         <q-input
                           color="grey-9"
                           type="number"
@@ -178,7 +178,7 @@
                           :error="$v.formData.premiumCC.$error"
                           @blur="$v.formData.premiumCC.$touch"
                         />
-                      </q-item-main>
+                      </q-item-section>
                       <div
                         v-if="$v.formData.premiumCC.$error"
                         class="error-tooltip"
@@ -200,7 +200,7 @@
                   </div>
                   <div class="col-md-12">
                     <q-item class="mainclass">
-                      <q-item-main>
+                      <q-item-section>
                         <q-input
                           color="grey-9"
                           type="number"
@@ -210,7 +210,7 @@
                           :error="$v.formData.corpCC.$error"
                           @blur="$v.formData.corpCC.$touch"
                         />
-                      </q-item-main>
+                      </q-item-section>
                       <div
                         v-if="$v.formData.corpCC.$error"
                         class="error-tooltip"
@@ -232,7 +232,7 @@
                   </div>
                   <div class="col-md-12">
                     <q-item class="mainclass">
-                      <q-item-main>
+                      <q-item-section>
                         <q-input
                           color="grey-9"
                           type="number"
@@ -242,7 +242,7 @@
                           :error="$v.formData.intlCC.$error"
                           @blur="$v.formData.intlCC.$touch"
                         />
-                      </q-item-main>
+                      </q-item-section>
                       <div
                         v-if="$v.formData.intlCC.$error"
                         class="error-tooltip"
@@ -264,7 +264,7 @@
                   </div>
                   <div class="col-md-12">
                     <q-item class="mainclass">
-                      <q-item-main>
+                      <q-item-section>
                         <q-input
                           color="grey-9"
                           type="number"
@@ -274,7 +274,7 @@
                           :error="$v.formData.superPremiumlCC.$error"
                           @blur="$v.formData.superPremiumlCC.$touch"
                         />
-                      </q-item-main>
+                      </q-item-section>
                       <div
                         v-if="$v.formData.superPremiumlCC.$error"
                         class="error-tooltip"
@@ -296,7 +296,7 @@
                   </div>
                   <div class="col-md-12">
                     <q-item class="mainclass">
-                      <q-item-main>
+                      <q-item-section>
                         <q-input
                           color="grey-9"
                           type="number"
@@ -306,7 +306,7 @@
                           :error="$v.formData.amexDomestic.$error"
                           @blur="$v.formData.amexDomestic.$touch"
                         />
-                      </q-item-main>
+                      </q-item-section>
                       <div
                         v-if="$v.formData.amexDomestic.$error"
                         class="error-tooltip"
@@ -328,7 +328,7 @@
                   </div>
                   <div class="col-md-12">
                     <q-item class="mainclass">
-                      <q-item-main>
+                      <q-item-section>
                         <q-input
                           color="grey-9"
                           type="number"
@@ -338,7 +338,7 @@
                           :error="$v.formData.amexInternational.$error"
                           @blur="$v.formData.amexInternational.$touch"
                         />
-                      </q-item-main>
+                      </q-item-section>
                       <div
                         v-if="$v.formData.amexInternational.$error"
                         class="error-tooltip"
@@ -360,7 +360,7 @@
                   </div>
                   <div class="col-md-12">
                     <q-item class="mainclass">
-                      <q-item-main>
+                      <q-item-section>
                         <q-input
                           color="grey-9"
                           type="number"
@@ -370,7 +370,7 @@
                           :error="$v.formData.upiDebitCardUpTo2000.$error"
                           @blur="$v.formData.upiDebitCardUpTo2000.$touch"
                         />
-                      </q-item-main>
+                      </q-item-section>
                       <div
                         v-if="$v.formData.upiDebitCardUpTo2000.$error"
                         class="error-tooltip"
@@ -392,7 +392,7 @@
                   </div>
                   <div class="col-md-12">
                     <q-item class="mainclass">
-                      <q-item-main>
+                      <q-item-section>
                         <q-input
                           color="grey-9"
                           type="number"
@@ -402,7 +402,7 @@
                           :error="$v.formData.upiDebitCardAbove2000.$error"
                           @blur="$v.formData.upiDebitCardAbove2000.$touch"
                         />
-                      </q-item-main>
+                      </q-item-section>
                       <div
                         v-if="$v.formData.upiDebitCardAbove2000.$error"
                         class="error-tooltip"
@@ -424,7 +424,7 @@
                   </div>
                   <div class="col-md-12">
                     <q-item class="mainclass">
-                      <q-item-main>
+                      <q-item-section>
                         <q-input
                           color="grey-9"
                           type="number"
@@ -434,7 +434,7 @@
                           :error="$v.formData.upiPrepaidCreditCardsUpTo2000.$error"
                           @blur="$v.formData.upiPrepaidCreditCardsUpTo2000.$touch"
                         />
-                      </q-item-main>
+                      </q-item-section>
                       <div
                         v-if="$v.formData.upiPrepaidCreditCardsUpTo2000.$error"
                         class="error-tooltip"
@@ -457,7 +457,7 @@
                   </div>
                   <div class="col-md-12">
                     <q-item class="mainclass">
-                      <q-item-main>
+                      <q-item-section>
                         <q-input
                           color="grey-9"
                           type="number"
@@ -467,7 +467,7 @@
                           :error="$v.formData.upiPrepaidCreditCardsAbove2000.$error"
                           @blur="$v.formData.upiPrepaidCreditCardsAbove2000.$touch"
                         />
-                      </q-item-main>
+                      </q-item-section>
                       <div
                         v-if="$v.formData.upiPrepaidCreditCardsAbove2000.$error"
                         class="error-tooltip"
@@ -492,7 +492,7 @@
                 <div v-else-if="this.propRowDetails.device.isDevice == 2">
                   <div class="col-md-12">
                     <q-item class="mainclass">
-                      <q-item-main>
+                      <q-item-section>
                         <q-input
                           color="grey-9"
                           type="number"
@@ -502,7 +502,7 @@
                           :error="$v.formData.smallMerchantLessThanTwoDebit.$error"
                           @blur="$v.formData.smallMerchantLessThanTwoDebit.$touch"
                         />
-                      </q-item-main>
+                      </q-item-section>
                       <div
                         v-if="$v.formData.smallMerchantLessThanTwoDebit.$error"
                         class="error-tooltip"
@@ -525,7 +525,7 @@
                   </div>
                   <div class="col-md-12">
                     <q-item class="mainclass">
-                      <q-item-main>
+                      <q-item-section>
                         <q-input
                           color="grey-9"
                           type="number"
@@ -535,7 +535,7 @@
                           :error="$v.formData.smallMerchantGreaterThanTwoDebit.$error"
                           @blur="$v.formData.smallMerchantGreaterThanTwoDebit.$touch"
                         />
-                      </q-item-main>
+                      </q-item-section>
                       <div
                         v-if="$v.formData.smallMerchantGreaterThanTwoDebit.$error"
                         class="error-tooltip"
@@ -558,7 +558,7 @@
                   </div>
                   <div class="col-md-12">
                     <q-item class="mainclass">
-                      <q-item-main>
+                      <q-item-section>
                         <q-input
                           color="grey-9"
                           type="number"
@@ -572,7 +572,7 @@
                             $v.formData.smallMerchantLessThanTwoCreditAndPrepaid.$touch
                           "
                         />
-                      </q-item-main>
+                      </q-item-section>
                       <div
                         v-if="$v.formData.smallMerchantLessThanTwoCreditAndPrepaid.$error"
                         class="error-tooltip"
@@ -598,7 +598,7 @@
                   </div>
                   <div class="col-md-12">
                     <q-item class="mainclass">
-                      <q-item-main>
+                      <q-item-section>
                         <q-input
                           color="grey-9"
                           type="number"
@@ -612,7 +612,7 @@
                             $v.formData.smallMerchantGreaterThanTwoCreditAndPrepaid.$touch
                           "
                         />
-                      </q-item-main>
+                      </q-item-section>
                       <div
                         v-if="
                           $v.formData.smallMerchantGreaterThanTwoCreditAndPrepaid.$error
@@ -642,7 +642,7 @@
                   </div>
                   <div class="col-md-12">
                     <q-item class="mainclass">
-                      <q-item-main>
+                      <q-item-section>
                         <q-input
                           color="grey-9"
                           type="number"
@@ -652,7 +652,7 @@
                           :error="$v.formData.largeMerchantLessThanTwoDebit.$error"
                           @blur="$v.formData.largeMerchantLessThanTwoDebit.$touch"
                         />
-                      </q-item-main>
+                      </q-item-section>
                       <div
                         v-if="$v.formData.largeMerchantLessThanTwoDebit.$error"
                         class="error-tooltip"
@@ -675,7 +675,7 @@
                   </div>
                   <div class="col-md-12">
                     <q-item class="mainclass">
-                      <q-item-main>
+                      <q-item-section>
                         <q-input
                           color="grey-9"
                           type="number"
@@ -685,7 +685,7 @@
                           :error="$v.formData.largeMerchantGreaterThanTwoDebit.$error"
                           @blur="$v.formData.largeMerchantGreaterThanTwoDebit.$touch"
                         />
-                      </q-item-main>
+                      </q-item-section>
                       <div
                         v-if="$v.formData.largeMerchantGreaterThanTwoDebit.$error"
                         class="error-tooltip"
@@ -708,7 +708,7 @@
                   </div>
                   <div class="col-md-12">
                     <q-item class="mainclass">
-                      <q-item-main>
+                      <q-item-section>
                         <q-input
                           color="grey-9"
                           type="number"
@@ -722,7 +722,7 @@
                             $v.formData.largeMerchantLessThanTwoCreditandPrepaid.$touch
                           "
                         />
-                      </q-item-main>
+                      </q-item-section>
                       <div
                         v-if="$v.formData.largeMerchantLessThanTwoCreditandPrepaid.$error"
                         class="error-tooltip"
@@ -748,7 +748,7 @@
                   </div>
                   <div class="col-md-12">
                     <q-item class="mainclass">
-                      <q-item-main>
+                      <q-item-section>
                         <q-input
                           color="grey-9"
                           type="number"
@@ -762,7 +762,7 @@
                             $v.formData.largeMerchantGreaterThanTwoCreditandPrepaid.$touch
                           "
                         />
-                      </q-item-main>
+                      </q-item-section>
                       <div
                         v-if="
                           $v.formData.largeMerchantGreaterThanTwoCreditandPrepaid.$error
@@ -896,7 +896,7 @@
             </div> -->
                 <!-- ---------------STATIC QR FIELDS----------------- -->
               </q-list>
-            </q-card-main>
+            </q-card-section>
             <q-card-actions align="end">
               <q-btn
                 flat
@@ -935,7 +935,7 @@
         ></showMerchantModalComponent>
         <!--END: Show lead source -->
       </div>
-    </q-modal>
+    </q-dialog>
   </q-page>
 </template>
 
@@ -958,7 +958,7 @@ import {
   maxValue,
   minValue,
   decimal,
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 Vue.use(Vuelidate);
 import Vuelidate from "vuelidate";
 import { mapGetters, mapActions } from "vuex";

@@ -1,11 +1,11 @@
 <template>
   <div>
-    <q-modal minimized no-backdrop-dismiss v-model="propToggleModal" @hide="toggleModal" @escape-key="toggleModal"
+    <q-dialog minimized no-backdrop-dismiss v-model="propToggleModal" @hide="toggleModal" @escape-key="toggleModal"
       class="customModalOverlay" :content-css="{padding:'30px',minWidth: '30vw'}">
       <form>
         <div class="row gutter-sm q-py-sm items-center">
           <div class="col-md-12">
-            <div class="q-title text-weight-regular">Edit LeadSource And Vas,Device Config</div>
+            <div class="text-h6 text-weight-regular">Edit LeadSource And Vas,Device Config</div>
           </div>
         </div>
         <div class="row gutter-sm q-py-sm items-center">
@@ -29,29 +29,29 @@
               color="grey-9" float-label="Select Vas" placeholder="Select Vas" />
           </div>
         </div>
-        <q-card-main>
+        <q-card-section>
           <q-list no-border>
 
             <!-- <q-item>
-              <q-item-main>
+              <q-item-section>
                 <q-select color="grey-9" v-model="formData.leadSourceDeviceVasMapping.leadSource"
                   :options="dropDown.leadSourceOptions" float-label="Select lead source" placeholder="Lead source" />
-              </q-item-main>
+              </q-item-section>
             </q-item> -->
             <!-- <q-item>
-              <q-item-main>
+              <q-item-section>
                 <q-select color="grey-9" v-model="formData.leadSourceDeviceVasMapping.device"
                   :options="dropDown.deviceOptions" float-label="Select Device" placeholder="Select Device" />
-              </q-item-main>
+              </q-item-section>
             </q-item> -->
             <!-- <q-item>
-              <q-item-main>
+              <q-item-section>
                 <q-select multiple color="grey-9" v-model="formData.vasList" :options="dropDown.vasOptions"
                   float-label="Select VAS" placeholder="Select VAS" />
-              </q-item-main>
+              </q-item-section>
             </q-item> -->
           </q-list>
-        </q-card-main>
+        </q-card-section>
         <div class="row gutter-sm q-py-sm items-center">
           <div class="col-md-12 group" align="right">
             <q-btn flat align="right" class="bg-white text-weight-regular text-grey-8" @click="toggleModal()">Cancel
@@ -60,12 +60,12 @@
           </div>
         </div>
       </form>
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
   
 <script>
-import { integer, required } from "vuelidate/lib/validators";
+import { integer, required } from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 export default {
   // name: 'ComponentName',

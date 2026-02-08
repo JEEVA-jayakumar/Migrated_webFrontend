@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-modal v-model="toggleModal" no-backdrop-dismiss class="q-mt-lg capitalize" @hide="emitToggleRemarks" @escape-key="emitToggleRemarks"
+    <q-dialog v-model="toggleModal" no-backdrop-dismiss class="q-mt-lg capitalize" @hide="emitToggleRemarks" @escape-key="emitToggleRemarks"
       :content-css="{ minWidth: '50vw', padding: '10px' }">
       <div class="row items-center bottom-border q-py-sm">
         <div class="col"><b>Ticket</b></div>
@@ -11,7 +11,7 @@
 
       <form>
         <div class="column group">
-          <div class="q-title"></div>
+          <div class="text-h6"></div>
           <div class="q-pa-sm flex justify-between">
             <div>
               <b>Ticket ID:{{serviceReqTicketId}}</b>
@@ -148,13 +148,13 @@
       <phonepeCrmToSatRemarks v-if="propToggleCrmToSatRemarks" :resolveCrmToSatInfo="addcrmToSatRemarksInformation"
         :propToggleCrmToSatRemarksPop="propToggleCrmToSatRemarks" @closeCrmToSatRemarks="fnmoveToSatRemarks" />
 
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 
 <script>
   import { mapGetters, mapActions } from "vuex";
-  import { required } from "vuelidate/lib/validators";
+  import { required } from "@vuelidate/validators";
   import phonepeCallLogs from "./phonepeCallLogs.vue"
   import phonepeViewCallLogs from "./phonepeViewCallLogs.vue"
   import issueResolvingRemarks from "./issueResolvingRemarks.vue"

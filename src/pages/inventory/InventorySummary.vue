@@ -31,19 +31,19 @@
         
            
             
-            <q-tab-pane name="AllocatedDevices">
+            <q-tab-panel name="AllocatedDevices">
               <AllocatedDevices @emittedForTotalSerialNumbers="this.fnAjaxAllocatedDevice" />
-            </q-tab-pane>
+            </q-tab-panell>
 
-            <q-tab-pane name="UnAllocatedDevices">
+            <q-tab-panel name="UnAllocatedDevices">
               <UnAllocatedDevices @emittedForTotalSerialNumbers="fnAjaxFetchAllDeviceDetailsWithCount" />
-            </q-tab-pane>
+            </q-tab-panell>
 
-            <q-tab-pane name="FaultyDevices">
+            <q-tab-panel name="FaultyDevices">
               <FaultyDevices
                 @fetchDeviceDetailsWithCount="fnAjaxFetchAllDeviceDetailsWithCount"
               />
-            </q-tab-pane>
+            </q-tab-panell>
                        </q-tabs>
         </div>
       </div>

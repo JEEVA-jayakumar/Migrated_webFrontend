@@ -1,3 +1,4 @@
+import { api } from '../boot/axios';
 
 import Vue from "vue"
 
@@ -36,7 +37,7 @@ const FileDownload1 = {
       var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
       if (request.fromDate && request.toDate) {
         // console.log("==========", request)
-        return await Vue.http
+        return await api
           .get("download-pod-details/" + request.fromDate + "/" + request.toDate, {
             responseType: 'arraybuffer'
           })
@@ -54,7 +55,7 @@ const FileDownload1 = {
           });
       } else {
         console.log("==========", request)
-        return await Vue.http
+        return await api
           .get("download-pod-details", {
             responseType: 'arraybuffer'
           })
@@ -82,7 +83,7 @@ const FileDownload1 = {
     //   var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     //   if (request.fromDate && request.toDate) {
     //     // console.log("==========", request)
-    //     return await Vue.http
+    //     return await api
     //       .get("aggregator-inventory/agg-download-pod-details/" + request.fromDate + "/" + request.toDate + "/" + request.aggregator, {
     //         responseType: 'arraybuffer'
     //       })
@@ -100,7 +101,7 @@ const FileDownload1 = {
     //       });
     //   } else {
     //     console.log("==========", request)
-    //     return await Vue.http
+    //     return await api
     //       .get("aggregator-inventory/agg-download-pod-details/" + request.aggregator, {
     //         responseType: 'arraybuffer'
     //       })
@@ -129,7 +130,7 @@ const FileDownload1 = {
       var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
       if (request.fromDate && request.toDate) {
         // console.log("==========", request)
-        return await Vue.http
+        return await api
           .get("aggregator-inventory/agg-download-pod-details/" + request.fromDate + "/" + request.toDate + "/"+JSON.parse(localStorage.getItem("selectedTab").split('|')[1]), {
             responseType: 'arraybuffer'
           })
@@ -147,7 +148,7 @@ const FileDownload1 = {
           });
       } else {
         console.log("==========", request)
-        return await Vue.http
+        return await api
           .get("aggregator-inventory/agg-download-pod-details/"+JSON.parse(localStorage.getItem("selectedTab").split('|')[1]), {
             responseType: 'arraybuffer'
           })

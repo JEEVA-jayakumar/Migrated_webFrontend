@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-modal
+    <q-dialog
       v-model="toggleModal"
       no-backdrop-dismiss
       class="q-mt-lg capitalize"
@@ -24,11 +24,11 @@
 
       <form>
         <div class="column group">
-          <div class="q-title"></div>
+          <div class="text-h6"></div>
           <div>
             <div class="row">
               <div class="col-sm-4">
-                <q-datetime
+                <q-input
                   v-model="selectedDate"
                   float-label="From Date"
                   color="purple-9"
@@ -75,13 +75,13 @@
           </div>
         </div>
       </form>
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-import { required } from "vuelidate/lib/validators";
+import { required } from "@vuelidate/validators";
 import phonepeCallLogs from "./phonepeCallLogs.vue";
 
 export default {

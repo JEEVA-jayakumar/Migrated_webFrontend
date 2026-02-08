@@ -3,7 +3,7 @@
     <div>
       <!--START: table title -->
       <div
-        class="q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
+        class="text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
       >Lead Allocation</div>
       <!--END: table title -->
       <div class="q-px-lg text-weight-regular text-grey-8">
@@ -221,7 +221,7 @@ import {
   minValue,
   alphaNum,
   email
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 
 export default {

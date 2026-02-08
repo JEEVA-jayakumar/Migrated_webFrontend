@@ -1,10 +1,10 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-layout-header style="margin-left:0px" class="shadow-0 z-top" flat>
+    <q-header style="margin-left:0px" class="shadow-0 z-top" flat>
       <customHeader @fnToggleSideMenu="fnMainToggleSideMenu"></customHeader>
-    </q-layout-header>
+    </q-header>
 
-    <q-layout-drawer
+    <q-drawer
       class="no-shadow"
       v-model="leftDrawerOpen"
       content-class="no-shadow"
@@ -33,7 +33,7 @@
                 :to="menu.to"
                 class="menu-main-item-color"
               >
-                <q-item-main class="menu-item-color">{{menu.name}}</q-item-main>
+                <q-item-section class="menu-item-color">{{menu.name}}</q-item-section>
               </q-item>
             </div>
 
@@ -47,7 +47,7 @@
                 :to="menu.to"
                 class="menu-main-item-color"
               >
-                <q-item-main class="menu-item-color">{{menu.name}}</q-item-main>
+                <q-item-section class="menu-item-color">{{menu.name}}</q-item-section>
               </q-item>
             </div>
 
@@ -61,7 +61,7 @@
                 :to="menu.to"
                 class="menu-main-item-color"
               >
-                <q-item-main class="menu-item-color">{{menu.name}}</q-item-main>
+                <q-item-section class="menu-item-color">{{menu.name}}</q-item-section>
               </q-item>
             </div>
             <!-- Entry point for ksn inventory -->
@@ -77,7 +77,7 @@
                 :to="menu.to"
                 class="menu-main-item-color"
               >
-                <q-item-main class="menu-item-color">{{ menu.name }}</q-item-main>
+                <q-item-section class="menu-item-color">{{ menu.name }}</q-item-section>
               </q-item>
             </div>
             <!-- Entry point for opeartions head -->
@@ -91,11 +91,11 @@
                 :to="menu.to"
                 class="menu-main-item-color"
               >
-                <q-item-main class="cursor-pointer menu-item-color">{{menu.name}}</q-item-main>
+                <q-item-section class="cursor-pointer menu-item-color">{{menu.name}}</q-item-section>
               </q-item>
               <q-item v-else>
-                <q-item-main class="menu-item-color">
-                  <q-collapsible
+                <q-item-section class="menu-item-color">
+                  <q-expansion-item
                     dense
                     class="no-padding"
                     header-class="no-padding"
@@ -108,10 +108,10 @@
                       :to="subItem.to"
                       class="menu-main-item-color"
                     >
-                      <q-item-main class="cursor-pointer menu-item-color">{{subItem.name}}</q-item-main>
+                      <q-item-section class="cursor-pointer menu-item-color">{{subItem.name}}</q-item-section>
                     </q-item>
-                  </q-collapsible>
-                </q-item-main>
+                  </q-expansion-item>
+                </q-item-section>
               </q-item>
             </div>
 
@@ -125,7 +125,7 @@
                 :to="menu.to"
                 class="menu-main-item-color"
               >
-                <q-item-main class="menu-item-color">{{menu.name}}</q-item-main>
+                <q-item-section class="menu-item-color">{{menu.name}}</q-item-section>
               </q-item>
             </div>
 
@@ -139,7 +139,7 @@
                 :to="menu.to"
                 class="menu-main-item-color"
               >
-                <q-item-main class="menu-item-color">{{menu.name}}</q-item-main>
+                <q-item-section class="menu-item-color">{{menu.name}}</q-item-section>
               </q-item>
             </div>
             
@@ -153,7 +153,7 @@
                 :to="menu.to"
                 class="menu-main-item-color"
               >
-                <q-item-main class="menu-item-color">{{menu.name}}</q-item-main>
+                <q-item-section class="menu-item-color">{{menu.name}}</q-item-section>
               </q-item>
             </div>
 
@@ -162,13 +162,13 @@
               v-if="$q.localStorage.get.item('u_i') != undefined && showMenu.includes($ROLE_BIJLIPAY_MANAGER)"
             >
               <q-item v-for="menu in menus.superAdmin" :key="menu.id" :to="menu.to">
-                <q-item-main class="menu-item-color-SA">{{menu.name}}</q-item-main>
+                <q-item-section class="menu-item-color-SA">{{menu.name}}</q-item-section>
               </q-item>
             </div>
           </div>
         </q-list>
       </q-scroll-area>
-    </q-layout-drawer>
+    </q-drawer>
 
     <q-page-container>
       <customBody></customBody>

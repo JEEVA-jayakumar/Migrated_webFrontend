@@ -6,12 +6,12 @@
           <q-tabs class="shadow-1" color="white" align="justify" v-model="shortlead"  @select="goToSelectedTab">
             <q-tab name="shortlead" color="black" label="Short Lead" slot="title" />
             <q-tab name="wiplead" color="black" label="WIP Lead" slot="title" @input="fetchappData" />
-            <q-tab-pane name="shortlead">
+            <q-tab-panel name="shortlead">
               <div>
                 <div class="col-md-6 q-my-md" align="right">
                   <div class="col group"></div>
                 </div>
-                <div class="col-12 q-title q-my-lg text-weight-regular">
+                <div class="col-12 text-h6 q-my-lg text-weight-regular">
                   Lead Information
                 </div>
                 <form>
@@ -116,7 +116,7 @@
                             color="grey-9" float-label="Owner 1 Last Name*" placeholder="Owner 1 Last Name*" />
                         </div>
                         <div v-if="this.selectedVas == 'AMEX'" class="col-md-6">
-                          <!-- <q-datetime
+                          <!-- <q-input
                                 format="DD/MM/YYYY"
                                  format-model="number"
                                  color="grey-9"
@@ -127,7 +127,7 @@
                                float-label="Owner 1 DOB*"
                     placeholder="Owner 1 DOB*"
                   /> -->
-                          <q-datetime v-model.trim="formData.ownerDOB" @blur="$v.formData.ownerDOB.$touch"
+                          <q-input v-model.trim="formData.ownerDOB" @blur="$v.formData.ownerDOB.$touch"
                             :error="$v.formData.ownerDOB.$error" class="text-weight-regular text-grey-8" color="grey-9"
                             float-label="Owner 1 DOB*" placeholder="Owner 1 DOB*" />
                         </div>
@@ -149,17 +149,17 @@
                   </div>
                 </form>
               </div>
-            </q-tab-pane>
-            <q-tab-pane name="wiplead" @input="fetchappData">
+            </q-tab-panell>
+            <q-tab-panel name="wiplead" @input="fetchappData">
               <div>
                 <!-- <q-pull-to-refresh :distance="30" :handler="PullToRefresh" inline> -->
                 <q-table class="my-sticky-header-table" title="Wip Lead Information" :data="getShortLead"
                   :columns="columns" row-key="name">
-                  <q-td slot="body-cell-shortleadDate" slot-scope="props" :props="props">{{ props.row.shortleadDate |
+                  <q-td v-slot:body-cell-shortleadDate="props" :props="props">{{ props.row.shortleadDate |
                       moment("Do MMM Y")
                   }}</q-td>
 
-                  <!-- <q-td slot="body-cell-action" slot-scope="props" :props="props">
+                  <!-- <q-td v-slot:body-cell-action="props" :props="props">
                     <div class="row no-wrap no-padding">
                       <q-btn
                         dense
@@ -176,7 +176,7 @@
                   </q-btn>-->
                   <!-- </div>
                   </q-td>-->
-                  <q-td slot="body-cell-update" slot-scope="props" :props="props">
+                  <q-td v-slot:body-cell-update="props" :props="props">
                     <div class="row no-wrap no-padding">
                       <q-btn dense no-caps no-wrap label="update" icon="far fa-plus-square" size="md"
                         @click="fnShowConvertToSat(props.row)" flat class="text-light-blue"></q-btn>
@@ -184,7 +184,7 @@
                       </q-btn>-->
                     </div>
                   </q-td>
-                  <!-- <q-td slot="body-cell-status" slot-scope="props" :props="props">
+                  <!-- <q-td v-slot:body-cell-status="props" :props="props">
             <span class="label text-negative" v-if="props.row.status == $TRANSACTION_STATUS">Pending</span>
             <span class="label text-positive" v-else-if="props.row.status">Success</span>
             <span class="label text-amber" v-else>NA</span>
@@ -200,7 +200,7 @@
                   ></convertToSat>
                 <!-- </q-pull-to-refresh> -->
               </div>
-            </q-tab-pane>
+            </q-tab-panell>
           </q-tabs>
         </div>
       </div>
@@ -217,7 +217,7 @@ import {
   minLength,
   maxLength,
   email
-} from 'vuelidate/lib/validators'
+} from '@vuelidate/validators'
 import { mapGetters, mapActions } from 'vuex'
 export default {
   name: 'inventoryAllocation',

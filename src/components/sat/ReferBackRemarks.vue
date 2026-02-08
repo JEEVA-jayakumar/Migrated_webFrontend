@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-modal
+    <q-dialog
       minimized
       no-backdrop-dismiss
       class="customModalOverlay"
@@ -85,7 +85,7 @@
           />
         </div>
       </div>
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 

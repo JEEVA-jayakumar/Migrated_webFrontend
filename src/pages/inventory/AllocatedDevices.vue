@@ -3,9 +3,9 @@
     <!-- content -->
     
     <div>
-      <!--START: table title -->
+      <!--STARTv-model: table title -->
       <div
-        class="col-md-12 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
+        class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
       ></div>
       <!--END: table title -->
       <!--START: table lead validation -->
@@ -16,13 +16,13 @@
         :columns="columns"
         :filter="filter"
         :rows-per-page-options="[50,100,150,200,250]"
-        :pagination.sync="paginationControl"
+        :pagination="paginationControl"
         :loading="toggleAjaxLoadFilter"
         @request="ajaxLoadAllLeadInfo"
       >
        
      
-        <template slot="top" slot-scope="props" class="bottom-border">
+        <template v-slot:top="props" class="bottom-border">
           <!--START: table filter,search -->
            <div class="col">
           <q-select

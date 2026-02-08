@@ -4,7 +4,7 @@
       <!-- //Common lead information in popup -->
       <generalLeadInformation
         v-if="propToggleLeadInformation"
-        :propLeadInformation="addtnLeadInformation"
+        v-model:propLeadInformation="addtnLeadInformation"
         :propToggleLeadInformationPop="propToggleLeadInformation"
         @closeLeadInformation="toggleLeadInformation"
       />
@@ -12,7 +12,7 @@
       <q-pull-to-refresh :distance="30" :handler="PullToRefresh" inline>
         <!--START: table title -->
         <div
-          class="col-md-12 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
+          class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
         >Lead Validation</div>
         <!--END: table title -->
         <!--START: table lead validation -->
@@ -23,19 +23,17 @@
           :data="tableData"
           :columns="columns"
           :filter="filter"
-          :pagination.sync="paginationControl"
+          :pagination="paginationControl"
           row-key="name"
         >
           <!--START: table body modification -->
           <q-td
-            slot="body-cell-date"
-            slot-scope="props"
+            v-slot:body-cell-date="props"
             :props="props"
           >{{ props.row.submitteSATDate | moment("Do MMM Y") }}</q-td>
 
           <q-td
-            slot="body-cell-lead_id"
-            slot-scope="props"
+            v-slot:body-cell-lead_id="props"
             :props="props"
             class="cursor-pointer"
             @click.native="toggleLeadInformation(props.row)"
@@ -46,15 +44,15 @@
             ># {{props.row.leadNumber}}</span>
           </q-td>
 
-          <q-td slot="body-cell-leadName" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-leadName="props" :props="props">
             <span class="capitalize">{{props.row.leadName}}</span>
           </q-td>
 
-          <q-td slot="body-cell-state" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-state="props" :props="props">
             <span class="capitalize">{{props.row.state}}</span>
           </q-td>
 
-          <q-td slot="body-cell-so_name" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-so_name="props" :props="props">
             <span
               class="capitalize"
               v-if="props.row.createdBy !== null"
@@ -62,7 +60,7 @@
             <span v-else>NA</span>
           </q-td>
 
-          <q-td slot="body-cell-finance_approval" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-finance_approval="props" :props="props">
             <span
               class="label text-positive"
               v-if="props.row.verifiedFinanceStatus== $VERIFIED_FINANCE_STATUS_SUCCESS"
@@ -78,7 +76,7 @@
             <span class="label" v-else>NA</span>
           </q-td>
 
-          <q-td slot="body-cell-status" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-status="props" :props="props">
             <span
               class="label text-positive"
               v-if="props.row.verifiedFinanceStatus== $LEAD_STATUS_SUBMIT_TO_SAT_LEAD && props.row.verifiedFinanceStatus== $VERIFIED_FINANCE_STATUS_SUCCESS"
@@ -98,7 +96,7 @@
             <span class="label text-negative" v-else>Pending</span>
           </q-td>
 
-          <q-td slot="body-cell-action" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-action="props" :props="props">
             <q-btn
               v-if="props.row.leadStatus == $LEAD_STATUS_DATA_ENTRY_PENDING"
               highlight
@@ -149,10 +147,10 @@
             <q-btn v-else class="disabled" highlight push outline color="grey-9" size="sm">Validate</q-btn>
           </q-td>
           <!-- END: table body modification -->
-          <template slot="top" slot-scope="props" class="bottom-border">
+          <template v-slot:top="props" class="bottom-border">
             <!--START: table filter,search -->
             <div class="col-md-5">
-              <q-search
+              <q-input
                 clearable
                 color="grey-9"
                 v-model="filter"

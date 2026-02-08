@@ -2,10 +2,10 @@
   <q-page>
     <div>
       <div
-        class="col-md-12 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
+        class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
       >Assign Short Lead</div>
       <div class="q-px-lg">
-        <div class="q-body-1 uppercase text-weight-medium text-grey-9 q-my-md">Merchant Details</div>
+        <div class="text-body1 uppercase text-weight-medium text-grey-9 q-my-md">Merchant Details</div>
         <div class="row group">
           <div class="col">
             <q-input
@@ -101,7 +101,7 @@
           </div>
         </div>
 
-        <div class="q-body-1 uppercase text-weight-medium text-grey-9 q-my-md">Device Details</div>
+        <div class="text-body1 uppercase text-weight-medium text-grey-9 q-my-md">Device Details</div>
         <div class="row group">
           <div class="col">
             <q-input
@@ -149,7 +149,7 @@
             />
           </div>
         </div>
-        <div class="q-body-1 uppercase text-weight-medium text-grey-9 q-my-md">Assign To</div>
+        <div class="text-body1 uppercase text-weight-medium text-grey-9 q-my-md">Assign To</div>
         <div class="row">
           <div class="col-md-6 group">
             <q-radio
@@ -234,7 +234,7 @@ import {
   minValue,
   minLength,
   maxLength
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 export default {
   name: "newShortLead",

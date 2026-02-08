@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-modal
+    <q-dialog
      minimized class="customModalOverlay" 
     v-model="toggleModel"
      @hide="emitfnzEditshowConvertToSat(toggleModel)"
@@ -9,9 +9,9 @@
       <form>
         <div class="column group">
           <div class="col-md-12">
-            <div class="q-title text-weight-regular">Edit WIP List</div>
+            <div class="text-h6 text-weight-regular">Edit WIP List</div>
           </div>
-          <!-- <div class="q-title text-weight-regular">Edit WIP List</div>
+          <!-- <div class="text-h6 text-weight-regular">Edit WIP List</div>
             <q-chip square color="secondary">{{ formData}}</q-chip> -->
 
           <div class="col-md-12">
@@ -257,7 +257,7 @@
               placeholder="Amout Collected" />
           </div>
           <div class="col-md-12">
-            <q-datetime v-model.trim="formData.paymentMadeon" :error="$v.formData.paymentMadeon.$error"
+            <q-input v-model.trim="formData.paymentMadeon" :error="$v.formData.paymentMadeon.$error"
               class="text-weight-regular text-grey-8" color="grey-9" float-label="*Transaction Made ON"
               placeholder="Transaction Made ON" />
           </div>
@@ -279,7 +279,7 @@
           <div class="col-xs-12" v-if="formData.paymentOption == 2">
             <p></p>
             <q-item>
-              <q-item-main>Upload the Cheque File :</q-item-main>
+              <q-item-section>Upload the Cheque File :</q-item-section>
               <label class="cursor-pointer text-white" style="background-color: #202c3f;">
                 <span>Attach</span>
                 <input type="file" name="file" @change="fnUploadApplicationForm($event, document)"
@@ -305,7 +305,7 @@
           </div>
         </div>
       </form>
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 
@@ -316,7 +316,7 @@ import {
   email,
   maxLength,
   minLength,
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 export default {
   props: ["propShowConvertToSat", "propRowDetails"],

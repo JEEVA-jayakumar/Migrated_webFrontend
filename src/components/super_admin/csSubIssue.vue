@@ -4,17 +4,17 @@
         <q-tabs v-model="activeTab" class="shadow-1" color="grey-1" >
            <q-tab @select="ajaxSpareData" default  color="dark" name="tab-3" slot="title" label="Active CS Sub Issue" />
             <q-tab  color="dark" name="tab-4" slot="title" label="Deactive CS Sub Issue" />
-          <q-tab-pane name="tab-3">
-            <q-table :data="ActivetableData" table-class="customSATableClass" :columns="columns1" :filter="filterSearch1"
-              :pagination.sync="paginationControl" :filter-method="myCustomSearchFilter1" row-key="name" color="grey-9">
-              <q-td slot="body-cell-createdAt" slot-scope="props" :props="props">{{
+          <q-tab-panel name="tab-3">
+            <q-table v-model:data="ActivetableData" table-class="customSATableClass" :columns="columns1" :filter="filterSearch1"
+              :pagination="paginationControl" :filter-method="myCustomSearchFilter1" row-key="name" color="grey-9">
+              <q-td v-slot:body-cell-createdAt="props" :props="props">{{
                   props.row.createdAt | moment("Do MMM Y")
               }}</q-td>
-              <q-td slot="body-cell-updatedAt" slot-scope="props" :props="props">{{
+              <q-td v-slot:body-cell-updatedAt="props" :props="props">{{
                   props.row.updatedAt | moment("Do MMM Y")
               }}</q-td>
   
-              <q-td slot="body-cell-action1" slot-scope="props" :props="props">
+              <q-td v-slot:body-cell-action1="props" :props="props">
                 <div class="row no-wrap no-padding">
                   <q-btn dense no-caps no-wrap label="Modify" icon="far fa-plus-square" size="md"
                     @click="fnShowEditCsSubIssue(props.row)" flat class="text-light-blue"></q-btn>
@@ -22,9 +22,9 @@
                     @click="fnDeleteCsSubIssue(props.row)" flat class="text-negative"></q-btn>
                 </div>
               </q-td>
-               <template slot="top" slot-scope="props">
+               <template v-slot:top="props">
                 <div class="col-3">
-                  <q-search clearable color="grey-9" v-model="filterSearch1" placeholder="Search by Issue Name" class="q-mr-lg" />
+                  <q-input clearable color="grey-9" v-model="filterSearch1" placeholder="Search by Issue Name" class="q-mr-lg" />
                 </div>
                 <!--END: table filter,search -->
                 <div class="col-3" align="right">
@@ -33,39 +33,39 @@
                 </div>
               </template>
             </q-table>
-          </q-tab-pane>
-          <q-tab-pane name="tab-4">
+          </q-tab-panell>
+          <q-tab-panel name="tab-4">
             <q-table 
-            :data="DeactivetableData" 
+            v-model:data="DeactivetableData"
             table-class="customSATableClass" 
             :columns="columns4" 
             :filter="filterSearch3"
-            :pagination.sync="paginationControl2" 
+            :pagination="paginationControl2"
             :filter-method="myCustomSearchFilter2" 
             row-key="name" 
             color="grey-9"
             >
-              <q-td slot="body-cell-createdAt" slot-scope="props" :props="props">{{
+              <q-td v-slot:body-cell-createdAt="props" :props="props">{{
                   props.row.createdAt | moment("Do MMM Y")
               }}</q-td>
-              <q-td slot="body-cell-updatedAt" slot-scope="props" :props="props">{{
+              <q-td v-slot:body-cell-updatedAt="props" :props="props">{{
                   props.row.updatedAt | moment("Do MMM Y")
               }}</q-td>
   
-              <q-td slot="body-cell-action2" slot-scope="props" :props="props">
+              <q-td v-slot:body-cell-action2="props" :props="props">
                 <div class="row no-wrap no-padding">
                   <q-btn dense no-caps no-wrap label="Active" icon="far fa-plus-square" size="md"
                     @click="fnShowActiveCsSubIssue(props.row)" flat class="text-light-blue"></q-btn>
                 </div>
               </q-td>
   
-              <template slot="top" slot-scope="props">
+              <template v-slot:top="props">
                 <div class="col-3">
-                  <q-search clearable color="grey-9" v-model="filterSearch3" placeholder="Search by Issue Name" class="q-mr-lg" />
+                  <q-input clearable color="grey-9" v-model="filterSearch3" placeholder="Search by Issue Name" class="q-mr-lg" />
                 </div>
               </template>
             </q-table>
-          </q-tab-pane>
+          </q-tab-panell>
         </q-tabs>
 
         <!--START: Show edit  Sub Task  -->

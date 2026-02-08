@@ -1,3 +1,4 @@
+import { api } from '../../boot/axios';
 import api from "../api.js";
 import moment from "moment";
 import Vue from "vue";
@@ -228,7 +229,7 @@ export const MARS_DATA_SUBMIT_EXTERNAL = ({
   // }
   if (request.leadStatus == 102) {
     if(res == 104){
-      return Vue.http.put(
+      return api.put(
         rootState.GlobalVariables.STATE_MARS_AXIS_ON_BOARD_API_URL +
         "merchant/" +
         request.refNumber,
@@ -237,7 +238,7 @@ export const MARS_DATA_SUBMIT_EXTERNAL = ({
       }
       );
     }else{
-      return Vue.http.put(
+      return api.put(
         rootState.GlobalVariables.STATE_MARS_ON_BOARD_API_URL +
         "merchant/" +
         request.refNumber,
@@ -253,14 +254,14 @@ export const MARS_DATA_SUBMIT_EXTERNAL = ({
   
   else {
     if(res == 104){
-      return Vue.http.post(
+      return api.post(
         rootState.GlobalVariables.STATE_MARS_AXIS_ON_BOARD_API_URL + "merchant",
         request.params, {
         headers: headers
       }
       );
     }else{
-        return Vue.http.post(
+        return api.post(
       rootState.GlobalVariables.STATE_MARS_ON_BOARD_API_URL + "merchant",
       request.params, {
       headers: headers
@@ -313,7 +314,7 @@ export const FETCH_SAVED_DATA_FROM_OWN_DB = ({
 //   rootState
 // },
 //   request) => {
-//   return Vue.http.post(
+//   return api.post(
 //     rootState.GlobalVariables.STATE_MARS_ON_BOARD_API_URL + "merchant",
 //       request.params, {
 //       headers: headers
@@ -321,7 +322,7 @@ export const FETCH_SAVED_DATA_FROM_OWN_DB = ({
 //   );
 // };
 
-// return Vue.http.post(
+// return api.post(
 //   rootState.GlobalVariables.STATE_MARS_ON_BOARD_API_URL + "merchant",
 //   request.params, {
 //   headers: headers
@@ -340,7 +341,7 @@ export const MARS_STATIC_QR_DATA_SUBMIT = ({
   // console.log("request API QR",JSON.stringify(request));
   if(request.qrLeadStatus == 9){
     console.log("REFFER BACK");
-    return Vue.http.put(
+    return api.put(
       rootState.GlobalVariables.STATE_MARS_ON_BOARD_API_URL + "merchant/"+ request.refNumber,
       request.params, {
       headers: headers 
@@ -348,7 +349,7 @@ export const MARS_STATIC_QR_DATA_SUBMIT = ({
     );
   }else{  
     console.log("NEW LEAD");
-    return Vue.http.post(
+    return api.post(
       rootState.GlobalVariables.STATE_MARS_ON_BOARD_API_URL + "merchant",
       request.params, {
       headers: headers 
@@ -376,7 +377,7 @@ export const MARS_CHECK_STATUS_API = ({
 
   let url = rootState.GlobalVariables.STATE_MARS_ON_BOARD_API_URL+"parameters/merchantStatus?institutionCode=" + request.merchant.salesInformation.institutionCode +"&applicationNumber="+
   request.merchant.salesInformation.applicationNumber
-  return Vue.http.get(url , {headers : headers}
+  return api.get(url , {headers : headers}
     ).then(response => {
       console.log("RESPONSE VALUE",response);
       // commit("SET_MARS_CHECK_STATUS_API", response.data.data);

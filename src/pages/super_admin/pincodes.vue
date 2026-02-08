@@ -2,8 +2,8 @@
   <q-page>
     <!-- content -->
     <div>
-      <q-table :data="getAllPincodes" table-class="customSATableClass" :columns="columns" :filter="filter" :pagination.sync="serverPagination" row-key="name" :loading="loading" @request="searchRequest" color="grey-9">
-        <q-td slot="body-cell-action" slot-scope="props" :props="props">
+      <q-table v-model:data="getAllPincodes" table-class="customSATableClass" :columns="columns" :filter="filter" :pagination="serverPagination" row-key="name" :loading="loading" @request="searchRequest" color="grey-9">
+        <q-td v-slot:body-cell-action="props" :props="props">
           <div class="row no-wrap no-padding">
             <q-btn dense no-caps no-wrap label="Modify" icon="far fa-plus-square" size="md" @click="fnShowEditPincode(props.row)" flat class="text-light-blue">
             </q-btn>
@@ -12,9 +12,9 @@
           </div>
         </q-td>
 
-        <template slot="top" slot-scope="props">
+        <template v-slot:top="props">
           <!--START: table title -->
-          <div class="col-md-6 q-title q-mt-lg text-weight-regular">Pincodes</div>
+          <div class="col-md-6 text-h6 q-mt-lg text-weight-regular">Pincodes</div>
 
           <div class="col-md-6 q-my-md" align="right">
             <q-btn no-caps no-wrap label="Add New Pincode" class="q-mt-lg text-weight-regular" color="purple-9"  icon="far fa-plus-square" size="md" @click="fnshowCreatePincodes()"/>
@@ -23,7 +23,7 @@
 
           <!--START: table filter,search -->
           <div class="col-md-5">
-            <q-search
+            <q-input
             clearable
             color="grey-9"
             v-model="filter"

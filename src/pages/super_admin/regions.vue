@@ -7,23 +7,22 @@
         <q-tab default color="dark" name="active" slot="title" label="Active Regions" />
         <q-tab color="dark" name="deactive" slot="title" label="Deactive Regions" />
         
-        <q-tab-pane name="active">
+        <q-tab-panel name="active">
         <q-table
-        :data="activeTableData"
+        v-model:data="activeTableData"
         table-class="customSATableClass"
         :columns="columns"
         :filter="filterSearch"
-        :pagination.sync="paginationControl"
+        :pagination="paginationControl"
         :filter-method="myCustomSearchFilter"
         row-key="name"
         color="grey-9"
       >
         <q-td
-          slot="body-cell-regionGroup"
-          slot-scope="props"
+          v-slot:body-cell-regionGroup="props"
           :props="props"
         >{{props.row.regionGroup ==null ? "NA" : props.row.regionGroup.regionName}}</q-td>
-        <q-td slot="body-cell-action" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-action="props" :props="props">
           <div class="row no-wrap no-padding">
             <q-btn
               dense
@@ -50,14 +49,14 @@
           </div>
         </q-td>
 
-        <template slot="top" slot-scope="props">
+        <template v-slot:top="props">
           <!-- <div class="col-md-6 q-my-md" align="right">
             <q-btn no-caps no-wrap label="Add New Regions" class="q-mt-lg text-weight-regular" color="purple-9"  icon="far fa-plus-square" size="md" @click="fnshowCreateRegions()"/>
           </div>-->
           <!--END: table title -->
           <!--START: table filter,search -->
           <div class="col-6">
-            <q-search
+            <q-input
               clearable
               color="grey-9"
               v-model="filterSearch"
@@ -78,24 +77,23 @@
               </div>
         </template>
       </q-table>
-        </q-tab-pane>
-        <q-tab-pane name="deactive">
+        </q-tab-panell>
+        <q-tab-panel name="deactive">
         <q-table
-        :data="deActiveTableData"
+        v-model:data="deActiveTableData"
         table-class="customSATableClass"
         :columns="columns1"
         :filter="filterSearch1"
-        :pagination.sync="paginationControl1"
+        :pagination="paginationControl1"
         :filter-method="myCustomSearchFilter"
         row-key="name"
         color="grey-9"
       >
         <q-td
-          slot="body-cell-regionGroup"
-          slot-scope="props"
+          v-slot:body-cell-regionGroup="props"
           :props="props"
         >{{props.row.regionGroup ==null ? "NA" : props.row.regionGroup.regionName}}</q-td>
-        <q-td slot="body-cell-action1" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-action1="props" :props="props">
           <div class="row no-wrap no-padding">
             <!-- <q-btn
               dense
@@ -122,7 +120,7 @@
           </div>
         </q-td>
 
-        <template slot="top" slot-scope="props">
+        <template v-slot:top="props">
          
           <!-- <div class="col-md-6 q-my-md" align="right">
             <q-btn no-caps no-wrap label="Add New Regions" class="q-mt-lg text-weight-regular" color="purple-9"  icon="far fa-plus-square" size="md" @click="fnshowCreateRegions()"/>
@@ -130,7 +128,7 @@
           <!--END: table title -->
           <!--START: table filter,search -->
           <div class="col-6">
-            <q-search
+            <q-input
               clearable
               color="grey-9"
               v-model="filterSearch1"
@@ -140,7 +138,7 @@
           </div>
         </template>
       </q-table>
-        </q-tab-pane>
+        </q-tab-panell>
 
 
 

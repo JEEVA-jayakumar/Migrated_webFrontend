@@ -60,7 +60,7 @@ import {
   alpha,
   alphaNum,
   numeric
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import showForgetPasswordComp from "../components/forgetPassword.vue";
 import * as CryptoJS from "crypto-js";
 import phonepePendingCrmVue from "./crm/phonepePendingCrm.vue";

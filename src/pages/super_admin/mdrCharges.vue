@@ -2,7 +2,7 @@
   <q-page>
     <!-- content -->
     <div>
-      <!--END: table Footer -->
+      <!--ENDv-model: table Footer -->
       <q-tabs
         v-model="selectedTab"
         class="shadow-1"
@@ -22,15 +22,15 @@
           slot="title"
           label="Deactived MDR"
         />
-        <q-tab-pane name="active">
+        <q-tab-panel name="active">
           <!--START: table Data -->
           <q-table
             :data="activetableData"
             :columns="columns"
             table-class="customTableClass"
             :filter="filterSearch"
-            :pagination.sync="paginationControl"
-            :selected.sync="formData.marsDeviceIdsCookedUnAssinged"
+            :pagination="paginationControl"
+            v-model:selected="formData.marsDeviceIdsCookedUnAssinged"
             row-key="id"
             :loading="tableAjaxLoading"
             :rows-per-page-options="[5, 10, 15, 20]"
@@ -38,8 +38,7 @@
             @request="ajaxLoadAllLeadInfo"
           >
             <q-td
-              slot="body-cell-leadSource"
-              slot-scope="props"
+              v-slot:body-cell-leadSource="props"
               :props="props"
               class="cursor-pointer"
               @click.native="
@@ -50,7 +49,7 @@
                 props.row.leadSource.sourceName
               }}</span>
             </q-td>
-            <q-td slot="body-cell-action" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-action="props" :props="props">
               <div class="row no-wrap no-padding">
                 <q-btn
                   dense
@@ -66,8 +65,7 @@
               </div>
             </q-td>
             <q-td
-              slot="body-cell-device"
-              slot-scope="props"
+              v-slot:body-cell-device="props"
               :props="props"
               class="cursor-pointer"
               @click.native="toggleLeadInformation(props.row.device.deviceName)"
@@ -78,8 +76,7 @@
             </q-td>
 
             <q-td
-              slot="body-cell-marsDeviceModel"
-              slot-scope="props"
+              v-slot:body-cell-marsDeviceModel="props"
               :props="props"
               class="cursor-pointer"
             >
@@ -90,8 +87,7 @@
               }}</span>
             </q-td>
             <q-td
-              slot="body-cell-mdrPlanName"
-              slot-scope="props"
+              v-slot:body-cell-mdrPlanName="props"
               :props="props"
               class="cursor-pointer"
             >
@@ -100,8 +96,7 @@
               }}</span>
             </q-td>
             <q-td
-              slot="body-cell-staticUpiLessThanTwo"
-              slot-scope="props"
+              v-slot:body-cell-staticUpiLessThanTwo="props"
               :props="props"
               class="cursor-pointer"
             >
@@ -112,8 +107,7 @@
               }}</span>
             </q-td>
             <q-td
-              slot="body-cell-staticUpigreaterThanTwo"
-              slot-scope="props"
+              v-slot:body-cell-staticUpigreaterThanTwo="props"
               :props="props"
               class="cursor-pointer"
             >
@@ -124,8 +118,7 @@
               }}</span>
             </q-td>
             <q-td
-              slot="body-cell-staticUpiDebitCard"
-              slot-scope="props"
+              v-slot:body-cell-staticUpiDebitCard="props"
               :props="props"
               class="cursor-pointer"
             >
@@ -136,8 +129,7 @@
               }}</span>
             </q-td>
             <q-td
-              slot="body-cell-staticUpicreditCardAndPrepaid"
-              slot-scope="props"
+              v-slot:body-cell-staticUpicreditCardAndPrepaid="props"
               :props="props"
               class="cursor-pointer"
             >
@@ -148,8 +140,7 @@
               }}</span>
             </q-td>
             <q-td
-              slot="body-cell-smallMerchantLessThanTwoDebit"
-              slot-scope="props"
+              v-slot:body-cell-smallMerchantLessThanTwoDebit="props"
               :props="props"
               class="cursor-pointer"
             >
@@ -160,8 +151,7 @@
               }}</span>
             </q-td>
             <q-td
-              slot="body-cell-smallMerchantGreaterThanTwoDebit"
-              slot-scope="props"
+              v-slot:body-cell-smallMerchantGreaterThanTwoDebit="props"
               :props="props"
               class="cursor-pointer"
             >
@@ -172,8 +162,7 @@
               }}</span>
             </q-td>
             <q-td
-              slot="body-cell-smallMerchantLessThanTwoCreditAndPrepaid"
-              slot-scope="props"
+              v-slot:body-cell-smallMerchantLessThanTwoCreditAndPrepaid="props"
               :props="props"
               class="cursor-pointer"
             >
@@ -184,8 +173,7 @@
               }}</span>
             </q-td>
             <q-td
-              slot="body-cell-smallMerchantGreaterThanTwoCreditAndPrepaid"
-              slot-scope="props"
+              v-slot:body-cell-smallMerchantGreaterThanTwoCreditAndPrepaid="props"
               :props="props"
               class="cursor-pointer"
             >
@@ -196,8 +184,7 @@
               }}</span>
             </q-td>
             <q-td
-              slot="body-cell-largeMerchantLessThanTwoDebit"
-              slot-scope="props"
+              v-slot:body-cell-largeMerchantLessThanTwoDebit="props"
               :props="props"
               class="cursor-pointer"
             >
@@ -208,8 +195,7 @@
               }}</span>
             </q-td>
             <q-td
-              slot="body-cell-largeMerchantGreaterThanTwoDebit"
-              slot-scope="props"
+              v-slot:body-cell-largeMerchantGreaterThanTwoDebit="props"
               :props="props"
               class="cursor-pointer"
             >
@@ -220,8 +206,7 @@
               }}</span>
             </q-td>
             <q-td
-              slot="body-cell-largeMerchantLessThanTwoCreditandPrepaid"
-              slot-scope="props"
+              v-slot:body-cell-largeMerchantLessThanTwoCreditandPrepaid="props"
               :props="props"
               class="cursor-pointer"
             >
@@ -232,8 +217,7 @@
               }}</span>
             </q-td>
             <q-td
-              slot="body-cell-largeMerchantGreaterThanTwoCreditandPrepaid"
-              slot-scope="props"
+              v-slot:body-cell-largeMerchantGreaterThanTwoCreditandPrepaid="props"
               :props="props"
               class="cursor-pointer"
             >
@@ -246,8 +230,7 @@
             <!-- mdrPlanName -->
             <!-- mdrPlanName -->
             <q-td
-              slot="body-cell-merchantCategory"
-              slot-scope="props"
+              v-slot:body-cell-merchantCategory="props"
               :props="props"
               class="cursor-pointer"
               @click.native="
@@ -262,8 +245,7 @@
             </q-td>
 
             <q-td
-              slot="body-cell-merchantCategory"
-              slot-scope="props"
+              v-slot:body-cell-merchantCategory="props"
               :props="props"
             >
               <q-btn
@@ -284,7 +266,7 @@
               <div class="col-md-12 group">
                 <div class="row">
                   <div class="col-md-6">
-                    <q-search
+                    <q-input
                       clearable
                       color="grey-9"
                       v-model.trim="filterSearch"
@@ -306,16 +288,16 @@
               </div>
             </template>
           </q-table>
-          <!--END: table Data -->
-        </q-tab-pane>
-        <q-tab-pane name="deactive">
+          <!--ENDv-model: table Data -->
+        </q-tab-panell>
+        <q-tab-panel name="deactive">
           <!--START: table Data -->
           <q-table
             :data="deActivetableData"
             :columns="columnDataDiabled"
             table-class="customTableClass"
             :filter="filterSearch1"
-            :pagination.sync="paginationControl1"
+            :pagination="paginationControl1"
             row-key="id"
             :loading="tableAjaxLoading1"
             :rows-per-page-options="[5, 10, 15, 20]"
@@ -323,8 +305,7 @@
             @request="ajaxLoadAllLeadInfo1"
           >
             <q-td
-              slot="body-cell-leadSource"
-              slot-scope="props"
+              v-slot:body-cell-leadSource="props"
               :props="props"
               class="cursor-pointer"
               @click.native="
@@ -335,7 +316,7 @@
                 props.row.leadSource.sourceName
               }}</span>
             </q-td>
-            <q-td slot="body-cell-action" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-action="props" :props="props">
               <div class="row no-wrap no-padding">
                 <q-btn
                   dense
@@ -351,8 +332,7 @@
               </div>
             </q-td>
             <q-td
-              slot="body-cell-device"
-              slot-scope="props"
+              v-slot:body-cell-device="props"
               :props="props"
               class="cursor-pointer"
               @click.native="toggleLeadInformation(props.row.device.deviceName)"
@@ -363,8 +343,7 @@
             </q-td>
 
             <q-td
-              slot="body-cell-marsDeviceModel"
-              slot-scope="props"
+              v-slot:body-cell-marsDeviceModel="props"
               :props="props"
               class="cursor-pointer"
             >
@@ -375,8 +354,7 @@
               }}</span>
             </q-td>
             <q-td
-              slot="body-cell-mdrPlanName"
-              slot-scope="props"
+              v-slot:body-cell-mdrPlanName="props"
               :props="props"
               class="cursor-pointer"
             >
@@ -398,8 +376,7 @@
               }}</span>
             </q-td>
             <q-td
-              slot="body-cell-smallMerchantGreaterThanTwoDebit"
-              slot-scope="props"
+              v-slot:body-cell-smallMerchantGreaterThanTwoDebit="props"
               :props="props"
               class="cursor-pointer"
             >
@@ -410,8 +387,7 @@
               }}</span>
             </q-td>
             <q-td
-              slot="body-cell-smallMerchantLessThanTwoCreditAndPrepaid"
-              slot-scope="props"
+              v-slot:body-cell-smallMerchantLessThanTwoCreditAndPrepaid="props"
               :props="props"
               class="cursor-pointer"
             >
@@ -422,8 +398,7 @@
               }}</span>
             </q-td>
             <q-td
-              slot="body-cell-smallMerchantGreaterThanTwoCreditAndPrepaid"
-              slot-scope="props"
+              v-slot:body-cell-smallMerchantGreaterThanTwoCreditAndPrepaid="props"
               :props="props"
               class="cursor-pointer"
             >
@@ -434,8 +409,7 @@
               }}</span>
             </q-td>
             <q-td
-              slot="body-cell-largeMerchantLessThanTwoDebit"
-              slot-scope="props"
+              v-slot:body-cell-largeMerchantLessThanTwoDebit="props"
               :props="props"
               class="cursor-pointer"
             >
@@ -446,8 +420,7 @@
               }}</span>
             </q-td>
             <q-td
-              slot="body-cell-largeMerchantGreaterThanTwoDebit"
-              slot-scope="props"
+              v-slot:body-cell-largeMerchantGreaterThanTwoDebit="props"
               :props="props"
               class="cursor-pointer"
             >
@@ -458,8 +431,7 @@
               }}</span>
             </q-td>
             <q-td
-              slot="body-cell-largeMerchantLessThanTwoCreditandPrepaid"
-              slot-scope="props"
+              v-slot:body-cell-largeMerchantLessThanTwoCreditandPrepaid="props"
               :props="props"
               class="cursor-pointer"
             >
@@ -470,8 +442,7 @@
               }}</span>
             </q-td>
             <q-td
-              slot="body-cell-largeMerchantGreaterThanTwoCreditandPrepaid"
-              slot-scope="props"
+              v-slot:body-cell-largeMerchantGreaterThanTwoCreditandPrepaid="props"
               :props="props"
               class="cursor-pointer"
             >
@@ -483,8 +454,7 @@
             </q-td>
             <!-- mdrPlanName -->
             <q-td
-              slot="body-cell-merchantCategory"
-              slot-scope="props"
+              v-slot:body-cell-merchantCategory="props"
               :props="props"
               class="cursor-pointer"
               @click.native="
@@ -502,7 +472,7 @@
               <div class="col-md-12 group">
                 <div class="row">
                   <div class="col-md-6">
-                    <q-search
+                    <q-input
                       clearable
                       color="grey-9"
                       v-model.trim="filterSearch1"
@@ -515,7 +485,7 @@
             </template>
           </q-table>
           <!--END: table Data -->
-        </q-tab-pane>
+        </q-tab-panell>
       </q-tabs>
       <div class="row items-center gutter-y-sm">
         <div class="col-md-9 col-sm-12 col-xs-12">

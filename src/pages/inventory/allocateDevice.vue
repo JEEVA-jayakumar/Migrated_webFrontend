@@ -9,7 +9,7 @@
     <div  v-if="formData.flag == 1">
       <div class="row bottom-border q-px-md q-py-md items-center">
         <!--START: table title -->
-        <div class="col-6 col-sm-4 col-md-8 q-title text-weight-regular text-grey-9">Bijlipay Allocate Device</div>
+        <div class="col-6 col-sm-4 col-md-8 text-h6 text-weight-regular text-grey-9">Bijlipay Allocate Device</div>
          <div class="col-md-12 col-md-6 q-pt-md group" align="right">
           <q-btn
             @click="$router.push('/inventory/central')"
@@ -100,13 +100,13 @@
               class="q-pa-none"
               :class="[formData.device_type.id == item.device.id?'activeDeviceTab':'']"
             >
-              <q-list-header style="border-bottom: 1px solid #ccc;">
+              <q-item-label header style="border-bottom: 1px solid #ccc;">
                 <q-icon
                   :style="'color:'[formData.device_type.id == item.device.id?'#fff':'#202c3f']"
                   name="fas fa-tablet-alt"
                 />
                 {{item.device.deviceName}}
-              </q-list-header>
+              </q-item-label header>
               <q-scroll-area
                 style="height:400px"
                 :thumb-style="{
@@ -125,8 +125,8 @@
                     v-for="(subItem,subIndex) in item.deviceSerialNumbers"
                     :key="subIndex"
                   >
-                    <q-item-main class="q-body-1">{{subItem}}</q-item-main>
-                    <q-item-side>
+                    <q-item-section class="text-body1">{{subItem}}</q-item-section>
+                    <q-item-section>
                       <q-btn
                         round
                         size="sm"
@@ -134,13 +134,13 @@
                         icon="clear"
                         @click="fnRemoveScannedItems(index,subIndex)"
                       />
-                    </q-item-side>
+                    </q-item-section>
                   </q-item>
                 </div>
                 <div v-else>
                   <q-item>
-                    <q-item-main class="q-body-1">No data to display</q-item-main>
-                    <q-item-side>
+                    <q-item-section class="text-body1">No data to display</q-item-section>
+                    <q-item-section>
                       <q-btn
                         round
                         size="sm"
@@ -148,7 +148,7 @@
                         @click="fnRemoveDeviceTypeFromList(index)"
                         icon="clear"
                       />
-                    </q-item-side>
+                    </q-item-section>
                   </q-item>
                 </div>
               </q-scroll-area>
@@ -162,7 +162,7 @@
           <div class="col-md-3">
             <div  class="col-md-9 col-sm-12 col-xs-12">
               <div class="row bottom-border q-px-md q-py-md items-center">
-              <div class="col-6 col-sm-4 col-md-8 q-title text-weight-regular text-grey-9 align1"
+              <div class="col-6 col-sm-4 col-md-8 text-h6 text-weight-regular text-grey-9 align1"
               >Bijlipay Allocate QR</div>
             </div>
               <div v-if="this.formData.count != null" class="row">
@@ -180,7 +180,7 @@
               </div>
               <div v-else class="row group">
                 <div>
-                  <q-alert color="purple-9" icon="info">No data available to display</q-alert>
+                  <q-banner color="purple-9" icon="info">No data available to display</q-banner>
                 </div>
               </div>
             </div>
@@ -223,70 +223,70 @@
             <q-tabs v-model="activeTab" class="shadow-1" color="grey-1">
               <q-tab color="dark" name="tab-1" slot="title" label="Pending QR" />
               <q-tab color="dark" name="tab-2" slot="title" label="Approved QR" />
-              <q-tab-pane name="tab-1">
+              <q-tab-panel name="tab-1">
                 <div>
-                  <q-search class="col-5 search" clearable color="grey-9" placeholder="Type.." v-model="filter"
+                  <q-input class="col-5 search" clearable color="grey-9" placeholder="Type.." v-model="filter"
                     float-label="Search By POD Number" />
                 </div>
-                <q-table table-class="customTableClass" :data="tableData" :columns="columns"
-                  :pagination.sync="paginationControl2" :filter="filter" row-key="id" :loading="toggleAjaxLoadFilter1"
+                <q-table table-class="customTableClass" v-model:data="tableData" :columns="columns"
+                  :pagination="paginationControl2" :filter="filter" row-key="id" :loading="toggleAjaxLoadFilter1"
                   :row-per-page-options="[5, 10, 15, 20]" @request="ajaxLoadAllRegionList">
-                  <q-td slot="body-cell-createdAt" slot-scope="props" :props="props">{{
+                  <q-td v-slot:body-cell-createdAt="props" :props="props">{{
                     props.row.createdAt == null ? 'NA' :
                     props.row.createdAt | moment("Do MMM Y")
                   }}</q-td>
-                  <q-td slot="body-cell-podNumber" slot-scope="props" :props="props">{{
+                  <q-td v-slot:body-cell-podNumber="props" :props="props">{{
                     props.row.podNumber == null ? 'NA' :
                     props.row.podNumber
                   }}</q-td>
-                  <q-td slot="body-cell-count" slot-scope="props" :props="props">{{
+                  <q-td v-slot:body-cell-count="props" :props="props">{{
                     props.row.requestCount == null ? 'NA' :
                     props.row.requestCount
                   }}</q-td>
-                  <q-td slot="body-cell-region" slot-scope="props" :props="props">{{
+                  <q-td v-slot:body-cell-region="props" :props="props">{{
                     props.row.region.regionAreaName == null ? 'NA' :
                     props.row.region.regionAreaName
                   }}</q-td>
-                  <q-td slot="body-cell-batchId" slot-scope="props" :props="props">{{
+                  <q-td v-slot:body-cell-batchId="props" :props="props">{{
                     props.row.batch.batchId == null ? 'NA' :
                     props.row.batch.batchId
                   }}</q-td>
-                  <q-td slot="body-cell-Action" slot-scope="props" :props="props">
+                  <q-td v-slot:body-cell-Action="props" :props="props">
                     <q-btn no-caps icon="edit" color="primary" @click="editCount(props.row)" size="xs" round>
                     </q-btn>
                   </q-td>
-                  <q-td slot="body-cell-Action2" slot-scope="props" :props="props">
+                  <q-td v-slot:body-cell-Action2="props" :props="props">
                     <div v-if="props.row.updated == true">
                       <q-btn no-caps icon="priority_high" color="orange" size="xs" round>
                       </q-btn>
                     </div>
                   </q-td>
                 </q-table>
-              </q-tab-pane>
-              <q-tab-pane name="tab-2">
-                <q-search class="col-5 search" clearable color="grey-9" placeholder="Type.." v-model="filter1"
+              </q-tab-panell>
+              <q-tab-panel name="tab-2">
+                <q-input class="col-5 search" clearable color="grey-9" placeholder="Type.." v-model="filter1"
                   float-label="Search By POD Number" />
-                <q-table table-class="customTableClass" :data="tableData1" :columns="columns1"
-                  :pagination.sync="paginationControl1" :filter="filter1" row-key="id" :loading="toggleAjaxLoadFilter1"
+                <q-table table-class="customTableClass" v-model:data="tableData1" :columns="columns1"
+                  :pagination="paginationControl1" :filter="filter1" row-key="id" :loading="toggleAjaxLoadFilter1"
                   :row-per-page-options="[5, 10, 15, 20]" @request="ajaxLoadAllRegionList1">
-                  <q-td slot="body-cell-podNumber" slot-scope="props" :props="props">{{
+                  <q-td v-slot:body-cell-podNumber="props" :props="props">{{
                     props.row.podNumber == null ? 'NA' :
                     props.row.podNumber
                   }}</q-td>
-                  <q-td slot="body-cell-count" slot-scope="props" :props="props">{{
+                  <q-td v-slot:body-cell-count="props" :props="props">{{
                     props.row.requestCount == null ? 'NA' :
                     props.row.requestCount
                   }}</q-td>
-                  <q-td slot="body-cell-region" slot-scope="props" :props="props">{{
+                  <q-td v-slot:body-cell-region="props" :props="props">{{
                     props.row.region.regionAreaName == null ? 'NA' :
                     props.row.region.regionAreaName
                   }}</q-td>
-                  <q-td slot="body-cell-batchId" slot-scope="props" :props="props">{{
+                  <q-td v-slot:body-cell-batchId="props" :props="props">{{
                     props.row.batch.batchId == null ? 'NA' :
                     props.row.batch.batchId
                   }}</q-td>
                 </q-table>
-              </q-tab-pane>
+              </q-tab-panell>
             </q-tabs>
 
           </div>
@@ -307,7 +307,7 @@
 </template>
 
 <script>
-import { minValue, required,}from "vuelidate/lib/validators";
+import { minValue, required,}from "@vuelidate/validators";
 import Vue from "vue";
 import VueBarcodeScanner from "vue-barcode-scanner";
 Vue.use(VueBarcodeScanner);
@@ -495,8 +495,8 @@ export default {
       "getAllInventoryDevicesTypesData",
       "getAllRegionsData","getAllBatchForm"
     ]),
-    ...mapGetters('generateQR'['getAllRegionList', 'getAllBankList', 'getAllRegionBasedQrAllocatedApproveList', 'getAllActiveBatchList', 'getAllRegionBasedQrAllocatedList']),
-    ...mapGetters('iciciStaticQr'['getStaicQrInventoryCount'])
+    ...mapGetters('generateQR', ['getAllRegionList', 'getAllBankList', 'getAllRegionBasedQrAllocatedApproveList', 'getAllActiveBatchList', 'getAllRegionBasedQrAllocatedList']),
+    ...mapGetters('iciciStaticQr', ['getStaicQrInventoryCount'])
   },
   validations:{ 
    formData:{

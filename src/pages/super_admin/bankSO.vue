@@ -23,7 +23,7 @@ fnShowCreateUploadFile()"
         />-->
       </div>
     </div>
-    <div class="col-12 q-title q-my-lg text-weight-regular">Bank SO Details</div>
+    <div class="col-12 text-h6 q-my-lg text-weight-regular">Bank SO Details</div>
     <form>
       <div class="q-px-md">
         <div class="q-pa-md">
@@ -140,7 +140,7 @@ import {
   alpha,
   alphaNum,
   numeric
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 export default {
   components: {

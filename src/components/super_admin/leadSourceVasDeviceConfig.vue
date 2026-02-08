@@ -5,27 +5,27 @@
 
       <q-tabs v-model="selectedTab" class="shadow-1" color="grey-1" @select="changeTabs">
         <q-tab default color="dark" name="active" slot="title" label="Active" />
-        <!--:data="activeTableData"-->
-        <q-tab-pane name="active">
+        <!--v-model:data="activeTableData"-->
+        <q-tab-panel name="active">
           <q-table :data="activeTableData" table-class="customSATableClass" :columns="columns" :filter="filterSearch"
-            :pagination.sync="paginationControl" :filter-method="myCustomSearchFilter" row-key="name" color="grey-9"
+            :pagination="paginationControl" :filter-method="myCustomSearchFilter" row-key="name" color="grey-9"
             @request="ajaxLoadData">
 
-            <q-td slot="body-cell-vas" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-vas="props" :props="props">
               <div inline color="light" class="row no-wrap group text-dark" v-for="vas in props.row.vasList">{{vas.name}}</div>
             </q-td>
-            <q-td slot="body-cell-action" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-action="props" :props="props">
               <div class="row no-wrap no-padding">
                 <q-btn dense no-caps no-wrap label="Modify" icon="far fa-plus-square" size="md"
                   @click="fnEdit(props.row)" flat class="text-light-blue"></q-btn>
               </div>
             </q-td>
-            <template slot="top" slot-scope="props">
+            <template v-slot:top="props">
               <!--START: table title -->
               <!--END: table title -->
               <!--START: table filter,search -->
               <div class="col-md-6">
-                <q-search clearable color="grey-9" v-model="filterSearch" placeholder="Type.." class="q-mr-lg" />
+                <q-input clearable color="grey-9" v-model="filterSearch" placeholder="Type.." class="q-mr-lg" />
               </div>
               <div class="col-md-12" align="right">
                 <q-btn no-caps class="text-weight-regular" @click="fnaddLeadSourceVasDevice()" label="Add New"
@@ -34,7 +34,7 @@
               <!--END: table filter,search -->
             </template>
           </q-table>
-        </q-tab-pane>
+        </q-tab-panell>
       </q-tabs>
 
       <!--START: Show create Hierarchy -->

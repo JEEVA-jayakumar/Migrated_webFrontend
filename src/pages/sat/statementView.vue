@@ -5,7 +5,7 @@
 
       <!--START: page title -->
       <div class="row">
-        <div class="col-md-12 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9">Statement View</div>
+        <div class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9">Statement View</div>
       </div>
       <!--END: page title -->
 
@@ -36,7 +36,7 @@
               <q-field
                 icon="date_range"
               >
-                <q-datetime
+                <q-input
                    v-model="formData.statementDetails.fromDate" 
                   :min="today"
                   float-label="From Date"
@@ -51,7 +51,7 @@
               <q-field
                 icon="date_range"
               >
-                <q-datetime
+                <q-input
                   v-model="formData.statementDetails.toDate" 
                   :min="today"
                   float-label="To Date"

@@ -1,3 +1,4 @@
+import { api } from '../boot/axios';
 import Vue from "vue"
 import api from "./api.js";
 
@@ -115,7 +116,7 @@ const InventoryBulkUploadDevice = {
       //   commit,
       //   rootState
       // }, request) {
-      //   return Vue.http
+      //   return api
       //     .post(rootState.GlobalVariables.INVENTORY_BULKFILEUPLOADURL, request.file, {
       //       headers: {
       //         "Content-Type": 'multipart/form-data',
@@ -132,7 +133,7 @@ const InventoryBulkUploadDevice = {
       commit,
       rootState
     }, request) {
-      return Vue.http
+      return api
         .post(rootState.GlobalVariables.INVENTORY_BULKFILEUPLOADURL + '/' + request.device_type + '?invoiceNumber='+ request.invoiceNumber, request.file, {
           headers: {
             "Content-Type": 'multipart/form-data',
@@ -149,7 +150,7 @@ const InventoryBulkUploadDevice = {
       commit,
       rootState
     }, request) {
-      return Vue.http
+      return api
         .post(rootState.GlobalVariables.HITACHI_BRAND_EMI_UPLOAD_ACTION, request.file, {
           headers: {
             "Content-Type": 'multipart/form-data',
@@ -168,7 +169,7 @@ const InventoryBulkUploadDevice = {
     //   commit,
     //   rootState
     // }, request) {
-    //   return Vue.http
+    //   return api
     //     .post(rootState.GlobalVariables.PHONEPE_INVENTORY_BULKFILEUPLOADURL + '/' + request.device_type +'/' + request.aggregator, request.file, {
     //       headers: {
     //         "Content-Type": 'multipart/form-data',
@@ -187,7 +188,7 @@ const InventoryBulkUploadDevice = {
       commit,
       rootState
     }, request) {
-      return Vue.http
+      return api
         .post(rootState.GlobalVariables.PHONEPE_INVENTORY_BULKFILEUPLOADURL + '/' + request.device_type +'/'+JSON.parse(localStorage.getItem("selectedTab").split('|')[1]), request.file, {
           headers: {
             "Content-Type": 'multipart/form-data',
@@ -205,7 +206,7 @@ const InventoryBulkUploadDevice = {
       commit,
       rootState
     }, request) {
-      return Vue.http
+      return api
         .post(rootState.GlobalVariables.AGGREGATOR_REFURBISH_INVENTORY_BULKFILEUPLOADURL + '/'+JSON.parse(localStorage.getItem("selectedTab").split('|')[1]), request.file, {
           // headers: {
           //   "Content-Type": 'multipart/form-data',
@@ -238,7 +239,7 @@ const InventoryBulkUploadDevice = {
       commit,
       rootState
     }, request) {
-      return Vue.http
+      return api
         .put(rootState.GlobalVariables.INVENTORY_BULKFILEUPLOADURL_SENDTOREPAIR, request.file, {
           headers: {
             "Content-Type": 'multipart/form-data',
@@ -257,7 +258,7 @@ const InventoryBulkUploadDevice = {
       commit,
       rootState
     }, request) {
-      return Vue.http
+      return api
         .put("aggregator-inventory/agg-add-bulk-sent-to-repair-inventory/"+JSON.parse(localStorage.getItem("selectedTab").split('|')[1])+"/3", request.file, {
           headers: {
             "Content-Type": 'multipart/form-data',
@@ -275,7 +276,7 @@ const InventoryBulkUploadDevice = {
       commit,
       rootState
     }, request) {
-      return Vue.http
+      return api
         .put(rootState.GlobalVariables.INVENTORY_BULKFILEUPLOADURL_AGGREGATORSSENDTOREPAIR, request.file, {
           headers: {
             "Content-Type": 'multipart/form-data',
@@ -293,7 +294,7 @@ const InventoryBulkUploadDevice = {
       commit,
       rootState
     }, request) {
-      return Vue.http
+      return api
         .put("aggregator-inventory/agg-add-bulk-sent-to-repair-inventory/"+JSON.parse(localStorage.getItem("selectedTab").split('|')[1])+"/4", request.file, {
           headers: {
             "Content-Type": 'multipart/form-data',

@@ -4,7 +4,7 @@
       <div class="row">
         <div class="col-md-5 col-sm-6 col-xs-12">
           <!--START: table title -->
-          <div class="q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9">Revenue Tracker</div>
+          <div class="text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9">Revenue Tracker</div>
           <!--END: table title -->
 
           <!-- START: Role/user selection -->
@@ -23,19 +23,19 @@
           <q-table
             table-class="customTableClass"
             :data="tableData.userList"
-            :columns="column"
+            v-model:columns="column"
             :filter="filter"
-            :pagination.sync="paginationControl"
+            :pagination="paginationControl"
             row-key="name">
-            <q-tr slot="body" slot-scope="props" :class="[rowActiveId == props.row.__index? 'bg-grey-4 text-dark':'']" :props="props" @mouseover.native="rowHover(props.row.__index)" @click.native="rowClick(props.row)" class="cursor-pointer">    
+            <q-tr v-slot:body="props" :class="[rowActiveId == props.row.__index? 'bg-grey-4 text-dark':'']" :props="props" @mouseover.native="rowHover(props.row.__index)" @click.native="rowClick(props.row)" class="cursor-pointer">
               <q-td v-for="col in props.cols" :key="col.name" :props="props">
                 {{ col.value }}
               </q-td>
             </q-tr>
-            <template slot="top" slot-scope="props">
+            <template v-slot:top="props">
               <!--START: table filter,search,excel download -->
               <div class="col">
-                <q-search
+                <q-input
                 clearable
                 v-model="filter"
                 separator
@@ -66,41 +66,41 @@
           <div class="items-center">
             <q-list class="group" multiline no-border	>
               <q-item class="q-pa-lg" multiline>
-                <q-item-main>
-                  <q-item-tile>
+                <q-item-section>
+                  <q-item-label>
                     Revenue accrued from implemented merchants
-                  </q-item-tile>
-                </q-item-main>
-                <q-item-side right>
-                  <q-item-tile>
+                  </q-item-label>
+                </q-item-section>
+                <q-item-section right>
+                  <q-item-label>
                     <q-icon size="14px" name="fas fa-rupee-sign"/> 
                     {{tableData.currentUser.incentive.implementedRevenue}}
-                  </q-item-tile>
-                </q-item-side>
+                  </q-item-label>
+                </q-item-section>
               </q-item>
               <q-item class="q-pa-lg" multiline>
-                <q-item-main>
-                  <q-item-tile>
+                <q-item-section>
+                  <q-item-label>
                     Revenue from pending implementations
-                  </q-item-tile>
-                </q-item-main>
-                <q-item-side right>
-                  <q-item-tile>
+                  </q-item-label>
+                </q-item-section>
+                <q-item-section right>
+                  <q-item-label>
                     <q-icon size="14px" name="fas fa-rupee-sign"/> 
                     {{tableData.currentUser.incentive.pendingImplementationRevenue}}
-                  </q-item-tile>
-                </q-item-side>
+                  </q-item-label>
+                </q-item-section>
               </q-item>
               <q-item class="q-pa-lg items-center" multiline>
-                <q-item-main class="vertical-middle">
-                  <q-item-tile>
+                <q-item-section class="vertical-middle">
+                  <q-item-label>
                     Revenue percentage from target
-                  </q-item-tile>
-                </q-item-main>
-                <q-item-side right v-if="tableData.currentUser.incentive.targetRevenue == 0">
+                  </q-item-label>
+                </q-item-section>
+                <q-item-section right v-if="tableData.currentUser.incentive.targetRevenue == 0">
                   Nil
-                </q-item-side>
-                <q-item-side right v-else>
+                </q-item-section>
+                <q-item-section right v-else>
                   <div>
                     <RadialProgressBar 
                     :diameter="50"
@@ -115,7 +115,7 @@
                      <p class="no-margin"><small>{{ tableData.currentUser.incentive.revenuePercentage}}%</small></p>
                     </RadialProgressBar>
                   </div>
-                </q-item-side>
+                </q-item-section>
               </q-item>  
             </q-list>
           </div>

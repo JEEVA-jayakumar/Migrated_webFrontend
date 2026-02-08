@@ -2,37 +2,37 @@
     <div>
       <!--padding:'30px',minWidth: '30vw'-->
       <!--minWidth:'50%',height:'auto',maxHeight:'50vh',margin:'20px',padding:'20px'-->
-      <q-modal
+      <q-dialog
         class="customModalOverlay"
         v-model="toggleModel"
         :content-css="{padding:'30px',minWidth: '30vw'}"
       >
         <div class="column">
-          <div class="q-py-sm q-title bottom-border">LeadSource And Vas,Device Config</div>
+          <div class="q-py-sm text-h6 bottom-border">LeadSource And Vas,Device Config</div>
           <div class="q-py-sm">
             <div class="col-md-5 col-sm-4 col-xs-12 q-pa-sm">
             <q-card style="width:100%">
-              <q-card-separator />
-              <q-card-main>
+              <q-separator />
+              <q-card-section>
                 <q-item>
-                <q-item-main>
+                <q-item-section>
                   <q-select color="grey-9" v-model="formData.leadSourceDeviceVasMapping.leadSource" :options="dropDown.leadSourceOptions"
                     float-label="Select lead source" placeholder="Lead source" />
-                </q-item-main>
+                </q-item-section>
               </q-item>
               <q-item>
-                <q-item-main>
+                <q-item-section>
                   <q-select color="grey-9" v-model="formData.leadSourceDeviceVasMapping.device" :options="dropDown.deviceOptions"
                     float-label="Select Device" placeholder="Select Device" />
-                </q-item-main>
+                </q-item-section>
               </q-item>
               <q-item>
-                <q-item-main>
+                <q-item-section>
                   <q-select multiple color="grey-9" v-model="formData.vasList" :options="dropDown.vasOptions"
                     float-label="Select VAS" placeholder="Select VAS" />
-                </q-item-main>
+                </q-item-section>
               </q-item>
-              </q-card-main>
+              </q-card-section>
               <q-card-actions vertical align="end">
                <q-btn label="submit" @click="fnsubmit(formData)" color="purple-9" />
               </q-card-actions>
@@ -40,7 +40,7 @@
           </div>
           </div>
         </div>
-      </q-modal>
+      </q-dialog>
     </div>
   </template>
   
@@ -52,7 +52,7 @@ import {
   maxLength,
   integer,
   email
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
   import { mapGetters, mapActions } from "vuex";
   
   export default {

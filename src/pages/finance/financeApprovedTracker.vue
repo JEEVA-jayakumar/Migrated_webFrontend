@@ -1,10 +1,10 @@
 <template>
   <q-page>
     <div>
-      <q-pull-to-refresh :handler="PullToRefresh" inline>
+      <q-pull-to-refresh v-model:handler="PullToRefresh" inline>
         <!--START: table title -->
         <div
-          class="col-md-12 capitalize q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
+          class="col-md-12 capitalize text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
         >
           Finance Approved Tracker
         </div>
@@ -13,24 +13,24 @@
         <q-tabs v-model="activeTab" class="shadow-1" color="grey-1" @select="goToQrMerchant">
           <q-tab default color="dark" name="tab-1" slot="title" label="Pos Merchant" />
         <q-tab color="dark" name="tab-2" slot="title" label="QR Merchant" />
-        <q-tab-pane name="tab-1">
+        <q-tab-panel name="tab-1">
         <q-table
           table-class="customTableClass"
           :data="tableData"
           :columns="columns"
           :filter="filter"
-          :pagination.sync="paginationControl"
+          :pagination="paginationControl"
           :rows-per-page-options="[5, 10, 15, 20]"
           @request="ajaxLoadAllFinanceApprovedData"
           row-key="name"
         >
-          <q-td slot="body-cell-createdAt" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-createdAt="props" :props="props">
             <span class="capitalize">{{
               props.row.submissionDate | moment("Do MMM Y")
             }}</span>
           </q-td>
           <!--START: Amount status -->
-          <!-- <q-td slot="body-cell-amount_status" slot-scope="props" :props="props">
+          <!-- <q-td v-slot:body-cell-amount_status="props" :props="props">
               <span class="text-positive" v-if="props.row.verifiedFinanceStatus==$VERIFIED_FINANCE_STATUS_SUCCESS">Finance approved</span>
               <span class="text-negative" v-else-if="props.row.verifiedFinanceStatus==$VERIFIED_FINANCE_STATUS_REJECT">Finance rejected</span>
               <span class="text-amber-9" v-else-if="props.row.verifiedFinanceStatus==$VERIFIED_FINANCE_STATUS_PENDING">Finance pending</span>
@@ -41,10 +41,10 @@
           </q-td>-->
           <!--END: Amount status -->
           <!-- START: Lead Number -->
-          <q-td slot="body-cell-approvedDate" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-approvedDate="props" :props="props">
             <span class="label">{{ props.row.approvedDate | moment("Do MMM Y") }}</span>
           </q-td>
-          <q-td slot="body-cell-submittedToFinanceDate" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-submittedToFinanceDate="props" :props="props">
             <span class="label">{{
               props.row.submittedToFinanceDate | moment("Do MMM Y")
             }}</span>
@@ -52,8 +52,7 @@
           <!-- END: Lead Number -->
           <!-- START: Lead Number -->
           <q-td
-            slot="body-cell-leadNumber"
-            slot-scope="props"
+            v-slot:body-cell-leadNumber="props"
             class="cursor-pointer"
             @click.native="toggleLeadInformation(props.row)"
             :props="props"
@@ -62,7 +61,7 @@
           </q-td>
           <!-- END: Lead Number -->
           <!-- START: TID -->
-          <q-td slot="body-cell-updatedAt" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-updatedAt="props" :props="props">
             <!-- <span class="label text-primary"># {{props.row.tid}}</span> -->
             <span class="label">{{
               props.row.leadLastUpdated | moment("Do MMM Y")
@@ -70,10 +69,10 @@
           </q-td>
           <!-- END: TID -->
           <!--START: table search, filter -->
-          <template slot="top" slot-scope="props">
+          <template v-slot:top="props">
             <!--START: table search -->
             <div class="col-md-5">
-              <q-search
+              <q-input
                 clearable
                 color="grey-9"
                 v-model="filter"
@@ -82,7 +81,7 @@
                 class="q-mr-lg q-py-sm"
               />
             </div>
-            <!--END: table search -->
+            <!--ENDv-model: table search -->
             <!--START: table filter dropdown -->
             <div class="col-md-3"></div>
             <!--END: table filter dropdown -->
@@ -97,34 +96,33 @@
           </template>
           <!--END: table search, filter -->
         </q-table>
-      </q-tab-pane>
-      <q-tab-pane name="tab-2">
+      </q-tab-panell>
+      <q-tab-panel name="tab-2">
 
         <q-table
           table-class="customTableClass"
           :data="tableData1"
           :columns="columns1"
           :filter="filter1"
-          :pagination.sync="paginationControl1"
+          :pagination="paginationControl1"
           :rows-per-page-options="[5,10,15,20]"
           @request="ajaxLoadAllFinanceQrApprovedData"
           row-key="name"
         >
-          <q-td slot="body-cell-createdAt" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-createdAt="props" :props="props">
             <span class="capitalize">{{props.row.submissionDate | moment("Do MMM Y")}}</span>
           </q-td>
          
-          <q-td slot="body-cell-approvedDate" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-approvedDate="props" :props="props">
             <span class="label">{{props.row.approvedDate | moment("Do MMM Y") }}</span>
           </q-td>
-          <q-td slot="body-cell-submittedToFinanceDate" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-submittedToFinanceDate="props" :props="props">
             <span class="label">{{props.row.submittedToFinanceDate | moment("Do MMM Y") }}</span>
           </q-td>
           <!-- END: Lead Number -->
           <!-- START: Lead Number -->
           <q-td
-            slot="body-cell-qrLeadNumber"
-            slot-scope="props"
+            v-slot:body-cell-qrLeadNumber="props"
             class="cursor-pointer"
             @click.native="toggleQrLeadInformation(props.row)"
             :props="props"
@@ -133,16 +131,16 @@
           </q-td>
           <!-- END: Lead Number -->
           <!-- START: TID -->
-          <q-td slot="body-cell-updatedAt" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-updatedAt="props" :props="props">
             <!-- <span class="label text-primary"># {{props.row.tid}}</span> -->
             <span class="label">{{props.row.leadLastUpdated | moment("Do MMM Y") }}</span>
           </q-td>
           <!-- END: TID -->
           <!--START: table search, filter -->
-          <template slot="top" slot-scope="props">
+          <template v-slot:top="props">
             <!--START: table search -->
             <div class="col-md-5">
-              <q-search
+              <q-input
                 clearable
                 color="grey-9"
                 v-model="filter1"
@@ -163,7 +161,7 @@
           </template>
           <!--END: table search, filter -->
         </q-table>
-      </q-tab-pane>
+      </q-tab-panell>
       </q-tabs>
       </q-pull-to-refresh>
       <!-- <download-financeapproval></download-financeapproval> -->

@@ -2,21 +2,21 @@
   <div class="row">
     <div class="col-md-4" style="border-right: 1px solid #ccc;">
       <div class="q-ma-md">
-        <div class="q-mb-md q-subheading">Region: {{computedUserRegion}}</div>
+        <div class="q-mb-md text-subtitle1">Region: {{computedUserRegion}}</div>
         <div>
           <q-card class="no-shadow">
-            <q-card-title class="no-padding">
-              <div class="q-body-1">
+            <q-card-section class="no-padding">
+              <div class="text-body1">
                 <strong>
                   <h6>Inventory with Region</h6>
                 </strong>
               </div>
-            </q-card-title>
-            <q-card-separator />
+            </q-card-section>
+            <q-separator />
             <div
               @click="loadDevicesTableData($REGIONAL_INVENTORY_ALL_DEVICES,{name:'Total Devices'})"
             >
-              <q-card-main
+              <q-card-section
                 align="center"
                 class="cursor-pointer bg-grey-5"
                 :class="[activeItemId === $REGIONAL_INVENTORY_ALL_DEVICES ? 'shadow-5' : 'shadow-0']"
@@ -25,21 +25,21 @@
                 <div>
                   <big>{{fngetAllRegionalInventorySerialNumbersByDevice()}}</big>
                 </div>
-              </q-card-main>
+              </q-card-section>
             </div>
           </q-card>
         </div>
         <div class="row gutter-md">
           <div class="col-md-6">
             <q-card role="button" class="no-shadow cursor-pointer">
-              <q-card-title class="no-padding">
-                <div class="q-body-1">Pending Allocation</div>
-              </q-card-title>
-              <q-card-separator />
+              <q-card-section class="no-padding">
+                <div class="text-body1">Pending Allocation</div>
+              </q-card-section>
+              <q-separator />
               <div
                 @click="loadDevicesTableData($REGIONAL_INVENTORY_PENDING_ALLOCATION_DEVICE,{name:'Pending Allocation'})"
               >
-                <q-card-main
+                <q-card-section
                   align="center"
                   class="bg-grey-5"
                   :class="[activeItemId === $REGIONAL_INVENTORY_PENDING_ALLOCATION_DEVICE ? 'shadow-5' : 'shadow-0']"
@@ -51,20 +51,20 @@
                       pendingDeviceCount.count}}
                     </big>
                   </div>
-                </q-card-main>
+                </q-card-section>
               </div>
             </q-card>
           </div>
           <div class="col-md-6">
             <q-card role="button" class="no-shadow cursor-pointer">
-              <q-card-title class="no-padding">
-                <div class="q-body-1">Allocated Devices</div>
-              </q-card-title>
-              <q-card-separator />
+              <q-card-section class="no-padding">
+                <div class="text-body1">Allocated Devices</div>
+              </q-card-section>
+              <q-separator />
               <div
                 @click="loadDevicesTableData($REGIONAL_INVENTORY_ALLOCATED_DEVICE,{name:'Allocated Devices'})"
               >
-                <q-card-main
+                <q-card-section
                   align="center"
                   class="bg-grey-5"
                   :class="[activeItemId === $REGIONAL_INVENTORY_ALLOCATED_DEVICE ? 'shadow-5' : 'shadow-0']"
@@ -76,20 +76,20 @@
                       allocatedCount.count}}
                     </big>
                   </div>
-                </q-card-main>
+                </q-card-section>
               </div>
             </q-card>
           </div>
           <div class="col-md-6">
             <q-card role="button" class="no-shadow cursor-pointer">
-              <q-card-title class="no-padding">
-                <div class="q-body-1">Damaged Devices</div>
-              </q-card-title>
-              <q-card-separator />
+              <q-card-section class="no-padding">
+                <div class="text-body1">Damaged Devices</div>
+              </q-card-section>
+              <q-separator />
               <div
                 @click="loadDevicesTableData($REGIONAL_INVENTORY_DAMAGED_DEVICE,{name:'Damaged Devices'})"
               >
-                <q-card-main
+                <q-card-section
                   align="center"
                   class="bg-grey-5"
                   :class="[activeItemId === $REGIONAL_INVENTORY_DAMAGED_DEVICE ? 'shadow-5' : 'shadow-0']"
@@ -101,20 +101,20 @@
                       damageDeviceCount.count}}
                     </big>
                   </div>
-                </q-card-main>
+                </q-card-section>
               </div>
             </q-card>
           </div>
           <div class="col-md-6">
             <q-card role="button" class="no-shadow cursor-pointer">
-              <q-card-title class="no-padding">
-                <div class="q-body-1">Inbound Devices</div>
-              </q-card-title>
-              <q-card-separator />
+              <q-card-section class="no-padding">
+                <div class="text-body1">Inbound Devices</div>
+              </q-card-section>
+              <q-separator />
               <div
                 @click="loadDevicesTableData($REGIONAL_INVENTORY_INBOUND_DEVICE,{name:'Inbound Devices'})"
               >
-                <q-card-main
+                <q-card-section
                   align="center"
                   class="bg-grey-5"
                   :class="[activeItemId === $REGIONAL_INVENTORY_INBOUND_DEVICE ? 'shadow-5' : 'shadow-0']"
@@ -126,20 +126,20 @@
                       inbountDeviceCount.count}}
                     </big>
                   </div>
-                </q-card-main>
+                </q-card-section>
               </div>
             </q-card>
           </div>
           <div class="col-md-6">
             <q-card role="button" class="no-shadow cursor-pointer">
-              <q-card-title class="no-padding">
-                <div class="q-body-1">Pending List From App Count</div>
-              </q-card-title>
-              <q-card-separator />
+              <q-card-section class="no-padding">
+                <div class="text-body1">Pending List From App Count</div>
+              </q-card-section>
+              <q-separator />
               <div
                 @click="loadDevicesTableData($REGIONAL_INVENTORY_FAULTY_DEVICE,{name:'Faulty Inventory'})"
               >
-                <q-card-main
+                <q-card-section
                   align="center"
                   class="bg-grey-5"
                   :class="[activeItemId === $REGIONAL_INVENTORY_FAULTY_DEVICE ? 'shadow-5' : 'shadow-0']"
@@ -151,7 +151,7 @@
                       pendingListFromAppCount.count}}
                     </big>
                   </div>
-                </q-card-main>
+                </q-card-section>
               </div>
             </q-card>
           </div>
@@ -162,12 +162,12 @@
             :key="index"
           >
             <q-card role="button" class="no-shadow cursor-pointer">
-              <q-card-title class="no-padding">
-                <div class="q-body-1">{{item.device.deviceName}}</div>
-              </q-card-title>
-              <q-card-separator />
+              <q-card-section class="no-padding">
+                <div class="text-body1">{{item.device.deviceName}}</div>
+              </q-card-section>
+              <q-separator />
               <div @click="loadDevicesTableData(index,item)">
-                <q-card-main
+                <q-card-section
                   align="center"
                   :style="'background:'+item.device.colorCode"
                   :class="[activeItemId === index ? 'shadow-5' : 'shadow-0']"
@@ -176,7 +176,7 @@
                   <div>
                     <big>{{item.count}}</big>
                   </div>
-                </q-card-main>
+                </q-card-section>
               </div>
             </q-card>
           </div>-->
@@ -190,12 +190,12 @@
             :key="index"
           >
             <q-card role="button" class="no-shadow cursor-pointer">
-              <q-card-title class="no-padding">
-                <div class="q-body-1">{{item.device.deviceName}}</div>
-              </q-card-title>
-              <q-card-separator />
+              <q-card-section class="no-padding">
+                <div class="text-body1">{{item.device.deviceName}}</div>
+              </q-card-section>
+              <q-separator />
               <div @click="loadDevicesTableData(index,item)">
-                <q-card-main
+                <q-card-section
                   align="center"
                   :style="'background:'+item.device.colorCode"
                   :class="[activeItemId === index ? 'shadow-5' : 'shadow-0']"
@@ -204,7 +204,7 @@
                   <div>
                     <strong>{{item.count}}</strong>
                   </div>
-                </q-card-main>
+                </q-card-section>
               </div>
             </q-card>
           </div>
@@ -223,14 +223,14 @@
             :key="index"
           >
             <q-card>
-              <q-card-main>
+              <q-card-section>
                 <q-card role="button" class="no-shadow cursor-pointer">
-                  <q-card-title class="no-padding">
-                    <div class="q-body-1">{{item.user.name}}</div>
-                  </q-card-title>
-                  <q-card-separator />
+                  <q-card-section class="no-padding">
+                    <div class="text-body1">{{item.user.name}}</div>
+                  </q-card-section>
+                  <q-separator />
                   <div>
-                    <!-- <q-card-main
+                    <!-- <q-card-section
                       align="center"
                       :class="[activeItemId === $REGIONAL_INVENTORY_ALL_DEVICES ? 'shadow-5' : 'shadow-0']"
                     >-->
@@ -239,10 +239,10 @@
                       <br />
                       <big>{{item.count}}</big>
                     </div>
-                    <!-- </q-card-main> -->
+                    <!-- </q-card-section> -->
                   </div>
                 </q-card>
-              </q-card-main>
+              </q-card-section>
             </q-card>
           </div>
         </div>
@@ -260,14 +260,14 @@
             :key="index"
           >
             <q-card>
-              <q-card-main>
+              <q-card-section>
                 <q-card role="button" class="no-shadow cursor-pointer">
-                  <q-card-title class="no-padding">
-                    <div class="q-body-1">{{item.user.name}}</div>
-                  </q-card-title>
-                  <q-card-separator />
+                  <q-card-section class="no-padding">
+                    <div class="text-body1">{{item.user.name}}</div>
+                  </q-card-section>
+                  <q-separator />
                   <div>
-                    <q-card-main
+                    <q-card-section
                       align="center"
                       :class="[activeItemId === $REGIONAL_INVENTORY_ALL_DEVICES ? 'shadow-5' : 'shadow-0']"
                     >
@@ -276,10 +276,10 @@
                         <br />
                         <big>{{item.count}}</big>
                       </div>
-                    </q-card-main>
+                    </q-card-section>
                   </div>
                 </q-card>
-              </q-card-main>
+              </q-card-section>
             </q-card>
           </div>
         </div>
@@ -288,18 +288,18 @@
       <!-- <div class="q-ma-md"> -->
       <!-- <div>
           <q-card class="no-shadow">
-            <q-card-title class="no-padding">
-              <div class="q-body-1">
+            <q-card-section class="no-padding">
+              <div class="text-body1">
                 <strong>
                   <h6>Inventory with SO</h6>
                 </strong>
               </div>
-            </q-card-title>
-            <q-card-separator />
+            </q-card-section>
+            <q-separator />
             <div
               @click="loadDevicesTableData($REGIONAL_INVENTORY_ALL_DEVICES,{name:'Total Devices'})"
             >
-              <q-card-main
+              <q-card-section
                 align="center"
                 class="cursor-pointer bg-grey-5"
                 :class="[activeItemId === $REGIONAL_INVENTORY_ALL_DEVICES ? 'shadow-5' : 'shadow-0']"
@@ -308,21 +308,21 @@
                 <div>
                   <big>{{fngetAllSoInventorySerialNumbersByDevice()}}</big>
                 </div>
-              </q-card-main>
+              </q-card-section>
             </div>
           </q-card>
       </div>-->
       <!-- <div class="row gutter-md"> -->
       <!-- <div class="col-md-6">
             <q-card role="button" class="no-shadow cursor-pointer">
-              <q-card-title class="no-padding">
-                <div class="q-body-1">Pending Allocation</div>
-              </q-card-title>
-              <q-card-separator />
+              <q-card-section class="no-padding">
+                <div class="text-body1">Pending Allocation</div>
+              </q-card-section>
+              <q-separator />
               <div
                 @click="loadDevicesTableData($REGIONAL_INVENTORY_PENDING_ALLOCATION_DEVICE,{name:'Pending Allocation'})"
               >
-                <q-card-main
+                <q-card-section
                   align="center"
                   class="bg-grey-5"
                   :class="[activeItemId === $REGIONAL_INVENTORY_PENDING_ALLOCATION_DEVICE ? 'shadow-5' : 'shadow-0']"
@@ -334,15 +334,15 @@
                       pendingDeviceCountBillPartner.count}}
                     </big>
                   </div>
-                </q-card-main>aj Arumugam
+                </q-card-section>aj Arumugam
 
       </div>-->
       <!-- <div class="col-md-6">
             <q-card role="button" class="no-shadow cursor-pointer">
-              <q-card-title class="no-padding">
-                <div class="q-body-1">Allocated Devices</div>
-              </q-card-title>
-              <q-card-separator />
+              <q-card-section class="no-padding">
+                <div class="text-body1">Allocated Devices</div>
+              </q-card-section>
+              <q-separator />
               <div
                 @click="loadDevicesbig
                   align="center"
@@ -356,20 +356,20 @@
                       allocatedCountBillPartner.count}}
                     </big>
                   </div>
-                </q-card-main>
+                </q-card-section>
               </div>
             </q-card>
       </div>-->
       <!-- <div class="col-md-6">
             <q-card role="button" class="no-shadow cursor-pointer">
-              <q-card-title class="no-padding">
-                <div class="q-body-1">Damaged Devices</div>
-              </q-card-title>
-              <q-card-separator />
+              <q-card-section class="no-padding">
+                <div class="text-body1">Damaged Devices</div>
+              </q-card-section>
+              <q-separator />
               <div
                 @click="loadDevicesTableData($REGIONAL_INVENTORY_DAMAGED_DEVICE,{name:'Damaged Devices'})"
               >
-                <q-card-main <div class="row gutter-md">
+                <q-card-section <div class="row gutter-md">
                   align="center"
                   class="bg-grey-5"
                   :class="[activeItemId === $REGIONAL_INVENTORY_DAMAGED_DEVICE ? 'shadow-5' : 'shadow-0']"
@@ -381,20 +381,20 @@
                       damageDeviceCountBillPartner.count}}
                     </big>
                   </div>
-                </q-card-main>
+                </q-card-section>
               </div>
             </q-card>
       </div>-->
       <!-- <div class="col-md-6">
             <q-card role="button" class="no-shadow cursor-pointer">
-              <q-card-title class="no-padding">
-                <div class="q-body-1">Inbound Devices</div>
-              </q-card-title>
-              <q-card-separator />
+              <q-card-section class="no-padding">
+                <div class="text-body1">Inbound Devices</div>
+              </q-card-section>
+              <q-separator />
               <div
                 @click="loadDevicesTableData($REGIONAL_INVENTORY_INBOUND_DEVICE,{name:'Inbound Devices'})"
               >
-                <q-card-main
+                <q-card-section
                   align="center"
                   class="bg-grey-5"
                   :class="[activeItemId === $REGIONAL_INVENTORY_INBOUND_DEVICE ? 'shadow-5' : 'shadow-0']"
@@ -406,7 +406,7 @@
                       inbountDeviceCountBillPartner.count}}
                     </big>
                   </div>
-                </q-card-main>
+                </q-card-section>
               </div>
             </q-card>
       </div>-->
@@ -415,8 +415,8 @@
     <div class="col-md-8">
       <div class="row bottom-border q-pa-sm items-center">
         <div class="text-weight-regular">
-          <!--START: table title -->
-          <div class="text-grey-9 q-subheading q-py-sm">{{inventoryCountTableTitle}}</div>
+          <!--STARTv-model: table title -->
+          <div class="text-grey-9 text-subtitle1 q-py-sm">{{inventoryCountTableTitle}}</div>
           <!--END: table title -->
         </div>
       </div>
@@ -428,11 +428,11 @@
         :data="getAllRegionalInventorySerialNumbersByDevice"
         :columns="columnData"
         :filter="filter"
-        :pagination.sync="paginationControl"
+        :pagination="paginationControl"
         :loading="toggleAjaxLoadFilter"
         row-key="name"
       >
-        <q-td slot="body-cell-action" slot-scope="props" :props="props" v-if="info==6">
+        <q-td v-slot:body-cell-action="props" :props="props" v-if="info==6">
           <div class="row no-wrap no-padding">
             <q-btn
               dense
@@ -458,10 +458,10 @@
             ></q-btn>
           </div>
         </q-td>
-        <template slot="top" slot-scope="props" class="bottom-border">
+        <template v-slot:top="props" class="bottom-border">
           <!--START: table filter,search -->
           <div class="col-md-6">
-            <q-search
+            <q-input
               clearable
               color="grey-9"
               v-model="filter"

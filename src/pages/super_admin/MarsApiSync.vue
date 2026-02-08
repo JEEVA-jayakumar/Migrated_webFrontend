@@ -18,24 +18,24 @@
               <q-tab name="StateApiSync" label="State" slot="title" />
             
   
-              <q-tab-pane name="DeviceModelApiSync">
+              <q-tab-panel name="DeviceModelApiSync">
                 <DeviceModelApiSync />
-              </q-tab-pane>
-              <q-tab-pane name="CityApiSync">
+              </q-tab-panell>
+              <q-tab-panel name="CityApiSync">
                 <CityApiSync />
-              </q-tab-pane>
-              <q-tab-pane name="RegionApiSync">
+              </q-tab-panell>
+              <q-tab-panel name="RegionApiSync">
                 <RegionApiSync />
-              </q-tab-pane>
-              <q-tab-pane name="RentalPlanApiSync">
+              </q-tab-panell>
+              <q-tab-panel name="RentalPlanApiSync">
                 <RentalPlanApiSync />
-              </q-tab-pane>
-              <q-tab-pane name="LeadFormApiSync">
+              </q-tab-panell>
+              <q-tab-panel name="LeadFormApiSync">
                 <LeadFormApiSync />
-              </q-tab-pane>
-              <q-tab-pane name="StateApiSync">
+              </q-tab-panell>
+              <q-tab-panel name="StateApiSync">
                 <StateApiSync />
-              </q-tab-pane>
+              </q-tab-panell>
             </q-tabs>
           </div>
         </div>

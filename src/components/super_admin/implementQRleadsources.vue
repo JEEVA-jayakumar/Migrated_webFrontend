@@ -7,18 +7,18 @@
           <strong>Select the Lead Bank to add List of Banks to implement QR</strong>
         </div>
         <q-card style="width:100%">
-          <q-card-separator />
-          <q-card-main>
+          <q-separator />
+          <q-card-section>
             <q-item>
-              <q-item-main>
+              <q-item-section>
                 <q-select
                   color="grey-9"
                   v-model="formData.leadSource"
                   :options="dropDown.leadSourceOptions"
                   float-label="Select Lead bank"
                 />
-              </q-item-main>
-              <q-item-side right>
+              </q-item-section>
+              <q-item-section right>
                 <q-btn
                   :disabled="formData.leadSource.length == 0"
                   no-caps
@@ -28,9 +28,9 @@
                   label="Add Lead Source"
                   class="no-margin"
                 />
-              </q-item-side>
+              </q-item-section>
             </q-item>
-          </q-card-main>
+          </q-card-section>
         </q-card>
       </div>
     </div>
@@ -42,12 +42,12 @@
     </div>
     <q-table
       table-class="customTableClass"
-      :data="getActiveandDeactiveLeadSource"
+      v-model:data="getActiveandDeactiveLeadSource"
       :columns="columns"
-      :pagination.sync="paginationControl"
+      :pagination="paginationControl"
       row-key="id"
     >
-      <q-td slot="body-cell-action" slot-scope="props" :props="props">
+      <q-td v-slot:body-cell-action="props" :props="props">
         <div class="row no-wrap no-padding">
           <!-- <q-btn
             dense

@@ -1,22 +1,22 @@
 <template>
   <div>
-    <q-item separator class="q-body-1">
-      <q-item-main>
-        <q-item-tile>
-          <div class="q-body-1">
+    <q-item separator class="text-body1">
+      <q-item-section>
+        <q-item-label>
+          <div class="text-body1">
             Merchant Type:
             <span class="text-weight-medium">{{merchantTypeSelection}}</span>
           </div>
-        </q-item-tile>
-      </q-item-main>
+        </q-item-label>
+      </q-item-section>
     </q-item>
 
     <!-- START >> (Mandatory) General application form -->
-    <q-item separator class="q-body-1 text-dark bg-grey-4 text-weight-medium">
-      <q-item-main>Application Form</q-item-main>
-      <q-item-side>
+    <q-item separator class="text-body1 text-dark bg-grey-4 text-weight-medium">
+      <q-item-section>Application Form</q-item-section>
+      <q-item-section>
         <label id="attach" class="cursor-pointer text-white" style="background-color: #202c3f;">
-          <span  class="q-caption text-weight-light">Attach</span>
+          <span  class="text-caption text-weight-light">Attach</span>
           <input
             type="file"
             name="file"
@@ -24,10 +24,10 @@
             accept=".png, .jpg, .pdf"
           />
         </label>
-      </q-item-side>
+      </q-item-section>
     </q-item>
-    <q-item separator class="q-body-1">
-      <q-item-main>
+    <q-item separator class="text-body1">
+      <q-item-section>
         <div class="full-width">
           <div
             class="cursor-pointer"
@@ -59,19 +59,19 @@
           </div>
           <div v-else>Invalid document type/ No document available</div>
         </div>
-      </q-item-main>
+      </q-item-section>
     </q-item>
     <!-- END >> (Mandatory) Application form  -->
     <!-- START >> (Optional) payment document file == bank subvention  -->
     <q-item
       v-if="getShortLeadInfo.paymentDocumentFile != ''"
       separator
-      class="q-body-1 text-dark bg-grey-4 text-weight-medium"
+      class="text-body1 text-dark bg-grey-4 text-weight-medium"
     >
-      <q-item-main>Bank Letter</q-item-main>
+      <q-item-section>Bank Letter</q-item-section>
     </q-item>
-    <q-item v-if="getShortLeadInfo.paymentDocumentFile != ''" separator class="q-body-1">
-      <q-item-main>
+    <q-item v-if="getShortLeadInfo.paymentDocumentFile != ''" separator class="text-body1">
+      <q-item-section>
         <div class="full-width">
           <div
             class="cursor-pointer"
@@ -103,10 +103,10 @@
           </div>
           <div v-else>Invalid document type/ No document available</div>
         </div>
-      </q-item-main>
+      </q-item-section>
     </q-item>
     <!-- END >> (Mandatory) payment document file == bank subvention  -->
-    <div v-if="merchantTypeSelection == 0" class="full-width q-body-1 q-pa-sm">
+    <div v-if="merchantTypeSelection == 0" class="full-width text-body1 q-pa-sm">
       <p>No documents available to display</p>
     </div>
 
@@ -127,20 +127,20 @@
         <!-- <p>Document Type: {{ document.documentType }}</p> -->
       <!-- <p>Subdocument Type: {{ document.subDocumentType }}</p> -->
         <!-- <p>Is QR: {{ document.isQr }}</p> -->
-          <q-item separator dense class="q-body-1 bg-grey-4 q-pa-sm">
+          <q-item separator dense class="text-body1 bg-grey-4 q-pa-sm">
           
-            <q-item-main>
+            <q-item-section>
               {{document.subDocumentType}}
               
-              </q-item-main>
+              </q-item-section>
           
-            <!-- <q-item-main>
+            <!-- <q-item-section>
                @input="docuValue(document)"
-              </q-item-main> -->
+              </q-item-section> -->
 
-            <q-item-side>
+            <q-item-section>
               <label  id="attach" class="cursor-pointer text-white" style="background-color: #202c3f;">
-                <span class="q-caption text-weight-light">Attach</span>
+                <span class="text-caption text-weight-light">Attach</span>
                 <input
                   type="file"
                   name="file"
@@ -148,7 +148,7 @@
                   accept=".png, .jpg, .pdf"
                 />
               </label>
-            </q-item-side>
+            </q-item-section>
           </q-item>
 <!-- 
             {{getShortLeadInfo.leadDocuments}} -->
@@ -168,11 +168,11 @@
                 dense
                 v-for="(filesAttachedEarlier,filesAttachedEarlierIndex) in attachedSubFile.uploadedDocuments"
                 :key="filesAttachedEarlierIndex"
-                class="q-body-1"
+                class="text-body1"
                 separator
               >
-                <q-item-main>
-                  <q-item-tile class="q-body-1">
+                <q-item-section>
+                  <q-item-label class="text-body1">
                     <div
                       class="cursor-pointer"
                       v-if="filesAttachedEarlier.mimeType.includes('pdf')"
@@ -208,10 +208,10 @@
                         &nbsp;{{filesAttachedEarlier.fileName}}
                       </div>
                     </div>
-                  </q-item-tile>
-                </q-item-main>
+                  </q-item-label>
+                </q-item-section>
 
-                <q-item-side>
+                <q-item-section>
                   <q-btn
                     size="xs"
                     icon="clear"
@@ -220,7 +220,7 @@
                     color="negative"
                     label="Remove"
                   />
-                </q-item-side>
+                </q-item-section>
               </q-item>
             </div>
           </div>
@@ -235,13 +235,13 @@
         :key="multipleDocument.id"
         v-if="getShortLeadInfoDocumentTypes &&  multipleDocument.documentType.isQr != 1"
       >   
-        <q-list-header v-if="multipleDocument.isQr != 1" class="q-mb-sm bg-grey-4">{{multipleDocument.documentType}}
+        <q-item-label header v-if="multipleDocument.isQr != 1" class="q-mb-sm bg-grey-4">{{multipleDocument.documentType}}
          
-        </q-list-header>
+        </q-item-label header>
          
         <div>
-          <q-item separator dense class="q-body-1 q-pa-sm">
-            <q-item-main>
+          <q-item separator dense class="text-body1 q-pa-sm">
+            <q-item-section>
               <!-- <pre>{{multipleDocument.subDocumentTypeSelection}}</pre> -->
               <select
                 v-if="multipleDocument.isQr != 1" 
@@ -259,14 +259,14 @@
 
               </select>
               
-            </q-item-main>
+            </q-item-section>
             
-            <q-item-side
+            <q-item-section
               v-if="fn_________GetEntryPermissionToUploadSubDocuments(multipleDocument)"
               ref="subDocumentUploadParent"
             >
               <label  id="attach" class="cursor-pointer text-white" style="background-color: #202c3f;">
-                <span class="q-caption text-weight-light">Attach</span>
+                <span class="text-caption text-weight-light">Attach</span>
                 <input
                   type="file"
                   ref="subDocumentUpload"
@@ -275,11 +275,11 @@
                   accept=".png, .jpg, .pdf"
                 />
               </label>
-            </q-item-side>
+            </q-item-section>
           </q-item>
         </div>
       
-        <q-item-separator />
+        <q-separator />
         
         <div
           v-if="displayAttachedFileIndex == multipleDocument.documentType"
@@ -295,12 +295,12 @@
             <q-item
               v-for="(filesAttachedEarlier,filesAttachedEarlierIndex) in attachedSubFile.uploadedDocuments"
               :key="filesAttachedEarlierIndex"
-              class="q-body-1"
+              class="text-body1"
               separator
               dense
             >
-              <q-item-main>
-                <q-item-tile class="q-body-1">
+              <q-item-section>
+                <q-item-label class="text-body1">
                   <div class="cursor-pointer" v-if="filesAttachedEarlier.mimeType.includes('pdf')">
                     <div
                       ref="multiAttachedImageViewer"
@@ -333,9 +333,9 @@
                       &nbsp;{{filesAttachedEarlier.fileName}}
                     </div>
                   </div>
-                </q-item-tile>
-              </q-item-main>
-              <q-item-side>
+                </q-item-label>
+              </q-item-section>
+              <q-item-section>
                 <q-btn
                   size="xs"
                   icon="clear"
@@ -344,9 +344,9 @@
                   color="negative"
                   label="Remove"
                 />
-              </q-item-side>
+              </q-item-section>
             </q-item>
-            <q-item-separator />
+            <q-separator />
           </div>
           
         </div>

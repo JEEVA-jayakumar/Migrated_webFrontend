@@ -1,21 +1,21 @@
 <template>
   <div>
-    <q-modal minimized no-backdrop-dismiss v-model="toggleModel" :content-css="{ padding: '30px', minWidth: '40vw' }">
+    <q-dialog minimized no-backdrop-dismiss v-model="toggleModel" :content-css="{ padding: '30px', minWidth: '40vw' }">
       <form>
         <div class="column group">
           <div class="col-md-12">
-            <div class="q-title text-weight-regular">
+            <div class="text-h6 text-weight-regular">
               <p align="center">
                 <strong>POS INVENTORY REPORT</strong>
               </p>
             </div>
           </div>
           <div class="col-md-12">
-            <q-datetime hide-underline class="q-mr-lg q-py-sm" v-model="formData.selectedFromYear" :min="yesterday"
+            <q-input hide-underline class="q-mr-lg q-py-sm" v-model="formData.selectedFromYear" :min="yesterday"
               :max="tomorrow" type="date" float-label="Choose Date Range" Format="YYYY-MM-DD" />
           </div>
           <!-- <div class="col-md-12">
-            <q-datetime hide-underline class="q-mr-lg q-py-sm" v-model="formData.selectedToYear" :min="yesterday"
+            <q-input hide-underline class="q-mr-lg q-py-sm" v-model="formData.selectedToYear" :min="yesterday"
               :max="tomorrow" type="date" float-label="To Date" Format="YYYY-MM-DD" />
           </div> -->
           <div class="col-md-12 group" align="right">
@@ -29,7 +29,7 @@
           </div>
         </div>
       </form>
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 

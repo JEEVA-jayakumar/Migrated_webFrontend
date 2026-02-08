@@ -1,6 +1,6 @@
 <template>
     <div>
-      <q-modal
+      <q-dialog
         v-model="showRequestModal"
         @hide="emitToggleLost(showRequestModal)"
         @escape-key="emitToggleLost(showRequestModal)"
@@ -43,7 +43,7 @@
             >Cancel
           </q-btn>
         </div>
-      </q-modal>
+      </q-dialog>
     </div>
   </template>
   <script>
@@ -56,7 +56,7 @@
     alpha,
     alphaNum,
     numeric
-  } from "vuelidate/lib/validators";
+  } from "@vuelidate/validators";
   import { mapGetters, mapActions } from "vuex";
   export default {
     props: ["showRequestModal", "showRequestComponent"],

@@ -1,3 +1,4 @@
+import { api } from '../boot/axios';
 
 import Vue from "vue"
 
@@ -34,7 +35,7 @@ const FileDownload1 = {
       var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
       if (request.fromDate && request.toDate) {
         // console.log("==========", request)
-        return await Vue.http
+        return await api
           .get("download-lost-or-stolen-device-sat/" + request.fromDate + "/" + request.toDate, {
             responseType: 'arraybuffer'
           })
@@ -50,7 +51,7 @@ const FileDownload1 = {
           });
       } else {
         console.log("==========", request)
-        return await Vue.http
+        return await api
           .get("download-lost-or-stolen-device-sat", {
             responseType: 'arraybuffer'
           })
@@ -73,7 +74,7 @@ const FileDownload1 = {
       var date = today.getFullYear() + '-' + (today.getMonth() + 1) +'-'+ today.getDate();
       if (request.fromDate && request.toDate) {
         console.log("==========", request)
-        return await Vue.http
+        return await api
           .get("aggregator-inventory/agg-download-lost-or-stolen-device-sat/"+JSON.parse(localStorage.getItem("selectedTab").split('|')[1])+"/" + request.fromDate + "/" + request.toDate, {
             responseType: 'arraybuffer'
           })
@@ -89,7 +90,7 @@ const FileDownload1 = {
           });
       } else {
         console.log("==========", request)
-        return await Vue.http
+        return await api
           .get("aggregator-inventory/agg-download-lost-or-stolen-device-sat/"+JSON.parse(localStorage.getItem("selectedTab").split('|')[1]), {
             responseType: 'arraybuffer'
           })
@@ -119,7 +120,7 @@ export default FileDownload1;
       // else if(request.mid && request.fromDate && request.toDate)
       //   {
       //   // console.log("==========", request)
-      //   let response = await Vue.http.get("https://bportal.bijlipay.co.in:6060/api/download-settlement-report?mid="+request.mid+"&fromDate="+request.fromDate +"&toDate="+request.toDate, {
+      //   let response = await api.get("https://bportal.bijlipay.co.in:6060/api/download-settlement-report?mid="+request.mid+"&fromDate="+request.fromDate +"&toDate="+request.toDate, {
       //     responseType: 'arraybuffer'
       //   });
       //   let blob = new Blob([response.data], {
@@ -133,7 +134,7 @@ export default FileDownload1;
       //     else if(request.tid && request.fromDate && request.toDate)
       //     {
       //     console.log("==========", request)
-      //     let response = await Vue.http.get("https://bportal.bijlipay.co.in:6060/api/download-settlement-report?tid="+request.tid+"&fromDate="+request.fromDate +"&toDate="+request.toDate, {
+      //     let response = await api.get("https://bportal.bijlipay.co.in:6060/api/download-settlement-report?tid="+request.tid+"&fromDate="+request.fromDate +"&toDate="+request.toDate, {
       //       responseType: 'arraybuffer'
       //     });
       //     let blob = new Blob([response.data], {
@@ -147,7 +148,7 @@ export default FileDownload1;
       //    else if(request.mname && request.fromDate && request.toDate)
       //    {
       //    console.log("==========", request)
-      //    let response = await Vue.http.get("https://bportal.bijlipay.co.in:6060/api/download-settlement-report?mName="+request.mname+"&fromDate="+request.fromDate +"&toDate="+request.toDate, {
+      //    let response = await api.get("https://bportal.bijlipay.co.in:6060/api/download-settlement-report?mName="+request.mname+"&fromDate="+request.fromDate +"&toDate="+request.toDate, {
       //     responseType: 'arraybuffer'
       //    });
       //    let blob = new Blob([response.data], {
@@ -160,7 +161,7 @@ export default FileDownload1;
       //    }
       //    else if(request.fromDate && request.toDate){
       //       console.log("==========", request)
-      //       let response = await Vue.http.get("https://bportal.bijlipay.co.in:6060/api/download-settlement-report?fromDate="+request.fromDate +"&toDate="+request.toDate, {
+      //       let response = await api.get("https://bportal.bijlipay.co.in:6060/api/download-settlement-report?fromDate="+request.fromDate +"&toDate="+request.toDate, {
       //         responseType: 'arraybuffer'
       //       });
       //       let blob = new Blob([response.data], {
@@ -173,7 +174,7 @@ export default FileDownload1;
       //    }
       //    else if(request.mid){
       //     console.log("==========", request)
-      //     let response = await Vue.http.get("https://bportal.bijlipay.co.in:6060/api/download-settlement-report?mid="+request.mid, {
+      //     let response = await api.get("https://bportal.bijlipay.co.in:6060/api/download-settlement-report?mid="+request.mid, {
       //       responseType: 'arraybuffer'
       //     });
       //     let blob = new Blob([response.data], {
@@ -186,7 +187,7 @@ export default FileDownload1;
       //    }
       //    else if(request.tid){
       //    console.log("==========", request)
-      //    let response = await Vue.http.get("https://bportal.bijlipay.co.in:6060/api/download-settlement-report?tid="+request.tid, {
+      //    let response = await api.get("https://bportal.bijlipay.co.in:6060/api/download-settlement-report?tid="+request.tid, {
       //     responseType: 'arraybuffer'
       //    });
       //    let blob = new Blob([response.data], {
@@ -199,7 +200,7 @@ export default FileDownload1;
       //    }
       //    else if(request.mname){
       //    console.log("==========", request)
-      //    let response = await Vue.http.get("https://bportal.bijlipay.co.in:6060/api/download-settlement-report?mName="+request.mname, {
+      //    let response = await api.get("https://bportal.bijlipay.co.in:6060/api/download-settlement-report?mName="+request.mname, {
       //     responseType: 'arraybuffer'
       //    });
       //    let blob = new Blob([response.data], {
@@ -225,7 +226,7 @@ export default FileDownload1;
     //   var date = today.getFullYear() + '-' + (today.getMonth() + 1) + '-' + today.getDate();
     //   if (request.fromDate && request.toDate) {
     //     // console.log("==========", request)
-    //     return await Vue.http
+    //     return await api
     //       .get("aggregator-inventory/agg-download-lost-or-stolen-device-sat/" + request.aggregators + "/" + request.fromDate + "/" + request.toDate, {
     //         responseType: 'arraybuffer'
     //       })
@@ -241,7 +242,7 @@ export default FileDownload1;
     //       });
     //   } else {
     //     console.log("==========", request)
-    //     return await Vue.http
+    //     return await api
     //       .get("aggregator-inventory/agg-download-lost-or-stolen-device-sat/" + request.aggregators, {
     //         responseType: 'arraybuffer'
     //       })

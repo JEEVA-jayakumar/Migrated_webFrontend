@@ -1,15 +1,15 @@
 <template>
   <q-page>
-    <q-modal minimized no-backdrop-dismiss class="customModalOverlay" v-model="toggleModel"
+    <q-dialog minimized no-backdrop-dismiss class="customModalOverlay" v-model="toggleModel"
       :content-css="{ padding: '10px', minWidth: '63vw' }">
       <div class="row">
-        <!-- <div class="col-12 q-title q-pa-md text-weight-regular bottom-border">
+        <!-- <div class="col-12 text-h6 q-pa-md text-weight-regular bottom-border">
                       Finance Details
                   </div> -->
         <!-- START >> Setup MDR details -->
         <div class="col-md-5 col-sm-4 col-xs-12 q-pa-sm">
           <q-card style="width:250%">
-            <q-card-main>
+            <q-card-section>
               <q-list no-border>
                 <div class="col-md-12">
                   <q-input type="textarea" float-label="Device Purchase Cost" placeholder="Device Purchase Cost"
@@ -49,27 +49,27 @@
                   </div>
                   <div v-else align="left">
                     <q-card dense class="q-pa-xs">
-                      <q-card-title class="q-pa-xs bg-green-3">
+                      <q-card-section class="q-pa-xs bg-green-3">
                         Uploaded Files
-                      </q-card-title>
-                      <q-card-separator />
-                      <q-card-main>
+                      </q-card-section>
+                      <q-separator />
+                      <q-card-section>
                         <div v-for="(file, index) in formData.fileSelected" :key="index">
                           <q-item dense>
-                            <q-item-side icon="attach_file" />
-                            <q-item-main>{{ file.name }}</q-item-main>
-                            <q-item-side>
+                            <q-item-section icon="attach_file" />
+                            <q-item-section>{{ file.name }}</q-item-section>
+                            <q-item-section>
                               <q-btn class="fa fa-close" size="sm" color="negative" @click="removeUploadedFiles(index)"
                                 label="Remove" icon="clear" />
-                            </q-item-side>
+                            </q-item-section>
                           </q-item>
                         </div>
-                      </q-card-main>
+                      </q-card-section>
                     </q-card>
                   </div>
                 </div>
               </q-list>
-            </q-card-main>
+            </q-card-section>
             <q-card-actions align="end">
               <q-btn push label="Cancel" align="right" color="negative" @click="emitfnshowPosInventory()" />
               <q-btn push label="Submit" @click="PosFinanceSubmit(formData)" color="purple-9" />
@@ -78,7 +78,7 @@
         </div>
         <!-- END >> Setup MDR details -->
       </div>
-    </q-modal>
+    </q-dialog>
   </q-page>
 </template>
 
@@ -94,7 +94,7 @@
     alpha,
     alphaNum,
     numeric
-  } from "vuelidate/lib/validators";
+  } from "@vuelidate/validators";
   import { mapGetters, mapActions } from "vuex";
   // import financeInvoiceCopy from "../../components/inventory/financeInvoiceCopy.vue";
   export default {

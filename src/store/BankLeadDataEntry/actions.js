@@ -1,10 +1,11 @@
+import { api } from '../../boot/axios';
 import api from "../api.js";
 import Vue from "vue";
 export const FETCH_ALL_MERCHANTTID = ({
   commit,
   rootState
 }, request) => {
-  return Vue.http
+  return api
     .get(rootState.GlobalVariables.STATE_MERCHANT + "tids?searchTerm=" + request)
 
     .then(response => {
@@ -29,7 +30,7 @@ export const SAVE_MERCHANT = ({
   rootState
 }, request) => {
 
-  return Vue.http.post(rootState.GlobalVariables.STATE_MERCHANT + "send-notification", request)
+  return api.post(rootState.GlobalVariables.STATE_MERCHANT + "send-notification", request)
 
 
   // .put("http://182.156.237.85:8080/api/manage/data/mdr-details/" + request.id, request)

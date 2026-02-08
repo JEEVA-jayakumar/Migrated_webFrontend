@@ -11,40 +11,40 @@
                 <q-card class="border-radius-10 q-py-xs" color="purple-9">
                   <q-list>
                     <q-item>
-                      <q-item-side>
-                        <q-item-tile color="white">
-                          <div class="lg-q-display-1 sm-q-caption text-center">100</div>
-                          <div class="q-caption text-weight-light text-center">Total</div>
-                        </q-item-tile>
-                      </q-item-side>
-                      <q-item-main>
-                        <q-item-tile>
+                      <q-item-section>
+                        <q-item-label color="white">
+                          <div class="lg-q-display-1 sm-text-caption text-center">100</div>
+                          <div class="text-caption text-weight-light text-center">Total</div>
+                        </q-item-label>
+                      </q-item-section>
+                      <q-item-section>
+                        <q-item-label>
                           <div
-                            class="lg-q-title sm-q-caption text-weight-light text-center"
+                            class="lg-text-h6 sm-text-caption text-weight-light text-center"
                           >Exception</div>
-                        </q-item-tile>
-                      </q-item-main>
+                        </q-item-label>
+                      </q-item-section>
                     </q-item>
                   </q-list>
                 </q-card>
                 <q-list>
                   <q-item>
-                    <q-item-main>
+                    <q-item-section>
                       <div class="row">
                         <div class="col-md-4 q-my-xs">
-                          <div class="q-caption">KYC Exception</div>
+                          <div class="text-caption">KYC Exception</div>
                           <q-chip class="custom_chip_progress" color="purple-9">1</q-chip>
                         </div>
                         <div class="col-md-4 q-my-xs">
-                          <div class="q-caption">Pricing Exception</div>
+                          <div class="text-caption">Pricing Exception</div>
                           <q-chip class="custom_chip_progress" color="purple-9">1</q-chip>
                         </div>
                         <div class="col-md-4 q-my-xs">
-                          <div class="q-caption">Bank Subvention</div>
+                          <div class="text-caption">Bank Subvention</div>
                           <q-chip class="custom_chip_progress" color="purple-9">1</q-chip>
                         </div>
                       </div>
-                    </q-item-main>
+                    </q-item-section>
                   </q-item>
                 </q-list>
               </div>
@@ -55,40 +55,40 @@
                 <q-card class="border-radius-10 q-py-xs" color="purple-9">
                   <q-list>
                     <q-item>
-                      <q-item-side>
-                        <q-item-tile color="white">
-                          <div class="lg-q-display-1 sm-q-caption text-center">100</div>
-                          <div class="q-caption text-weight-light text-center">Total</div>
-                        </q-item-tile>
-                      </q-item-side>
-                      <q-item-main>
-                        <q-item-tile>
+                      <q-item-section>
+                        <q-item-label color="white">
+                          <div class="lg-q-display-1 sm-text-caption text-center">100</div>
+                          <div class="text-caption text-weight-light text-center">Total</div>
+                        </q-item-label>
+                      </q-item-section>
+                      <q-item-section>
+                        <q-item-label>
                           <div
-                            class="lg-q-title sm-q-caption text-weight-light text-center"
+                            class="lg-text-h6 sm-text-caption text-weight-light text-center"
                           >Inventory Allocation</div>
-                        </q-item-tile>
-                      </q-item-main>
+                        </q-item-label>
+                      </q-item-section>
                     </q-item>
                   </q-list>
                 </q-card>
                 <q-list>
                   <q-item>
-                    <q-item-main>
+                    <q-item-section>
                       <div class="row">
                         <div class="col-md-4 q-my-xs">
-                          <div class="q-caption">KYC Exception</div>
+                          <div class="text-caption">KYC Exception</div>
                           <q-chip class="custom_chip_progress" color="purple-9">1</q-chip>
                         </div>
                         <div class="col-md-4 q-my-xs">
-                          <div class="q-caption">Pricing Exception</div>
+                          <div class="text-caption">Pricing Exception</div>
                           <q-chip class="custom_chip_progress" color="purple-9">1</q-chip>
                         </div>
                         <div class="col-md-4 q-my-xs">
-                          <div class="q-caption">Bank Subvention</div>
+                          <div class="text-caption">Bank Subvention</div>
                           <q-chip class="custom_chip_progress" color="purple-9">1</q-chip>
                         </div>
                       </div>
-                    </q-item-main>
+                    </q-item-section>
                   </q-item>
                 </q-list>
               </div>
@@ -99,34 +99,34 @@
                 <q-card class="border-radius-10 q-py-xs" color="purple-9">
                   <q-list>
                     <q-item>
-                      <q-item-side>
-                        <q-item-tile color="white">
-                          <div class="lg-q-display-1 sm-q-caption text-center">100</div>
-                          <div class="q-caption text-weight-light text-center">Total</div>
-                        </q-item-tile>
-                      </q-item-side>
-                      <q-item-main>
-                        <q-item-tile>
+                      <q-item-section>
+                        <q-item-label color="white">
+                          <div class="lg-q-display-1 sm-text-caption text-center">100</div>
+                          <div class="text-caption text-weight-light text-center">Total</div>
+                        </q-item-label>
+                      </q-item-section>
+                      <q-item-section>
+                        <q-item-label>
                           <div
-                            class="lg-q-title sm-q-caption text-weight-light text-center"
+                            class="lg-text-h6 sm-text-caption text-weight-light text-center"
                           >Implementation</div>
-                        </q-item-tile>
-                      </q-item-main>
+                        </q-item-label>
+                      </q-item-section>
                     </q-item>
                   </q-list>
                 </q-card>
                 <q-list>
                   <q-item>
-                    <q-item-main>
+                    <q-item-section>
                       <div class="row items-center">
                         <div class="col-md-6 q-my-xs">
-                          <div class="q-caption">Allocated/80</div>
+                          <div class="text-caption">Allocated/80</div>
                         </div>
                         <div class="col-md-6 q-my-xs">
-                          <div class="q-caption text-red">Unallocated/70</div>
+                          <div class="text-caption text-red">Unallocated/70</div>
                         </div>
                       </div>
-                    </q-item-main>
+                    </q-item-section>
                   </q-item>
                 </q-list>
               </div>
@@ -135,10 +135,10 @@
           <div class="row gutter-x-xs">
             <div class="col-lg-12">
               <q-card class="q-my-md q-px-md q-py-sm bg-grey-12 round-borders">
-                <q-card-title>
-                  <div class="q-subheading text-bold">Daily volume graphs</div>
-                  <div class="q-caption">01/01/18 to 01/12/18</div>
-                </q-card-title>
+                <q-card-section>
+                  <div class="text-subtitle1 text-bold">Daily volume graphs</div>
+                  <div class="text-caption">01/01/18 to 01/12/18</div>
+                </q-card-section>
                 <chartDailyVolume
                   :options="{responsive: false, maintainAspectRatio: false}"
                   :height="150"
@@ -147,10 +147,10 @@
               </q-card>
 
               <q-card class="q-my-md q-px-md q-py-sm bg-grey-12 round-borders">
-                <q-card-title>
-                  <div class="q-subheading text-bold">Merchant Tracker</div>
-                  <div class="q-caption">01/01/18 to 01/12/18</div>
-                </q-card-title>
+                <q-card-section>
+                  <div class="text-subtitle1 text-bold">Merchant Tracker</div>
+                  <div class="text-caption">01/01/18 to 01/12/18</div>
+                </q-card-section>
                 <chartMerchantTracker
                   :borderWidth="1"
                   :height="150"
@@ -165,55 +165,55 @@
           <div class="row gutter-sm">
             <div class="col-lg-5">
               <q-card class="q-pa-sm bg-orange border-radius-10" align="center">
-                <q-card-title>
-                  <div class="q-title text-white">150</div>
-                  <div class="q-caption text-white">Total</div>
-                </q-card-title>
-                <q-card-separator style="width:75px" class="bg-white"/>
-                <q-card-main class="q-py-md q-px-none">
+                <q-card-section>
+                  <div class="text-h6 text-white">150</div>
+                  <div class="text-caption text-white">Total</div>
+                </q-card-section>
+                <q-separator style="width:75px" class="bg-white"/>
+                <q-card-section class="q-py-md q-px-none">
                   <p
-                    class="md-q-subheading sm-q-caption text-faded text-white"
+                    class="md-text-subtitle1 sm-text-caption text-faded text-white"
                     align="center"
                   >Application Pending</p>
-                </q-card-main>
+                </q-card-section>
               </q-card>
             </div>
             <div class="col-lg-7">
               <div class="row lg-inline gutter-sm">
                 <div class="col-lg-12 col-sm-6">
                   <q-card class="bg-green border-radius-10" align="center">
-                    <q-card-main class="q-pa-md">
+                    <q-card-section class="q-pa-md">
                       <div class="row items-center justify-around">
                         <div
                           class="q-pa-sm"
                           style="border-right: 1px solid rgba(255, 255, 255, 0.5);"
                         >
-                          <div class="q-title text-white">150</div>
-                          <div class="q-caption text-white">Total</div>
+                          <div class="text-h6 text-white">150</div>
+                          <div class="text-caption text-white">Total</div>
                         </div>
                         <div class="q-pa-sm">
-                          <div class="md-q-subheading sm-q-caption text-white">NEW</div>
+                          <div class="md-text-subtitle1 sm-text-caption text-white">NEW</div>
                         </div>
                       </div>
-                    </q-card-main>
+                    </q-card-section>
                   </q-card>
                 </div>
                 <div class="col-lg-12 col-sm-6">
                   <q-card class="bg-blue-6 border-radius-10" align="center">
-                    <q-card-main class="q-pa-md">
+                    <q-card-section class="q-pa-md">
                       <div class="row items-center justify-around">
                         <div
                           class="q-pa-sm"
                           style="border-right: 1px solid rgba(255, 255, 255, 0.5);"
                         >
-                          <div class="q-title text-white">150</div>
-                          <div class="q-caption text-white">Total</div>
+                          <div class="text-h6 text-white">150</div>
+                          <div class="text-caption text-white">Total</div>
                         </div>
                         <div class="q-pa-sm">
-                          <div class="md-q-subheading sm-q-caption text-white">WIP</div>
+                          <div class="md-text-subtitle1 sm-text-caption text-white">WIP</div>
                         </div>
                       </div>
-                    </q-card-main>
+                    </q-card-section>
                   </q-card>
                 </div>
               </div>
@@ -222,7 +222,7 @@
 
           <div class="row gutter-sm items-center">
             <div class="col-md-12">
-              <div class="q-subheading q-pa-md">Aging Tracker
+              <div class="text-subtitle1 q-pa-md">Aging Tracker
                 <small class="text-warning">Pending</small>
               </div>
 
@@ -243,11 +243,11 @@
                   <q-chip
                     detail
                     :class="[agingTrackerPending.tabsModel === tab.name ? 'customTabActive text-light shadow-3' : 'bg-blue-grey-2 text-dark']"
-                    class="q-px-sm q-pa-sm q-caption text-weight-light capitalize"
+                    class="q-px-sm q-pa-sm text-caption text-weight-light capitalize"
                   >{{tab.tabTitle}}</q-chip>
                 </q-tab>
 
-                <q-tab-pane
+                <q-tab-panel
                   :name="tabPaneItem.name"
                   v-for="tabPaneItem in agingTrackerPending.tabItems"
                   :key="tabPaneItem.name"
@@ -261,21 +261,21 @@
                           v-for="tabItemDetail in tabPaneItem.tabItemDetails"
                           :key="tabItemDetail.title"
                         >
-                          <q-item-side left class="col-md-6 col-sm-12">
-                            <q-item-tile>
-                              <div class="q-caption">{{tabItemDetail.title}}</div>
-                            </q-item-tile>
-                            <q-item-tile>
-                              <div class="q-caption">Created on: {{tabItemDetail.created_date}}</div>
-                            </q-item-tile>
-                            <q-item-tile>
-                              <div class="q-caption">SO Name: {{tabItemDetail.so_name}}</div>
-                            </q-item-tile>
-                          </q-item-side>
-                          <q-item-main></q-item-main>
-                          <q-item-side right class="full-width float-right col-md-6 col-sm-12">
-                            <q-item-tile>
-                              <div class="q-caption">
+                          <q-item-section left class="col-md-6 col-sm-12">
+                            <q-item-label>
+                              <div class="text-caption">{{tabItemDetail.title}}</div>
+                            </q-item-label>
+                            <q-item-label>
+                              <div class="text-caption">Created on: {{tabItemDetail.created_date}}</div>
+                            </q-item-label>
+                            <q-item-label>
+                              <div class="text-caption">SO Name: {{tabItemDetail.so_name}}</div>
+                            </q-item-label>
+                          </q-item-section>
+                          <q-item-section></q-item-section>
+                          <q-item-section right class="full-width float-right col-md-6 col-sm-12">
+                            <q-item-label>
+                              <div class="text-caption">
                                 <span class="text-primary">
                                   <q-icon
                                     v-if="tabItemDetail.alert"
@@ -285,30 +285,30 @@
                                   />
                                 </span>
                               </div>
-                            </q-item-tile>
-                            <q-item-tile>
-                              <div class="q-caption">
+                            </q-item-label>
+                            <q-item-label>
+                              <div class="text-caption">
                                 <span class="text-primary">#{{tabItemDetail.tid}}</span>
                               </div>
-                            </q-item-tile>
-                            <q-item-tile>
-                              <div class="q-caption">
+                            </q-item-label>
+                            <q-item-label>
+                              <div class="text-caption">
                                 <span class="text-warning">{{tabItemDetail.status}}</span>
                               </div>
-                            </q-item-tile>
-                          </q-item-side>
+                            </q-item-label>
+                          </q-item-section>
                         </q-item>
                       </q-list>
                     </div>
                   </div>
-                </q-tab-pane>
+                </q-tab-panell>
               </q-tabs>
               <router-link to="/sat/aging/tracker/pending" class="text-grey-8">
                 <p>View more</p>
               </router-link>
             </div>
             <div class="col-md-12">
-              <div class="q-subheading q-pa-md">Aging Tracker
+              <div class="text-subtitle1 q-pa-md">Aging Tracker
                 <small class="text-negative">Rejected</small>
               </div>
               <q-tabs
@@ -328,11 +328,11 @@
                   <q-chip
                     detail
                     :class="[agingTrackerPending.tabsModel === tab.name ? 'customTabActive text-light shadow-3' : 'bg-blue-grey-2 text-dark']"
-                    class="q-px-sm q-pa-sm q-caption text-weight-light capitalize"
+                    class="q-px-sm q-pa-sm text-caption text-weight-light capitalize"
                   >{{tab.tabTitle}}</q-chip>
                 </q-tab>
 
-                <q-tab-pane
+                <q-tab-panel
                   :name="tabPaneItem.name"
                   v-for="tabPaneItem in agingTrackerPending.tabItems"
                   :key="tabPaneItem.name"
@@ -346,21 +346,21 @@
                           v-for="tabItemDetail in tabPaneItem.tabItemDetails"
                           :key="tabItemDetail.title"
                         >
-                          <q-item-side left class="col-md-6 col-sm-12">
-                            <q-item-tile>
-                              <div class="q-caption">{{tabItemDetail.title}}</div>
-                            </q-item-tile>
-                            <q-item-tile>
-                              <div class="q-caption">Created on: {{tabItemDetail.created_date}}</div>
-                            </q-item-tile>
-                            <q-item-tile>
-                              <div class="q-caption">SO Name: {{tabItemDetail.so_name}}</div>
-                            </q-item-tile>
-                          </q-item-side>
-                          <q-item-main></q-item-main>
-                          <q-item-side right class="full-width float-right col-md-6 col-sm-12">
-                            <q-item-tile>
-                              <div class="q-caption">
+                          <q-item-section left class="col-md-6 col-sm-12">
+                            <q-item-label>
+                              <div class="text-caption">{{tabItemDetail.title}}</div>
+                            </q-item-label>
+                            <q-item-label>
+                              <div class="text-caption">Created on: {{tabItemDetail.created_date}}</div>
+                            </q-item-label>
+                            <q-item-label>
+                              <div class="text-caption">SO Name: {{tabItemDetail.so_name}}</div>
+                            </q-item-label>
+                          </q-item-section>
+                          <q-item-section></q-item-section>
+                          <q-item-section right class="full-width float-right col-md-6 col-sm-12">
+                            <q-item-label>
+                              <div class="text-caption">
                                 <span class="text-primary">
                                   <q-icon
                                     v-if="tabItemDetail.alert"
@@ -370,23 +370,23 @@
                                   />
                                 </span>
                               </div>
-                            </q-item-tile>
-                            <q-item-tile>
-                              <div class="q-caption">
+                            </q-item-label>
+                            <q-item-label>
+                              <div class="text-caption">
                                 <span class="text-primary">#{{tabItemDetail.tid}}</span>
                               </div>
-                            </q-item-tile>
-                            <q-item-tile>
-                              <div class="q-caption">
+                            </q-item-label>
+                            <q-item-label>
+                              <div class="text-caption">
                                 <span class="text-warning">{{tabItemDetail.status}}</span>
                               </div>
-                            </q-item-tile>
-                          </q-item-side>
+                            </q-item-label>
+                          </q-item-section>
                         </q-item>
                       </q-list>
                     </div>
                   </div>
-                </q-tab-pane>
+                </q-tab-panell>
               </q-tabs>
               <router-link to="/sat/aging/tracker/pending" class="text-grey-8">
                 <p>View more</p>

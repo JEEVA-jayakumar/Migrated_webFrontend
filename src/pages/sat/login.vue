@@ -24,7 +24,7 @@
 
                     </div>
                     <div class="col-md-8">
-                        <q-datetime v-model="FormData.dob" placeholder="Select DOB" float-label="Select DOB"
+                        <q-input v-model="FormData.dob" placeholder="Select DOB" float-label="Select DOB"
                             @blur="$v.FormData.dob.$touch" :error="$v.FormData.dob.$error" />
 
                     </div>
@@ -65,7 +65,7 @@ import {
     alpha,
     alphaNum,
     numeric
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 export default {
     data() {
         return {

@@ -1,10 +1,11 @@
+import { api } from '../../boot/axios';
 import api from "../api.js";
 import Vue from "vue";
 export const FETCH_INSTANCE = ({
   commit,
   rootState
 }, request) => {
-  return Vue.http
+  return api
     .get( "vas-mapping/get-vas-instance-mapping/"+ request.code +"/"+request.device   
     ) 
     .then(response => {

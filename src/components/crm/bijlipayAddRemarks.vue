@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-modal v-model="toggleModal" class="q-mt-lg capitalize" @hide="emitToggleRemarks" @escape-key="emitToggleRemarks"
+    <q-dialog v-model="toggleModal" class="q-mt-lg capitalize" @hide="emitToggleRemarks" @escape-key="emitToggleRemarks"
       :content-css="{minWidth:'30vw',padding:'20px'}">
       <div class="row items-center bottom-border q-py-sm">
         <div class="col">Add Remarks</div>
@@ -11,7 +11,7 @@
       </div>
       <form>
         <div class="column group">
-          <div class="q-title"></div>
+          <div class="text-h6"></div>
           <div>
             <q-editor @blur="$v.formData.crmRemark.$touch" :error="$v.formData.crmRemark.$error" color="grey-9" v-model="formData.crmRemark" float-label="Remarks" placeholder="Add remarks"
               :toolbar="[
@@ -78,13 +78,13 @@
           <q-btn @click="fnsubmit(formData)" color="positive" icon="check" label="Save" />
         </div>
       </form>
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
     
 <script>
 import { mapGetters, mapActions } from "vuex";
-import { required } from "vuelidate/lib/validators";
+import { required } from "@vuelidate/validators";
 
 export default {
   name: "bijlipayAddRemarks",

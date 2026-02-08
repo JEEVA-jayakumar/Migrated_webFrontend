@@ -31,7 +31,7 @@
               class="vertical-middle"
             />
             <!-- Direct child of target -->
-            <q-popover
+            <q-menu
               class="shadow-8"
               anchor="bottom middle"
               self="top middle"
@@ -39,19 +39,19 @@
             >
               <q-list separator link class="no-padding">
                 <q-item v-close-overlay @click.native="openMyAccount()">
-                  <q-item-side icon="fas fa-user" inverted color="dark" />
-                  <q-item-main>
-                    <q-item-tile label>Change Password</q-item-tile>
-                  </q-item-main>
+                  <q-item-section icon="fas fa-user" inverted color="dark" />
+                  <q-item-section>
+                    <q-item-label label>Change Password</q-item-label>
+                  </q-item-section>
                 </q-item>
                 <q-item v-close-overlay @click.native="clearLocalStorageData()">
-                  <q-item-side icon="fas fa-sign-out-alt" inverted color="dark" />
-                  <q-item-main>
-                    <q-item-tile label>Logout</q-item-tile>
-                  </q-item-main>
+                  <q-item-section icon="fas fa-sign-out-alt" inverted color="dark" />
+                  <q-item-section>
+                    <q-item-label label>Logout</q-item-label>
+                  </q-item-section>
                 </q-item>
               </q-list>
-            </q-popover>
+            </q-menu>
           </q-btn>
         </div>
       </div>
@@ -62,7 +62,7 @@
       @propsToggleModal="openMyAccount"
     />
   </q-toolbar>
-<!-- </q-modal> -->
+<!-- </q-dialog> -->
 </template>
 <script>
 import { mapGetters, mapActions } from "vuex";

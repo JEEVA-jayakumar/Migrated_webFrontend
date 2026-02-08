@@ -2,11 +2,11 @@
     <div>
         <q-card dense class="q-pa-xs">
             <!--no-backdrop-dismiss no-esc-dismiss-->
-            <q-modal class="customModalOverlay" v-model="toggleModel"
+            <q-dialog class="customModalOverlay" v-model="toggleModel"
                 :content-css="{ padding: '100px', minWidth: '70vw' }">
                 <div
-                    class=" q-title q-px-lg q-py-md text-center justify-center text-weight-regular bottom-border text-grey-9 ">
-                    <div class="col q-title">Base-Tid Configurations</div>
+                    class=" text-h6 q-px-lg q-py-md text-center justify-center text-weight-regular bottom-border text-grey-9 ">
+                    <div class="col text-h6">Base-Tid Configurations</div>
                     <div align="right">
                         <q-btn round @click="goToValidationPage()" outline color="dark" icon="clear" />
                     </div>
@@ -24,8 +24,8 @@
                                     <q-btn type="button" color="green" @click="getSubTidConfOrCreateSubTids()">Generate
                                         Sub-Tid</q-btn>
                                 </q-card-subtitle>
-                                <q-card-separator style="width:100%" />
-                                <q-collapsible icon="explore" :label="menu.baseTidList.tid" class="col-auto q-ma-xs"
+                                <q-separator style="width:100%" />
+                                <q-expansion-item icon="explore" :label="menu.baseTidList.tid" class="col-auto q-ma-xs"
                                     flat v-for="menu in this.baseAndSubTidList" :key="menu.id" :to="menu.to" opened
                                     separator>
                                     <q-card flat>
@@ -45,7 +45,7 @@
                                             </tr>
                                         </table>
                                     </q-card>
-                                </q-collapsible>
+                                </q-expansion-item>
                             </q-card>
                         </div>
                     </div>
@@ -60,21 +60,21 @@
                                 <q-card-subtitle class="text-weight-bold text-grey-9 row q-px-md q-py-md items-center">
                                     <span class="col">List All Sub TID Details </span>
                                 </q-card-subtitle>
-                                <q-card-separator style="width:100%" />
+                                <q-separator style="width:100%" />
                                 <q-table  table-class="customTableClass" class="payment_verification_table capitalize"
                                     table-style="word-break: break-all" :data="listAllSubTidDetails" :columns="columns"
                                     row-key="name" :rows-per-page-options="[1, 3, 5, 7, 9, 12, 15]">
-                                    <q-tr slot="top-row" slot-scope="props">
+                                    <q-tr v-slot:top-row="props">
                                         <q-th v-for="col in props.columns" :key="col.name" :props="props">{{ col.label
                                         }}
                                         </q-th>
                                     </q-tr>
-                                    <q-td slot="body-cell-baseTid" slot-scope="props" :props="props">
+                                    <q-td v-slot:body-cell-baseTid="props" :props="props">
                                         <span class="label text-primary">{{ props.row.baseTid == null ? "NA" :
                                                 props.row.baseTid
                                         }}</span>
                                     </q-td>
-                                    <q-td slot="body-cell-action" slot-scope="props" :props="props">
+                                    <q-td v-slot:body-cell-action="props" :props="props">
                                         <!-- v-if="props.row.upiEnabled != true" -->
                                         <q-btn   highlight push class="q-mx-sm" color="positive" size="sm"
                                             @click="finalFormSubmit(props.row)" :disabled="props.row.submittedToMars">
@@ -93,7 +93,7 @@
                         </div>
                     </div>
                 </div>
-            </q-modal>
+            </q-dialog>
         </q-card>
         <multiTidPaymentMode v-if="showRejectPaymentMode" :showRejectPaymentMode="showRejectPaymentMode"
             :propShowRejectComponent="propsRejectAppend"  @closeRejectModel="finalFormSubmit">
@@ -128,7 +128,7 @@ import {
     minValue,
     decimal
 }
-    from "vuelidate/lib/validators";
+    from "@vuelidate/validators";
 Vue.use(Vuelidate);
 import { date } from "quasar";
 import moment from "moment";
@@ -140,7 +140,7 @@ import Vue from "vue";
 import viewLeadDocumentsDataEntryComponent from "./viewLeadDocumentsDataEntryComponent.vue";
 // import MarsErrorResponse from "../MarsErrorResponseHandler.vue";
 
-import { helpers } from "vuelidate/lib/validators";
+import { helpers } from "@vuelidate/validators";
 const today = new Date()
 const { startOfDate, addToDate, subtractFromDate } = date;
 const panCard = helpers.regex(

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-modal
+    <q-dialog
       minimized
       v-model="propToggleModal"
       @hide="toggleModal"
@@ -11,13 +11,13 @@
       <form>
         <div class="row gutter-sm q-py-sm items-center">
           <div class="col-md-12">
-            <div class="q-title text-weight-regular">Add Lead Source</div>
+            <div class="text-h6 text-weight-regular">Add Lead Source</div>
           </div>
         </div>
         <q-card style="width:100%">
-          <q-card-separator />
+          <q-separator />
           <q-item>
-            <q-item-main>
+            <q-item-section>
               <q-input
               v-model="formData.sourceName"
               @blur="$v.formData.sourceName.$touch"
@@ -28,10 +28,10 @@
               placeholder="Lead Source"
               @keyup.enter="submitLeadSourceData(formData)"
             />
-            </q-item-main>
+            </q-item-section>
           </q-item>
           <q-item>
-            <q-item-main>
+            <q-item-section>
               <q-input
               v-model="formData.sourceCode"
               @blur="$v.formData.sourceCode.$touch"
@@ -43,11 +43,11 @@
               @keyup.enter="submitLeadSourceData(formData)"
               
             />
-            </q-item-main>
+            </q-item-section>
           </q-item>
           <q-item>
-            <q-item-main>
-              <p class="q-caption">Multi-TID</p>
+            <q-item-section>
+              <p class="text-caption">Multi-TID</p>
               <q-radio
                     :error="$v.formData.multiTidEnabled.$error"
                     v-for="(item, index) in multiTidFlagOptions"
@@ -57,10 +57,10 @@
                     :val="item.value"
                     :label="item.label"
                   />
-            </q-item-main>
+            </q-item-section>
           </q-item>
           <!-- <q-item>
-            <q-item-main>
+            <q-item-section>
               <q-input
               v-model="formData.baseTidMidPrefix"
               @blur="$v.formData.baseTidMidPrefix.$touch"
@@ -71,8 +71,8 @@
               placeholder="Tid/Mid Prefix"
               @keyup.enter="submitLeadSourceData(formData)"
             />
-            </q-item-main>
-             <q-item-side right>
+            </q-item-section>
+             <q-item-section right>
                 <q-btn
                   round
                   dense
@@ -83,7 +83,7 @@
                   icon="add"
                   class="no-margin"
                 />
-              </q-item-side>
+              </q-item-section>
           </q-item> -->
           </q-card>
         <div class="row gutter-sm q-py-sm items-center">
@@ -98,7 +98,7 @@
           </div>
         </div>
       </form>
-    </q-modal>
+    </q-dialog>
       <!--START: Show Prefix details -->
       <!-- <showPrefixDetails
           v-if="showAddPrefixModal"
@@ -110,7 +110,7 @@
 </template>
 
 <script>
-import { integer, required,minLength,maxLength} from "vuelidate/lib/validators";
+import { integer, required,minLength,maxLength} from "@vuelidate/validators";
 // import showPrefixDetails from "../../components/super_admin/addPrefixDetails.vue";
 import { mapGetters, mapActions } from "vuex";
 export default {

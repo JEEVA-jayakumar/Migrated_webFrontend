@@ -1,4 +1,4 @@
-import { req } from 'vuelidate/lib/validators/common.js';
+import { req } from '@vuelidate/validators.js';
 import api from '../api.js';
 export const FETCH_PHONEPE_CLIENT_CRM = ({
   commit

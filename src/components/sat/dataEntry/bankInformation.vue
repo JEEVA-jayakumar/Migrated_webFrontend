@@ -2,7 +2,7 @@
   <div>
     <div class="row q-mb-md gutter-sm items-center">
       <div class="col-md-12">
-        <div class="q-title">Merchant Bank Details</div>
+        <div class="text-h6">Merchant Bank Details</div>
       </div>
       <div class="col-md-6 col-sm-12 col-xs-12">
         <q-input
@@ -150,7 +150,7 @@
     </div>
     <div class="row gutter-sm items-center">
       <div class="col-md-12">
-        <div class="q-title">Payment Collection Details</div>
+        <div class="text-h6">Payment Collection Details</div>
       </div>
       <div v-show="propLeadDeatils.paymentOption == 1" class="col-md-12">
         <div class="row">
@@ -179,7 +179,7 @@
             />
           </div>
           <div class="col-md-4 col-sm-12">
-            <q-datetime
+            <q-input
               format="DD/MM/YYYY"
               format-model="number"
               color="grey-9"
@@ -216,7 +216,7 @@
             />
           </div>
           <div class="col-md-3 col-sm-12">
-            <q-datetime
+            <q-input
               format="DD/MM/YYYY"
               format-model="number"
               color="grey-9"
@@ -229,7 +229,7 @@
             />
           </div>
           <div class="col-md-3 col-sm-12 col-xs-12">
-            <q-datetime
+            <q-input
               format="DD/MM/YYYY"
               format-model="number"
               color="grey-9"
@@ -293,7 +293,7 @@ import {
   minValue,
   decimal,
   between
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 export default {
   // name: 'ComponentName',
   props: ["cityOptions", "stateOptions", "propLeadDeatils", "bankInformation"],

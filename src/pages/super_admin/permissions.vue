@@ -3,15 +3,15 @@
     <!-- content -->
     <div>
       <!-- <pre>{{getAllHierarchiesData}}</pre> -->
-      <q-table :data="getAllPermissionData" table-class="customSATableClass" :columns="columns" :filter="filterSearch" :pagination.sync="paginationControl" :filter-method="myCustomSearchFilter" row-key="name" color="grey-9">
+      <q-table v-model:data="getAllPermissionData" table-class="customSATableClass" :columns="columns" :filter="filterSearch" :pagination="paginationControl" :filter-method="myCustomSearchFilter" row-key="name" color="grey-9">
 
-        <q-td slot="body-cell-Permission" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-Permission="props" :props="props">
           {{props.row.label}}
         </q-td>
-        <q-td slot="body-cell-PermissionCode" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-PermissionCode="props" :props="props">
           {{props.row.shortCode}}
         </q-td>
-        <q-td slot="body-cell-action" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-action="props" :props="props">
           <div class="row no-wrap no-padding">
             <q-btn dense no-caps no-wrap label="Modify" icon="far fa-plus-square" size="md" @click="fnShowEditPermission(props.row)" flat class="text-light-blue">
             </q-btn>
@@ -20,10 +20,10 @@
           </div>
         </q-td>
 
-        <template slot="top" slot-scope="props">
+        <template v-slot:top="props">
   
             <!--START: table title -->
-            <div class="col-12 q-title q-my-lg text-weight-regular">Permissions</div>
+            <div class="col-12 text-h6 q-my-lg text-weight-regular">Permissions</div>
 
             <!-- <div class="col-md-6 q-my-md" align="right">
               <q-btn no-caps no-wrap label="Add New Permission" class="q-mt-lg text-weight-regular" color="purple-9"  icon="far fa-plus-square" size="md" @click="fnshowCreatePermission()"/>
@@ -32,7 +32,7 @@
 
             <!--START: table filter,search -->
             <div class="col-md-6">
-              <q-search
+              <q-input
                 clearable
                 color="grey-9"
                 v-model="filterSearch"

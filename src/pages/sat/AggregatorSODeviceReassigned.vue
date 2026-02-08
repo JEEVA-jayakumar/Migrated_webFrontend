@@ -1,9 +1,9 @@
 <template>
   <q-page>
     <!-- <div
-          class="col-md-12 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
+          class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
         >REQUEST DEVICE REASSIGNED LIST</div> -->
-    <!-- <generalLeadInformation v-if="propToggleLeadInformation" :leadInformation="addtnLeadInformation"
+    <!-- <generalLeadInformation v-if="propToggleLeadInformation" v-model:leadInformation="addtnLeadInformation"
           :propToggleLeadInformationPop="propToggleLeadInformation" @closeLeadInformation="toggleLeadInformation" /> -->
     <!-- content -->
     <!--START: table lead validation -->
@@ -12,23 +12,23 @@
       :data="tableData"
       :columns="columns"
       :filter="filter"
-      :pagination.sync="paginationControl"
+      :pagination="paginationControl"
       row-key="name"
       :loading="toggleAjaxLoadFilter"
       :rows-per-page-options="[5, 10, 15, 20]"
       @request="ajaxLoadAllLeadInfo"
     >
       <!--START: table header -->
-      <q-td slot="body-cell-soName" slot-scope="props" :props="props">{{
+      <q-td v-slot:body-cell-soName="props" :props="props">{{
         props.row.soName == null ? "NA" : props.row.soName
       }}</q-td>
 
-      <!-- <q-td slot="body-cell-deviceStatusDate" slot-scope="props" :props="props">
+      <!-- <q-td v-slot:body-cell-deviceStatusDate="props" :props="props">
         <span class="label">{{
           props.row.deviceStatusDate | moment("Do MMM Y")
         }}</span>
       </q-td>   -->
-      <q-td slot="body-cell-action" slot-scope="props" :props="props">
+      <q-td v-slot:body-cell-action="props" :props="props">
         <q-btn
           v-if="props.row.status == 0"
           highlight
@@ -60,7 +60,7 @@
       </q-td>
       <template slot="top" class="bottom-border">
         <div class="col-5">
-          <q-search
+          <q-input
             clearable
             v-model="filter"
             separator

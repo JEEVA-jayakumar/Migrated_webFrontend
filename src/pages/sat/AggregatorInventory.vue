@@ -23,36 +23,36 @@
               <q-tab name="AggregatorAllocateSotoso" label="Allocate SO to SO" slot="title" />
               <q-tab name="RequestSOList" label="REQUEST" slot="title" />
   
-              <q-tab-pane name="Aggregatorspare">
+              <q-tab-panel name="Aggregatorspare">
                 <AggregatorsInventoryspareParts/>
-              </q-tab-pane>
+              </q-tab-panell>
 
-              <q-tab-pane name="Aggregatorcount">
+              <q-tab-panel name="Aggregatorcount">
                 <AggregatorinventoryCount  />
-              </q-tab-pane>
+              </q-tab-panell>
   
-              <q-tab-pane name="AggregatorDispatch">
+              <q-tab-panel name="AggregatorDispatch">
                 <AggregatorDispatchedInventory
                 />
-              </q-tab-pane>
-              <q-tab-pane name="AggregatorDamagedDevices">
+              </q-tab-panell>
+              <q-tab-panel name="AggregatorDamagedDevices">
               <AggregatorshowAddDamagedDevices
                 :propDeviceTypes="getAllRegionalInventoryDeviceDetailsWithCount"
               />
-            </q-tab-pane>
+            </q-tab-panell>
   
-              <q-tab-pane name="AggregatorAllocatetoso">
+              <q-tab-panel name="AggregatorAllocatetoso">
                 <AggregatorInventoryallocatetoso />
-              </q-tab-pane>
-              <q-tab-pane name="AggregatorAllocateSotoso">
+              </q-tab-panell>
+              <q-tab-panel name="AggregatorAllocateSotoso">
                 <AggregatorSOtoso />
-              </q-tab-pane>
-              <q-tab-pane name="AggregatorInventoryWithSo">
+              </q-tab-panell>
+              <q-tab-panel name="AggregatorInventoryWithSo">
                   <AggregatorInventoryWithSo />
-              </q-tab-pane>
-              <q-tab-pane name="RequestSOList">
+              </q-tab-panell>
+              <q-tab-panel name="RequestSOList">
                 <AggregatorSODeviceReassigned />
-              </q-tab-pane>
+              </q-tab-panell>
             </q-tabs>
           </div>
         </div>

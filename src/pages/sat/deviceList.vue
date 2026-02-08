@@ -1,9 +1,9 @@
 <template>
   <q-page>
     <div>
-      <!--START: table title -->
+      <!--STARTv-model: table title -->
       <div
-        class="col-md-6 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
+        class="col-md-6 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
       >Merchant Tracker - TID</div>
       <!--END: table title -->
 
@@ -13,28 +13,26 @@
         :data="tableData"
         :columns="columns"
         :filter="filter"
-        :pagination.sync="paginationControl"
+        :pagination="paginationControl"
         row-key="name"
       >
-        <q-td slot="body-cell-tid" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-tid="props" :props="props">
           <span class="label text-primary"># {{props.row.tid}}</span>
         </q-td>
-        <q-td slot="body-cell-mid" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-mid="props" :props="props">
           <span class="label text-primary"># {{props.row.mid}}</span>
         </q-td>
         <q-td
-          slot="body-cell-transaction_amount"
-          slot-scope="props"
+          v-slot:body-cell-transaction_amount="props"
           :props="props"
         >Rs. {{props.row.transaction_amount}}</q-td>
-        <q-td slot="body-cell-gst" slot-scope="props" :props="props">Rs. {{props.row.gst}}</q-td>
+        <q-td v-slot:body-cell-gst="props" :props="props">Rs. {{props.row.gst}}</q-td>
         <q-td
-          slot="body-cell-net_amount"
-          slot-scope="props"
+          v-slot:body-cell-net_amount="props"
           :props="props"
         >Rs. {{props.row.net_amount}}</q-td>
-        <q-td slot="body-cell-mdr" slot-scope="props" :props="props">Rs. {{props.row.mdr}}</q-td>
-        <template slot="top" slot-scope="props">
+        <q-td v-slot:body-cell-mdr="props" :props="props">Rs. {{props.row.mdr}}</q-td>
+        <template v-slot:top="props">
           <!--START: table fullscreen mode -->
           <!-- <div class="col-md-4" align="right">
                   <q-btn
@@ -49,7 +47,7 @@
 
           <!--START: table search -->
           <div class="col-md-5">
-            <q-search
+            <q-input
               clearable
               v-model="filter"
               separator

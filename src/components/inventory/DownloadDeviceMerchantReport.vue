@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-modal
+    <q-dialog
       minimized no-backdrop-dismiss v-model="toggleModel"
       :content-css="{padding:'30px',minWidth: '40vw'}"
     > 
@@ -9,13 +9,13 @@
       <form>
         <div class="column group">
           <div class="col-md-12">
-            <div class="q-title text-weight-regular"><p align="center"><strong>Download Device Merchant File</strong></p></div>
+            <div class="text-h6 text-weight-regular"><p align="center"><strong>Download Device Merchant File</strong></p></div>
           </div>
           <div class="col-md-12">
-             <q-datetime hide-underline class="q-mr-lg q-py-sm" v-model="formData.from" :min="yesterday" :max="tomorrow" type="date" float-label='From Date' />  
+             <q-input hide-underline class="q-mr-lg q-py-sm" v-model="formData.from" :min="yesterday" :max="tomorrow" type="date" float-label='From Date' />
           </div>
         <div class="col-md-12">
-           <q-datetime hide-underline class="q-mr-lg q-py-sm" v-model="formData.to" :min="yesterday" :max="tomorrow" type="date" float-label='To Date' /> 
+           <q-input hide-underline class="q-mr-lg q-py-sm" v-model="formData.to" :min="yesterday" :max="tomorrow" type="date" float-label='To Date' />
            </div>
         <div class="col-md-12 group" align="right">
             <q-btn
@@ -29,7 +29,7 @@
           <!-- :disabled="submitDisabled" -->
         </div>
       </form>
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 
@@ -46,7 +46,7 @@ import {
   alphaNum,
   numeric,
   sameAs
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 Vue.use(Vuelidate);
 import { date } from "quasar";
 const today = new Date();

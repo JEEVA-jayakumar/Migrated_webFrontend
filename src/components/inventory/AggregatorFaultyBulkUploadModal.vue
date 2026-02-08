@@ -1,6 +1,6 @@
 <template>
     <div>
-      <q-modal
+      <q-dialog
         minimized
         v-model="toggleModal"
         @hide="emitToggleinventoryBulkUpload(toggleModal)"
@@ -10,7 +10,7 @@
         <div class="q-pa-md">
           <div class="column text-center justify-center">
             <div class="col-md-12 q-py-sm bottom-border">
-              <div class="q-title text-grey-9">Aggregator Faulty Devices - Bulk Upload</div>
+              <div class="text-h6 text-grey-9">Aggregator Faulty Devices - Bulk Upload</div>
             </div>
             <div class="col-md-8 q-py-md" align="left">
               <q-select
@@ -53,18 +53,18 @@
               </div>
               <div v-else align="left">
                 <q-card dense class="q-pa-xs">
-                  <q-card-title>Uploaded File</q-card-title>
-                  <q-card-separator />
-                  <q-card-main>
+                  <q-card-section>Uploaded File</q-card-section>
+                  <q-separator />
+                  <q-card-section>
                     <q-item dense>
-                      <q-item-side icon="attach_file" />
-                      <q-item-main>{{
+                      <q-item-section icon="attach_file" />
+                      <q-item-section>{{
                         formData.fileSelected[0].name || ""
-                      }}</q-item-main>
-                      <q-item-side></q-item-side>
+                      }}</q-item-section>
+                      <q-item-section></q-item-section>
                     </q-item>
-                  </q-card-main>
-                  <q-card-separator />
+                  </q-card-section>
+                  <q-separator />
                   <q-card-actions align="end">
                     <q-btn
                       outline
@@ -93,12 +93,12 @@
             </div>
           </div>
         </div>
-      </q-modal>
+      </q-dialog>
     </div>
   </template>
   <script>
   import Vue from "vue";
-  import { required, requiredIf } from "vuelidate/lib/validators";
+  import { required, requiredIf } from "@vuelidate/validators";
   import { mapGetters, mapActions } from "vuex";
   export default {
     props: ["propBulkUpload", "propAllDevicestypes"],

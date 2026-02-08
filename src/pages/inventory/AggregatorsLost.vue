@@ -1,8 +1,8 @@
 <template>
   <q-page>
     <div>
-      <!--START: table title -->
-      <div class="col-md-12 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9">
+      <!--STARTv-model: table title -->
+      <div class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9">
         Aggregator Lost Or Stolen Devices
       </div>
       <!--END: table title -->
@@ -20,16 +20,16 @@
         <!-- content -->
         <!--START: table lead validation -->
         <q-table table-class="customTableClass" :columns="columns" :data="tableData" color="grey-9"
-          :filter="filterSearch" :pagination.sync="paginationControl" :rows-per-page-options="[5, 10, 15, 20, 25]"
+          :filter="filterSearch" :pagination="paginationControl" :rows-per-page-options="[5, 10, 15, 20, 25]"
           :loading="toggleAjaxLoadFilter" @request="ajaxLoadAllLeadInfo">
-          <q-td slot="body-cell-updated_at" slot-scope="props" :props="props">{{
+          <q-td v-slot:body-cell-updated_at="props" :props="props">{{
             props.row.updatedAt == null ? "NA" :
               props.row.updatedAt | moment("Do MMM Y")
           }}</q-td>
           <template slot="top">
             <!--START: table filter,search -->
             <div class="col-md-5">
-              <q-search clearable color="grey-9" v-model="filterSearch" placeholder="Type.."
+              <q-input clearable color="grey-9" v-model="filterSearch" placeholder="Type.."
                 float-label="Search Using Device Serial Number" class="q-mr-lg q-py-sm" />
             </div>
             <div class="col-md-5">

@@ -5,7 +5,7 @@
     <div>
       <div class="row q-px-md q-py-md items-center">
         <!--START: table title -->
-        <div class=" col-6 col-sm-4 col-md-8 q-title text-weight-regular text-grey-9 ">
+        <div class=" col-6 col-sm-4 col-md-8 text-h6 text-weight-regular text-grey-9 ">
         </div>
       </div>
 
@@ -24,25 +24,25 @@
               <label>{{ menu.value.spare_parts_types }}</label>
               <input :id="menu.value.id + '_IP'" type="number" min="1" max="5000" @blur="getAllCounts($event, menu)" />
               <!-- <q-btn type="button" align="center" size="sm" color="purple">Save</q-btn> &nbsp;&nbsp;&nbsp; -->
-              <q-btn type="button" align="center" size="sm" color="purple" :disable="dis()" @click="fnSubmit(formData)">Submit</q-btn>
+              <q-btn type="button" align="center" size="sm" color="purple" v-model:disable="dis()" @click="fnSubmit(formData)">Submit</q-btn>
             </div>
           </div>
         </div>
       </div>
       <!-- onfocus="clearInput($event)"-->
-      <div class="col-md-12 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9">
+      <div class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9">
         <!--START: table title -->
         <div class="
             col-6 col-sm-4 col-md-8
-            q-title
+            text-h6
             text-weight-regular text-grey-9
           ">
           Stock List
         </div>
         <q-table :data="tableData" table-class="customSATableClass" :columns="columns"
-          :pagination.sync="paginationControl" row-key="name" color="grey-9">
-          <q-td slot="body-cell-created_date" slot-scope="props" :props="props">{{ props.row.created_date | moment("Do MMM Y") }}</q-td>
-          <q-td slot="body-cell-updated_date" slot-scope="props" :props="props">{{ props.row.updated_date | moment("Do MMM Y") }}</q-td>
+          :pagination="paginationControl" row-key="name" color="grey-9">
+          <q-td v-slot:body-cell-created_date="props" :props="props">{{ props.row.created_date | moment("Do MMM Y") }}</q-td>
+          <q-td v-slot:body-cell-updated_date="props" :props="props">{{ props.row.updated_date | moment("Do MMM Y") }}</q-td>
         </q-table>
       </div>
     </div>

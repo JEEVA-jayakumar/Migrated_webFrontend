@@ -3,7 +3,7 @@
     <div>
       <!--START: table title -->
       <div
-        class="q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
+        class="text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
       >Lead Allocation</div>
       <!--END: table title -->
       <div class="q-px-lg text-weight-regular text-grey-8">
@@ -288,9 +288,9 @@
         </div>
       </div>
     </div>
-    <q-modal v-model="showPreviewDialog" minimized>
+    <q-dialog v-model="showPreviewDialog" minimized>
       <q-card style="max-width: 900px; width: 100%;">
-          <q-card-title>
+          <q-card-section>
             <q-btn
               icon="close"
               flat
@@ -299,9 +299,9 @@
               class="absolute-top-right q-ma-sm"  
               @click="showPreviewDialog = false"
             />
-          </q-card-title>
-        <q-card-separator />
-        <q-card-main style="max-height: 70vh; overflow:auto;">
+          </q-card-section>
+        <q-separator />
+        <q-card-section style="max-height: 70vh; overflow:auto;">
             <!-- IMAGE-->
             <viewer v-if="!isPdf" :images="[previewUrl]">
               <img :src="previewUrl" style="width:100%" />
@@ -314,9 +314,9 @@
               height="600"
               frameborder="0"
             ></iframe>
-        </q-card-main>
+        </q-card-section>
       </q-card>
-    </q-modal>
+    </q-dialog>
   </q-page>
 </template>
 
@@ -328,7 +328,7 @@ import {
   maxValue,
   minValue,
   alphaNum,
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 
 export default {

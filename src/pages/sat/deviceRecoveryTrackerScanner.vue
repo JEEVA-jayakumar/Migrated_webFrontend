@@ -3,11 +3,11 @@
     <!-- content -->
     <div>
       <div class="row bottom-border q-px-md q-py-md items-center">
-        <!--START: table title -->
+        <!--STARTv-model: table title -->
         <div
-          class="col-md-8 q-title text-weight-regular text-grey-9"
+          class="col-md-8 text-h6 text-weight-regular text-grey-9"
         >Device Recovery Tracker - Inventory</div>
-        <div class="col-md-4 q-title text-weight-regular text-grey-9" align="right">
+        <div class="col-md-4 text-h6 text-weight-regular text-grey-9" align="right">
           <q-btn
             @click="openScannerComp"
             v-if="!scannerToggleOption"
@@ -32,12 +32,12 @@
         :columns="columnData"
         table-class="customTableClass shadow-0"
         :filter="filterSearch"
-        :pagination.sync="paginationControl"
+        :pagination="paginationControl"
         row-key="index"
         :loading="tableAjaxLoading"
         color="light-blue"
       >
-        <q-td slot="body-cell-action" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-action="props" :props="props">
           <q-btn
             @click="removeScannedItems(props.row)"
             label="Remove"
@@ -47,10 +47,10 @@
           />
         </q-td>
 
-        <template slot="top" slot-scope="props">
+        <template v-slot:top="props">
           <!--START: table filter,search -->
           <div class="col-md-5">
-            <q-search
+            <q-input
               clearable
               color="grey-9"
               v-model="filterSearch"

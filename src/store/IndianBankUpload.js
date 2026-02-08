@@ -1,3 +1,4 @@
+import { api } from '../boot/axios';
 import Vue from "vue"
 import api from "./api.js";
 
@@ -109,7 +110,7 @@ const IndianBankUpload = {
       //   commit,
       //   rootState
       // }, request) {
-      //   return Vue.http
+      //   return api
       //     .post(rootState.GlobalVariables.INVENTORY_BULKFILEUPLOADURL, request.file, {
       //       headers: {
       //         "Content-Type": 'multipart/form-data',
@@ -126,7 +127,7 @@ const IndianBankUpload = {
       commit,
       rootState
     }, request) {
-      return Vue.http
+      return api
         .post(rootState.GlobalVariables.INVENTORY_BULKFILEUPLOADURL + '/' + request.device_type, request.file, {
           headers: {
             "Content-Type": 'multipart/form-data',
@@ -145,7 +146,7 @@ const IndianBankUpload = {
       commit,
       rootState
     }, request) {
-      return Vue.http
+      return api
         .post(rootState.GlobalVariables.SAT_HITACHIONBOARINGFILEUPLOADURL,request.file, {
           headers: {
             "Content-Type": 'multipart/form-data',
@@ -164,7 +165,7 @@ const IndianBankUpload = {
       commit,
       rootState
     }, request) {
-      return Vue.http
+      return api
         .put(rootState.GlobalVariables.INVENTORY_BULKFILEUPLOADURL_SENDTOREPAIR, request.file, {
           headers: {
             "Content-Type": 'multipart/form-data',
@@ -180,7 +181,7 @@ const IndianBankUpload = {
       commit,
       rootState
     }, request) {
-      return Vue.http
+      return api
         .put(rootState.GlobalVariables.INVENTORY_BULKFILEUPLOADURL_MOVEDTOSCRAP, request.file, {
           headers: {
             "Content-Type": 'multipart/form-data',

@@ -4,7 +4,7 @@
     <div>
       <div class="row bottom-border q-px-md q-py-md items-center">
         <!--START: table title -->
-        <div class="col-6 col-md-6 q-title text-weight-regular text-grey-9">Aggregator Faulty Inventory</div>
+        <div class="col-6 col-md-6 text-h6 text-weight-regular text-grey-9">Aggregator Faulty Inventory</div>
         <div class="col-6 col-md-6" align="right">
           <q-btn icon="attach_file" @click="bulkUploadFaultyDevices" outline color="dark" label="Bulk upload" />
         </div>
@@ -38,7 +38,7 @@
         </div>
         <div class="row bottom-border q-px-md q-py-md items-center text-weight-regular text-grey-9">
           <div class="col-12 group" align="right">
-            <q-btn :disabled="disabledButton" class="q-py-xs" icon="build" outline color="amber-9"
+            <q-btn v-model:disabled="disabledButton" class="q-py-xs" icon="build" outline color="amber-9"
               label="Send to repair" @click="fnFinalFaultySubmit(1)" />
 
             <q-btn :disabled="disabledButton" class="q-py-xs" icon="check" outline color="positive"
@@ -48,11 +48,11 @@
         </div>
         <!--START: table lead validation -->
         <q-table row-key="name" :filter="filter" :data="tableData" class="q-py-none" :columns="columns"
-          title="Lead Validation" table-class="customTableClass" :pagination.sync="paginationControl">
+          title="Lead Validation" table-class="customTableClass" :pagination="paginationControl">
           <!--START: table body modification -->
-          <q-td slot="body-cell-deviceType" slot-scope="props" :props="props">{{ props.row.device.name }}</q-td>
-          <q-td slot="body-cell-serialNumber" slot-scope="props" :props="props">{{ props.row.serialNumber }}</q-td>
-          <q-td slot="body-cell-status" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-deviceType="props" :props="props">{{ props.row.device.name }}</q-td>
+          <q-td v-slot:body-cell-serialNumber="props" :props="props">{{ props.row.serialNumber }}</q-td>
+          <q-td v-slot:body-cell-status="props" :props="props">
             <q-btn flat v-if="props.row.status == true" icon="check" color="positive" />
             <q-btn flat v-else-if="props.row.status == false" icon="clear" color="negative" />
             <q-btn flat color="amber-9" v-else icon="warning" />
@@ -61,7 +61,7 @@
           <template slot="top" class="bottom-border">
             <!--START: table filter,search -->
             <div class="col-md-5">
-              <q-search clearable color="grey-9" v-model="filter" placeholder="Type.."
+              <q-input clearable color="grey-9" v-model="filter" placeholder="Type.."
                 float-label="Search by SO name, Merchant Name, Lead ID" class="q-mr-lg q-py-sm" />
             </div>
             <!--END: table filter,search -->

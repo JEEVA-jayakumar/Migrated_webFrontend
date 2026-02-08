@@ -4,19 +4,19 @@
       <q-tabs v-model="activeTab" class="shadow-1" color="grey-1" >
         <q-tab @select="ajaxSpareData" default color="dark" name="tab-1" slot="title" label="Active Service Request" />
         <q-tab  color="dark" name="tab-2" slot="title" label="Deactive Service Request" />
-        <q-tab-pane name="tab-1">
+        <q-tab-panel name="tab-1">
           <q-table 
-          :data="ActivetableData" 
+          v-model:data="ActivetableData"
           table-class="customSATableClass" 
           :columns="columns2" 
           :filter="filterSearch"
-          :pagination.sync="paginationControl" 
+          :pagination="paginationControl"
           :filter-method="myCustomSearchFilter1" 
           row-key="name" 
           color="grey-9"
           >
 
-          <q-td slot="body-cell-action" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-action="props" :props="props">
               <div class="row no-wrap no-padding">
                  <q-btn dense no-caps no-wrap label="Modify" icon="far fa-plus-square" size="md"
                   @click="fnShowEditServiceType(props.row)" flat class="text-light-blue"></q-btn>
@@ -25,14 +25,14 @@
               </div>
             </q-td>
 
-            <q-td slot="body-cell-serviceReqIssueTypeSets" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-serviceReqIssueTypeSets="props" :props="props">
               <div class="row no-wrap group" v-for="menu in props.row.serviceReqIssueTypeSets" >
                 <q-chip color="light" class="text-dark">
                   {{ menu.serviceReqIssueType.name}}
                 </q-chip>
               </div>
             </q-td>
-            <q-td slot="body-cell-serviceRequestStatusSets" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-serviceRequestStatusSets="props" :props="props">
               <div class="row no-wrap group" v-for="menu in props.row.serviceRequestStatusSets" >
                 <q-chip color="light" class="text-dark">
                   {{ menu.serviceRequestStatus != null ? menu.serviceRequestStatus.name : "NA" }}
@@ -40,9 +40,9 @@
               </div>
             </q-td>
             
-            <template slot="top" slot-scope="props">
+            <template v-slot:top="props">
               <!-- <div class="col-3">
-                <q-search clearable color="grey-9" v-model="filterSearch" placeholder="Type.." class="q-mr-lg" />
+                <q-input clearable color="grey-9" v-model="filterSearch" placeholder="Type.." class="q-mr-lg" />
               </div> -->
               <div class="col-7" align="right">
                 <q-btn no-caps class="text-weight-regular" label="Add Service Type"
@@ -50,28 +50,28 @@
               </div>
             </template>
           </q-table>
-        </q-tab-pane>
+        </q-tab-panell>
         
-        <q-tab-pane name="tab-2">
+        <q-tab-panel name="tab-2">
           <q-table 
-          :data="DeactivetableData" 
+          v-model:data="DeactivetableData"
           table-class="customSATableClass" 
           :columns="columns1" 
           :filter="filterSearch1"
-          :pagination.sync="paginationControl2" 
+          :pagination="paginationControl2"
           :filter-method="myCustomSearchFilter2" 
           row-key="name" 
           color="grey-9"
           >
 
-            <q-td slot="body-cell-serviceReqIssueTypeSets" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-serviceReqIssueTypeSets="props" :props="props">
               <div class="row no-wrap group" v-for="menu in props.row.serviceReqIssueTypeSets" >
                 <q-chip color="light" class="text-dark">
                   {{ menu.serviceReqIssueType.name}}
                 </q-chip>
               </div>
             </q-td>
-             <q-td slot="body-cell-serviceRequestStatusSets" slot-scope="props" :props="props">
+             <q-td v-slot:body-cell-serviceRequestStatusSets="props" :props="props">
               <div class="row no-wrap group" v-for="menu in props.row.serviceRequestStatusSets" >
                 <q-chip color="light" class="text-dark">
                   {{ menu.serviceRequestStatus != null ? menu.serviceRequestStatus.name : "NA"}}
@@ -80,20 +80,20 @@
             </q-td>
 
 
-            <q-td slot="body-cell-action1" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-action1="props" :props="props">
               <div class="row no-wrap no-padding">
                 <q-btn dense no-caps no-wrap label="Active" icon="far fa-plus-square" size="md"
                   @click="fnShowActiveServiceType(props.row)" flat class="text-light-blue"></q-btn>
               </div>
             </q-td>
 
-            <template slot="top" slot-scope="props"> 
+            <template v-slot:top="props">
               <!-- <div class="col-3">
-                <q-search clearable color="grey-9" v-model="filterSearch1" placeholder="Type.." class="q-mr-lg" />
+                <q-input clearable color="grey-9" v-model="filterSearch1" placeholder="Type.." class="q-mr-lg" />
               </div> -->
             </template>
           </q-table>
-        </q-tab-pane>
+        </q-tab-panell>
               </q-tabs>
               
       <!--START: Show edit  service Parts -->

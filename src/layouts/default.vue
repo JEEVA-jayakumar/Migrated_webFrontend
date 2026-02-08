@@ -1,10 +1,10 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-layout-header style="margin-left:0px" class="shadow-0 z-top" flat>
+    <q-header style="margin-left:0px" class="shadow-0 z-top" flat>
       <customHeader @fnToggleSideMenu="fnMainToggleSideMenu"></customHeader>
-    </q-layout-header>
+    </q-header>
 
-    <q-layout-drawer class="no-shadow" v-model="leftDrawerOpen" content-class="no-shadow"
+    <q-drawer class="no-shadow" v-model="leftDrawerOpen" content-class="no-shadow"
       :content-style="{ background: getComputedColor, width: '250px' }">
       <q-scroll-area style="height: 100vh" :thumb-style="{
         right: '4px',
@@ -27,14 +27,14 @@
                     :to="menu.to"
                     class="menu-main-item-color"
                   >
-                    <q-item-main class="menu-item-color">{{ menu.name }}</q-item-main>
+                    <q-item-section class="menu-item-color">{{ menu.name }}</q-item-section>
                   </q-item>
                   </div>
 
                   <div v-else>
               <q-item v-for="menu in menus.sat" :key="menu.id" v-if="menu.subItems.length == 0" :to="menu.to"
                 class="menu-main-item-color">
-                <q-item-main class="menu-item-color">{{ menu.name }}</q-item-main>
+                <q-item-section class="menu-item-color">{{ menu.name }}</q-item-section>
               </q-item>
               <q-item v-else>
                 <div class="col-md-12">
@@ -47,14 +47,14 @@
                   <div v-if="selectedValueSat == menuListNameSat && menu.name == menuListNameSat" align="left">
                     <q-item v-for="subItem in menu.subItems" :key="subItem.id" :to="subItem.to"
                       class="menu-main-item-color">
-                      <q-item-main class="cursor-pointer menu-item-color">{{ subItem.name }}</q-item-main>
+                      <q-item-section class="cursor-pointer menu-item-color">{{ subItem.name }}</q-item-section>
                     </q-item>
                   </div>
                  
                   <div v-else-if="selectedValueSat == menuListNameSat && selectedValueSat != '' && selectedValueSat != 'Bijlipay'  && menu.name == 'Other' " align="left">
                     <q-item v-for="subItem in menu.subItems" :key="subItem.id" :to="subItem.to"
                       class="menu-main-item-color">
-                      <q-item-main class="cursor-pointer menu-item-color">{{ subItem.name }}</q-item-main>
+                      <q-item-section class="cursor-pointer menu-item-color">{{ subItem.name }}</q-item-section>
                     </q-item>
                   </div>
                 </div>
@@ -66,7 +66,7 @@
             <div
               v-if="$q.localStorage.get.item('u_i') != undefined && (showMenu.includes($ROLE_HIERARCHY_FINANCE_HEAD) || showMenu.includes($ROLE_HIERARCHY_FINANCE_MANAGER) || showMenu.includes($ROLE_HIERARCHY_FINANCE_EXECUTIVE))">
               <q-item v-for="menu in menus.finance" :key="menu.id" :to="menu.to" class="menu-main-item-color">
-                <q-item-main class="menu-item-color">{{ menu.name }}</q-item-main>
+                <q-item-section class="menu-item-color">{{ menu.name }}</q-item-section>
               </q-item>
             </div>
 
@@ -75,7 +75,7 @@
               v-if="$q.localStorage.get.item('u_i') != undefined && showMenu.includes($ROLE_HIERARCHY_INVENTORY_OFFICER)">
               <q-item v-for="menu in menus.inventory" :key="menu.id" v-if="menu.subItems.length == 0" :to="menu.to"
                 class="menu-main-item-color">
-                <q-item-main class="menu-item-color">{{ menu.name }}</q-item-main>
+                <q-item-section class="menu-item-color">{{ menu.name }}</q-item-section>
               </q-item>
               <q-item v-else>
                 <div class="col-md-12">
@@ -88,7 +88,7 @@
                   <div v-if="selectedValue == menuListName && menu.name == menuListName" align="left">
                     <q-item v-for="subItem in menu.subItems" :key="subItem.id" :to="subItem.to"
                       class="menu-main-item-color">
-                      <q-item-main class="cursor-pointer menu-item-color">{{ subItem.name }}</q-item-main>
+                      <q-item-section class="cursor-pointer menu-item-color">{{ subItem.name }}</q-item-section>
                     </q-item>
                   </div>
                   <!-- && menu.name == menuListName -->
@@ -96,7 +96,7 @@
                   <div v-else-if="selectedValue == menuListName && selectedValue != 'Bijlipay' && selectedValue != '' && menu.name == 'Others'" align="left">
                     <q-item v-for="subItem in menu.subItems" :key="subItem.id" :to="subItem.to"
                       class="menu-main-item-color">
-                      <q-item-main class="cursor-pointer menu-item-color">{{ subItem.name }}</q-item-main>
+                      <q-item-section class="cursor-pointer menu-item-color">{{ subItem.name }}</q-item-section>
                     </q-item>
                   </div>
                 </div>
@@ -117,7 +117,7 @@
                 :to="menu.to"
                 class="menu-main-item-color"
               >
-                <q-item-main class="menu-item-color">{{ menu.name }}</q-item-main>
+                <q-item-section class="menu-item-color">{{ menu.name }}</q-item-section>
               </q-item>
             </div>
 
@@ -126,18 +126,18 @@
               v-if="$q.localStorage.get.item('u_i') != undefined && showMenu.includes($ROLE_HIERARCHY_OPERATIONS_HEAD)">
               <q-item v-for="menu in menus.opsHead" :key="menu.id" v-if="menu.subItems.length == 0" :to="menu.to"
                 class="menu-main-item-color">
-                <q-item-main class="cursor-pointer menu-item-color">{{ menu.name }}</q-item-main>
+                <q-item-section class="cursor-pointer menu-item-color">{{ menu.name }}</q-item-section>
               </q-item>
               <q-item v-else>
-                <q-item-main class="menu-item-color">
-                  <q-collapsible dense class="no-padding" header-class="no-padding" header-style="font-size:14px"
+                <q-item-section class="menu-item-color">
+                  <q-expansion-item dense class="no-padding" header-class="no-padding" header-style="font-size:14px"
                     label="Reports">
                     <q-item v-for="subItem in menu.subItems" :key="subItem.id" :to="subItem.to"
                       class="menu-main-item-color">
-                      <q-item-main class="cursor-pointer menu-item-color">{{ subItem.name }}</q-item-main>
+                      <q-item-section class="cursor-pointer menu-item-color">{{ subItem.name }}</q-item-section>
                     </q-item>
-                  </q-collapsible>
-                </q-item-main>
+                  </q-expansion-item>
+                </q-item-section>
               </q-item>
             </div>
 
@@ -145,33 +145,33 @@
             <div
               v-if="$q.localStorage.get.item('u_i') != undefined && (showMenu.includes($ROLE_HIERARCHY_SALES_RSM) || showMenu.includes($ROLE_HIERARCHY_SALES_ASM) || showMenu.includes($ROLE_HIERARCHY_SALES_NATIONAL_HEAD))">
               <q-item v-for="menu in menus.salesManager" :key="menu.id" :to="menu.to" class="menu-main-item-color">
-                <q-item-main class="menu-item-color">{{ menu.name }}</q-item-main>
+                <q-item-section class="menu-item-color">{{ menu.name }}</q-item-section>
               </q-item>
             </div>
 
             <!-- Entry point for sales manager => bank ops -->
             <div v-if="$q.localStorage.get.item('u_i') != undefined && showMenu.includes($ROLE_HIERARCHY_BANK_OPS)">
               <q-item v-for="menu in menus.bankOps" :key="menu.id" :to="menu.to" class="menu-main-item-color">
-                <q-item-main class="menu-item-color">{{ menu.name }}</q-item-main>
+                <q-item-section class="menu-item-color">{{ menu.name }}</q-item-section>
               </q-item>
             </div>
 
             <!-- Entry point for CRM USERS -->
             <div v-if="$q.localStorage.get.item('u_i') != undefined && showMenu.includes($HIERARCHY_CRM1)">
               <q-item v-for="menu in menus.crm" :key="menu.id" :to="menu.to" class="menu-main-item-color">
-                <q-item-main class="menu-item-color">{{ menu.name }}</q-item-main>
+                <q-item-section class="menu-item-color">{{ menu.name }}</q-item-section>
               </q-item>
             </div>
             <!-- Entry point for super admin/bijlipay managemnet -->
             <div v-if="$q.localStorage.get.item('u_i') != undefined && showMenu.includes($ROLE_BIJLIPAY_MANAGER)">
               <q-item v-for="menu in menus.superAdmin" :key="menu.id" :to="menu.to">
-                <q-item-main class="menu-item-color-SA">{{ menu.name}}</q-item-main>
+                <q-item-section class="menu-item-color-SA">{{ menu.name}}</q-item-section>
               </q-item>
             </div>
           </div>
         </q-list>
       </q-scroll-area>
-    </q-layout-drawer>
+    </q-drawer>
 
     <q-page-container>
       <customBody></customBody>

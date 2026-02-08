@@ -2,12 +2,12 @@
     <q-page>
       <!-- content -->
       <div>
-        <div class="col-md-12 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9">
+        <div class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9">
           Aggregator Global Serial Number/TID Search
         </div>
         <div class="row gutter-x-xs gutter-y-xs q-pt-md justify-around items-end">
           <div class="col-md-4">
-            <q-search clearable color="grey-9" v-model="formData.searchTerm" placeholder="Type.." float-label="Search .."
+            <q-input clearable color="grey-9" v-model="formData.searchTerm" placeholder="Type.." float-label="Search .."
               class="q-mr-lg q-py-sm" />
           </div>
           <div class="col-md-3">
@@ -27,7 +27,7 @@
         style="min-height: calc(80vh - 52px);">
         <div class="row" align="center">
           <q-icon name="warning" color="warning" size="4rem" />
-          <div class="q-subheading text-bold text-grey-9" style="align-self: center;">No Data Available</div>
+          <div class="text-subtitle1 text-bold text-grey-9" style="align-self: center;">No Data Available</div>
         </div>
       </div>
       <div v-for="tdata in tableData" :key="tdata.id" :to="tdata.to"
@@ -35,11 +35,11 @@
   
         <div class="col-lg-4 col-md-6 col-sm-12">
           <q-card class="q-card q-py-md items-center round-borders q-pa-sm">
-            <q-card-title>
-              <div class="q-subheading text-bold text-grey-9">Lead Status</div>
-            </q-card-title>
-            <q-card-separator></q-card-separator>
-            <q-card-main>
+            <q-card-section>
+              <div class="text-subtitle1 text-bold text-grey-9">Lead Status</div>
+            </q-card-section>
+            <q-separator></q-separator>
+            <q-card-section>
               <div v-if="tableData.length > 0">
                 <div class="row gutter-x-xs gutter-y-xs q-pa-sm text-grey-9">
                   <span class="col-md-4 text-weight-medium">{{
@@ -96,16 +96,16 @@
                   </span>
                 </div>
               </div>
-            </q-card-main>
+            </q-card-section>
           </q-card>
         </div>
         <div class="col-lg-4 col-md-6 col-sm-12">
           <q-card class="q-card q-py-md round-borders q-pa-sm">
-            <q-card-title>
-              <div class="q-subheading text-bold text-grey-9">Tid Status</div>
-            </q-card-title>
-            <q-card-separator></q-card-separator>
-            <q-card-main>
+            <q-card-section>
+              <div class="text-subtitle1 text-bold text-grey-9">Tid Status</div>
+            </q-card-section>
+            <q-separator></q-separator>
+            <q-card-section>
               <div v-if="tableData.length > 0">
                 <div class="row gutter-x-xs gutter-y-xs q-pa-sm text-grey-9">
                   <span class="col-md-4 text-weight-medium">{{
@@ -204,18 +204,18 @@
                   ">{{ tdata.replacedBy }}</span>
                 </div>
               </div>
-            </q-card-main>
+            </q-card-section>
           </q-card>
         </div>
         <div class="col-lg-4 col-md-6 col-sm-12 no-wrap	">
           <q-card class="q-card q-py-md round-borders q-pa-sm">
-            <q-card-title>
-              <div class="q-subheading text-bold text-grey-9">
+            <q-card-section>
+              <div class="text-subtitle1 text-bold text-grey-9">
                 Serial Number Status
               </div>
-            </q-card-title>
-            <q-card-separator></q-card-separator>
-            <q-card-main>
+            </q-card-section>
+            <q-separator></q-separator>
+            <q-card-section>
               <div v-if="tableData.length > 0">
                 <div class="row gutter-x-xs gutter-y-xs q-pa-sm text-grey-9">
                   <span class="col-md-4 text-weight-medium">{{
@@ -360,7 +360,7 @@
                   tdata.regionInventoryName }}</span>
                 </div>
               </div>
-            </q-card-main>
+            </q-card-section>
           </q-card>
         </div>
       </div>

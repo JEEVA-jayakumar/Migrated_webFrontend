@@ -1,14 +1,14 @@
 <template>
     <div>
-        <q-modal class="customModalOverlay" v-model="toggleModel" @hide="emitToggleReject(toggleModel)"
+        <q-dialog class="customModalOverlay" v-model="toggleModel" @hide="emitToggleReject(toggleModel)"
             @escape-key="closeRejectModel(toggleModel)" :content-css="{ padding: '50px', minWidth: '50vw' }">
             <div class="row">
-                <div class="col-md-12 q-title text-center q-px-lg q-py-md text-weight-regular bottom-border text-grey-9">
+                <div class="col-md-12 text-h6 text-center q-px-lg q-py-md text-weight-regular bottom-border text-grey-9">
                     Additional TID
                 </div>
                 <div class="col-md-5 col-sm-4 col-xs-12 q-pa-sm">
                     <q-card style="width:225%">
-                        <q-card-main>
+                        <q-card-section>
                             <q-list no-border>
                                 <!-- <div class="col-md-5">
                                     <q-input color="grey-9" disable type="text" v-model="additionalTerminal.mid"
@@ -139,7 +139,7 @@
                                     </q-input>
                                 </div>
                             </q-list>
-                        </q-card-main>
+                        </q-card-section>
                         <q-card-actions align="end">
                             <q-btn flat align="right" class="bg-white text-weight-regular text-grey-8"
                                 @click="closeRejectModel()">Cancel</q-btn>
@@ -152,7 +152,7 @@
 
 
 
-        </q-modal>
+        </q-dialog>
     </div>
 </template>
 <script>
@@ -178,7 +178,7 @@ import {
     minValue,
     decimal
 }
-    from "vuelidate/lib/validators";
+    from "@vuelidate/validators";
 Vue.use(Vuelidate);
 import { date } from "quasar";
 import moment from "moment";
@@ -190,7 +190,7 @@ import Vue from "vue";
 import viewLeadDocumentsDataEntryComponent from "./viewLeadDocumentsDataEntryComponent.vue";
 // import MarsErrorResponse from "../MarsErrorResponseHandler.vue";
 
-import { helpers } from "vuelidate/lib/validators";
+import { helpers } from "@vuelidate/validators";
 const today = new Date()
 const { startOfDate, addToDate, subtractFromDate } = date;
 const panCard = helpers.regex(

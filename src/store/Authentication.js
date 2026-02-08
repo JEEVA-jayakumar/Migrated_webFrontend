@@ -1,3 +1,4 @@
+import { api } from '../boot/axios';
 import Vue from "vue";
 import {
   LocalStorage,
@@ -199,7 +200,7 @@ const Authentication = {
       commit,
       rootState
     }, request) {
-      return Vue.http
+      return api
         .post(rootState.GlobalVariables.LOGIN_URL, request.url)
         .then(response => {
           // console.log("Password is " + response.data.password);
@@ -244,7 +245,7 @@ const Authentication = {
       commit,
       rootState
     }, request) {
-      return Vue.http
+      return api
         .post(rootState.GlobalVariables.FORGOTPASSWORD_URL, request, {
           headers: {
             Authorization: "kjkj",
@@ -261,7 +262,7 @@ const Authentication = {
       commit,
       rootState
     }, request) {
-      return Vue.http
+      return api
         .post(
           rootState.GlobalVariables.UPDATEPASSWORD_URL,
           request.requestParam, {

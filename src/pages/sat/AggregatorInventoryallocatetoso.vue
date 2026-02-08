@@ -39,11 +39,11 @@
             :style="'border:' + [formData.device_type.id == item.device.id ? '2px solid #61116a' : 'unset']">
             <q-list highlight separator class="q-pa-none"
               :class="[formData.device_type.id == item.device.id ? 'activeDeviceTab' : '']">
-              <q-list-header style="border-bottom: 1px solid #ccc;">
+              <q-item-label header style="border-bottom: 1px solid #ccc;">
                 <q-icon :style="'color:'[formData.device_type.id == item.device.id ? '#fff' : '#202c3f']"
                   name="fas fa-tablet-alt" />
                 {{ item.device.deviceName }}
-              </q-list-header>
+              </q-item-label header>
               <q-scroll-area style="height:400px" :thumb-style="{
                 right: '4px',
                 borderRadius: '5px',
@@ -54,19 +54,19 @@
                 <div v-if="item.deviceSerialNumbers.length > 0">
                   <q-item separator class="text-light-blue" v-for="(subItem, subIndex) in item.deviceSerialNumbers"
                     :key="subIndex">
-                    <q-item-main class="q-body-1">{{ subItem }}</q-item-main>
-                    <q-item-side>
+                    <q-item-section class="text-body1">{{ subItem }}</q-item-section>
+                    <q-item-section>
                       <q-btn round size="sm" color="negative" icon="clear"
                         @click="fnRemoveScannedItems(index, subIndex)" />
-                    </q-item-side>
+                    </q-item-section>
                   </q-item>
                 </div>
                 <div v-else>
                   <q-item>
-                    <q-item-main class="q-body-1">No data to display</q-item-main>
-                    <q-item-side>
+                    <q-item-section class="text-body1">No data to display</q-item-section>
+                    <q-item-section>
                       <q-btn round size="sm" color="negative" @click="fnRemoveDeviceTypeFromList(index)" icon="clear" />
-                    </q-item-side>
+                    </q-item-section>
                   </q-item>
                 </div>
               </q-scroll-area>

@@ -5,21 +5,21 @@
       <!--START: table title -->
       <div class="row bottom-border q-px-md q-py-sm items-center">
         <!--START: table title -->
-        <div class="col-12 col-lg-4 q-title text-weight-regular text-grey-9">Aggregator Inventory</div>
+        <div class="col-12 col-lg-4 text-h6 text-weight-regular text-grey-9">Aggregator Inventory</div>
         <div class="col-12 col-lg-8 group" align="right">
           <q-btn-dropdown outline no-caps class="text-weight-regular" label="Add Refurbished Device" >
             <q-list link>
               <!-- <q-item to="phonepeRefurbishmentAddDeviceScan">
-                <q-item-side icon="search" />
-                <q-item-main>
-                  <q-item-tile label>Scan and Upload</q-item-tile>
-                </q-item-main>
+                <q-item-section icon="search" />
+                <q-item-section>
+                  <q-item-label label>Scan and Upload</q-item-label>
+                </q-item-section>
               </q-item> -->
               <q-item @click.native="fnPhonePeOpenRefurbishedBulkUploadModal">
-                <q-item-side icon="attach_file" />
-                <q-item-main>
-                  <q-item-tile label>Bulk upload</q-item-tile>
-                </q-item-main>
+                <q-item-section icon="attach_file" />
+                <q-item-section>
+                  <q-item-label label>Bulk upload</q-item-label>
+                </q-item-section>
               </q-item>
             </q-list>
           </q-btn-dropdown>
@@ -29,16 +29,16 @@
           <q-btn-dropdown outline no-caps class="text-weight-regular" label="Add new device from manufacturer" >
             <q-list link>
               <q-item to="PhonepeAddDeviceScan">
-                <q-item-side icon="search" />
-                <q-item-main>
-                  <q-item-tile label>Scan and Upload</q-item-tile>
-                </q-item-main>
+                <q-item-section icon="search" />
+                <q-item-section>
+                  <q-item-label label>Scan and Upload</q-item-label>
+                </q-item-section>
               </q-item>
               <q-item @click.native="fnPhonePeOpenBulkUploadModal">
-                <q-item-side icon="attach_file" />
-                <q-item-main>
-                  <q-item-tile label>Bulk upload</q-item-tile>
-                </q-item-main>
+                <q-item-section icon="attach_file" />
+                <q-item-section>
+                  <q-item-label label>Bulk upload</q-item-label>
+                </q-item-section>
               </q-item>
             </q-list>
           </q-btn-dropdown>
@@ -52,16 +52,16 @@
           >
             <q-list link>
               <q-item to="PhonepeDeviceRecoveryScan">
-                <q-item-side icon="search" />
-                <q-item-main>
-                  <q-item-tile label>Scan and Upload</q-item-tile>
-                </q-item-main>
+                <q-item-section icon="search" />
+                <q-item-section>
+                  <q-item-label label>Scan and Upload</q-item-label>
+                </q-item-section>
               </q-item>
               <q-item @click.native="fnOpenBulkUploadModal">
-                <q-item-side icon="attach_file" />
-                <q-item-main>
-                  <q-item-tile label>Bulk upload</q-item-tile>
-                </q-item-main>
+                <q-item-section icon="attach_file" />
+                <q-item-section>
+                  <q-item-label label>Bulk upload</q-item-label>
+                </q-item-section>
               </q-item>
             </q-list>
           </q-btn-dropdown>  -->
@@ -90,20 +90,20 @@
         </div>
         <div class="col-md-9">
           <div>
-            <!--START: table Data -->
+            <!--STARTv-model: table Data -->
             <q-table :data="getAllPhonepeInventoryDevicesData" :columns="columnData"
               table-class="customTableClass shadow-0" :filter="filterSearch" 
              
               row-key="index" :loading="tableAjaxLoading" color="primary">
               <template slot="top">
-                <!--START: table filter,search  :pagination.sync="paginationControl"-->
+                <!--START: table filter,search  :pagination="paginationControl"-->
                 <div class="col-md-5">
-                  <q-search clearable color="grey-9" v-model="filterSearch" placeholder="Type.." float-label="Search By Device Serail Number.."
+                  <q-input clearable color="grey-9" v-model="filterSearch" placeholder="Type.." float-label="Search By Device Serail Number.."
                     class="q-mr-lg q-py-sm" />
                 </div>
 
                 <div class="col-md-5">
-                  <!-- <q-search
+                  <!-- <q-input
                       clearable
                       color="grey-9"
                       v-model="filterSearch"
@@ -127,9 +127,9 @@
       </div>
       <!-- <pre>{{getAllInventoryDevicesTypesData}}</pre> -->
       <!--START: Open openAddBulkDeviceModelComp model -->
-      <PhonepeopenAddBulkDeviceModelComp v-if="openBulkUploadModal" :propOpenBulkUploadModal="openBulkUploadModal"
+      <PhonePeopenAddBulkDeviceModelComp v-if="openBulkUploadModal" :propOpenBulkUploadModal="openBulkUploadModal"
         :propAllDevicestypes="getAllInventoryDevicesTypesData" @closeModel="fnPhonePeOpenBulkUploadModal"
-        @emitToggleinventoryBulkUploadOnSuccess="fnReloadPageInformation"></PhonepeopenAddBulkDeviceModelComp>
+        @emitToggleinventoryBulkUploadOnSuccess="fnReloadPageInformation"></PhonePeopenAddBulkDeviceModelComp>
 
         <phonepeAddRefurbishedBulkUploadDevice v-if="openRefurbishedBulkUploadModal" :propOpenRefurbishedBulkUploadModal="openRefurbishedBulkUploadModal"
         :propAllDevicestypes="getAllInventoryDevicesTypesData" @closeModel="fnPhonePeOpenRefurbishedBulkUploadModal" 
@@ -155,13 +155,13 @@
 import { mapGetters, mapActions } from "vuex";
 import downloadExcel from "vue-json-excel";
 import phonepeAddRefurbishedBulkUploadDevice from "../../components/inventory/phonepeAddRefurbishedBulkUploadDevice.vue"
-import PhonepeopenAddBulkDeviceModelComp from "../../components/inventory/PhonepeopenAddBulkDeviceModelComp.vue";
+import PhonePeopenAddBulkDeviceModelComp from "../../components/inventory/PhonePeopenAddBulkDeviceModelComp.vue";
 import faultyInventoryComponent from "../../components/inventory/faultyInventoryComponent.vue";
 import showAggregatorsAddDamagedDevices from "../../components/inventory/showAggregatorsAddDamagedDevices.vue";
 export default {
   name: "inventoryCentral",
   components: {
-    PhonepeopenAddBulkDeviceModelComp,
+    PhonePeopenAddBulkDeviceModelComp,
     showAggregatorsAddDamagedDevices,
     downloadExcel,
     phonepeAddRefurbishedBulkUploadDevice

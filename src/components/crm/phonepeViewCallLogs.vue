@@ -1,6 +1,6 @@
 <!-- <template>
   <div>
-    <q-modal
+    <q-dialog
       v-model="toggleModal"
       class="q-mt-lg capitalize"
       @hide="emitToggleRemarks"
@@ -34,7 +34,7 @@
         <div class="col">{{ formatDate(log.inputDate) }}</div>
         <div class="col">{{ log.remarks }}</div>
       </div>
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 
@@ -113,7 +113,7 @@ export default {
 
 <template>
   <div>
-    <q-modal
+    <q-dialog
       v-model="toggleModal"
       no-backdrop-dismiss
       class="q-mt-lg capitalize"
@@ -137,7 +137,7 @@ export default {
 
       <q-table :data="callLogs" :columns="columns" @request="fetchLogs">
    
-          <q-td slot="body-cell-inputDate" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-inputDate="props" :props="props">
             {{ props.row.inputDate | moment("Do MMM Y") }}
           </q-td>
           <!-- <q-td :props="props" field="remarks">
@@ -145,7 +145,7 @@ export default {
           </q-td> -->
     
       </q-table>
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 

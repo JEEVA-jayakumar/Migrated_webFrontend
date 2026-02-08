@@ -91,7 +91,7 @@
           </div>
         </div>
       </q-card>
-      <!--END: table Footer -->
+      <!--ENDv-model: table Footer -->
       <q-tabs
         v-model="selectedTab"
         class="shadow-1"
@@ -110,18 +110,18 @@
                 <q-tab color="dark" name="opened" slot="title" label="Opened" />
                 <q-tab color="dark" name="closed" slot="title" label="Closed" /> -->
         <!-- 
-                  <q-tab-pane name="opened">
+                  <q-tab-panel name="opened">
               <opened/>
-            </q-tab-pane> -->
-        <q-tab-pane name="unAssigned">
+            </q-tab-panell> -->
+        <q-tab-panel name="unAssigned">
           <q-table
             :data="tableData3"
             :columns="columnDataUnassigned"
             table-class="customTableClass"
             :filter="filterSearch1"
             selection="multiple"
-            :selected.sync="formData.marsDeviceIdsCooked"
-            :pagination.sync="paginationControl1"
+            :selected="formData.marsDeviceIdsCooked"
+            v-model:pagination="paginationControl1"
             row-key="id"
             :loading="tableAjaxLoading1"
             :rows-per-page-options="[5, 10, 15, 20]"
@@ -129,8 +129,7 @@
             @request="ajaxLoadAllLeadInfo1"
           >
             <q-td
-              slot="body-cell-serviceReqTicketId"
-              slot-scope="props"
+              v-slot:body-cell-serviceReqTicketId="props"
               :props="props"
               class="cursor-pointer"
               @click.native="toggleServiceRequest(props.row)"
@@ -141,18 +140,16 @@
             </q-td>
 
             <q-td
-              slot="body-cell-createdDate"
-              slot-scope="props"
+              v-slot:body-cell-createdDate="props"
               :props="props"
               >{{ props.row.createdDate | moment("Do MMM Y") }}</q-td
             >
             <q-td
-              slot="body-cell-updatedDate"
-              slot-scope="props"
+              v-slot:body-cell-updatedDate="props"
               :props="props"
               >{{ props.row.updatedDate | moment("Do MMM Y") }}</q-td
             >
-            <!-- <q-td slot="body-cell-serviceRequestSubTicketStatus" slot-scope="props" :props="props">
+            <!-- <q-td v-slot:body-cell-serviceRequestSubTicketStatus="props" :props="props">
                             <span class="label text-positive"
                                 v-if="props.row.serviceRequestSubTicketStatus == 1">SR_TICKET_RAISED</span>
                             <span class="label text-positive"
@@ -176,8 +173,7 @@
                             <span class="label" v-else>NA</span>
                         </q-td> -->
             <q-td
-              slot="body-cell-serviceRequestTicketStatus"
-              slot-scope="props"
+              v-slot:body-cell-serviceRequestTicketStatus="props"
               :props="props"
             >
               <span
@@ -198,8 +194,7 @@
               <span class="label" v-else>NA</span>
             </q-td>
             <q-td
-              slot="body-cell-kaptureDueDate"
-              slot-scope="props"
+              v-slot:body-cell-kaptureDueDate="props"
               :props="props"
               >{{
                 props.row.kaptureDueDate == null
@@ -208,8 +203,7 @@
               }}</q-td
             >
             <q-td
-              slot="body-cell-appointmentDate"
-              slot-scope="props"
+              v-slot:body-cell-appointmentDate="props"
               :props="props"
               >{{
                 props.row.appointmentDate == null
@@ -218,8 +212,7 @@
               }}</q-td
             >
             <q-td
-              slot="body-cell-courierDueDate"
-              slot-scope="props"
+              v-slot:body-cell-courierDueDate="props"
               :props="props"
               >{{
                 props.row.courierDueDate == null
@@ -228,8 +221,7 @@
               }}</q-td
             >
             <q-td
-              slot="body-cell-scheduleDate"
-              slot-scope="props"
+              v-slot:body-cell-scheduleDate="props"
               :props="props"
               >{{
                 props.row.scheduleDate == null
@@ -239,7 +231,7 @@
             >
             <template slot="top">
               <div class="col-md-5">
-                <q-search
+                <q-input
                   clearable
                   color="grey-9"
                   v-model="filterSearch1"
@@ -250,15 +242,15 @@
               </div>
             </template>
           </q-table>
-        </q-tab-pane>
-        <q-tab-pane name="assigned">
+        </q-tab-panell>
+        <q-tab-panel name="assigned">
           <q-table
-            :data="tableData1"
+            v-model:data="tableData1"
             :columns="columnDataAssigned"
             table-class="customTableClass"
             :filter="filterSearch"
-            :pagination.sync="paginationControl"
-            :selected.sync="formData.marsDeviceIdsCookedUnAssinged"
+            :pagination="paginationControl"
+            v-model:selected="formData.marsDeviceIdsCookedUnAssinged"
             row-key="id"
             :loading="tableAjaxLoading"
             :rows-per-page-options="[5, 10, 15, 20]"
@@ -266,7 +258,7 @@
             @request="ajaxLoadAllLeadInfo"
           >
             <!--START: table header -->
-            <!-- <q-tr slot="top-row" slot-scope="props">
+            <!-- <q-tr v-slot:top-row="props">
               <q-th auto-width></q-th>
               <q-th
                 v-for="col in props.columns"
@@ -278,7 +270,7 @@
 
             <!--END: table header -->
             <!--START: Table body -->
-            <template slot="body" slot-scope="props">
+            <template v-slot:body="props">
               <!--START: table rows -->
               <q-tr :props="props" class="bottom-border">
                 <q-td key="serviceReqTicketId">
@@ -412,7 +404,7 @@
               >
                 <q-td>
                   <div
-                    class="text-left q-caption text-grey-8 text-weight-medium"
+                    class="text-left text-caption text-grey-8 text-weight-medium"
                   >
                     Request Type
                   </div>
@@ -437,7 +429,7 @@
                 </q-td>
                 <q-td>
                   <div
-                    class="text-left q-caption text-grey-8 text-weight-medium"
+                    class="text-left text-caption text-grey-8 text-weight-medium"
                   >
                     IssueType
                   </div>
@@ -461,7 +453,7 @@
                 </q-td>
                 <q-td>
                   <div
-                    class="text-left q-caption text-grey-8 text-weight-medium"
+                    class="text-left text-caption text-grey-8 text-weight-medium"
                   >
                     SubTicket Status
                   </div>
@@ -486,7 +478,7 @@
                 </q-td>
                 <q-td>
                   <div
-                    class="text-left q-caption text-grey-8 text-weight-medium"
+                    class="text-left text-caption text-grey-8 text-weight-medium"
                   >
                     Schedule Date
                   </div>
@@ -508,7 +500,7 @@
                 </q-td>
                 <q-td>
                   <div
-                    class="text-left q-caption text-grey-8 text-weight-medium"
+                    class="text-left text-caption text-grey-8 text-weight-medium"
                   >
                     Pod Number
                   </div>
@@ -530,7 +522,7 @@
                 </q-td>
                 <q-td>
                   <div
-                    class="text-left q-caption text-grey-8 text-weight-medium"
+                    class="text-left text-caption text-grey-8 text-weight-medium"
                   >
                     Service Remarks
                   </div>
@@ -552,7 +544,7 @@
                 </q-td>
                 <q-td>
                   <div
-                    class="text-left q-caption text-grey-8 text-weight-medium"
+                    class="text-left text-caption text-grey-8 text-weight-medium"
                   >
                     Cancel Reason
                   </div>
@@ -574,7 +566,7 @@
                 </q-td>
                 <q-td>
                   <div
-                    class="text-left q-caption text-grey-8 text-weight-medium"
+                    class="text-left text-caption text-grey-8 text-weight-medium"
                   >
                     Issue Remark
                   </div>
@@ -596,7 +588,7 @@
                 </q-td>
                 <q-td>
                   <div
-                    class="text-left q-caption text-grey-8 text-weight-medium"
+                    class="text-left text-caption text-grey-8 text-weight-medium"
                   >
                     Remark
                   </div>
@@ -616,7 +608,7 @@
                 </q-td>
                 <q-td>
                   <div
-                    class="text-left q-caption text-grey-8 text-weight-medium"
+                    class="text-left text-caption text-grey-8 text-weight-medium"
                   >
                     Latitude
                   </div>
@@ -638,7 +630,7 @@
                 </q-td>
                 <q-td>
                   <div
-                    class="text-left q-caption text-grey-8 text-weight-medium"
+                    class="text-left text-caption text-grey-8 text-weight-medium"
                   >
                     Longitude
                   </div>
@@ -660,7 +652,7 @@
                 </q-td>
                 <q-td>
                   <div
-                    class="text-left q-caption text-grey-8 text-weight-medium"
+                    class="text-left text-caption text-grey-8 text-weight-medium"
                   >
                     Implementation Form
                   </div>
@@ -684,7 +676,7 @@
                 </q-td>
                 <q-td>
                   <div
-                    class="text-left q-caption text-grey-8 text-weight-medium"
+                    class="text-left text-caption text-grey-8 text-weight-medium"
                   >
                     Picture Of Shop
                   </div>
@@ -706,7 +698,7 @@
                 </q-td>
                 <q-td>
                   <div
-                    class="text-left q-caption text-grey-8 text-weight-medium"
+                    class="text-left text-caption text-grey-8 text-weight-medium"
                   >
                     Old Sim Number
                   </div>
@@ -728,7 +720,7 @@
                 </q-td>
                 <q-td>
                   <div
-                    class="text-left q-caption text-grey-8 text-weight-medium"
+                    class="text-left text-caption text-grey-8 text-weight-medium"
                   >
                     Old Sim Network
                   </div>
@@ -750,7 +742,7 @@
                 </q-td>
                 <q-td>
                   <div
-                    class="text-left q-caption text-grey-8 text-weight-medium"
+                    class="text-left text-caption text-grey-8 text-weight-medium"
                   >
                     New Sim Number
                   </div>
@@ -772,7 +764,7 @@
                 </q-td>
                 <q-td>
                   <div
-                    class="text-left q-caption text-grey-8 text-weight-medium"
+                    class="text-left text-caption text-grey-8 text-weight-medium"
                   >
                     New Sim Network
                   </div>
@@ -794,7 +786,7 @@
                 </q-td>
                 <q-td>
                   <div
-                    class="text-left q-caption text-grey-8 text-weight-medium"
+                    class="text-left text-caption text-grey-8 text-weight-medium"
                   >
                     Scan Sim Number
                   </div>
@@ -816,7 +808,7 @@
                 </q-td>
                 <q-td>
                   <div
-                    class="text-left q-caption text-grey-8 text-weight-medium"
+                    class="text-left text-caption text-grey-8 text-weight-medium"
                   >
                     Scan Device
                   </div>
@@ -841,7 +833,7 @@
 
                 <q-td>
                   <div
-                    class="text-left q-caption text-grey-8 text-weight-medium"
+                    class="text-left text-caption text-grey-8 text-weight-medium"
                   >
                     Part Type
                   </div>
@@ -863,7 +855,7 @@
                 </q-td>
                 <q-td>
                   <div
-                    class="text-left q-caption text-grey-8 text-weight-medium"
+                    class="text-left text-caption text-grey-8 text-weight-medium"
                   >
                     Paper Roll Count
                   </div>
@@ -887,7 +879,7 @@
             </template>
             <template slot="top">
               <div class="col-md-5">
-                <q-search
+                <q-input
                   clearable
                   color="grey-9"
                   v-model="filterSearch"
@@ -898,7 +890,7 @@
               </div>
             </template>
           </q-table>
-        </q-tab-pane>
+        </q-tab-panell>
       </q-tabs>
       <div class="row items-center gutter-y-sm">
         <div class="col-md-9 col-sm-12 col-xs-12">
@@ -929,7 +921,7 @@ import {
   alpha,
   alphaNum,
   numeric
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 
 import openedExternal from "../../components/sat/openedExternal.vue";

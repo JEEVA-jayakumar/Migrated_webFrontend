@@ -2,9 +2,9 @@
   <q-page>
     <div>
       <div class="row bottom-border q-px-md q-py-md items-center">
-        <!--START: table title -->
-        <div class="col-md-8 q-title text-weight-regular text-grey-9">Device Recovery</div>
-        <div class="col-md-4 q-title text-weight-regular text-grey-9" align="right">
+        <!--STARTv-model: table title -->
+        <div class="col-md-8 text-h6 text-weight-regular text-grey-9">Device Recovery</div>
+        <div class="col-md-4 text-h6 text-weight-regular text-grey-9" align="right">
           <q-btn
             @click="openScannerComp"
             v-if="!scannerToggleOption"
@@ -28,19 +28,19 @@
         :columns="columnData"
         table-class="customTableClass shadow-0"
         :filter="filterSearch"
-        :pagination.sync="paginationControl"
+        :pagination="paginationControl"
         row-key="index"
         :loading="tableAjaxLoading"
         color="light-blue"
       >
-        <q-td slot="body-cell-action" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-action="props" :props="props">
           <q-btn label="send" icon="close" color="red-6" size="sm" />
           <!-- @click="removeScannedItems(props.row)" -->
         </q-td>
-        <template slot="top" slot-scope="props">
+        <template v-slot:top="props">
           <!--START: table filter,search -->
           <div class="col-md-5">
-            <q-search
+            <q-input
               clearable
               color="grey-9"
               v-model="filterSearch"

@@ -3,7 +3,7 @@
 <!-- content -->
 <div>
 <div class="
-q-title q-px-lg q-py-md
+text-h6 q-px-lg q-py-md
 text-weight-regular
 bottom-border
 text-grey-9
@@ -51,7 +51,7 @@ placeholder="Re-Assign To" separator color="grey-9" :disable="isReAssignDropdown
 <div class="column items-end">
 <!-- Re-Assign Button -->
 <q-btn no-caps label="Re-Assign" class="common-dark-blue q-mb-sm"
-:disabled="isReAssignDisabled" :loading="reAssignLoading"
+v-model:disabled="isReAssignDisabled" :loading="reAssignLoading"
 @click="reAssignImplementationUser" />
 
 
@@ -68,17 +68,17 @@ placeholder="Re-Assign To" separator color="grey-9" :disable="isReAssignDropdown
 <q-tabs v-model="selectedTab" class="shadow-1" color="grey-1" @select="goToUnassignedTab">
 <q-tab default color="dark" name="unAssigned" slot="title" label="Unassigned" />
 <q-tab color="dark" name="assigned" slot="title" label="Assigned" />
-<q-tab-pane name="assigned">
+<q-tab-panel name="assigned">
 <!--START: table Data -->
 <q-table :data="tableData" :columns="columnDataAssigned" selection="multiple"
-table-class="customTableClass" :filter="filterSearch" :pagination.sync="paginationControl"
-:selected.sync="formData.marsDeviceIdsCookedUnAssinged" row-key="id" :loading="tableAjaxLoading"
+table-class="customTableClass" :filter="filterSearch" :pagination="paginationControl"
+v-model:selected="formData.marsDeviceIdsCookedUnAssinged" row-key="id" :loading="tableAjaxLoading"
 :rows-per-page-options="[5, 10, 15, 20]" color="dark" @request="ajaxLoadAllLeadInfo">
 <!-- selection="multiple" -->
 <q-td v-if="
 props.row.leadInformation != null ||
 props.row.qrLeadInformation != null
-" slot="body-cell-leadNumber" slot-scope="props" :props="props" class="cursor-pointer"
+" v-slot:body-cell-leadNumber="props" :props="props" class="cursor-pointer"
 @click.native="toggleLeadInformation(props.row.leadInformation)">
 <span class="label text-primary">#
 {{
@@ -90,7 +90,7 @@ props.row.leadInformation == null
 <q-td v-if="
 props.row.leadInformation != null ||
 props.row.qrLeadInformation != null
-" slot="body-cell-submitToMarsDate" slot-scope="props" :props="props">
+" v-slot:body-cell-submitToMarsDate="props" :props="props">
 {{
 props.row.leadInformation != null &&
 props.row.leadInformation.submitToMarsDate != null
@@ -104,18 +104,18 @@ props.row.qrLeadInformation.submitMarsDate != null
 <q-td v-if="
 props.row.leadInformation != null ||
 props.row.qrLeadInformation != null
-" slot="body-cell-createdAt" slot-scope="props" :props="props">{{ props.row.createdAt | moment("Do MMM Y") }}</q-td>
+" v-slot:body-cell-createdAt="props" :props="props">{{ props.row.createdAt | moment("Do MMM Y") }}</q-td>
 
 <q-td v-if="
 props.row.leadInformation != null ||
 props.row.qrLeadInformation != null
-" slot="body-cell-deviceAddress" slot-scope="props" :props="props" class="customTd customCellLength">
+" v-slot:body-cell-deviceAddress="props" :props="props" class="customTd customCellLength">
 <div>{{ props.row.deviceAddress }}</div>
 </q-td>
 <q-td v-if="
 props.row.leadInformation != null ||
 props.row.qrLeadInformation != null
-" slot="body-cell-tid" slot-scope="props" :props="props" class="customTd">
+" v-slot:body-cell-tid="props" :props="props" class="customTd">
 <div v-if="
 props.row.leadInformation != null ||
 props.row.qrLeadInformation != null
@@ -126,7 +126,7 @@ props.row.qrLeadInformation != null
 <q-td v-if="
 props.row.leadInformation != null ||
 props.row.qrLeadInformation != null
-" slot="body-cell-mid" slot-scope="props" :props="props" class="customTd">
+" v-slot:body-cell-mid="props" :props="props" class="customTd">
 <div v-if="
 props.row.leadInformation != null ||
 props.row.qrLeadInformation != null
@@ -137,23 +137,23 @@ props.row.qrLeadInformation != null
 <template slot="top">
 <!--START: table filter,search -->
 <div class="col-md-5">
-<q-search clearable color="grey-9" v-model="filterSearch" placeholder="Type.."
+<q-input clearable color="grey-9" v-model="filterSearch" placeholder="Type.."
 float-label="Search By TID, MID" class="q-mr-lg q-py-sm" />
 </div>
 </template>
 </q-table>
-<!--END: table Data -->
-</q-tab-pane>
-<q-tab-pane name="unAssigned">
+<!--ENDv-model: table Data -->
+</q-tab-panell>
+<q-tab-panel name="unAssigned">
 <!--START: table Data -->
 <q-table :data="tableData1" :columns="columnDataUnassigned" table-class="customTableClass"
-:filter="filterSearch1" selection="multiple" :selected.sync="formData.marsDeviceIdsCooked"
-:pagination.sync="paginationControl1" row-key="id" :loading="tableAjaxLoading1"
+:filter="filterSearch1" selection="multiple" :selected="formData.marsDeviceIdsCooked"
+v-model:pagination="paginationControl1" row-key="id" :loading="tableAjaxLoading1"
 :rows-per-page-options="[5, 10, 15, 20]" color="dark" @request="ajaxLoadAllLeadInfo1">
 <q-td v-if="
 props.row.leadInformation != null ||
 props.row.qrLeadInformation != null
-" slot="body-cell-leadNumber" slot-scope="props" :props="props" class="cursor-pointer"
+" v-slot:body-cell-leadNumber="props" :props="props" class="cursor-pointer"
 @click.native="toggleLeadInformation(props.row.leadInformation)">
 <span class="label text-primary">#
 {{
@@ -165,7 +165,7 @@ props.row.leadInformation == null
 <q-td v-if="
 props.row.leadInformation != null ||
 props.row.qrLeadInformation != null
-" slot="body-cell-submitToMarsDate" slot-scope="props" :props="props">{{
+" v-slot:body-cell-submitToMarsDate="props" :props="props">{{
 props.row.leadInformation != null &&
 props.row.leadInformation.submitToMarsDate != null
 ? props.row.leadInformation.submitToMarsDate
@@ -178,11 +178,11 @@ props.row.qrLeadInformation.submitMarsDate != null
 <q-td v-if="
 props.row.leadInformation != null ||
 props.row.qrLeadInformation != null
-" slot="body-cell-createdAt" slot-scope="props" :props="props">{{ props.row.createdAt | moment("Do MMM Y") }}</q-td>
+" v-slot:body-cell-createdAt="props" :props="props">{{ props.row.createdAt | moment("Do MMM Y") }}</q-td>
 <q-td v-if="
 props.row.leadInformation != null ||
 props.row.qrLeadInformation != null
-" slot="body-cell-tid" slot-scope="props" :props="props" class="customTd">
+" v-slot:body-cell-tid="props" :props="props" class="customTd">
 <div v-if="
 props.row.leadInformation != null ||
 props.row.qrLeadInformation != null
@@ -193,7 +193,7 @@ props.row.qrLeadInformation != null
 <q-td v-if="
 props.row.leadInformation != null ||
 props.row.qrLeadInformation != null
-" slot="body-cell-mid" slot-scope="props" :props="props" class="customTd">
+" v-slot:body-cell-mid="props" :props="props" class="customTd">
 <div v-if="
 props.row.leadInformation != null ||
 props.row.qrLeadInformation != null
@@ -204,7 +204,7 @@ props.row.qrLeadInformation != null
 <q-td v-if="
 props.row.leadInformation != null ||
 props.row.qrLeadInformation != null
-" slot="body-cell-deviceAddress" slot-scope="props" :props="props" class="customTd customCellLength">
+" v-slot:body-cell-deviceAddress="props" :props="props" class="customTd customCellLength">
 <div>
 {{ props.row.deviceAddress }}
 </div>
@@ -212,14 +212,14 @@ props.row.qrLeadInformation != null
 <template slot="top">
 <!--START: table filter,search -->
 <div class="col-md-5">
-<q-search clearable color="grey-9" v-model="filterSearch1" placeholder="Type.."
+<q-input clearable color="grey-9" v-model="filterSearch1" placeholder="Type.."
 float-label="Search By TID, MID" class="q-mr-lg q-py-sm" />
 </div>
 <!--END: table filter,search -->
 </template>
 </q-table>
 <!--END: table Data -->
-</q-tab-pane>
+</q-tab-panell>
 </q-tabs>
 <div class="row items-center gutter-y-sm">
 <div class="col-md-9 col-sm-12 col-xs-12">

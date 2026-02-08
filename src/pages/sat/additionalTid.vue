@@ -1,9 +1,9 @@
 <template>
   <q-page>
-    <!-- <q-pull-to-refresh :handler="PullToRefresh" inline></q-pull-to-refresh> -->
+    <!-- <q-pull-to-refresh v-model:handler="PullToRefresh" inline></q-pull-to-refresh> -->
       <!--START: table title -->
       <div
-        class="col-md-12 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
+        class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
       >Bijlipay Additional Terminals</div>
       
       <!--END: table title -->
@@ -21,23 +21,22 @@
         :data="tableData"
         :columns="columns"
         :filter="filter"
-        :pagination.sync="paginationControl"
+        :pagination="paginationControl"
         row-key="name"
         :loading="toggleAjaxLoadFilter"
         :rows-per-page-options="[5,10,15,20]"
         @request="ajaxLoadAllLeadInfo"
       >
        <!--START: table header -->
-        <q-tr slot="top-row" slot-scope="props">
+        <q-tr v-slot:top-row="props">
         <q-th v-for="col in props.columns" :key="col.name" :props="props">{{ col.label }}</q-th>  
         </q-tr>
         <!--END: table header -->
-        <q-td slot="body-cell-mid" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-mid="props" :props="props">
           <span class="label text-primary"># {{props.row.mid}}</span>
         </q-td>
         <q-td
-          slot="body-cell-leadNumber"
-          slot-scope="props"
+          v-slot:body-cell-leadNumber="props"
           :props="props"
           class="cursor-pointer"
           @click.native="toggleLeadInformation(props.row.leadInformation)"
@@ -45,11 +44,10 @@
           <span class="label text-primary"># {{props.row.leadInformation.leadNumber}}</span>
         </q-td>
         <q-td
-          slot="body-cell-leadAddress"
-          slot-scope="props"
+          v-slot:body-cell-leadAddress="props"
           :props="props"
         >{{props.row.leadInformation == null? 'NA':props.row.leadInformation.leadAddress}}</q-td>
-        <q-td slot="body-cell-action" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-action="props" :props="props">
            <q-btn
             highlight
             push
@@ -62,7 +60,7 @@
         <template slot="top"  class="bottom-border" >
           <!--START: table filter,search,excel download -->
           <div class="col-5">
-            <q-search
+            <q-input
               clearable
               v-model="filter"
               separator

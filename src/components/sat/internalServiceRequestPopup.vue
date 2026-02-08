@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-modal v-model="opened" class="q-mt-lg capitalize" @hide="emitToggleRemarks" @escape-key="emitToggleRemarks"
+    <q-dialog v-model="opened" class="q-mt-lg capitalize" @hide="emitToggleRemarks" @escape-key="emitToggleRemarks"
       :content-css="{ minWidth: '40vw', padding: '20px' }">
 
       <div class="row items-center bottom-border q-py-sm">
@@ -14,12 +14,12 @@
       <div class="row">
         <div>
           <q-scroll-area style="width: 600px; height: 400px;">
-            <q-list multiline separator class="q-body-1">
+            <q-list multiline separator class="text-body1">
 
               <div class="col">
               <q-item multiline>
                 <q-td>
-                  <div class="text-left q-caption text-grey-8 text-weight-medium">Request Type
+                  <div class="text-left text-caption text-grey-8 text-weight-medium">Request Type
                   </div>
                   <div class="text-left" v-if="ServiceRequest.subTicketsList.length > 0">
                     <div v-for="col in ServiceRequest.subTicketsList" :key="col.serviceRequestType.id" >
@@ -35,7 +35,7 @@
               <div class="col">
               <q-item multiline>
                 <q-td>
-                  <div class="text-left q-caption text-grey-8 text-weight-medium">IssueType
+                  <div class="text-left text-caption text-grey-8 text-weight-medium">IssueType
                   </div>
                   <div class="text-left" v-if="ServiceRequest.subTicketsList.length > 0">
                     <div v-for="col in ServiceRequest.subTicketsList" :key="col.serviceRequestType.id">
@@ -51,7 +51,7 @@
               <div class="col">
               <q-item multiline>
               <q-td>
-                <div class="text-left q-caption text-grey-8 text-weight-medium">SubTicket Status</div>
+                <div class="text-left text-caption text-grey-8 text-weight-medium">SubTicket Status</div>
                 <div class="text-left" v-if="ServiceRequest.subTicketsList.length > 0">
                   <div v-for="col in ServiceRequest.subTicketsList" :key="col.serviceRequestType.id">
                     <span>
@@ -66,7 +66,7 @@
             <div class="col">
               <q-item multiline>
                 <q-td>
-                  <div class="text-left q-caption text-grey-8 text-weight-medium">Schedule Date</div>
+                  <div class="text-left text-caption text-grey-8 text-weight-medium">Schedule Date</div>
                   <div class="text-left" v-if="ServiceRequest.subTicketsList.length > 0">
                     <div v-for="col in ServiceRequest.subTicketsList" :key="col.serviceRequestType.id">
                       <span>{{ col.scheduleDate != null ? col.scheduleDate : "NA" }}</span><br />
@@ -79,7 +79,7 @@
               <div class="col">
               <q-item multiline>
               <q-td>
-                <div class="text-left q-caption text-grey-8 text-weight-medium">Pod Number</div>
+                <div class="text-left text-caption text-grey-8 text-weight-medium">Pod Number</div>
                 <div class="text-left" v-if="ServiceRequest.subTicketsList.length > 0">
                   <div v-for="col in ServiceRequest.subTicketsList" :key="col.serviceRequestType.id" >
                     <span>{{ col.podNumber != null ? col.podNumber : "NA" }}</span><br />
@@ -92,7 +92,7 @@
             <div class="col">
               <q-item multiline>
                 <q-td>
-                  <div class="text-left q-caption text-grey-8 text-weight-medium">Service Remarks
+                  <div class="text-left text-caption text-grey-8 text-weight-medium">Service Remarks
                   </div>
                   <div class="text-left" v-if="ServiceRequest.subTicketsList.length > 0">
                     <div v-for="col in ServiceRequest.subTicketsList" :key="col.serviceRequestType.id" >
@@ -106,7 +106,7 @@
               <div class="col">
               <q-item multiline>
               <q-td>
-                <div class="text-left q-caption text-grey-8 text-weight-medium">Cancel Reason</div>
+                <div class="text-left text-caption text-grey-8 text-weight-medium">Cancel Reason</div>
                 <div class="text-left" v-if="ServiceRequest.subTicketsList.length > 0">
                   <div v-for="col in ServiceRequest.subTicketsList" :key="col.serviceRequestType.id">
                     <span>{{ col.cancelReason != null ? col.cancelReason : "NA" }}</span><br />
@@ -119,7 +119,7 @@
             <div class="col">
               <q-item multiline>
                 <q-td>
-                  <div class="text-left q-caption text-grey-8 text-weight-medium">Issue Remark</div>
+                  <div class="text-left text-caption text-grey-8 text-weight-medium">Issue Remark</div>
                   <div class="text-left" v-if="ServiceRequest.subTicketsList.length > 0">
                     <div v-for="col in ServiceRequest.subTicketsList" :key="col.serviceRequestType.id">
                       <span>{{ col.issueRemark != null ? col.issueRemark : "NA" }}</span><br />
@@ -132,7 +132,7 @@
               <div class="col">
               <q-item multiline>
               <q-td>
-                <div class="text-left q-caption text-grey-8 text-weight-medium">Remark</div>
+                <div class="text-left text-caption text-grey-8 text-weight-medium">Remark</div>
                 <div class="text-left" v-if="ServiceRequest.subTicketsList.length > 0">
                   <div v-for="col in ServiceRequest.subTicketsList" :key="col.serviceRequestType.id">
                     <span>{{ col.remark != null ? col.remark : "NA" }}</span><br />
@@ -145,7 +145,7 @@
             <div class="col">
               <q-item multiline>
                 <q-td>
-                  <div class="text-left q-caption text-grey-8 text-weight-medium">Latitude</div>
+                  <div class="text-left text-caption text-grey-8 text-weight-medium">Latitude</div>
                   <div class="text-left" v-if="ServiceRequest.subTicketsList.length > 0">
                     <div v-for="col in ServiceRequest.subTicketsList" :key="col.serviceRequestType.id" >
                       <span>{{ col.latitude != null ? col.latitude : "NA" }}</span><br />
@@ -158,7 +158,7 @@
               <div class="col">
               <q-item multiline>
                 <q-td>
-                  <div class="text-left q-caption text-grey-8 text-weight-medium">Longitude</div>
+                  <div class="text-left text-caption text-grey-8 text-weight-medium">Longitude</div>
                   <div class="text-left" v-if="ServiceRequest.subTicketsList.length > 0">
                     <div v-for="col in ServiceRequest.subTicketsList" :key="col.serviceRequestType.id">
                       <span>{{ col.longitude != null ? col.longitude : "NA" }}</span><br />
@@ -171,7 +171,7 @@
               <div class="col">
               <q-item multiline>
                 <q-td>
-                  <div class="text-left q-caption text-grey-8 text-weight-medium">Implementation Form</div>
+                  <div class="text-left text-caption text-grey-8 text-weight-medium">Implementation Form</div>
                   <div class="text-left" v-if="ServiceRequest.subTicketsList.length > 0">
                     <div v-for="col in ServiceRequest.subTicketsList" :key="col.serviceRequestType.id" >
                       <span>{{ col.implementationForm != null ? col.implementationForm : "NA" }}</span><br />
@@ -184,7 +184,7 @@
               <div class="col">
               <q-item multiline>
                 <q-td>
-                  <div class="text-left q-caption text-grey-8 text-weight-medium">Picture Of Shop</div>
+                  <div class="text-left text-caption text-grey-8 text-weight-medium">Picture Of Shop</div>
                   <div class="text-left" v-if="ServiceRequest.subTicketsList.length > 0">
                     <div v-for="col in ServiceRequest.subTicketsList" :key="col.serviceRequestType.id" >
                       <span>{{ col.pictureOfShop != null ? col.pictureOfShop : "NA" }}</span><br />
@@ -197,7 +197,7 @@
               <div class="col">
               <q-item multiline>
                 <q-td>
-                  <div class="text-left q-caption text-grey-8 text-weight-medium">Old Sim Number</div>
+                  <div class="text-left text-caption text-grey-8 text-weight-medium">Old Sim Number</div>
                   <div class="text-left" v-if="ServiceRequest.subTicketsList.length > 0">
                     <div v-for="col in ServiceRequest.subTicketsList" :key="col.serviceRequestType.id" >
                       <span>{{ col.oldSimNumber != null ? col.oldSimNumber : "NA" }}</span><br />
@@ -210,7 +210,7 @@
               <div class="col">
               <q-item multiline>
                 <q-td>
-                  <div class="text-left q-caption text-grey-8 text-weight-medium">Old Sim Network</div>
+                  <div class="text-left text-caption text-grey-8 text-weight-medium">Old Sim Network</div>
                   <div class="text-left" v-if="ServiceRequest.subTicketsList.length > 0">
                     <div v-for="col in ServiceRequest.subTicketsList" :key="col.serviceRequestType.id">
                       <span>{{ col.oldSimNetwork != null ? col.oldSimNetwork : "NA" }}</span><br />
@@ -223,7 +223,7 @@
               <div class="col">
               <q-item multiline>
                 <q-td>
-                  <div class="text-left q-caption text-grey-8 text-weight-medium">New Sim Number</div>
+                  <div class="text-left text-caption text-grey-8 text-weight-medium">New Sim Number</div>
                   <div class="text-left" v-if="ServiceRequest.subTicketsList.length > 0">
                     <div v-for="col in ServiceRequest.subTicketsList" :key="col.serviceRequestType.id">
                       <span>{{ col.newSimNumber != null ? col.newSimNumber : "NA" }}</span><br />
@@ -236,7 +236,7 @@
               <div class="col">
               <q-item multiline>
                 <q-td>
-                  <div class="text-left q-caption text-grey-8 text-weight-medium">New Sim Network</div>
+                  <div class="text-left text-caption text-grey-8 text-weight-medium">New Sim Network</div>
                   <div class="text-left" v-if="ServiceRequest.subTicketsList.length > 0">
                     <div v-for="col in ServiceRequest.subTicketsList" :key="col.serviceRequestType.id">
                       <span>{{ col.newSimNetwork != null ? col.newSimNetwork : "NA" }}</span><br />
@@ -249,7 +249,7 @@
               <div class="col">
               <q-item multiline>
                 <q-td>
-                  <div class="text-left q-caption text-grey-8 text-weight-medium">Scan Sim Number</div>
+                  <div class="text-left text-caption text-grey-8 text-weight-medium">Scan Sim Number</div>
                   <div class="text-left" v-if="ServiceRequest.subTicketsList.length > 0">
                     <div v-for="col in ServiceRequest.subTicketsList" :key="col.serviceRequestType.id" >
                       <span>{{ col.scanSimNumber != null ? col.scanSimNumber : "NA" }}</span><br />
@@ -262,7 +262,7 @@
               <div class="col">
               <q-item multiline>
                 <q-td>
-                  <div class="text-left q-caption text-grey-8 text-weight-medium">Scan Device</div>
+                  <div class="text-left text-caption text-grey-8 text-weight-medium">Scan Device</div>
                   <div class="text-left" v-if="ServiceRequest.subTicketsList.length > 0">
                     <div v-for="col in ServiceRequest.subTicketsList" :key="col.serviceRequestType.id" >
                       <span>{{ col.scanDeviceSerialNumber != null ? col.scanDeviceSerialNumber : "NA" }}</span><br />
@@ -275,7 +275,7 @@
               <div class="col">
               <q-item multiline>
                 <q-td>
-                  <div class="text-left q-caption text-grey-8 text-weight-medium">Part Type</div>
+                  <div class="text-left text-caption text-grey-8 text-weight-medium">Part Type</div>
                   <div class="text-left" v-if="ServiceRequest.subTicketsList.length > 0">
                     <div v-for="col in ServiceRequest.subTicketsList" :key="col.serviceRequestType.id">
                       <span>{{ col.partType != null ? col.partType : "NA" }}</span><br />
@@ -288,7 +288,7 @@
               <div class="col">
               <q-item multiline>
                 <q-td>
-                  <div class="text-left q-caption text-grey-8 text-weight-medium">Paper Roll Count</div>
+                  <div class="text-left text-caption text-grey-8 text-weight-medium">Paper Roll Count</div>
                   <div class="text-left" v-if="ServiceRequest.subTicketsList.length > 0">
                     <div v-for="col in ServiceRequest.subTicketsList" :key="col.serviceRequestType.id">
                       <span>{{ col.paperRollCount != null ? col.paperRollCount : "NA" }}</span><br />
@@ -302,7 +302,7 @@
         </div>
       </div>
       <!-- END >> Lead information -->
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
   

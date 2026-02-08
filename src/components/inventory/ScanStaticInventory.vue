@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-modal
+    <q-dialog
       v-model="toggleModal"
       class="q-mt-lg capitalize"
       @hide="emitToggleRemarks"
@@ -23,7 +23,7 @@
 
       <form>
         <div class="column group">
-          <div class="q-title"></div>
+          <div class="text-h6"></div>
         </div>
         <q-input
           readonly
@@ -49,7 +49,7 @@
           />
         </div>
       </form>
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 
@@ -58,7 +58,7 @@ import Vue from "vue";
 import VueBarcodeScanner from "vue-barcode-scanner";
 Vue.use(VueBarcodeScanner);
 import { mapGetters, mapActions } from "vuex";
-import { required } from "vuelidate/lib/validators";
+import { required } from "@vuelidate/validators";
 
 export default {
   name: "phonepePaperRoll",

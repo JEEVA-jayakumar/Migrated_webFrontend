@@ -6,9 +6,9 @@
         <q-tab default color="dark" name="tab-1" slot="title" label="Generate QR" />
         <q-tab color="dark" name="tab-2" slot="title" label="Download/View QR" />
         <!-- <q-tab color="dark" name="tab-3" slot="title" label="Request" /> -->
-        <q-tab-pane name="tab-1">
+        <q-tab-panel name="tab-1">
           <q-card style="width:100%" >
-          <q-card-main>
+          <q-card-section>
             <div>
               <div class="row">
                 <label class="qrlabel" for="input-id"><b>Select Bank</b></label>
@@ -35,13 +35,13 @@
                 </div>
               </div>
             </div>
-          </q-card-main>
+          </q-card-section>
         </q-card>
-        </q-tab-pane>
+        </q-tab-panell>
 
-        <q-tab-pane name="tab-2">
+        <q-tab-panel name="tab-2">
           <div class="col-md-10">
-            <q-search 
+            <q-input
             clearable 
             class="btnsize"
             color="grey-9" 
@@ -49,34 +49,34 @@
             v-model="filter"
             float-label="Search by Batch" />
           </div>
-          <q-table table-class="customTableClass" :data="tableData" :columns="columns"
-            :pagination.sync="paginationControl"   :filter="filter" row-key="id" :loading="toggleAjaxLoadFilter"
+          <q-table table-class="customTableClass" v-model:data="tableData" :columns="columns"
+            :pagination="paginationControl"   :filter="filter" row-key="id" :loading="toggleAjaxLoadFilter"
             :rows-per-page-options="[5, 10, 15, 20]" @request="ajaxLoadAllBatchList">
             <!--START: table header -->
-            <!-- <q-tr slot="top-row" slot-scope="props">
+            <!-- <q-tr v-slot:top-row="props">
         <q-th v-for="col in props.columns" :key="col.name" :props="props">{{ col.label }}</q-th>
         </q-tr> -->
-            <q-td slot="body-cell-createdAt" slot-scope="props" :props="props">{{
+            <q-td v-slot:body-cell-createdAt="props" :props="props">{{
               props.row.createdAt == null ? 'NA' :
                 props.row.createdAt | moment("Do MMM Y")
             }}</q-td>
-            <q-td slot="body-cell-Batch" slot-scope="props" :props="props">{{
+            <q-td v-slot:body-cell-Batch="props" :props="props">{{
               props.row.batchId == null ? 'NA' :
                 props.row.batchId
             }}</q-td>
-            <q-td slot="body-cell-Bank" slot-scope="props" :props="props">{{
+            <q-td v-slot:body-cell-Bank="props" :props="props">{{
               props.row.staticQrBank.name == null ? 'NA'
                 :
                 props.row.staticQrBank.name
             }}</q-td>
-            <q-td slot="body-cell-Count" slot-scope="props" :props="props">{{
+            <q-td v-slot:body-cell-Count="props" :props="props">{{
               props.row.count == null ? 'NA' :
                 props.row.count
             }}</q-td>
-            <q-td slot="body-cell-remainingCount" slot-scope="props" :props="props">{{
+            <q-td v-slot:body-cell-remainingCount="props" :props="props">{{
               props.row.remainingQrCount == 0 ? '' : props.row.remainingQrCount
             }}</q-td>
-            <q-td slot="body-cell-Action" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-Action="props" :props="props">
               <div class="row no-wrap no-padding">
                 <q-btn dense no-caps no-wrap label="Download" icon="file_download" size="md"
                   @click="downloadQrString(props.row)" flat class="text-green">
@@ -86,7 +86,7 @@
                 </q-btn>
               </div>
             </q-td>
-            <q-td slot="body-cell-Action2" slot-scope="props" :props="props"> 
+            <q-td v-slot:body-cell-Action2="props" :props="props">
               <div class="row no-wrap no-padding">
                 <q-btn :disable="props.row.batchCount == true" dense no-caps no-wrap label="Sticker Recieved" icon="thumb_up_alt" size="md"
                   @click="stickerRecieved(props.row)" flat class="text-blue">
@@ -94,7 +94,7 @@
               </div>
             </q-td>
           </q-table>
-        </q-tab-pane>
+        </q-tab-panell>
       </q-tabs>
     <qrPopUp v-if="propToggleData" :QrInfo="addBasicInformation" :propToggleDataPop="propToggleData"
       @closeRemarksInfo="toggle" />
@@ -108,7 +108,7 @@
 import {
   required,
 }
-  from "vuelidate/lib/validators";
+  from "@vuelidate/validators";
 import { mapGetters, mapActions } from 'vuex'
 import qrPopUp from '../../components/inventory/qrPopUp.vue'
 import ViewVpaData from '../../components/inventory/ViewVpaData.vue'

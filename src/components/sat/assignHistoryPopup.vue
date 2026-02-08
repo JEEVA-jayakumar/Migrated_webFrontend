@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <q-modal
+    <q-dialog
       minimized
       no-backdrop-dismiss
       class="customModalOverlay"
@@ -12,7 +12,7 @@
       <div
         class="row items-center justify-between q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
       >
-        <div class="col-auto q-title">Reassign History</div>
+        <div class="col-auto text-h6">Reassign History</div>
         <q-btn
           flat
           color="red"
@@ -29,17 +29,17 @@
         :columns="columns"
         row-key="name"
       >
-        <q-td slot="body-cell-date" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-date="props" :props="props">
           {{ props.row.createdAt | moment("Do MMM Y") }}</q-td
         >
-        <q-td slot="body-cell-agentname" slot-scope="props" :props="props">{{
+        <q-td v-slot:body-cell-agentname="props" :props="props">{{
           props.row.soUser.name == null ? "NA" : props.row.soUser.name
         }}</q-td>
-        <!-- <q-td slot="body-cell-remarks" slot-scope="props" :props="props">{{
+        <!-- <q-td v-slot:body-cell-remarks="props" :props="props">{{
             props.row.reAssignRemark == null ? "NA" : props.row.reAssignRemark
           }}</q-td> -->
       </q-table>
-    </q-modal>
+    </q-dialog>
   </q-page>
 </template>
 
@@ -55,7 +55,7 @@ import {
   alpha,
   alphaNum,
   numeric
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 export default {
   props: ["propShowUpdateAssignHistoryPopup", "propRowDetails"],

@@ -15,11 +15,11 @@
           label="Create Bulk Ticket "
         />
         <q-tab color="dark" name="tab-2" slot="title" label="Close Bulk Ticket" />
-        <q-tab-pane name="tab-1">
+        <q-tab-panel name="tab-1">
           <div class="q-pa-md">
             <div class="row text-center justify-center">
               <div class="col-md-12 q-py-sm bottom-border custom-background">
-                <div class="q-title text-grey-9">Ticket Creation - Bulk Upload</div>
+                <div class="text-h6 text-grey-9">Ticket Creation - Bulk Upload</div>
               </div>
               <br />
               <div class="col-md-8 q-py-md" align="center">
@@ -53,16 +53,16 @@
                 </div>
                 <div v-else align="left">
                   <q-card dense class="q-pa-xs">
-                    <q-card-title> Uploaded File </q-card-title>
-                    <q-card-separator />
-                    <q-card-main>
+                    <q-card-section> Uploaded File </q-card-section>
+                    <q-separator />
+                    <q-card-section>
                       <q-item dense>
-                        <q-item-side icon="attach_file" />
-                        <q-item-main>{{ formData.fileSelected[0].name }}</q-item-main>
-                        <q-item-side></q-item-side>
+                        <q-item-section icon="attach_file" />
+                        <q-item-section>{{ formData.fileSelected[0].name }}</q-item-section>
+                        <q-item-section></q-item-section>
                       </q-item>
-                    </q-card-main>
-                    <q-card-separator />
+                    </q-card-section>
+                    <q-separator />
                     <q-card-actions align="end">
                       <q-btn
                         outline
@@ -87,12 +87,12 @@
               </div>
             </div>
           </div>
-        </q-tab-pane>
-        <q-tab-pane name="tab-2">
+        </q-tab-panell>
+        <q-tab-panel name="tab-2">
           <div class="q-pa-md">
             <div class="row text-center justify-center">
               <div class="col-md-12 q-py-sm bottom-border custom-background">
-                <div class="q-title text-grey-9">Ticket Closing - Bulk Upload</div>
+                <div class="text-h6 text-grey-9">Ticket Closing - Bulk Upload</div>
               </div>
               <br />
               <div class="col-md-8 q-py-md" align="center">
@@ -126,16 +126,16 @@
                 </div>
                 <div v-else align="left">
                   <q-card dense class="q-pa-xs">
-                    <q-card-title> Uploaded File </q-card-title>
-                    <q-card-separator />
-                    <q-card-main>
+                    <q-card-section> Uploaded File </q-card-section>
+                    <q-separator />
+                    <q-card-section>
                       <q-item dense>
-                        <q-item-side icon="attach_file" />
-                        <q-item-main>{{ formData1.fileSelected[0].name }}</q-item-main>
-                        <q-item-side></q-item-side>
+                        <q-item-section icon="attach_file" />
+                        <q-item-section>{{ formData1.fileSelected[0].name }}</q-item-section>
+                        <q-item-section></q-item-section>
                       </q-item>
-                    </q-card-main>
-                    <q-card-separator />
+                    </q-card-section>
+                    <q-separator />
                     <q-card-actions align="end">
                       <q-btn
                         outline
@@ -160,7 +160,7 @@
               </div>
             </div>
           </div>
-        </q-tab-pane>
+        </q-tab-panell>
       </q-tabs>
     </div>
     <div

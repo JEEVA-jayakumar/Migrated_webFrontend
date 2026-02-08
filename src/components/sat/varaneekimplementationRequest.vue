@@ -3,7 +3,7 @@
         <div>
         <generalLeadInformation
           v-if="propToggleLeadInformation"
-          :leadInformation="addtnLeadInformation"
+          v-model:leadInformation="addtnLeadInformation"
           :propToggleLeadInformationPop="propToggleLeadInformation"
           @closeLeadInformation="toggleLeadInformation"
         />
@@ -29,17 +29,17 @@
         >
           <q-tab default color="dark" name="statusTab" slot="title" label="TID & MID STATUS"/>
           <!-- <q-tab color="dark" name="rejectedTab" slot="title" label="Rejected Leads" /> -->
-          <q-tab-pane name="rejectedTab">
+          <q-tab-panel name="rejectedTab">
               <varaneekRejectedLead/>
-            </q-tab-pane>
-          <q-tab-pane name="statusTab">
+            </q-tab-panell>
+          <q-tab-panel name="statusTab">
             <q-table
              :data="tableData1"
               :columns="columnData"
               table-class="customTableClass"
               :filter="filterSearch"
-              :selected.sync="formData.marsDeviceIdsCooked"
-              :pagination.sync="paginationControl1"
+              :selected="formData.marsDeviceIdsCooked"
+              v-model:pagination="paginationControl1"
               row-key="id"
               :rows-per-page-options="[10,20,50,100,150,200]"
               :loading="tableAjaxLoading1"
@@ -47,8 +47,7 @@
               @request="ajaxLoadAllLeadInfo1"
             >
               <q-td
-                slot="body-cell-leadNumber"
-                slot-scope="props"
+                v-slot:body-cell-leadNumber="props"
                 :props="props"
                 class="cursor-pointer"
                 @click.native="toggleLeadInformation(props.row.leadInformation)"
@@ -58,31 +57,28 @@
                 >
               </q-td>
               <q-td
-                slot="body-cell-submitToMarsDate"
-                slot-scope="props"
+                v-slot:body-cell-submitToMarsDate="props"
                 :props="props"
                 >{{
                   props.row.leadInformation.submitToMarsDate | moment("Do MMM Y")
                 }}</q-td
               >
               <q-td
-                slot="body-cell-createdAt"
-                slot-scope="props"
+                v-slot:body-cell-createdAt="props"
                 :props="props"
                 >{{ props.row.createdAt | moment("Do MMM Y") }}</q-td
               >
               <q-td
-                slot="body-cell-mid"
-                slot-scope="props"
+                v-slot:body-cell-mid="props"
                 :props="props"
                 class="customTd"
               >
                 <div class="text-primary">{{ props.row.mid }}</div>
               </q-td>
-              <template slot="top" slot-scope="props">
+              <template v-slot:top="props">
                 <!--START: table filter,search -->
                 <div class="col-md-5">
-                  <q-search
+                  <q-input
                     clearable
                     color="grey-9"
                     v-model="filterSearch"
@@ -93,8 +89,8 @@
                 </div>
               </template>
             </q-table>
-            <!--END: table Data -->
-          </q-tab-pane>
+            <!--ENDv-model: table Data -->
+          </q-tab-panell>
         </q-tabs>
   
         <!--END: table Footer -->
@@ -102,7 +98,7 @@
         <DeviceAddressModal
           v-if="showDeviceAddressModal"
           :showDeviceAddressModal="showDeviceAddressModal"
-          :currentDeviceInfo.sync="currentDeviceInfo"
+          :currentDeviceInfo="currentDeviceInfo"
           :stateInformation="getAllStatesData"
           :paginationControl="paginationControl"
           :selectedLeadItems="formData.marsDeviceIdsCooked"

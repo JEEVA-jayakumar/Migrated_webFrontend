@@ -1,10 +1,11 @@
+import { api } from '../../boot/axios';
 import api from "../api.js";
 import Vue from "vue";
 export const FETCH_ALL_MPOS_CATEGORY = ({
   commit,
   rootState
 }, request) => {
-  return Vue.http
+  return api
     .get(
       rootState.GlobalVariables.STATE_LOCAL_API +
       "getcategory")

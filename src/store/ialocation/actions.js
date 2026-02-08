@@ -1,10 +1,11 @@
+import { api } from '../../boot/axios';
 import api from "../api.js";
 import Vue from "vue";
 export const FETCH_IA_LOCATION = ({
   commit,
   rootState
 }, request) => {
-  return Vue.http
+  return api
     .get(rootState.GlobalVariables.STATE_LOCAL_API + 'location-master/' + request)
     .then(response => {
       let iaLocation = [];

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-modal
+    <q-dialog
       v-model="toggleModal"
       no-backdrop-dismiss
       no-esc-dismiss
@@ -11,7 +11,7 @@
         <div class="column">
           <!-- <pre>{{propAllScannedItemArr}}</pre> -->
           <div class="col-md-12 bottom-border">
-            <div class="q-title text-weight-regular q-py-sm">POD Number</div>
+            <div class="text-h6 text-weight-regular q-py-sm">POD Number</div>
           </div>
           <div class="col-md-8 q-pt-md" align="left">
             <q-input
@@ -29,7 +29,7 @@
           </div>
 
           <!-- <div class="col-md-12 bottom-border">
-            <div class="q-title text-weight-regular q-py-sm">Device Count</div>
+            <div class="text-h6 text-weight-regular q-py-sm">Device Count</div>
           </div>
           <div class="col-md-8 q-pt-md" align="left">
             <q-input
@@ -45,7 +45,7 @@
           </div>
         </div>
       </div>
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 <script>

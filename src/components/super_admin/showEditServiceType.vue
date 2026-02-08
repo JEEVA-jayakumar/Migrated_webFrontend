@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-modal
+    <q-dialog
       minimized
       v-model="toggleModel"
       @hide="emitfnshowEditServiceType"
@@ -11,7 +11,7 @@
       <form>
         <div class="row gutter-sm q-py-sm items-center">
           <div class="col-md-12">
-            <div class="q-title text-weight-regular">
+            <div class="text-h6 text-weight-regular">
               Modify Service Request Info
             </div>
           
@@ -70,7 +70,7 @@
           </div>
         </div>
       </form>
-    </q-modal>
+    </q-dialog>
      <!--START: Show Sub Task Details-->
      <showServiceSubTaskDetails
         v-if="propShowServiceSubTaskDetails"
@@ -84,7 +84,7 @@
 
 <script>
 import { request } from "http";
-import { required } from "vuelidate/lib/validators";
+import { required } from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 import showServiceSubTaskDetails from  "../../components/super_admin/showServiceSubTaskDetails.vue";
 

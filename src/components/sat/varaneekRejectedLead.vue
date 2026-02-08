@@ -4,19 +4,19 @@
     <div>
       <generalLeadInformation
         v-if="propToggleLeadInformation"
-        :leadInformation="addtnLeadInformation"
+        v-model:leadInformation="addtnLeadInformation"
         :propToggleLeadInformationPop="propToggleLeadInformation"
         @closeLeadInformation="toggleLeadInformation"
       />
       <!--END: table Footer -->
-        <q-tab-pane name="rejectedTab">
+        <q-tab-panel name="rejectedTab">
           <q-table
             :data="tableData"
             :columns="columnData"
             table-class="customTableClass"
             :filter="filterSearch"
-            :pagination.sync="paginationControl"
-            :selected.sync="formData.marsDeviceIdsCookedUnAssinged"
+            :pagination="paginationControl"
+            v-model:selected="formData.marsDeviceIdsCookedUnAssinged"
             row-key="id"
             :loading="tableAjaxLoading"
             :rows-per-page-options="[10,20,50,100,150,200]"
@@ -24,8 +24,7 @@
             @request="ajaxLoadAllLeadInfo"
           >
             <q-td
-              slot="body-cell-leadNumber"
-              slot-scope="props"
+              v-slot:body-cell-leadNumber="props"
               :props="props"
               class="cursor-pointer"
               @click.native="toggleLeadInformation(props.row.leadNumber)"
@@ -35,16 +34,15 @@
               >
             </q-td>
             <q-td
-              slot="body-cell-submitToMarsDate"
-              slot-scope="props"
+              v-slot:body-cell-submitToMarsDate="props"
               :props="props"
               >{{
                 props.row.submitToMarsDate | moment("Do MMM Y")
               }}</q-td
             >
-            <template slot="top" slot-scope="props">
+            <template v-slot:top="props">
               <div class="col-md-5">
-                <q-search
+                <q-input
                   clearable
                   color="grey-9"
                   v-model="filterSearch"
@@ -55,7 +53,7 @@
               </div>
             </template>
           </q-table>
-        </q-tab-pane>
+        </q-tab-panell>
       <!--END: table Footer -->
     </div>
   </q-page>

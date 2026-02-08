@@ -2,7 +2,7 @@
   <q-page>
     <!-- content -->
     <div>
-      <!--START: table title -->
+      <!--STARTv-model: table title -->
      
       <!--START: table lead validation -->
       <q-table
@@ -12,18 +12,18 @@
         :columns="columns"
         :filter="filter"
         :rows-per-page-options="[5,10,15,20,25]"
-        :pagination.sync="paginationControl"
+        :pagination="paginationControl"
         :loading="toggleAjaxLoadFilter"
         @request="ajaxLoadAllLeadInfo"
       >
-       <q-td slot="body-cell-TidCreationDate" slot-scope="props" :props="props">
+       <q-td v-slot:body-cell-TidCreationDate="props" :props="props">
           <span class="label">{{props.row.TidCreationDate | moment("Do MMM Y")}}</span>
         </q-td>
-        <q-td slot="body-cell-ReceivedDate" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-ReceivedDate="props" :props="props">
           <span class="label">{{props.row.ReceivedDate | moment("Do MMM Y")}}</span>
         </q-td>
         
-       <template slot="top" slot-scope="props" class="bottom-border">
+       <template v-slot:top="props" class="bottom-border">
           <!--START: table filter,search -->
         <div class="col">
           <q-select

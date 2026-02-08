@@ -1,7 +1,7 @@
 <template>
   <q-page>
     <div class="capitalize">
-      <q-pull-to-refresh :distance="30" :handler="PullToRefresh" inline>
+      <q-pull-to-refresh v-model:distance="30" :handler="PullToRefresh" inline>
         <!-- //Common lead information in popup -->
         <generalLeadInformation
           v-if="propToggleLeadInformation"
@@ -11,7 +11,7 @@
         />
         <!--START: table title -->
         <div
-          class="col-md-12 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
+          class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
         >Bijlipay Open Merchant Tracker/Lead Tracker</div>
         <!--END: table title -->
         <!--START: table open merchant tracker -->
@@ -20,20 +20,20 @@
           :data="tableData"
           :columns="columns"
           :filter="filter"
-          :pagination.sync="paginationControl"
+          :pagination="paginationControl"
           row-key="name"
         >
           <!--START: table body modification -->
-          <q-td slot="body-cell-createdAt" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-createdAt="props" :props="props">
             <span class="label">{{props.row.createdAt | moment("Do MMM Y")}}</span>
           </q-td>
-          <q-td slot="body-cell-submitteSATDate" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-submitteSATDate="props" :props="props">
             <span class="label">{{props.row.submitteSATDate | moment("Do MMM Y")}}</span>
           </q-td>
-          <q-td slot="body-cell-applicationNumber" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-applicationNumber="props" :props="props">
             <span class="label capitalize">{{props.row.applicationNumber}}</span>
           </q-td>
-          <q-td slot="body-cell-leadName" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-leadName="props" :props="props">
             <span class="label capitalize">{{props.row.leadName}}</span>
           </q-td>
           <q-td
@@ -45,23 +45,22 @@
           >
             <span class="label text-primary"># {{props.row.leadNumber}}</span>
           </q-td>
-          <q-td slot="body-cell-createdBy" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-createdBy="props" :props="props">
             <span class="label">{{props.row.createdBy.name+ " | " + props.row.createdBy.employeeID}}</span>
           </q-td>
-          <q-td slot="body-cell-leadAddress" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-leadAddress="props" :props="props">
             <span class="label">{{props.row.leadAddress}}</span>
           </q-td>
           <q-td
-            slot="body-cell-verifiedStatus"
-            slot-scope="props"
+            v-slot:body-cell-verifiedStatus="props"
             :props="props"
           >{{props.row.verifiedStatus}}</q-td>
 
-          <!-- <q-td slot="body-cell-status" slot-scope="props" :props="props">
+          <!-- <q-td v-slot:body-cell-status="props" :props="props">
             <span class="label " :class="{'text-green': props.row.status=='Approved', 'text-red': props.row.status=='Rejected', 'text-orange': props.row.status=='Pending with OPS' }">{{props.row.status}}</span>
           </q-td>-->
           <!--END: table body modification -->
-          <template slot="top" slot-scope="props">
+          <template v-slot:top="props">
             <!--START: table fullscreen mode -->
             <!-- <div class="col-md-4" align="right">
             <q-btn
@@ -75,7 +74,7 @@
             <!--END: table fullscreen mode -->
             <!--START: table filter,search,excel download -->
             <div class="col-5">
-              <q-search
+              <q-input
                 clearable
                 v-model="filter"
                 separator
@@ -86,7 +85,7 @@
               />
             </div>
             <!-- <div class="col-3">
-              <q-datetime modal outline type="date" v-model="model" placeholder="Select Date" class="q-mr-lg q-py-sm " float-label="Filter By"
+              <q-input modal outline type="date" v-model="model" placeholder="Select Date" class="q-mr-lg q-py-sm " float-label="Filter By"
                 color="grey-9" />
             </div>-->
             <!-- <div class="col-md-4">

@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-modal
+    <q-dialog
       minimized
       no-backdrop-dismiss
       v-model="toggleModel"
@@ -11,14 +11,14 @@
       <form>
         <div class="column group">
           <div class="col-md-12">
-            <div class="q-title text-weight-regular">
+            <div class="text-h6 text-weight-regular">
               <p align="center">
                 <strong>Download Implementation Report File</strong>
               </p>
             </div>
           </div>
           <div class="col-md-12">
-            <q-datetime
+            <q-input
               hide-underline
               class="q-mr-lg q-py-sm"
               v-model="formData.from"
@@ -29,7 +29,7 @@
             />
           </div>
           <div class="col-md-12">
-            <q-datetime
+            <q-input
               hide-underline
               class="q-mr-lg q-py-sm"
               v-model="formData.to"
@@ -55,7 +55,7 @@
           </div>
         </div>
       </form>
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 
@@ -72,7 +72,7 @@ import {
   alphaNum,
   numeric,
   sameAs
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 Vue.use(Vuelidate);
 import { date } from "quasar";
 const today = new Date();

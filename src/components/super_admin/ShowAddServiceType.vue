@@ -1,12 +1,12 @@
 <template>
   <div>
-    <q-modal minimized v-model="toggleModel" @hide="emitfnShowAddNewServiceType"
+    <q-dialog minimized v-model="toggleModel" @hide="emitfnShowAddNewServiceType"
       @escape-key="emitfnShowAddNewServiceType" class="customModalOverlay"
       :content-css="{ padding: '30px', minWidth: '50vw' }">
       <form>
         <div class="row gutter-sm q-py-sm items-center">
           <div class="col-md-12">
-            <div class="q-title text-weight-regular">Add Service Types</div>
+            <div class="text-h6 text-weight-regular">Add Service Types</div>
           </div>
         </div>
         <div class="row gutter-sm q-py-sm items-center">
@@ -46,12 +46,12 @@
           </div>
         </div>
       </form>
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 
 <script>
-import { required } from "vuelidate/lib/validators";
+import { required } from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 
 export default {

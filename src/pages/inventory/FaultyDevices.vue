@@ -3,9 +3,9 @@
     <!-- content -->
     
     <div>
-      <!--START: table title -->
+      <!--STARTv-model: table title -->
       <div
-        class="col-md-12 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
+        class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
       ></div>
       <!--END: table title -->
       <!--START: table lead validation -->
@@ -16,7 +16,7 @@
         :columns="columns"
         :filter="filter"
         :rows-per-page-options="[5,10,15,20,25]"
-        :pagination.sync="paginationControl"
+        :pagination="paginationControl"
         :loading="toggleAjaxLoadFilter"
         @request="ajaxLoadAllLeadInfo"
       >

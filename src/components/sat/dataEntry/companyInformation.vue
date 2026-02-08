@@ -87,7 +87,7 @@
         />
       </div>
       <div class="col-md-6 col-sm-12 col-xs-12">
-        <q-datetime
+        <q-input
           format="DD/MM/YYYY"
           format-model="number"
           color="grey-9"
@@ -287,7 +287,7 @@
         />
       </div>
       <div class="col-md-6 col-sm-12 col-xs-12">
-        <div class="q-caption">Statement type</div>
+        <div class="text-caption">Statement type</div>
         <div class="group">
           <q-radio
             @blur="$v.merchant.companyInformation.statementType.$touch"
@@ -302,7 +302,7 @@
         </div>
       </div>
       <div class="col-md-12 col-sm-12 col-xs-12">
-        <p class="q-caption">Statement frequency</p>
+        <p class="text-caption">Statement frequency</p>
         <div class="group">
           <q-radio
             @blur="$v.merchant.companyInformation.statementFrequency.$touch"
@@ -357,7 +357,7 @@ import {
   minValue,
   decimal,
   between
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 const alphaNumericValidate = helpers.regex(
   "alphaNumericValidate",
   /^(?:[A-Za-z]+)(?:[A-Za-z0-9 _]*)$/

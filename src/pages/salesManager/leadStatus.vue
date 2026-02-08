@@ -17,7 +17,7 @@
         @fetchCurrentUserLeads="fetchCurrentUserLeads"
       />
       <!--START: table title -->
-      <div class="q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9">Lead Status</div>
+      <div class="text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9">Lead Status</div>
       <!--END: table title -->
       <!-- START: Role/user selection -->
       <div class="q-px-lg q-py-md text-weight-regular text-grey-8">
@@ -104,12 +104,12 @@
       <div class="q-px-lg q-py-md row items-center">
         <!--START: table title -->
         <div
-          class="col-md-7 q-title text-weight-regular text-grey-9"
+          class="col-md-7 text-h6 text-weight-regular text-grey-9"
         >{{getLeadStatusUserDetails == undefined?'':getLeadStatusUserDetails.leadCount.userRoleName}} List</div>
         <!--END: table title -->
         <!--START: table search -->
         <div class="col-md-5">
-          <q-search
+          <q-input
             clearable
             v-model="filter"
             separator
@@ -118,7 +118,7 @@
             float-label="Search"
           />
         </div>
-        <!--END: table search -->
+        <!--ENDv-model: table search -->
       </div>
       <!--START: table data -->
       <q-table
@@ -127,12 +127,11 @@
         :data="tableDataNormal"
         :columns="columns"
         :filter="filter"
-        :pagination.sync="paginationControl"
+        :pagination="paginationControl"
         row-key="name"
       >
         <q-tr
-          slot="body"
-          slot-scope="props"
+          v-slot:body="props"
           :class="[rowActiveId == props.row.__index? 'bg-grey-4 text-dark':'']"
           :props="props"
           @mouseover.native="rowHover(props.row.__index)"
@@ -165,7 +164,7 @@
      
         <!--END: tabs header -->
         <!--START: tabs body -->
-        <q-tab-pane
+        <q-tab-panel
           v-for="tBodyContent in tabs.tabsBody"
           :key="tBodyContent.value"
           :name="tBodyContent.value"
@@ -175,18 +174,16 @@
             table-class="customTableClass"
             :data="tBodyContent.customData.tableData"
             :columns="tBodyContent.customData.columns"
-            :filter="filter"
-            :pagination.sync="paginationControl"
+            v-model:filter="filter"
+            :pagination="paginationControl"
             row-key="name"
           >
             <q-td
-              slot="body-cell-shortleadDate"
-              slot-scope="props"
+              v-slot:body-cell-shortleadDate="props"
               :props="props"
             >{{props.row.shortleadDate | moment("Do MMM Y")}}</q-td>
             <q-td
-              slot="body-cell-id"
-              slot-scope="props"
+              v-slot:body-cell-id="props"
               :props="props"
               class="cursor-pointer"
               @click.native="toggleLeadInformation(props.row)"
@@ -195,7 +192,7 @@
             </q-td>
           </q-table>
           <!--END: table table aging pending/reject -->
-        </q-tab-pane>
+        </q-tab-panell>
         <!--END: tabs body -->
       </q-tabs>
     </div>

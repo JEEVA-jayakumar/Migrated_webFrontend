@@ -35,7 +35,7 @@
                     </div>
                     <div class="col-md-3 col-sm-6 col-xs-6" align="right">
                         <q-btn no-caps :disabled="
-                            formData.marsDeviceIdsCooked.length == 0 ? true : false
+                            formData.marsDeviceIdsCooked.length == 0 ? true v-model: false
                         " label="Assign" class="common-dark-blue" @click="assignImplementationUser" />
                     </div>
                 </div>
@@ -57,27 +57,27 @@
                 <q-tab color="dark" name="opened" slot="title" label="Opened" />
                 <q-tab color="dark" name="closed" slot="title" label="Closed" /> -->
                 <!-- 
-                  <q-tab-pane name="opened">
+                  <q-tab-panel name="opened">
               <opened/>
-            </q-tab-pane> -->
-                <q-tab-pane name="unAssigned">
+            </q-tab-panell> -->
+                <q-tab-panel name="unAssigned">
                     <q-table :data="internalUnAssignedTableData" :columns="columnDataUnassigned"
                         table-class="customTableClass" :filter="filterSearch1" selection="multiple"
-                        :selected.sync="formData.marsDeviceIdsCooked" :pagination.sync="paginationControl1" row-key="id"
+                        :selected="formData.marsDeviceIdsCooked" v-model:pagination="paginationControl1" row-key="id"
                         :loading="tableAjaxLoading1" :rows-per-page-options="[5, 10, 15, 20]" color="dark"
                         @request="ajaxLoadAllLeadInfo1">
-                        <q-td slot="body-cell-serviceReqTicketId" slot-scope="props" :props="props"
+                        <q-td v-slot:body-cell-serviceReqTicketId="props" :props="props"
                             class="cursor-pointer" @click.native="toggleServiceRequest(props.row)">
                             <span class="label text-primary"># {{ props.row.serviceReqTicketId }}</span>
                         </q-td>
 
-                        <q-td slot="body-cell-createdDate" slot-scope="props" :props="props">{{
+                        <q-td v-slot:body-cell-createdDate="props" :props="props">{{
                                 props.row.createdDate | moment("Do MMM Y")
                         }}</q-td>
-                        <q-td slot="body-cell-updatedDate" slot-scope="props" :props="props">{{
+                        <q-td v-slot:body-cell-updatedDate="props" :props="props">{{
                                 props.row.updatedDate | moment("Do MMM Y")
                         }}</q-td>
-                        <q-td slot="body-cell-serviceRequestSubTicketStatus" slot-scope="props" :props="props">
+                        <q-td v-slot:body-cell-serviceRequestSubTicketStatus="props" :props="props">
                             <span class="label text-positive"
                                 v-if="props.row.serviceRequestSubTicketStatus == 1">SR_TICKET_RAISED</span>
                             <span class="label text-positive"
@@ -100,7 +100,7 @@
                                 v-else-if="props.row.serviceRequestSubTicketStatus == 10">SR_CANCELLED</span>
                             <span class="label" v-else>NA</span>
                         </q-td>
-                        <q-td slot="body-cell-serviceRequestTicketStatus" slot-scope="props" :props="props">
+                        <q-td v-slot:body-cell-serviceRequestTicketStatus="props" :props="props">
                             <span class="label text-positive"
                                 v-if="props.row.serviceRequestTicketStatus == 1">REQUEST_UNASSIGNED</span>
                             <span class="label text-negative"
@@ -109,40 +109,40 @@
                                 v-else-if="props.row.serviceRequestTicketStatus == 3">REQUEST_CLOSED</span>
                             <span class="label" v-else>NA</span>
                         </q-td>
-                        <q-td slot="body-cell-kaptureDueDate" slot-scope="props" :props="props">{{
+                        <q-td v-slot:body-cell-kaptureDueDate="props" :props="props">{{
                                 props.row.kaptureDueDate == null ? "NA" : props.row.kaptureDueDate | moment("Do MMM Y")
                         }}</q-td>
-                        <q-td slot="body-cell-appointmentDate" slot-scope="props" :props="props">{{
+                        <q-td v-slot:body-cell-appointmentDate="props" :props="props">{{
                                 props.row.appointmentDate == null ? "NA" : props.row.appointmentDate | moment("Do MMM Y")
                         }}</q-td>
-                        <q-td slot="body-cell-courierDueDate" slot-scope="props" :props="props">{{
+                        <q-td v-slot:body-cell-courierDueDate="props" :props="props">{{
                                 props.row.courierDueDate == null ? "NA" : props.row.courierDueDate | moment("Do MMM Y")
                         }}</q-td>
-                        <q-td slot="body-cell-scheduleDate" slot-scope="props" :props="props">{{ props.row.scheduleDate
+                        <q-td v-slot:body-cell-scheduleDate="props" :props="props">{{ props.row.scheduleDate
                                 == null ? "NA" : props.row.scheduleDate | moment("Do MMM Y")
                         }}</q-td>
                         <template slot="top">
                             <div class="col-md-5">
-                                <q-search clearable color="grey-9" v-model="filterSearch1" placeholder="Type.."
+                                <q-input clearable color="grey-9" v-model="filterSearch1" placeholder="Type.."
                                 float-label="Search By ServiceReqTicketId, TID .." class="q-mr-lg q-py-sm" />
                             </div>
                         </template>
                     </q-table>
-                </q-tab-pane>
-                <q-tab-pane name="assigned">
-                    <q-table :data="internalAssignedTableData" :columns="columnDataAssigned"
-                        table-class="customTableClass" :filter="filterSearch" :pagination.sync="paginationControl"
-                        :selected.sync="formData.marsDeviceIdsCookedUnAssinged" row-key="id" :loading="tableAjaxLoading"
+                </q-tab-panell>
+                <q-tab-panel name="assigned">
+                    <q-table v-model:data="internalAssignedTableData" :columns="columnDataAssigned"
+                        table-class="customTableClass" :filter="filterSearch" :pagination="paginationControl"
+                        v-model:selected="formData.marsDeviceIdsCookedUnAssinged" row-key="id" :loading="tableAjaxLoading"
                         :rows-per-page-options="[5, 10, 15, 20]" color="dark" @request="ajaxLoadAllLeadInfo">
 
                         <!--START: table header -->
-                        <q-tr slot="top-row" slot-scope="props">
+                        <q-tr v-slot:top-row="props">
                             <q-th auto-width></q-th>
                             <q-th v-for="col in props.columns" :key="col.name" :props="props">{{ col.label }}</q-th>
                         </q-tr>
                         <!--END: table header -->
                         <!--START: Table body -->
-                        <template slot="body" slot-scope="props">
+                        <template v-slot:body="props">
                             <!--START: table rows -->
                             <q-tr :props="props" class="bottom-border">
                                 <q-td key="serviceReqTicketId">
@@ -206,7 +206,7 @@
                             <!-- START: table expand values -->
                             <q-tr v-show="props.row.expand" :props="props" class="wordWrapCustom bottom-border">
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">Request Type
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">Request Type
                                     </div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
@@ -219,7 +219,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">IssueType</div>
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">IssueType</div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
                                             :props="props">
@@ -230,7 +230,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">SubTicket Status
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">SubTicket Status
                                     </div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
@@ -244,7 +244,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">Schedule Date</div>
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">Schedule Date</div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
                                             :props="props">
@@ -253,7 +253,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">Pod Number</div>
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">Pod Number</div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
                                             :props="props">
@@ -262,7 +262,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">Service Remarks
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">Service Remarks
                                     </div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
@@ -274,7 +274,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">Cancel Reason</div>
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">Cancel Reason</div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
                                             :props="props">
@@ -283,7 +283,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">Issue Remark</div>
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">Issue Remark</div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
                                             :props="props">
@@ -292,7 +292,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">Remark</div>
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">Remark</div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
                                             :props="props">
@@ -301,7 +301,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">Latitude</div>
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">Latitude</div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
                                             :props="props">
@@ -310,7 +310,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">Longitude</div>
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">Longitude</div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
                                             :props="props">
@@ -319,7 +319,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">Implementation Form
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">Implementation Form
                                     </div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
@@ -330,7 +330,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">Picture Of Shop
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">Picture Of Shop
                                     </div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
@@ -341,7 +341,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">Old Sim Number</div>
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">Old Sim Number</div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
                                             :props="props">
@@ -350,7 +350,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">Old Sim Network
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">Old Sim Network
                                     </div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
@@ -361,7 +361,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">New Sim Number</div>
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">New Sim Number</div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
                                             :props="props">
@@ -370,7 +370,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">New Sim Network
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">New Sim Network
                                     </div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
@@ -381,7 +381,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">Scan Sim Number
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">Scan Sim Number
                                     </div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
@@ -392,7 +392,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">Scan Device</div>
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">Scan Device</div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
                                             :props="props">
@@ -407,7 +407,7 @@
 
 
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">Part Type</div>
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">Part Type</div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
                                             :props="props">
@@ -416,7 +416,7 @@
                                     </div>
                                 </q-td>
                                 <q-td>
-                                    <div class="text-left q-caption text-grey-8 text-weight-medium">Paper Roll Count
+                                    <div class="text-left text-caption text-grey-8 text-weight-medium">Paper Roll Count
                                     </div>
                                     <div class="text-left" v-if="props.row.subTicketsList.length > 0">
                                         <div v-for="col in props.row.subTicketsList" :key="col.serviceRequestType.id"
@@ -430,12 +430,12 @@
                         </template>
                         <template slot="top">
                             <div class="col-md-5">
-                                <q-search clearable color="grey-9" v-model="filterSearch" placeholder="Type.."
+                                <q-input clearable color="grey-9" v-model="filterSearch" placeholder="Type.."
                                 float-label="Search By ServiceReqTicketId, TID .." class="q-mr-lg q-py-sm" />
                             </div>
                         </template>
                     </q-table>
-                </q-tab-pane>
+                </q-tab-panell>
             </q-tabs>
             <div class="row items-center gutter-y-sm">
                 <div class="col-md-9 col-sm-12 col-xs-12">
@@ -460,7 +460,7 @@
     alpha,
     alphaNum,
     numeric
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 
 import opened from "../../components/sat/opened.vue";

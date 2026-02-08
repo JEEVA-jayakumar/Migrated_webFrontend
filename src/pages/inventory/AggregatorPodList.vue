@@ -1,8 +1,8 @@
 <template>
   <q-page>
     <div>
-      <div class="col-md-6 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9">Aggregator POD List</div>
-      <!--END: table title -->
+      <div class="col-md-6 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9">Aggregator POD List</div>
+      <!--ENDv-model: table title -->
       <!--START: table lead validation -->
       <!-- <div class="row bottom-border q-px-md q-py-md items-center text-weight-regular text-grey-9">
         <div class="col-md-4">
@@ -12,35 +12,35 @@
       </div> -->
 
       <q-table table-class="customTableClass" :data="tableData" :columns="columns" :filter="filter"
-        :pagination.sync="paginationControl" :rows-per-page-options="[5, 10, 15, 20, 25]" row-key="name"
+        :pagination="paginationControl" :rows-per-page-options="[5, 10, 15, 20, 25]" row-key="name"
         :loading="toggleAjaxLoadFilter" @request="ajaxLoadAllLeadInfo">
-        <q-td slot="body-cell-action" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-action="props" :props="props">
           <div class="row no-wrap no-padding">
             <q-btn dense no-caps no-wrap label="Modify" icon="far fa-edit" size="md"
               @click="fnShowEditRegion(props.row)" flat class="text-light-blue"></q-btn>
           </div>
         </q-td>
-        <q-td slot="body-cell-createdAt" slot-scope="props" :props="props">{{
+        <q-td v-slot:body-cell-createdAt="props" :props="props">{{
           props.row.createdAt | moment("Do MMM Y")
         }}</q-td>
-        <q-td slot="body-cell-receivedAt" slot-scope="props" :props="props">{{
+        <q-td v-slot:body-cell-receivedAt="props" :props="props">{{
           props.row.receivedAt | moment("Do MMM Y")
         }}</q-td>
 
-        <q-td slot="body-cell-receivedAt" slot-scope="props" :props="props">{{
+        <q-td v-slot:body-cell-receivedAt="props" :props="props">{{
           props.row.receivedAt == null ? "NA" :
             props.row.receivedAt | moment("Do MMM Y")
         }}</q-td>
-        <q-td slot="body-cell-DeviceList" slot-scope="props" :props="props">{{
+        <q-td v-slot:body-cell-DeviceList="props" :props="props">{{
           props.row.createdAt | moment("Do MMM Y")
         }}</q-td>
-        <q-td slot="body-cell-ModifyDate" slot-scope="props" :props="props">{{
+        <q-td v-slot:body-cell-ModifyDate="props" :props="props">{{
           props.row.device.modifyDate |
             moment("Do MMM Y")
         }}</q-td>
-        <template slot="top" slot-scope="props">
+        <template v-slot:top="props">
           <div class="col-md-5">
-            <q-search clearable v-model="filter" separator color="grey-9" placeholder="Type.."
+            <q-input clearable v-model="filter" separator color="grey-9" placeholder="Type.."
             float-label="Search By Pod Number, BP Region" class="q-mr-lg q-py-sm" />
           </div>
           <div class="col-md-6">

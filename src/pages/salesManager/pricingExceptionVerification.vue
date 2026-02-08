@@ -4,7 +4,7 @@
       <!-- //Common lead information in popup -->
       <generalLeadInformation
         v-if="propToggleLeadInformation"
-        :leadInformation="addtnLeadInformation"
+        v-model:leadInformation="addtnLeadInformation"
         :propToggleLeadInformationPop="propToggleLeadInformation"
         @closeLeadInformation="toggleLeadInformation"
       />
@@ -14,7 +14,7 @@
         :class="getRoleForTableToggleRsmList == true? 'q-py-sm':'q-py-md'"
       >
         <!--START: table title -->
-        <div class="col q-title q-px-lg text-weight-regular text-grey-9">Pricing Exception Approval</div>
+        <div class="col text-h6 q-px-lg text-weight-regular text-grey-9">Pricing Exception Approval</div>
         <div class="col-auto">
           <q-btn
             flat
@@ -38,20 +38,19 @@
           />
           <q-tab slot="title" name="tab-2" label="History" />
           <!-- Targets -->
-          <q-tab-pane name="tab-1">
+          <q-tab-panel name="tab-1">
             <!--START: table lead validation -->
             <q-table
               table-class="customTableClass"
               :data="getPricingExceptionList"
               :columns="columns"
               :filter="filter"
-              :pagination.sync="paginationControl"
+              :pagination="paginationControl"
               row-key="name"
             >
               <!--START: table body modification -->
               <q-td
-                slot="body-cell-leadNumber"
-                slot-scope="props"
+                v-slot:body-cell-leadNumber="props"
                 :props="props"
                 class="cursor-pointer"
                 @click.native="toggleLeadInformation(props.row)"
@@ -59,11 +58,10 @@
                 <span class="label text-primary"># {{props.row.leadNumber}}</span>
               </q-td>
               <q-td
-                slot="body-cell-submittoRSMDate"
-                slot-scope="props"
+                v-slot:body-cell-submittoRSMDate="props"
                 :props="props"
               >{{ props.row.submittoRSMDate | moment("Do MMM Y") }}</q-td>
-              <q-td slot="body-cell-action" slot-scope="props" :props="props">
+              <q-td v-slot:body-cell-action="props" :props="props">
                 <q-btn
                   highlight
                   push
@@ -74,10 +72,10 @@
                 >Review</q-btn>
               </q-td>
               <!--END: table body modification -->
-              <template slot="top" slot-scope="props" class="bottom-border">
+              <template v-slot:top="props" class="bottom-border">
                 <!--START: table filter,search -->
                 <div class="col-md-5">
-                  <q-search
+                  <q-input
                     clearable
                     color="grey-9"
                     v-model="filter"
@@ -86,12 +84,12 @@
                     class="q-mr-lg q-py-sm"
                   />
                 </div>
-                <!--END: table filter,search -->
+                <!--ENDv-model: table filter,search -->
               </template>
             </q-table>
             <!--END: table lead validation -->
-          </q-tab-pane>
-          <q-tab-pane name="tab-2">
+          </q-tab-panell>
+          <q-tab-panel name="tab-2">
             <!--START: table data -->
             <q-table
               v-if=" getRoleForTableToggleRsmList == false"
@@ -99,12 +97,11 @@
               :data="getPricingRsmList"
               :columns="rsmcolumns"
               :filter="filter"
-              :pagination.sync="paginationControl"
+              :pagination="paginationControl"
               row-key="name"
             >
               <q-tr
-                slot="body"
-                slot-scope="props"
+                v-slot:body="props"
                 :class="[rowActiveId == props.row.__index? 'bg-grey-4 text-dark':'']"
                 :props="props"
                 @mouseover.native="rowHover(props.row.__index)"
@@ -114,7 +111,7 @@
                 <q-td v-for="col in props.cols" :key="col.name" :props="props">{{ col.value }}</q-td>
               </q-tr>
             </q-table>
-            <!--END: table data -->
+            <!--ENDv-model: table data -->
             <!--START: table data -->
             <!--START: table lead validation -->
             <q-table
@@ -123,20 +120,19 @@
               :data="pricingExceptionByRsmIDList"
               :columns="rsmcolumnsLeads"
               :filter="filter"
-              :pagination.sync="paginationControl"
+              :pagination="paginationControl"
               row-key="name"
             >
               <!--START: table body modification -->
               <q-td
-                slot="body-cell-leadNumber"
-                slot-scope="props"
+                v-slot:body-cell-leadNumber="props"
                 :props="props"
                 class="cursor-pointer"
                 @click.native="toggleLeadInformation(props.row)"
               >
                 <span class="label text-primary"># {{props.row.leadNumber}}</span>
               </q-td>
-              <!-- <q-td slot="body-cell-Status" slot-scope="props" :props="props">
+              <!-- <q-td v-slot:body-cell-Status="props" :props="props">
                 <span
                   class="label text-positive"
                   v-if="props.row.leadInformation.verifpropiedCmsPricingStatus==2"
@@ -144,7 +140,7 @@
 
                 <span class="label text-amber" v-else>New Lead</span>
               </q-td>-->
-              <q-td slot="body-cell-action" slot-scope="props" :props="props">
+              <q-td v-slot:body-cell-action="props" :props="props">
                 <q-btn
                   highlight
                   push
@@ -155,10 +151,10 @@
                 >Review</q-btn>
               </q-td>
               <!--END: table body modification -->
-              <template slot="top" slot-scope="props" class="bottom-border">
+              <template v-slot:top="props" class="bottom-border">
                 <!--START: table filter,search -->
                 <div class="col-md-5">
-                  <q-search
+                  <q-input
                     clearable
                     color="grey-9"
                     v-model="filter"
@@ -167,12 +163,12 @@
                     class="q-mr-lg q-py-sm"
                   />
                 </div>
-                <!--END: table filter,search -->
+                <!--ENDv-model: table filter,search -->
               </template>
             </q-table>
             <!--END: table lead validation -->
             <!--END: table data -->
-          </q-tab-pane>
+          </q-tab-panell>
         </q-tabs>
       </div>
       <div v-else>
@@ -182,25 +178,23 @@
           :data="getPricingExceptionList"
           :columns="columns"
           :filter="filter"
-          :pagination.sync="paginationControl"
+          :pagination="paginationControl"
           row-key="name"
         >
           <q-td
-            slot="body-cell-submittoRSMDate"
-            slot-scope="props"
+            v-slot:body-cell-submittoRSMDate="props"
             :props="props"
           >{{ props.row.submittoRSMDate | moment("Do MMM Y") }}</q-td>
           <!--START: table body modification -->
           <q-td
-            slot="body-cell-leadNumber"
-            slot-scope="props"
+            v-slot:body-cell-leadNumber="props"
             :props="props"
             class="cursor-pointer"
             @click.native="toggleLeadInformation(props.row)"
           >
             <span class="label text-primary"># {{props.row.leadNumber}}</span>
           </q-td>
-          <q-td slot="body-cell-action" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-action="props" :props="props">
             <q-btn
               highlight
               push
@@ -211,10 +205,10 @@
             >Review</q-btn>
           </q-td>
           <!--END: table body modification -->
-          <template slot="top" slot-scope="props" class="bottom-border">
+          <template v-slot:top="props" class="bottom-border">
             <!--START: table filter,search -->
             <div class="col-md-5">
-              <q-search
+              <q-input
                 clearable
                 color="grey-9"
                 v-model="filter"

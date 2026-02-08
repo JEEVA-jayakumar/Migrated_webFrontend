@@ -7,13 +7,13 @@
       <pre>{{ getAllUsers }}</pre>
       <h2>tttt</h2>
       <pre>{{ testData }}</pre>
-			<q-table :data="getAllUsers" :columns="columns" :filter="filterSearch" selection="multiple" :selected.sync="selectedSecond" :pagination.sync="paginationControl" :loading="tableAjaxLoading" row-key="name" color="grey-9">
+			<q-table v-model:data="getAllUsers" :columns="columns" :filter="filterSearch" selection="multiple" :selected="selectedSecond" v-model:pagination="paginationControl" :loading="tableAjaxLoading" row-key="name" color="grey-9">
 				
-				<q-td slot="body-cell-sales" slot-scope="props" :props="props">
+				<q-td v-slot:body-cell-sales="props" :props="props">
 					<img :src="props.row.profilePicture" class="avatar">
 				</q-td>
 
-				<q-td slot="body-cell-role" slot-scope="props" :props="props">
+				<q-td v-slot:body-cell-role="props" :props="props">
 					<div class="row no-wrap">
 						<div v-for="role in props.row.roles" :key="role.role">
 							<!-- <q-chip v-if="role.role == 'RSM'" color="light-blue">
@@ -32,7 +32,7 @@
 					</div>
 				</q-td>
 
-				 <q-td slot="body-cell-permission" slot-scope="props" :props="props">
+				 <q-td v-slot:body-cell-permission="props" :props="props">
 					<div class="row no-wrap">
 						<div v-for="role in props.row.roles" :key="role.role">
 							<q-chip v-for="rolePermission in role.permission" :key="rolePermission.permission" color="grey-5" class="text-grey-9">
@@ -42,15 +42,15 @@
 					</div>
 				</q-td>
 	
-				<template slot="top" slot-scope="props">
+				<template v-slot:top="props">
 	
 					<!--START: table title -->
-					<div class="col-md-6 q-title q-mt-lg  text-weight-regular">Users</div>
+					<div class="col-md-6 text-h6 q-mt-lg  text-weight-regular">Users</div>
 						<!--END: table title -->
 
 					<!--START: table filter,search -->
 					<div class="col-md-6">
-						<q-search
+						<q-input
 							clearable
 							color="grey-9"
 							v-model="filter"

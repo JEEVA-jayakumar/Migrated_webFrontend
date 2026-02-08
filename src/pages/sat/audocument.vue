@@ -1,8 +1,8 @@
 <template>
   <q-page>
     <div>
-      <!--START: table title -->
-      <div class="col-md-12 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9">
+      <!--STARTv-model: table title -->
+      <div class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9">
         Bijlipay Implementation Verification Queue
       </div>
       <!--END: table title -->
@@ -12,37 +12,37 @@
       <!-- content -->
       <!--START: table lead validation -->
       <q-table table-class="customTableClass" :data="tableData" :columns="columns" :filter="filter"
-        :pagination.sync="paginationControl" row-key="name" :loading="toggleAjaxLoadFilter"
+        :pagination="paginationControl" row-key="name" :loading="toggleAjaxLoadFilter"
         :rows-per-page-options="[5, 10, 15, 20]" @request="ajaxLoadAllLeadInfo">
-        <q-td slot="body-cell-tid" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-tid="props" :props="props">
           <span class="label text-primary"># {{ props.row.tid }}</span>
         </q-td>
-        <q-td slot="body-cell-mid" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-mid="props" :props="props">
           <span class="label text-primary"># {{ props.row.mid }}</span>
         </q-td>
-        <q-td slot="body-cell-leadNumber" slot-scope="props" :props="props" class="cursor-pointer"
+        <q-td v-slot:body-cell-leadNumber="props" :props="props" class="cursor-pointer"
           @click.native="toggleLeadInformation(props.row.leadInformation)">
           <span class="label text-primary"># {{ props.row.leadInformation.leadNumber }}</span>
         </q-td>
-        <q-td slot="body-cell-LeadSource" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-LeadSource="props" :props="props">
           <span :class="{ 'text-red': props.row.leadInformation.leadSource.sourceName === 'LS_TOHANDS' }">
             {{ props.row.leadInformation.leadSource.sourceName }}
           </span>
         </q-td>
-        <q-td slot="body-cell-mobileNumber" slot-scope="props" :props="props">{{
+        <q-td v-slot:body-cell-mobileNumber="props" :props="props">{{
           props.row.assignedTo == null ? "NA" : props.row.assignedTo.contactNumber
           }}</q-td>
-        <q-td slot="body-cell-leadAddress" slot-scope="props" :props="props">{{
+        <q-td v-slot:body-cell-leadAddress="props" :props="props">{{
           props.row.leadInformation == null
           ? "NA"
           : props.row.leadInformation.leadAddress
           }}</q-td>
-        <q-td slot="body-cell-deviceStatusDate" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-deviceStatusDate="props" :props="props">
           <span class="label">{{
             props.row.deviceStatusDate | moment("Do MMM Y")
             }}</span>
         </q-td>
-        <q-td slot="body-cell-viewDocument" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-viewDocument="props" :props="props">
 
           <div v-if="
             props.row.implementationFormMimeType == null ||
@@ -72,7 +72,7 @@
 
 
         </q-td>
-        <q-td slot="body-cell-pictureOfShop" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-pictureOfShop="props" :props="props">
           <div v-if="
             props.row.pictureOfShopMimeType == null ||
             props.row.pictureOfShopMimeType.includes('application/pdf')
@@ -105,7 +105,7 @@
           </div>
           <div v-else>NA Document</div>
         </q-td>
-        <q-td slot="body-cell-cpvForm" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-cpvForm="props" :props="props">
           <div v-if="
             props.row.cpvFormMimeType == null ||
             props.row.cpvFormMimeType.includes('application/pdf')
@@ -134,12 +134,12 @@
           </div>
           <div v-else>NA Document</div>
         </q-td>
-        <q-td slot="body-cell-status" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-status="props" :props="props">
           <span class="label text-positive" v-if="props.row.deviceStatus == 6">Approved</span>
           <span class="label text-negative" v-else-if="props.row.deviceStatus == 7">Pending</span>
           <span class="label text-amber" v-else>NA</span>
         </q-td>
-        <q-td slot="body-cell-action" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-action="props" :props="props">
           <div v-if="props.row.deviceStatus == 6">
             <q-btn disable dense no-caps no-wrap label="Already Approved" icon="block" size="md"
               @click="fnShowConvertToSat(props.row)"></q-btn>
@@ -150,7 +150,7 @@
               color="green-5"></q-btn>
           </div>
         </q-td>
-        <q-td slot="body-cell-data" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-data="props" :props="props">
           <div v-if="props.row.deviceStatus == 6">
             <q-btn disable dense no-caps no-wrap label="Reject" icon="block" size="md"
               @click="fnShowConvertToSat(props.row)"></q-btn>
@@ -163,15 +163,15 @@
 
         <template slot="top">
           <div class="col-5">
-            <q-search clearable v-model="filter" separator color="grey-9" placeholder="Type.."
+            <q-input clearable v-model="filter" separator color="grey-9" placeholder="Type.."
               float-label="Search by MID, TID, Merchant Name" class="q-mr-lg q-py-sm" />
           </div>
           <div class="col-2">
-            <q-datetime class="q-mr-lg q-py-sm" v-model="formData.fromDate" :min="yesterday" :max="tomorrow"
+            <q-input class="q-mr-lg q-py-sm" v-model="formData.fromDate" :min="yesterday" :max="tomorrow"
               float-label="From Date" />
           </div>
           <div class="col-2">
-            <q-datetime class="q-mr-lg q-py-sm" v-model="formData.toDate" :min="yesterday" :max="tomorrow"
+            <q-input class="q-mr-lg q-py-sm" v-model="formData.toDate" :min="yesterday" :max="tomorrow"
               float-label="To Date" />
           </div>
           <div class="col-2">

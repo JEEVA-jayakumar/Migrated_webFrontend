@@ -5,7 +5,7 @@
         <div class="col">
           <q-tabs class="shadow-1" animated swipeable color="tertiary" align="justify" v-model="shortlead">
             <q-tab name="shortlead" label="Additional Terminals" slot="title" />
-            <q-tab-pane name="shortlead">
+            <q-tab-panel name="shortlead">
               <div>
                 <div class="col-md-6 q-my-md" align="right">
                   <div class="col group"></div>
@@ -92,7 +92,7 @@
                   </div>
                 </form>
               </div>
-            </q-tab-pane>
+            </q-tab-panell>
           </q-tabs>
         </div>
       </div>
@@ -107,7 +107,7 @@ import {
   maxLength,
   integer,
   email,
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 export default {
   name: "additionalTidFromMars",

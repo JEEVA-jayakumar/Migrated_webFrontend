@@ -22,7 +22,7 @@
           label="Phonepe Paper Roll"
         >
         </q-tab>
-        <q-tab-pane name="tab-1">
+        <q-tab-panel name="tab-1">
           <div class="row items-center">
             <div class="col">
               <strong>
@@ -49,7 +49,7 @@
               />
             </div>
             <div class="col-4"></div>
-            <q-search
+            <q-input
               class="col-3"
               clearable
               color="grey-9"
@@ -61,15 +61,15 @@
           <q-table
             table-class="customTableClass"
             class="q-py-none"
-            :data="tableData"
+            v-model:data="tableData"
             :columns="columns"
             :filter="filter"
             :rows-per-page-options="[5, 10, 15]"
-            :pagination.sync="paginationControl"
+            :pagination="paginationControl"
             :loading="toggleAjaxLoadFilter"
             @request="ajaxLoadAllLeadInfo"
           >
-            <q-td slot="body-cell-action" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-action="props" :props="props">
               <div class="row no-wrap no-padding">
                 <q-btn
                 v-if="props.row.serviceRequestTicketStatus != 5 && props.row.serviceRequestTicketStatus != 3 && props.row.serviceRequestTicketStatus != 8 && props.row.serviceRequestTicketStatus != 2"
@@ -131,8 +131,7 @@
               </div>
             </q-td>
             <q-td
-              slot="body-cell-updateRemarks"
-              slot-scope="props"
+              v-slot:body-cell-updateRemarks="props"
               :props="props"
             >
               <div class="row no-wrap no-padding">
@@ -156,8 +155,7 @@
               </div>
             </q-td>
             <q-td
-              slot="body-cell-createdDate"
-              slot-scope="props"
+              v-slot:body-cell-createdDate="props"
               :props="props" 
               >{{
                 props.row == null
@@ -166,8 +164,7 @@
               }}</q-td
             >
             <q-td
-            slot="body-cell-tat"
-            slot-scope="props"
+            v-slot:body-cell-tat="props"
             :props="props" 
             >
             <span :style="getHoursAgoColor(props.row.createdDate)">{{
@@ -177,10 +174,10 @@
           >
 
           </q-table>
-        </q-tab-pane>
-        <q-tab-pane name="tab-2">
+        </q-tab-panell>
+        <q-tab-panel name="tab-2">
           <div class="row">
-            <q-search
+            <q-input
               class="col-4"
               clearable
               color="grey-9"
@@ -203,17 +200,16 @@
           <q-table
             table-class="customTableClass"
             class="q-py-none"
-            :data="tableData1"
+            v-model:data="tableData1"
             :columns="columns2"
             :filter="filter1"
             :rows-per-page-options="[5, 10, 15]"
-            :pagination.sync="paginationControl1"
+            :pagination="paginationControl1"
             :loading="toggleAjaxLoadFilter1"
             @request="ajaxLoadAllLeadInfo1"
           >
             <q-td
-              slot="body-cell-updateRemarks"
-              slot-scope="props"
+              v-slot:body-cell-updateRemarks="props"
               :props="props"
             >
               <div class="row no-wrap no-padding">
@@ -228,8 +224,7 @@
               </div>
             </q-td>
             <q-td
-              slot="body-cell-createdDate"
-              slot-scope="props"
+              v-slot:body-cell-createdDate="props"
               :props="props"
               >{{
                 props.row == null
@@ -238,8 +233,7 @@
               }}</q-td
             >
             <q-td
-              slot="body-cell-updatedDate"
-              slot-scope="props"
+              v-slot:body-cell-updatedDate="props"
               :props="props"
               >{{
                 props.row == null
@@ -248,8 +242,8 @@
               }}</q-td
             >
           </q-table>
-        </q-tab-pane>
-        <q-tab-pane name="tab-3">
+        </q-tab-panell>
+        <q-tab-panel name="tab-3">
           <q-tabs
             v-model="paperRollActiveTab"
             class="shadow-1"
@@ -269,7 +263,7 @@
               slot="title"
               label="Completed Tickets"
             />
-            <q-tab-pane name="tab-4">
+            <q-tab-panel name="tab-4">
               <div class="row items-center">
                 <div class="col">
                   <strong>
@@ -285,7 +279,7 @@
                 >
                 </q-select>
                 <div class="col-5"></div>
-                <q-search
+                <q-input
                   class="col-5"
                   clearable
                   color="grey-9"
@@ -297,17 +291,16 @@
               <q-table
                 table-class="customTableClass"
                 class="q-py-none"
-                :data="tableData3"
+                v-model:data="tableData3"
                 :columns="columns3"
                 :filter="filter3"
                 :rows-per-page-options="[5, 10, 15]"
-                :pagination.sync="paginationControl3"
+                :pagination="paginationControl3"
                 :loading="toggleAjaxLoadFilter3"
                 @request="ajaxLoadAllLeadInfo3"
               >
                 <q-td
-                  slot="body-cell-createdDate"
-                  slot-scope="props"
+                  v-slot:body-cell-createdDate="props"
                   :props="props"
                   >{{
                     props.row == null
@@ -316,10 +309,10 @@
                   }}</q-td
                 >
               </q-table>
-            </q-tab-pane>
-            <q-tab-pane name="tab-5">
+            </q-tab-panell>
+            <q-tab-panel name="tab-5">
               <div class="row">
-                <q-search
+                <q-input
                   class="col-4"
                   clearable
                   color="grey-9"
@@ -331,17 +324,16 @@
               <q-table
                 table-class="customTableClass"
                 class="q-py-none"
-                :data="tableData4"
+                v-model:data="tableData4"
                 :columns="columns4"
                 :filter="filter4"
                 :rows-per-page-options="[5, 10, 15]"
-                :pagination.sync="paginationControl4"
+                :pagination="paginationControl4"
                 :loading="toggleAjaxLoadFilter4"
                 @request="ajaxLoadAllLeadInfo4"
               >
                 <q-td
-                  slot="body-cell-createdDate"
-                  slot-scope="props"
+                  v-slot:body-cell-createdDate="props"
                   :props="props"
                   >{{
                     props.row == null
@@ -350,8 +342,7 @@
                   }}</q-td
                 >
                 <q-td
-                  slot="body-cell-updatedDate"
-                  slot-scope="props"
+                  v-slot:body-cell-updatedDate="props"
                   :props="props"
                   >{{
                     props.row == null
@@ -360,9 +351,9 @@
                   }}</q-td
                 >
               </q-table>
-            </q-tab-pane>
+            </q-tab-panell>
           </q-tabs>
-        </q-tab-pane>
+        </q-tab-panell>
       </q-tabs>
     </div>
     <phonepeRemarks

@@ -12,7 +12,7 @@
       <!--START: table title -->
       <div class="row bottom-border items-center">
         <div
-          class="col q-title q-px-lg q-py-md text-weight-regular text-grey-9"
+          class="col text-h6 q-px-lg q-py-md text-weight-regular text-grey-9"
         >Lead Allocation Tracker</div>
         <div class="col-auto q-px-lg q-py-sm">
           <q-btn
@@ -30,24 +30,21 @@
         table-class="customTableClass"
         class="q-py-none"
         :data="getAllLeadAllocationData.assignedLeads"
-        :columns="columns"
+        v-model:columns="columns"
         :filter="filter"
-        :pagination.sync="paginationControl"
+        :pagination="paginationControl"
         row-key="name"
       >
         <q-td
-          slot="body-cell-dateCreated"
-          slot-scope="props"
+          v-slot:body-cell-dateCreated="props"
           :props="props"
         >{{ props.row.createdAt | moment("Do MMM Y")}}</q-td>
         <q-td
-          slot="body-cell-shortleadDate"
-          slot-scope="props"
+          v-slot:body-cell-shortleadDate="props"
           :props="props"
         >{{ props.row.shortleadDate | moment("Do MMM Y")}}</q-td>
         <q-td
-          slot="body-cell-leadId"
-          slot-scope="props"
+          v-slot:body-cell-leadId="props"
           :props="props"
           class="cursor-pointer"
           @click.native="toggleLeadInformation(props.row)"
@@ -56,20 +53,18 @@
         </q-td>
         <q-td
           class="breakAll"
-          slot="body-cell-leadAddress"
-          slot-scope="props"
+          v-slot:body-cell-leadAddress="props"
           :props="props"
         >{{props.row.leadAddress}}</q-td>
         <q-td
-          slot="body-cell-assignedTo"
-          slot-scope="props"
+          v-slot:body-cell-assignedTo="props"
           :props="props"
         >{{props.row.assignedTo == null? 'NA':props.row.assignedTo.name}}</q-td>
-        <q-td slot="body-cell-action" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-action="props" :props="props">
           <q-btn label="Edit" color="amber-9" icon="edit" @click="navigateToEditScreen(props.row)"/>
         </q-td>
 
-        <template slot="top" slot-scope="props" class="bottom-border">
+        <template v-slot:top="props" class="bottom-border">
           <!--START: table fullscreen mode -->
           <!-- <div class="col-md-4" align="right">
             <q-btn
@@ -83,7 +78,7 @@
           <!--END: table fullscreen mode -->
           <!--START: table filter,search -->
           <div class="col-md-5">
-            <q-search
+            <q-input
               clearable
               color="grey-9"
               v-model="filter"

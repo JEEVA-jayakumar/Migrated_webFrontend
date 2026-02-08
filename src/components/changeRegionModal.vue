@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-modal
+    <q-dialog
       v-model="opened"
       class="q-mt-lg capitalize"
       @hide="emitToggleRemarks"
@@ -73,7 +73,7 @@
       <div class="row">
         <q-btn :disabled="formData.region=='' " class="glossy" rounded @click="changeRegion()" label="Submit" />
       </div>
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 <script>
@@ -83,7 +83,7 @@ import {
   minLength,
   maxLength,
   email
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 export default {
   props: ["regionInformation", "propToggleRegionInfoPop"],

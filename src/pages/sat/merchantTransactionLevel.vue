@@ -1,8 +1,8 @@
 <template>
   <q-page>
     <div>
-      <!--START: table title -->
-      <div class="col-md-12 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9">Merchant Tracker - Transaction Level</div>
+      <!--STARTv-model: table title -->
+      <div class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9">Merchant Tracker - Transaction Level</div>
       <!--END: table title -->
 
     <!-- content -->
@@ -12,10 +12,10 @@
       :data="tableData"
       :columns="columns"
       :filter="filter"
-      :pagination.sync="paginationControl" 
+      :pagination="paginationControl"
       row-key="name"
     >
-      <q-tr slot="body" slot-scope="props" :props="props" @click.native="rowClick(props.row)" class="cursor-pointer">
+      <q-tr v-slot:body="props" :props="props" @click.native="rowClick(props.row)" class="cursor-pointer">
         <q-td v-for="col in props.cols" :key="col.name" :props="props" >
            <div v-if="col.field == 'tid'" >
               <span class="label text-primary"># {{ col.value }}</span>
@@ -29,11 +29,11 @@
         </q-td>
       </q-tr>
 
-      <q-td slot="body-cell-tid" slot-scope="props" :props="props">
+      <q-td v-slot:body-cell-tid="props" :props="props">
           <span class="label text-primary"># {{props.row.tid}}</span>
       </q-td>
 
-       <template slot="top" slot-scope="props">
+       <template v-slot:top="props">
            
            
             <!--START: table fullscreen mode -->
@@ -50,7 +50,7 @@
 
             <!--START: table filter,search,excel download -->
             <div class="col-5">
-              <q-search
+              <q-input
               clearable
               v-model="filter"
               separator
@@ -61,7 +61,7 @@
               />
             </div>
             <div class="col-3">
-              <q-datetime 
+              <q-input
               modal
               outline
               type="date"

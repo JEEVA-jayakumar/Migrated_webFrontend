@@ -4,7 +4,7 @@
     <div>
       <div
         class="
-          q-title q-px-lg q-py-md
+          text-h6 q-px-lg q-py-md
           text-weight-regular
           bottom-border
           text-grey-9
@@ -72,7 +72,7 @@
           </div>
         </div>
       </q-card>
-      <!--END: table Footer -->
+      <!--ENDv-model: table Footer -->
       <q-tabs
         v-model="selectedTab"
         class="shadow-1"
@@ -93,22 +93,22 @@
           label="Resolved Tickets"
         />
         <q-tab color="dark" name="Ticket" slot="title" label="Ticket Bulk Assign/Reassign" />
-        <q-tab-pane name="assigned">
+        <q-tab-panel name="assigned">
           <!--START: table Data -->
           <q-table
             :data="tableData"
             :columns="columnDataAssigned"
             table-class="customTableClass"
             :filter="filterSearch"
-            :pagination.sync="paginationControl"
-            :selected.sync="formData.marsDeviceIdsCookedUnAssinged"
+            :pagination="paginationControl"
+            v-model:selected="formData.marsDeviceIdsCookedUnAssinged"
             row-key="id"
             :loading="tableAjaxLoading"
             :rows-per-page-options="[5, 10, 15, 20]"
             color="dark"
             @request="ajaxLoadAllLeadInfo"
           >
-            <template slot="body" slot-scope="props">
+            <template v-slot:body="props">
               <!--START: table rows -->
               <q-tr :props="props" class="bottom-border">
                 <q-td key="merchant_name" :props="props">
@@ -160,7 +160,7 @@
             </template>
             <template slot="top">
               <div class="col-md-5">
-                <q-search
+                <q-input
                   clearable
                   color="grey-9"
                   v-model="filterSearch"
@@ -171,17 +171,17 @@
               </div>
             </template>
           </q-table>
-          <!--END: table Data -->
-        </q-tab-pane>
-        <q-tab-pane name="unAssigned">
+          <!--ENDv-model: table Data -->
+        </q-tab-panell>
+        <q-tab-panel name="unAssigned">
           <!--START: table Data -->
           <q-table
             :data="tableData1"
             :columns="columnDataUnassigned"
             table-class="customTableClass"
             :filter="filterSearch1"
-            :selected.sync="formData.marsDeviceIdsCooked"
-            :pagination.sync="paginationControl1"
+            :selected="formData.marsDeviceIdsCooked"
+            v-model:pagination="paginationControl1"
             row-key="serviceReqTicketId"
             selection="multiple"
             :loading="tableAjaxLoading1"
@@ -193,31 +193,26 @@
               <!--START: table rows -->
           
                 <q-td
-                slot="body-cell-serviceReqTicketId"
-                slot-scope="props"
+                v-slot:body-cell-serviceReqTicketId="props"
                 :props="props"
                 class="cursor-pointer">
                   {{ props.row.serviceReqTicketId }}</q-td
                 >
-              <q-td slot="body-cell-merchant_name"
-              slot-scope="props"
+              <q-td v-slot:body-cell-merchant_name="props"
               :props="props"
               class="cursor-pointer">
                   {{ props.row.meName }}</q-td
                 >
                   <q-td
-                slot="body-cell-assignedTo"
-                slot-scope="props"
+                v-slot:body-cell-assignedTo="props"
                 :props="props"
                 class="cursor-pointer">
                   {{ props.row.assignedTo == null ? "NA" : props.row.assignedTo.name }}</q-td
                 >
-                <q-td slot="body-cell-tid"
-                slot-scope="props"
+                <q-td v-slot:body-cell-tid="props"
                 :props="props"
                 class="cursor-pointer"> {{ props.row.tid }}</q-td>
-                <q-td slot="body-cell-actionContact"
-                slot-scope="props"
+                <q-td v-slot:body-cell-actionContact="props"
                 :props="props"
                 class="cursor-pointer">
                   <q-btn
@@ -230,22 +225,19 @@
                     >Click to View</q-btn
                   >
                 </q-td>
-                <q-td slot="body-cell-dateCreated"
-                slot-scope="props"
+                <q-td v-slot:body-cell-dateCreated="props"
                 :props="props"
                 class="cursor-pointer">
                   {{ props.row.createdDate | moment("Do MMM Y") }}
                 </q-td>
-                <q-td slot="body-cell-tat"
-                slot-scope="props"
+                <q-td v-slot:body-cell-tat="props"
                 :props="props"
                 class="cursor-pointer">
                   <span :style="getHoursAgoColor(props.row.createdDate)">{{
                     getHoursAgo(props.row.createdDate)
                   }}</span>
                 </q-td>
-                <q-td  slot="body-cell-actionLog"
-                slot-scope="props"
+                <q-td  v-slot:body-cell-actionLog="props"
                 :props="props">
                   <q-btn
                     highlight
@@ -259,8 +251,7 @@
                 </q-td>
                 <q-td
                
-                  slot="body-cell-actionPickTickets"
-                  slot-scope="props"
+                  v-slot:body-cell-actionPickTickets="props"
                   :props="props"
                   v-if="props.row.serviceRequestTicketStatus == 5"
              
@@ -277,8 +268,7 @@
                 </q-td>
                 <q-td
                  
-                  slot="body-cell-actionReassign"
-                  slot-scope="props"
+                  v-slot:body-cell-actionReassign="props"
                   :props="props"
                   v-if="props.row.serviceRequestTicketStatus == 2"
             
@@ -297,7 +287,7 @@
        
             <template slot="top">
               <div class="col-md-5">
-                <q-search
+                <q-input
                   clearable
                   color="grey-9"
                   v-model="filterSearch1"
@@ -309,10 +299,10 @@
             </template>
           </q-table>
           <!--END: table Data -->
-        </q-tab-pane>
-        <q-tab-pane name="Ticket">
+        </q-tab-panell>
+        <q-tab-panel name="Ticket">
           <ticketAssign />
-        </q-tab-pane>
+        </q-tab-panell>
       </q-tabs>
       <div class="row items-center gutter-y-sm">
         <div class="col-md-9 col-sm-12 col-xs-12">

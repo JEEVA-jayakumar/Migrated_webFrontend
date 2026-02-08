@@ -1,14 +1,14 @@
 <template>
   <div>
     <!-- Reject model -->
-    <q-modal
+    <q-dialog
       minimized
       v-model="propToggleDocumentRejectModal"
       @hide="emitToggleRemarks()"
       @escape-key="emitToggleRemarks()"
       :content-css="{padding:'30px',minWidth: '40vw'}"
     >
-      <div class="q-title q-mb-sm">{{propDocumentDetails.documentType}}</div>
+      <div class="text-h6 q-mb-sm">{{propDocumentDetails.documentType}}</div>
       <q-input
         @blur="$v.formData.leadDetails.reason.$touch"
         :error="$v.formData.leadDetails.reason.$error"
@@ -35,7 +35,7 @@
         v-close-overlay
         label="Cancel"
       />
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 
@@ -49,7 +49,7 @@ import {
   alpha,
   alphaNum,
   numeric
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import { date } from "quasar";
 import { mapGetters, mapActions } from "vuex";
 export default {

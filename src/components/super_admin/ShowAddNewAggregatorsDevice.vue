@@ -1,9 +1,9 @@
 <template>
     <div>
-        <q-modal v-model="toggleModal" @hide="emitfnShowAddNewAggregatorsDevice" no-backdrop-dismiss
+        <q-dialog v-model="toggleModal" @hide="emitfnShowAddNewAggregatorsDevice" no-backdrop-dismiss
             class="customModalOverlay" :content-css="{ padding: '30px', minWidth: '30vw' }">
             <form>
-                <div class="q-title text-weight-regular q-py-md bottom-border items-center">
+                <div class="text-h6 text-weight-regular q-py-md bottom-border items-center">
                     <q-icon name="add_box" size="25px" color="purple-9" />Add Aggregator Device
                 </div>
                 <div class="column-inline q-py-md gutter-sm items-center">
@@ -43,12 +43,12 @@
                     </div>
                 </div>
             </form>
-        </q-modal>
+        </q-dialog>
     </div>
 </template>
   
 <script>
-import { required, maxValue } from "vuelidate/lib/validators";
+import { required, maxValue } from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 
 export default {

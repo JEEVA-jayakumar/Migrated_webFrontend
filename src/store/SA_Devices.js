@@ -1,3 +1,4 @@
+import { api } from '../boot/axios';
 import Vue from 'vue';
 import api from "./api.js";
 import _ from 'lodash';
@@ -91,7 +92,7 @@ const SA_Devices = {
       rootState
     }, request) {
       let req = request == null ? "" : JSON.parse(request).name
-      return Vue.http
+      return api
         .get(rootState.GlobalVariables.STATE_MARS_API + 'device-model/' + req)
         .then(response => {
           commit("SET_MARS_DEVICE_MODEL_DATAS", response.data);

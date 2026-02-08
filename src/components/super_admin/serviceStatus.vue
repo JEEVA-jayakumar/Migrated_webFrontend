@@ -5,25 +5,25 @@
          <q-tab @select="ajaxSpareData" default  color="dark" name="tab-3" slot="title" label="Active Service Status" />
           <q-tab  color="dark" name="tab-4" slot="title" label="Deactive Service Status" />
 
-          <q-tab-pane name="tab-3">
+          <q-tab-panel name="tab-3">
           <q-table
-          :data="ActivetableData"
+          v-model:data="ActivetableData"
           table-class="customSATableClass"
           :columns="columns1"
           :filter="filterSearch"
-          :pagination.sync="paginationControl"
+          :pagination="paginationControl"
           :filter-method="myCustomSearchFilter1"
           row-key="name"
           color="grey-9"
           >
-          <q-td slot="body-cell-createdDate" slot-scope="props" :props="props">{{
+          <q-td v-slot:body-cell-createdDate="props" :props="props">{{
                 props.row.createdDate | moment("Do MMM Y")
             }}</q-td>
-            <q-td slot="body-cell-updatedDate" slot-scope="props" :props="props">{{
+            <q-td v-slot:body-cell-updatedDate="props" :props="props">{{
                 props.row.updatedDate | moment("Do MMM Y")
             }}</q-td>
 
-            <q-td slot="body-cell-action" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-action="props" :props="props">
               <div class="row no-wrap no-padding">
               <q-btn dense no-caps no-wrap label="Modify" icon="far fa-plus-square" size="md"
                   @click="fnShowEditNewServiceStatus(props.row)" flat class="text-light-blue"></q-btn>
@@ -32,9 +32,9 @@
               </div>
             </q-td>
 
-            <template slot="top" slot-scope="props">
+            <template v-slot:top="props">
               <div class="col-3">
-                <q-search clearable color="grey-9" v-model="filterSearch" placeholder="Type.." class="q-mr-lg" />
+                <q-input clearable color="grey-9" v-model="filterSearch" placeholder="Type.." class="q-mr-lg" />
               </div>
               <!--END: table filter,search -->
               <div class="col-3" align="right">
@@ -44,40 +44,40 @@
               </div>
             </template>
           </q-table>
-        </q-tab-pane>
+        </q-tab-panell>
 
-        <q-tab-pane name="tab-4">
+        <q-tab-panel name="tab-4">
           <q-table
-          :data="DeactivetableData"
+          v-model:data="DeactivetableData"
           table-class="customSATableClass"
           :columns="columns4"
           :filter="filterSearch3"
-          :pagination.sync="paginationControl2"
+          :pagination="paginationControl2"
           :filter-method="myCustomSearchFilter2"
           row-key="name"
           color="grey-9"
           >
-            <q-td slot="body-cell-createdDate" slot-scope="props" :props="props">{{
+            <q-td v-slot:body-cell-createdDate="props" :props="props">{{
                 props.row.createdDate | moment("Do MMM Y")
             }}</q-td>
-            <q-td slot="body-cell-updatedDate" slot-scope="props" :props="props">{{
+            <q-td v-slot:body-cell-updatedDate="props" :props="props">{{
                 props.row.updatedDate | moment("Do MMM Y")
             }}</q-td>
 
-            <q-td slot="body-cell-action1" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-action1="props" :props="props">
               <div class="row no-wrap no-padding">
                 <q-btn dense no-caps no-wrap label="Active" icon="far fa-plus-square" size="md"
                   @click="fnShowActiveServiceStatus(props.row)" flat class="text-light-blue"></q-btn>
               </div>
             </q-td>
 
-            <template slot="top" slot-scope="props">
+            <template v-slot:top="props">
               <div class="col-3">
-                <q-search clearable color="grey-9" v-model="filterSearch3" placeholder="Type.." class="q-mr-lg" />
+                <q-input clearable color="grey-9" v-model="filterSearch3" placeholder="Type.." class="q-mr-lg" />
               </div>
             </template>
           </q-table>
-        </q-tab-pane>
+        </q-tab-panell>
       </q-tabs>
 
       <!--START: Show AddServiceStatus -->

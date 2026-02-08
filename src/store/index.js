@@ -1,5 +1,4 @@
-import Vue from "vue";
-import Vuex from "vuex";
+import { createStore } from 'vuex';
 import Merchant from "./BankLeadDataEntry";
 import commonLoader from "./commonLoader.js";
 import SuperAdminUsers from "./SuperAdminUsers.js";
@@ -245,9 +244,8 @@ import getMatmDatas from "./getMatmDatas"
 import phonePeCrm from "./phonePeCrm";
 import bijlipayCrm from "./bijlipayCrm";
 
-Vue.use(Vuex);
 
-const store = new Vuex.Store({
+export default createStore({
   modules: {
     commonLoader,
     Merchant,
@@ -491,4 +489,3 @@ UploadOnboardingMerchants,
   },
 });
 
-export default store;

@@ -2,21 +2,21 @@
   <q-page>
     <div>
       <div
-        class="col-md-6 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
+        class="col-md-6 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
       >Bijlipay POD List</div>
       <q-table
         table-class="customTableClass"
-        :data="tableData"
+        v-model:data="tableData"
         :columns="columns"
         :filter="filter"
-        :pagination.sync="paginationControl"
+        :pagination="paginationControl"
         :rows-per-page-options="[5,10,15,20,25]"
         row-key="name"
         :loading="toggleAjaxLoadFilter"
         @request="ajaxLoadAllLeadInfo"
         
       >
-        <q-td slot="body-cell-action" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-action="props" :props="props">
           <div class="row no-wrap no-padding">
             <q-btn
               dense
@@ -32,34 +32,29 @@
           </div>
         </q-td>
         <q-td
-          slot="body-cell-createdAt"
-          slot-scope="props"
+          v-slot:body-cell-createdAt="props"
           :props="props"
         >{{ props.row.createdAt | moment("Do MMM Y") }}</q-td>
         <q-td
-          slot="body-cell-receivedAt"
-          slot-scope="props"
+          v-slot:body-cell-receivedAt="props"
           :props="props"
         >{{ props.row.receivedAt | moment("Do MMM Y") }}</q-td>
 
         <q-td
-          slot="body-cell-receivedAt"
-          slot-scope="props"
+          v-slot:body-cell-receivedAt="props"
           :props="props"
         >{{ props.row.receivedAt ==null? "NA" : props.row.receivedAt | moment("Do MMM Y") }}</q-td>
         <q-td
-          slot="body-cell-DeviceList"
-          slot-scope="props"
+          v-slot:body-cell-DeviceList="props"
           :props="props"
         >{{ props.row.createdAt | moment("Do MMM Y") }}</q-td>
         <q-td
-          slot="body-cell-ModifyDate"
-          slot-scope="props"
+          v-slot:body-cell-ModifyDate="props"
           :props="props"
         >{{ props.row.device.modifyDate | moment("Do MMM Y") }}</q-td>
-        <template slot="top" slot-scope="props">
+        <template v-slot:top="props">
           <div class="col-md-5">
-            <q-search
+            <q-input
               clearable
               v-model="filter"
               separator

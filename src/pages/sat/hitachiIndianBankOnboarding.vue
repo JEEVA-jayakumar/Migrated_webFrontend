@@ -41,20 +41,20 @@
                       </div>
                       <div v-else align="left">
                         <q-card dense class="q-pa-xs">
-                          <q-card-title>
+                          <q-card-section>
                             Uploaded File
-                          </q-card-title>
-                          <q-card-separator />
-                          <q-card-main>
+                          </q-card-section>
+                          <q-separator />
+                          <q-card-section>
                             <q-item dense>
-                              <q-item-side icon="attach_file" />
-                              <q-item-main>{{
+                              <q-item-section icon="attach_file" />
+                              <q-item-section>{{
                                 formData.fileSelected[0].name
-                              }}</q-item-main>
-                              <q-item-side></q-item-side>
+                              }}</q-item-section>
+                              <q-item-section></q-item-section>
                             </q-item>
-                          </q-card-main>
-                          <q-card-separator />
+                          </q-card-section>
+                          <q-separator />
                           <q-card-actions align="end">
                             <q-btn
                               size="10px"
@@ -70,7 +70,7 @@
                     </div>
                     <div class="col-md-12 group" align="center">
                       <q-btn
-                        :disabled="formData.fileSelected.length == 0 ? true : false"
+                        :disabled="formData.fileSelected.length == 0 ? true v-model: false"
                         type="button"
                         color="purple-9"
                         label="Submit"
@@ -121,15 +121,15 @@
                   slot="title"
                   label="Hitachi Onboarding Merchants"
                 /> -->
-              <q-tab-pane name="unAssigned">
+              <q-tab-panel name="unAssigned">
                 <!--START: table Data -->
                 <q-table
                   :data="tableData1"
                   :columns="columnData"
                   table-class="customTableClass"
                   :filter="filterSearch1"
-                  :selected.sync="formData.marsDeviceIdsCooked"
-                  :pagination.sync="paginationControl1"
+                  :selected="formData.marsDeviceIdsCooked"
+                  v-model:pagination="paginationControl1"
                   row-key="id"
                   :loading="tableAjaxLoading1"
                   :rows-per-page-options="[5, 10, 15, 20]"
@@ -137,30 +137,26 @@
                   @request="ajaxLoadAllLeadInfo1"
                 >
                   <q-td
-                    slot="body-cell-tid"
-                    slot-scope="props"
+                    v-slot:body-cell-tid="props"
                     :props="props"
                     class="customTd"
                   >
                     <div class="text-primary">{{ props.row.tid }}</div>
                   </q-td>
                   <q-td
-                    slot="body-cell-mid"
-                    slot-scope="props"
+                    v-slot:body-cell-mid="props"
                     :props="props"
                     class="customTd"
                   >
                     <div class="text-primary">{{ props.row.mid }}</div>
                   </q-td>
                   <q-td
-                    slot="body-cell-createdAt"
-                    slot-scope="props"
+                    v-slot:body-cell-createdAt="props"
                     :props="props"
                     >{{ props.row.createdAt | moment("Do MMM Y") }}</q-td
                   >
                   <q-td
-                    slot="body-cell-assign"
-                    slot-scope="props"
+                    v-slot:body-cell-assign="props"
                     :props="props"
                   >
                     <q-btn
@@ -213,7 +209,7 @@
                   </q-td>
                   <template slot="top">
                     <div class="col-md-4">
-                      <q-search
+                      <q-input
                         clearable
                         color="grey-9"
                         v-model="filterSearch1"
@@ -236,7 +232,7 @@
                   </template>
                 </q-table>
                 <!--END: table Data -->
-              </q-tab-pane>
+              </q-tab-panell>
             </q-tabs>
             <div class="row items-center gutter-y-sm">
               <div class="col-md-9 col-sm-12 col-xs-12">

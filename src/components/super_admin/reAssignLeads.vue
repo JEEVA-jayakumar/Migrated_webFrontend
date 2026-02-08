@@ -1,10 +1,10 @@
 <template>
-  <q-modal
+  <q-dialog
     maximized
     no-backdrop-dismiss
     no-esc-dismiss
     v-model="toggleModal"
-    :content-css="{padding:'50px 5px'}"
+    v-model:content-css="{padding:'50px 5px'}"
   >
     <!-- <pre>{{propRowDetails}}</pre> -->
     <div>
@@ -18,7 +18,7 @@
       />
       <!--START: table title -->
       <div class="row items-center q-px-lg q-py-md text-weight-regular bottom-border text-grey-9">
-        <div class="col q-title">Lead Details</div>
+        <div class="col text-h6">Lead Details</div>
         <div class="col-auto">
           <q-btn size="sm" round @click="emitToggleRemarks" outline color="dark" icon="clear" />
         </div>
@@ -32,20 +32,18 @@
         :data="tableData"
         :columns="columns"
         selection="multiple"
-        :selected.sync="formData.deletedSoLeadIds"
-        :filter="filter"
-        :pagination.sync="paginationControl"
+        :selected="formData.deletedSoLeadIds"
+        v-model:filter="filter"
+        :pagination="paginationControl"
         row-key="id"
       >
         <!--START: table body modification -->
         <q-td
-          slot="body-cell-createdAt"
-          slot-scope="props"
+          v-slot:body-cell-createdAt="props"
           :props="props"
         >{{ props.row.createdAt | moment("Do MMM Y") }}</q-td>
         <q-td
-          slot="body-cell-lead_id"
-          slot-scope="props"
+          v-slot:body-cell-lead_id="props"
           :props="props"
           class="cursor-pointer"
           @click.native="toggleLeadInformation(props.row)"
@@ -56,14 +54,14 @@
           ># {{props.row.leadNumber}}</span>
         </q-td>
 
-        <q-td slot="body-cell-merchantName" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-merchantName="props" :props="props">
           <span class="capitalize">{{props.row.leadName}}</span>
         </q-td>
 
-        <q-td slot="body-cell-state" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-state="props" :props="props">
           <span class="capitalize">{{props.row.state}}</span>
         </q-td>
-        <q-td slot="body-cell-finance_approval" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-finance_approval="props" :props="props">
           <span
             class="label text-positive"
             v-if="props.row.verifiedFinanceStatus== $VERIFIED_FINANCE_STATUS_SUCCESS"
@@ -79,10 +77,10 @@
           <span class="label" v-else>NA</span>
         </q-td>
         <!-- END: table body modification -->
-        <template slot="top" slot-scope="props" class="bottom-border">
+        <template v-slot:top="props" class="bottom-border">
           <!--START: table filter,search -->
           <div class="col-12 col-lg-6">
-            <q-search
+            <q-input
               clearable
               color="grey-9"
               v-model="filter"
@@ -108,7 +106,7 @@
       </q-table>
       <!--END: table lead validation -->
     </div>
-  </q-modal>
+  </q-dialog>
 </template>
 
 <script>

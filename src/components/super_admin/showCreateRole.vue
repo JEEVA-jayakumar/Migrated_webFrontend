@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-modal 
+    <q-dialog
        minimized 
        class="customModalOverlay"
         v-model="showCreateRoleToggle"  
@@ -13,7 +13,7 @@
               <div class="q-pa-sm">
                 <div class="column gutter-sm q-py-sm items-center bottom-border">
                   <div class="col-md-8">
-                    <div class="q-title text-weight-regular">Create Role/Permissions</div>
+                    <div class="text-h6 text-weight-regular">Create Role/Permissions</div>
                   </div>
                   <div class="col-md-2">
                     <q-btn flat size="md" align="right" class="bg-white text-weight-regular text-grey-8" @click="emitfnCreaterolePermissions(showCreateRoleToggle)">Cancel
@@ -71,7 +71,7 @@
             </div>  
           </div>
         </form>
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 
@@ -85,7 +85,7 @@ import {
   alpha,
   alphaNum,
   numeric,
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 const custom = helpers.regex("custom", /^[a-zA-Z\s]*$/);
 import { mapGetters, mapActions } from "vuex";
 export default {

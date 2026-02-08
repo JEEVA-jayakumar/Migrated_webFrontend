@@ -11,7 +11,7 @@
       </div>
       <br /><br /><br />
       <q-card>
-        <q-card-main>
+        <q-card-section>
           <div class="col-md-8" align="center">
             <a
               href="statics/files/Hitachi_Brand_Emi_Details.xlsx"
@@ -47,20 +47,20 @@
 
             <div v-else align="left">
               <q-card dense class="q-pa-xs">
-                <q-card-title>
+                <q-card-section>
                   Uploaded File
-                </q-card-title>
-                <q-card-separator />
-                <q-card-main>
+                </q-card-section>
+                <q-separator />
+                <q-card-section>
                   <q-item dense>
-                    <q-item-side icon="attach_file" />
-                    <q-item-main>{{
+                    <q-item-section icon="attach_file" />
+                    <q-item-section>{{
                       formData.fileSelected[0].name
-                    }}</q-item-main>
-                    <q-item-side></q-item-side>
+                    }}</q-item-section>
+                    <q-item-section></q-item-section>
                   </q-item>
-                </q-card-main>
-                <q-card-separator />
+                </q-card-section>
+                <q-separator />
                 <q-card-actions align="start">
                   <q-btn
                     outline
@@ -82,11 +82,11 @@
               @click="uploadFileForBulkUpload"
             />
           </div>
-        </q-card-main>
+        </q-card-section>
       </q-card>
       <HitachiDownload
         v-if="propHitachiDownload"
-        :propHitachiDownload="propHitachiDownload"
+        v-model:propHitachiDownload="propHitachiDownload"
         @emitfnshowHitachiDownload="downloadhitachidownload"
       ></HitachiDownload>
     </div>
@@ -106,25 +106,24 @@
           :data="tableData"
           :columns="columns"
           :filter="filter"
-          :pagination.sync="paginationControl"
+          :pagination="paginationControl"
           row-key="name"
           :loading="toggleAjaxLoadFilter"
           :rows-per-page-options="[5, 10, 15, 20]"
           @request="ajaxLoadAllLeadInfo"
         >
           <!--START: table header -->
-          <q-tr slot="top-row" slot-scope="props">
+          <q-tr v-slot:top-row="props">
             <q-th v-for="col in props.columns" :key="col.name" :props="props">{{
               col.label
             }}</q-th>
           </q-tr>
           <!--END: table header -->
-          <q-td slot="body-cell-mid" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-mid="props" :props="props">
             <span class="capitalize">{{ props.row.mid }}</span>
           </q-td>
           <q-td
-            slot="body-cell-leadNumber"
-            slot-scope="props"
+            v-slot:body-cell-leadNumber="props"
             :props="props"
             class="cursor-pointer"
             @click.native="toggleLeadInformation(props.row.leadInformation)"
@@ -134,8 +133,7 @@
             >
           </q-td>
           <q-td
-            slot="body-cell-HitachiStatus"
-            slot-scope="props"
+            v-slot:body-cell-HitachiStatus="props"
             :props="props"
           >
             <span class="capitalize">{{
@@ -144,14 +142,14 @@
                 : "NA"
             }}</span>
           </q-td>
-          <q-td slot="body-cell-deviceSer" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-deviceSer="props" :props="props">
             <span class="capitalize">{{
               props.row.regionalInventory != null
                 ? props.row.regionalInventory.serialNumber
                 : "NA"
             }}</span>
           </q-td>
-          <q-td slot="body-cell-region" slot-scope="props" :props="props">
+          <q-td v-slot:body-cell-region="props" :props="props">
             <span class="capitalize">{{
               props.row.leadInformation != null
                 ? props.row.leadInformation.region.regionAreaName
@@ -162,7 +160,7 @@
           <template slot="top" class="bottom-border">
             <!--START: table filter,search,excel download -->
             <div class="col-5">
-              <q-search
+              <q-input
                 clearable
                 v-model="filter"
                 separator
@@ -205,7 +203,7 @@ import {
   email,
   maxLength,
   minLength
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 
 import Vue from "vue";
 import { mapGetters, mapActions } from "vuex";

@@ -18,21 +18,21 @@
         />
 
         <!-- Targets -->
-        <q-tab-pane class="no-padding" name="tab-1">
+        <q-tab-panel class="no-padding" name="tab-1">
           <q-table
-            :data="getAllUsers"
+            v-model:data="getAllUsers"
             :columns="columns"
             table-class="customSATableClass"
             :filter="filterSearch"
             selection="multiple"
-            :selected.sync="formData.selectedUsersToDelete"
-            :pagination.sync="paginationControl"
+            :selected="formData.selectedUsersToDelete"
+            v-model:pagination="paginationControl"
             :loading="tableAjaxLoading"
             :filter-method="myCustomSearchFilter"
             row-key="userId"
             color="grey-9"
           >
-            <q-td slot="body-cell-name" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-name="props" :props="props">
               <q-btn
                 align="left"
                 dense
@@ -47,7 +47,7 @@
               />
             </q-td>
 
-            <q-td slot="body-cell-role" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-role="props" :props="props">
               <div class="row no-wrap group" v-for="role in props.row.roles" :key="role.role">
                 <!-- <q-chip :style="{ background: role.roleColor}"> -->
                 <q-chip color="light" class="text-dark">
@@ -57,12 +57,12 @@
               </div>
             </q-td>
 
-            <template slot="top" slot-scope="props">
+            <template v-slot:top="props">
               <!--START: table filter,search -->
               <div class="col-md-12 group">
                 <div class="row">
                   <div class="col-md-6">
-                    <q-search
+                    <q-input
                       clearable
                       color="grey-9"
                       v-model.trim="filterSearch"
@@ -126,27 +126,27 @@
                   </div>
                 </div>
               </div>
-              <!--END: Tabs -->
+              <!--ENDv-model: Tabs -->
             </template>
           </q-table>
-        </q-tab-pane>
-        <q-tab-pane class="no-padding" name="tab-2">
+        </q-tab-panell>
+        <q-tab-panel class="no-padding" name="tab-2">
           <q-table
             :data="getAllUsers"
             :columns="columns"
             table-class="customSATableClass"
             :filter="filterSearchDeactivated"
             selection="multiple"
-            :selected.sync="formData.selectedUsersToDelete"
-            :pagination.sync="paginationControl"
+            :selected="formData.selectedUsersToDelete"
+            v-model:pagination="paginationControl"
             :loading="tableAjaxLoading"
             :filter-method="myCustomSearchFilter"
             row-key="userId"
             color="grey-9"
           >
-            <q-td slot="body-cell-name" slot-scope="props" :props="props">{{props.row.user.name}}</q-td>
+            <q-td v-slot:body-cell-name="props" :props="props">{{props.row.user.name}}</q-td>
 
-            <q-td slot="body-cell-role" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-role="props" :props="props">
               <div class="row no-wrap group" v-for="role in props.row.roles" :key="role.role">
                 <!-- <q-chip :style="{ background: role.roleColor}"> -->
                 <q-chip color="light" class="text-dark">
@@ -156,12 +156,12 @@
               </div>
             </q-td>
 
-            <template slot="top" slot-scope="props">
+            <template v-slot:top="props">
               <div class="col-md-12 group">
                 <div class="row items-center">
                   <!--START: table filter,search -->
                   <div class="col-md-6">
-                    <q-search
+                    <q-input
                       clearable
                       color="grey-9"
                       v-model.trim="filterSearchDeactivated"
@@ -216,7 +216,7 @@
               <!--END: Tabs -->
             </template>
           </q-table>
-        </q-tab-pane>
+        </q-tab-panell>
       </q-tabs>
       <deleteUsersDetails
         v-if="showDeleteUserDetails"

@@ -191,7 +191,7 @@
           <div class="col-xs-12 col-sm-6">
             <p></p>
             <q-item>
-              <q-item-main>Upload the Cheque File :</q-item-main>
+              <q-item-section>Upload the Cheque File :</q-item-section>
               <label
                 class="cursor-pointer text-white"
                 style="background-color: #202c3f"
@@ -208,7 +208,7 @@
             </q-item>
           </div>
           <div class="col-xs-12 col-sm-6">
-            <q-datetime
+            <q-input
               @blur="$v.formdata.paymentMadeon.$touch"
               :error="$v.formdata.paymentMadeon.$error"
               v-model.trim="formdata.paymentMadeon"
@@ -244,7 +244,7 @@
             />
           </div>
           <div class="col-xs-12 col-sm-6">
-            <q-datetime
+            <q-input
               @blur="$v.formdata.paymentMadeon.$touch"
               :error="$v.formdata.paymentMadeon.$error"
               v-model.trim="formdata.paymentMadeon"
@@ -269,7 +269,7 @@
             />
           </div>
           <div class="col-xs-12 col-sm-6">
-            <q-datetime
+            <q-input
               @blur="$v.formdata.paymentMadeon.$touch"
               :error="$v.formdata.paymentMadeon.$error"
               v-model.trim="formdata.paymentMadeon"
@@ -536,7 +536,7 @@
               />
             </div>
             <div
-              class="text-negative q-py-xs group q-caption"
+              class="text-negative q-py-xs group text-caption"
               v-if="$v.merchant.companyinformation.pan.$error"
             >
               <div>
@@ -572,7 +572,7 @@
             </div>
 
             <div
-              class="text-negative q-py-xs group q-caption"
+              class="text-negative q-py-xs group text-caption"
               v-if="$v.merchant.businessInformation.gstId.$error"
             >
               <div>
@@ -722,7 +722,7 @@
           <div class="col-xs-12">
             Cheque
             <label class="cursor-pointer text-white" style="background-color: #202c3f;">
-              <span class="q-caption text-weight-light">Attach</span>
+              <span class="text-caption text-weight-light">Attach</span>
               <input
                 type="file"
                 name="file"
@@ -735,7 +735,7 @@
         </div>Pan Card:
         <div>
           <label class="cursor-pointer text-white" style="background-color: #202c3f;">
-            <span class="q-caption text-weight-light">Attach</span>
+            <span class="text-caption text-weight-light">Attach</span>
             <input
               type="file"
               name="file"
@@ -748,7 +748,7 @@
         <div>
           Cheque :
           <label class="cursor-pointer text-white" style="background-color: #202c3f;">
-            <span class="q-caption text-weight-light">Attach</span>
+            <span class="text-caption text-weight-light">Attach</span>
             <input
               type="file"
               name="file"
@@ -780,13 +780,13 @@
           <div class="col-md-12">
             <div class="row items-center">
               <div class="col-3">
-                <div class="q-caption text-weight-medium">
+                <div class="text-caption text-weight-medium">
                   <strong>Domestic Debit Card below 2000</strong>
                 </div>
               </div>
               <div class="col">
                 <div
-                  class="q-caption text-weight-medium q-py-sm"
+                  class="text-caption text-weight-medium q-py-sm"
                   align="center"
                 >
                   <b>Merchant Disc Fee</b>
@@ -827,7 +827,7 @@
             </div>
             <div class="row items-center">
               <div class="col-3">
-                <div class="q-caption text-weight-medium">
+                <div class="text-caption text-weight-medium">
                   <strong>Domestic Debit Card above 2000</strong>
                 </div>
               </div>
@@ -868,7 +868,7 @@
             </div>
             <div class="row items-center">
               <div class="col-3">
-                <div class="q-caption text-weight-medium">
+                <div class="text-caption text-weight-medium">
                   <strong>Standard/Classic (1st Stab)</strong>
                 </div>
               </div>
@@ -905,7 +905,7 @@
             </div>
             <div class="row items-center">
               <div class="col-3">
-                <div class="q-caption text-weight-medium">
+                <div class="text-caption text-weight-medium">
                   <strong>Premium/Platinum (2nd Stab)</strong>
                 </div>
               </div>
@@ -942,7 +942,7 @@
             </div>
             <div class="row items-center">
               <div class="col-3">
-                <div class="q-caption text-weight-medium">
+                <div class="text-caption text-weight-medium">
                   <strong>Super Premium/Signature (3rd Stab)</strong>
                 </div>
               </div>
@@ -983,7 +983,7 @@
             </div>
             <div class="row items-center">
               <div class="col-3">
-                <div class="q-caption text-weight-medium">
+                <div class="text-caption text-weight-medium">
                   <strong>Commercial/Coporate 4th Stab</strong>
                 </div>
               </div>
@@ -1024,7 +1024,7 @@
             </div>
             <div class="row items-center">
               <div class="col-3">
-                <div class="q-caption text-weight-medium">
+                <div class="text-caption text-weight-medium">
                   <strong>International Debit Card</strong>
                 </div>
               </div>
@@ -1065,7 +1065,7 @@
             </div>
             <div class="row items-center">
               <div class="col-3">
-                <div class="q-caption text-weight-medium">
+                <div class="text-caption text-weight-medium">
                   <strong>International Credit Card</strong>
                 </div>
               </div>
@@ -1106,7 +1106,7 @@
             </div>
             <div class="row items-center">
               <div class="col-3">
-                <div class="q-caption text-weight-medium">
+                <div class="text-caption text-weight-medium">
                   <strong>Onus</strong>
                 </div>
               </div>
@@ -1141,7 +1141,7 @@
             </div>
             <div class="row items-center">
               <div class="col-3">
-                <div class="q-caption text-weight-medium">
+                <div class="text-caption text-weight-medium">
                   <strong>Diners</strong>
                 </div>
               </div>
@@ -1176,7 +1176,7 @@
             </div>
             <div class="row items-center">
               <div class="col-3">
-                <div class="q-caption text-weight-medium">
+                <div class="text-caption text-weight-medium">
                   <strong>Master Pass</strong>
                 </div>
               </div>
@@ -1211,7 +1211,7 @@
             </div>
             <div class="row items-center">
               <div class="col-3">
-                <div class="q-caption text-weight-medium">
+                <div class="text-caption text-weight-medium">
                   <strong>Cash at POS</strong>
                 </div>
               </div>
@@ -1246,7 +1246,7 @@
             </div>
             <div class="row items-center">
               <div class="col-3">
-                <div class="q-caption text-weight-medium">
+                <div class="text-caption text-weight-medium">
                   <strong>Convenience fees</strong>
                 </div>
               </div>
@@ -1311,29 +1311,29 @@
       </q-step>
       <q-step name="zata" title="Attach Documents">
         <div>
-          <q-item separator class="q-body-1">
-            <q-item-main>
-              <q-item-tile>
-                <div class="q-body-1">
+          <q-item separator class="text-body1">
+            <q-item-section>
+              <q-item-label>
+                <div class="text-body1">
                   Merchant type:
                   <span class="text-weight-medium">{{
                     merchantTypeSelection
                   }}</span>
                 </div>
-              </q-item-tile>
-            </q-item-main>
+              </q-item-label>
+            </q-item-section>
           </q-item>
           <q-item
             separator
-            class="q-body-1 text-dark bg-grey-4 text-weight-medium"
+            class="text-body1 text-dark bg-grey-4 text-weight-medium"
           >
-            <q-item-main>Application Form</q-item-main>
-            <q-item-side>
+            <q-item-section>Application Form</q-item-section>
+            <q-item-section>
               <label
                 class="cursor-pointer text-white"
                 style="background-color: #202c3f"
               >
-                <span class="q-caption text-weight-light">Attach</span>
+                <span class="text-caption text-weight-light">Attach</span>
                 <input
                   type="file"
                   name="file"
@@ -1341,10 +1341,10 @@
                   accept=".png, .jpg, .pdf"
                 />
               </label>
-            </q-item-side>
+            </q-item-section>
           </q-item>
-          <q-item separator class="q-body-1">
-            <q-item-main>
+          <q-item separator class="text-body1">
+            <q-item-section>
               <div class="full-width">
                 <div
                   class="cursor-pointer"
@@ -1405,18 +1405,18 @@
                 </div>
                 <div v-else>Invalid document type/ No document available</div>
               </div>
-            </q-item-main>
+            </q-item-section>
           </q-item>
           <!-- START >> (Optional) payment document file == bank subvention  -->
           <!-- <q-item
             v-if="getShortLeadInfo.paymentDocumentFile != ''"
             separator
-            class="q-body-1 text-dark bg-grey-4 text-weight-medium"
+            class="text-body1 text-dark bg-grey-4 text-weight-medium"
           >
-            <q-item-main>Bank Letter</q-item-main>
+            <q-item-section>Bank Letter</q-item-section>
           </q-item>
-          <q-item v-if="getShortLeadInfo.paymentDocumentFile != ''" separator class="q-body-1">
-            <q-item-main>
+          <q-item v-if="getShortLeadInfo.paymentDocumentFile != ''" separator class="text-body1">
+            <q-item-section>
               <div class="full-width">
                 <div
                   class="cursor-pointer"
@@ -1450,11 +1450,11 @@
                   </div>
                 </div>
               </div>
-            </q-item-main>
+            </q-item-section>
           </q-item> -->
           <div
             v-if="merchantTypeSelection == 0"
-            class="full-width q-body-1 q-pa-sm"
+            class="full-width text-body1 q-pa-sm"
           >
             <p>No documents available to display</p>
           </div>
@@ -1474,14 +1474,14 @@
                 :key="documentIndex"
                 class="border-bottom"
               >
-                <q-item separator dense class="q-body-1 bg-grey-4 q-pa-sm">
-                  <q-item-main>{{ document.subDocumentType }}</q-item-main>
-                  <q-item-side>
+                <q-item separator dense class="text-body1 bg-grey-4 q-pa-sm">
+                  <q-item-section>{{ document.subDocumentType }}</q-item-section>
+                  <q-item-section>
                     <label
                       class="cursor-pointer text-white"
                       style="background-color: #202c3f"
                     >
-                      <span class="q-caption text-weight-light">Attach</span>
+                      <span class="text-caption text-weight-light">Attach</span>
                       <input
                         type="file"
                         name="file"
@@ -1494,7 +1494,7 @@
                         accept=".png, .jpg, .pdf"
                       />
                     </label>
-                  </q-item-side>
+                  </q-item-section>
                 </q-item>
                 <!-- {{getShortLeadInfo.leadDocuments}} -->
                 <div
@@ -1518,11 +1518,11 @@
                         filesAttachedEarlier, filesAttachedEarlierIndex
                       ) in attachedSubFile.uploadedDocuments"
                       :key="filesAttachedEarlierIndex"
-                      class="q-body-1"
+                      class="text-body1"
                       separator
                     >
-                      <q-item-main>
-                        <q-item-tile class="q-body-1">
+                      <q-item-section>
+                        <q-item-label class="text-body1">
                           <div
                             class="cursor-pointer"
                             v-if="filesAttachedEarlier.mimeType.includes('pdf')"
@@ -1574,10 +1574,10 @@
                               &nbsp;{{ filesAttachedEarlier.fileName }}
                             </div>
                           </div>
-                        </q-item-tile>
-                      </q-item-main>
+                        </q-item-label>
+                      </q-item-section>
 
-                      <q-item-side>
+                      <q-item-section>
                         <q-btn
                           size="xs"
                           icon="clear"
@@ -1588,7 +1588,7 @@
                           color="negative"
                           label="Remove"
                         />
-                      </q-item-side>
+                      </q-item-section>
                     </q-item>
                   </div>
                 </div>
@@ -1602,12 +1602,12 @@
                 .uploadedDocuments.forMutipleDocument"
               :key="multipleDocument.id"
             >
-              <q-list-header class="q-mb-sm bg-grey-4">{{
+              <q-item-label header class="q-mb-sm bg-grey-4">{{
                 multipleDocument.documentType
-              }}</q-list-header>
+              }}</q-item-label header>
               <div>
-                <q-item separator dense class="q-body-1 q-pa-sm">
-                  <q-item-main>
+                <q-item separator dense class="text-body1 q-pa-sm">
+                  <q-item-section>
                     <!-- <pre>{{multipleDocument.subDocumentTypeSelection}}</pre> -->
                     <select
                       class="full-width customQuasarSelect"
@@ -1627,8 +1627,8 @@
                         {{ type.subDocumentType }}
                       </option>
                     </select>
-                  </q-item-main>
-                  <q-item-side
+                  </q-item-section>
+                  <q-item-section
                     v-if="
                       fn_________GetEntryPermissionToUploadSubDocuments(
                         multipleDocument
@@ -1640,7 +1640,7 @@
                       class="cursor-pointer text-white"
                       style="background-color: #202c3f"
                     >
-                      <span class="q-caption text-weight-light">Attach</span>
+                      <span class="text-caption text-weight-light">Attach</span>
                       <input
                         type="file"
                         ref="subDocumentUpload"
@@ -1654,10 +1654,10 @@
                         accept=".png, .jpg, .pdf"
                       />
                     </label>
-                  </q-item-side>
+                  </q-item-section>
                 </q-item>
               </div>
-              <q-item-separator />
+              <q-separator />
               <div
                 v-if="displayAttachedFileIndex == multipleDocument.documentType"
                 v-for="(
@@ -1674,12 +1674,12 @@
                       filesAttachedEarlier, filesAttachedEarlierIndex
                     ) in attachedSubFile.uploadedDocuments"
                     :key="filesAttachedEarlierIndex"
-                    class="q-body-1"
+                    class="text-body1"
                     separator
                     dense
                   >
-                    <q-item-main>
-                      <q-item-tile class="q-body-1">
+                    <q-item-section>
+                      <q-item-label class="text-body1">
                         <div
                           class="cursor-pointer"
                           v-if="filesAttachedEarlier.mimeType.includes('pdf')"
@@ -1731,9 +1731,9 @@
                             &nbsp;{{ filesAttachedEarlier.fileName }}
                           </div>
                         </div>
-                      </q-item-tile>
-                    </q-item-main>
-                    <q-item-side>
+                      </q-item-label>
+                    </q-item-section>
+                    <q-item-section>
                       <q-btn
                         size="xs"
                         icon="clear"
@@ -1744,9 +1744,9 @@
                         color="negative"
                         label="Remove"
                       />
-                    </q-item-side>
+                    </q-item-section>
                   </q-item>
-                  <q-item-separator />
+                  <q-separator />
                 </div>
               </div>
             </q-list>
@@ -1794,7 +1794,7 @@
           <div class="col-xs-12" align="center">
             <q-card
               ><strong>Choose the TID List</strong>
-              <q-card-main>
+              <q-card-section>
                 <q-checkbox
                   v-for="(item, index) in formdata.mid"
                   :key="index"
@@ -1803,7 +1803,7 @@
                   :val="item"
                   :label="item"
                 />
-              </q-card-main>
+              </q-card-section>
             </q-card>
           </div>
         </div>
@@ -2032,7 +2032,7 @@ import {
   maxValue,
   minValue,
   decimal,
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import moment from "moment";
 import { mapGetters, mapActions } from "vuex";
 import { uid, filter } from "quasar";
@@ -2040,7 +2040,7 @@ import Vue from "vue";
 import MarsErrorResponse from "../../components/MarsErrorResponseHandler.vue";
 import showPdfModalComponent from "../../components/sat/showPdfModalComponent.vue";
 
-import { helpers } from "vuelidate/lib/validators";
+import { helpers } from "@vuelidate/validators";
 const panCard = helpers.regex(
   "panCard",
   /^([A-Z]{3}[ABCFEGHLJPTF]{1}[A-Z]{1}[0-9]{4}[A-Z]{1})?$/

@@ -1,5 +1,5 @@
 <template>
-    <q-modal
+    <q-dialog
     v-model="propShowDeviceVerificationComponent"
     maximized
     no-backdrop-dismiss	
@@ -10,8 +10,8 @@
     <div>
       <div class="row bottom-border q-px-md q-py-md items-center">
           <!--START: table title -->
-          <div class="col-md-8 q-title text-weight-regular  text-grey-9">Regional Inventory Disptached Devices Verification</div>
-          <div class="col-md-4 col-sm-12 col-xs-12 q-title text-weight-regular text-grey-9" align="right">
+          <div class="col-md-8 text-h6 text-weight-regular  text-grey-9">Regional Inventory Disptached Devices Verification</div>
+          <div class="col-md-4 col-sm-12 col-xs-12 text-h6 text-weight-regular text-grey-9" align="right">
               <q-btn
               outline
               label="Cancel"
@@ -64,22 +64,22 @@
           <div class="col group" v-for="(item,index) in formData.scannedItems" :key="index">
           <q-card class="shadow-4">
             <q-list highlight separator>
-              <q-list-header style="border-bottom: 1px solid #ccc;">
+              <q-item-label header style="border-bottom: 1px solid #ccc;">
                 <q-icon style="color:#202c3f" name="fas fa-tablet-alt"/> {{item.device.name}} 
-              </q-list-header>
+              </q-item-label header>
               <div v-if="item.deviceSerialNumbers.length > 0">
                 <q-item separator class=" text-light-blue" v-for="(subItem,subIndex) in item.deviceSerialNumbers" :key="subIndex">
-                  <q-item-main class="q-body-1">{{subItem.barcode}}</q-item-main>
-                  <q-item-side>
+                  <q-item-section class="text-body1">{{subItem.barcode}}</q-item-section>
+                  <q-item-section>
                     <q-btn flat v-if="subitem.checksum" round size="sm" color="positive" icon="check" />
                     <q-btn flat v-if="!subitem.checksum" round size="sm" color="negative" icon="clear" />
-                  </q-item-side>
+                  </q-item-section>
                 </q-item>
               </div>
               <div v-else>
                 <q-item>
-                  <q-item-main class="q-body-1">No data to display</q-item-main>
-                  <q-item-side><q-btn round size="sm" color="negative" @click="fnRemoveDeviceTypeFromList(index)" icon="clear" /></q-item-side>
+                  <q-item-section class="text-body1">No data to display</q-item-section>
+                  <q-item-section><q-btn round size="sm" color="negative" @click="fnRemoveDeviceTypeFromList(index)" icon="clear" /></q-item-section>
                 </q-item>
               </div>
             </q-list>
@@ -96,7 +96,7 @@
       ></showPDOmodal>
       <!--END: Open showPDOmodal model -->
     </div>
-	</q-modal>
+	</q-dialog>
 </template>
 
 <script>

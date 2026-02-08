@@ -2,8 +2,8 @@
   <q-page>
     <!-- content -->
      <div>
-      <!--START: table title -->
-        <div class="col-md-12 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9">Master Inventory- Allocated to merchants </div>
+      <!--STARTv-model: table title -->
+        <div class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9">Master Inventory- Allocated to merchants </div>
       <!--END: table title -->
 
       <!--START: table lead validation -->
@@ -13,12 +13,12 @@
         :data="tableData"
         :columns="columns"
         :filter="filter"
-        :pagination.sync="paginationControl"
+        :pagination="paginationControl"
         row-key="name">
-        <template slot="top" slot-scope="props" class="bottom-border">
+        <template v-slot:top="props" class="bottom-border">
           <!--START: table filter,search -->
           <div class="col">
-            <q-search
+            <q-input
             clearable
             color="grey-9"
             v-model="filter"

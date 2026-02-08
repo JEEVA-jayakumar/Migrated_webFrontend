@@ -1,10 +1,11 @@
+import { api } from '../../boot/axios';
 import api from "../api.js";
 import Vue from "vue";
 export const FETCH_AXIS_BANK_PINCODE_DISTRICT = ({
     commit,
     rootState
 }, request) => {
-    return Vue.http
+    return api
         .get(rootState.GlobalVariables.STATE_AXIS_API + 'axisPincodeWithStateName/' + request)
         .then(response => {
             console.log("hellow" + response)

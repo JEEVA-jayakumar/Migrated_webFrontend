@@ -1,6 +1,6 @@
 <template>
   <div>
-    <q-modal
+    <q-dialog
       v-model="toggleModal"
       class="q-mt-lg capitalize"
       @hide="emitToggleEscalateToSat"
@@ -53,7 +53,7 @@
           <q-btn color="purple" :disable="this.formData.subIssue == ''" style="margin-top: 20px;" label="Submit" @click="fnEscalateToSat(escalateToSatData)" />
         </div>
       </div>
-    </q-modal>
+    </q-dialog>
   </div>
 </template>
 <script>

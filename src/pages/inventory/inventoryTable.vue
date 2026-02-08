@@ -6,7 +6,7 @@
       <!--START: table title -->
       <div class="row bottom-border q-px-md q-py-md items-center">
         <!--START: table title -->
-        <div class="col-12 q-title text-weight-regular text-grey-9">Bijlipay Inventory Table</div>
+        <div class="col-12 text-h6 text-weight-regular text-grey-9">Bijlipay Inventory Table</div>
         <!--END: table title -->
       </div>
       <!--END: table title -->
@@ -29,7 +29,7 @@
           </div>
           <div v-else class="row group">
             <div>
-              <q-alert color="primary" icon="info">No data available to display</q-alert>
+              <q-banner color="primary" icon="info">No data available to display</q-banner>
             </div>
           </div>
         </div>
@@ -54,26 +54,26 @@
             </div>
           </div>
           <div v-else class="row group">
-            <q-alert color="primary" icon="info">No data available to display</q-alert>
+            <q-banner color="primary" icon="info">No data available to display</q-banner>
           </div>
         </div>
         <div v-if="inventoryData.regionalItems.length > 0" class="col-md-6">
           <div>
-            <!--START: table Data -->
+            <!--STARTv-model: table Data -->
             <q-table
               :data="getAllRegionalInventorySerialNumbersByDevice"
               :columns="columnData"
               table-class="customTableClass shadow-0"
               :filter="filterSearch"
-              :pagination.sync="paginationControl"
+              :pagination="paginationControl"
               row-key="index"
               :loading="tableAjaxLoading"
               color="primary"
             >
-              <template slot="top" slot-scope="props">
+              <template v-slot:top="props">
                 <!--START: table filter,search -->
                 <div class="col-md-6">
-                  <q-search
+                  <q-input
                     clearable
                     color="grey-9"
                     v-model="filterSearch"
@@ -84,7 +84,7 @@
                 </div>
 
                 <div class="col-md-6">
-                  <!-- <q-search
+                  <!-- <q-input
                     clearable
                     color="grey-9"
                     v-model="filterSearch"
@@ -136,7 +136,7 @@
             </div>
           </div>
           <div v-else class="row group">
-            <q-alert color="primary" icon="info">No data available to display</q-alert>
+            <q-banner color="primary" icon="info">No data available to display</q-banner>
           </div>
         </div>
         <div class="col">
@@ -170,7 +170,7 @@
             </div>
           </div>
           <div v-else class="row group">
-            <q-alert color="primary" icon="info">No data available to display</q-alert>
+            <q-banner color="primary" icon="info">No data available to display</q-banner>
           </div>
         </div>
       </div>
@@ -192,7 +192,7 @@
             </div>
           </div>
           <div v-else class="row group">
-            <q-alert color="primary" icon="info">No data available to display</q-alert>
+            <q-banner color="primary" icon="info">No data available to display</q-banner>
           </div>
         </div>
       </div>
@@ -214,7 +214,7 @@
             </div>
           </div>
           <div v-else class="row group">
-            <q-alert color="primary" icon="info">No data available to display</q-alert>
+            <q-banner color="primary" icon="info">No data available to display</q-banner>
           </div>
         </div>
       </div>
@@ -236,7 +236,7 @@
             </div>
           </div>
           <div v-else class="row group">
-            <q-alert color="primary" icon="info">No data available to display</q-alert>
+            <q-banner color="primary" icon="info">No data available to display</q-banner>
           </div>
         </div>
       </div>

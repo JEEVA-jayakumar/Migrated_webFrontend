@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <q-modal
+    <q-dialog
       minimized
       no-backdrop-dismiss
       class="customModalOverlay"
@@ -12,7 +12,7 @@
       <div
         class="row items-center justify-between q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
       >
-        <div class="col-auto q-title">CRM LOGS_Merchant Name</div>
+        <div class="col-auto text-h6">CRM LOGS_Merchant Name</div>
         <q-btn
           flat
           color="red"
@@ -29,15 +29,15 @@
         :columns="columns"
         row-key="name"
       >
-        <q-td slot="body-cell-attemptno" slot-scope="props" :props="props">{{
+        <q-td v-slot:body-cell-attemptno="props" :props="props">{{
           props.row.orderId == null ? "NA" : props.row.orderId
         }}</q-td>
 
-        <q-td slot="body-cell-dateandtime" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-dateandtime="props" :props="props">
           {{ formatDateTime(props.row.inputDate) }}
         </q-td>
       </q-table>
-    </q-modal>
+    </q-dialog>
   </q-page>
 </template>
 
@@ -53,7 +53,7 @@ import {
   alpha,
   alphaNum,
   numeric
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 
 import moment from "moment";

@@ -1,14 +1,14 @@
 <template>
     <div>
-       <q-modal 
+       <q-dialog
        v-model="showRejectLeadModel" 
        @hide="emitToggleReject(showRejectLeadModel)" 
        @escape-key="emitToggleReject(showRejectLeadModel)"  
        :content-css="{padding:'50px'}"
        >
         <div>
-          <div align="center" class="q-subheading q-mb-md capitalize">{{propShowRejectLeadComponent.merchantName}}</div>
-          <div align="center" class="text-light-blue q-title q-mb-md">#{{propShowRejectLeadComponent.leadNumber}}</div>
+          <div align="center" class="text-subtitle1 q-mb-md capitalize">{{propShowRejectLeadComponent.merchantName}}</div>
+          <div align="center" class="text-light-blue text-h6 q-mb-md">#{{propShowRejectLeadComponent.leadNumber}}</div>
            <div class="col-md-12">
                      <q-input
                     color="grey-9"
@@ -27,7 +27,7 @@
             class="float-right q-ma-sm" @click="emitToggleReject(showRejectLeadModel)">Cancel
           </q-btn>
         </div>
-      </q-modal>
+      </q-dialog>
     </div>
 </template>
 <script>
@@ -40,7 +40,7 @@ import {
   alpha,
   alphaNum,
   numeric
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 export default {
   props: ["showRejectLeadModel", "propShowRejectLeadComponent"],

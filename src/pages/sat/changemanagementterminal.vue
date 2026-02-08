@@ -5,21 +5,20 @@
         title="Change Management"
         table-class="customTableClass"
         class="q-py-none"
-        :data="tableData"
+        v-model:data="tableData"
         :columns="columns"
         row-key="name"
         :filter="filter1"
-        :pagination.sync="paginationControlchange"
+        :pagination="paginationControlchange"
         :rows-per-page-options="[5,10,15]"
         :loading="toggleAjaxLoadFilter"
         @request="ajaxLoadAllCMS"
       >
         <q-td
-          slot="body-cell-updatedAt"
-          slot-scope="props"
+          v-slot:body-cell-updatedAt="props"
           :props="props"
         >{{ props.row.leadInformation.updatedAt | moment("Do MMM Y") }}</q-td>
-        <q-td slot="body-cell-Status" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-Status="props" :props="props">
           <span
             class="label text-positive"
             v-if="props.row.leadInformation.cmsLeadStatus== 23"
@@ -70,7 +69,7 @@
           >Submitted to Mars</span>-->
           <span class="label text-negative" v-else>Pending</span>
         </q-td>
-        <q-td slot="body-cell-action" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-action="props" :props="props">
           <q-btn
             v-if="props.row.leadInformation.cmsLeadStatus== 22 || props.row.leadInformation.cmsLeadStatus==15 || props.row.leadInformation.cmsLeadStatus==25 "
             highlight
@@ -127,15 +126,15 @@
             @click="$router.push('/sat/change/management/'+ props.row.tid+'/edit/data')"
           >Data Entry</q-btn>
         </q-td>
-        <template slot="top" slot-scope="props" class="bottom-border">
+        <template v-slot:top="props" class="bottom-border">
           <!--START: table filter,search -->
           <div class="col-md-5">
-            <q-search
+            <q-input
               clearable
               color="grey-9"
               v-model="filter1"
               placeholder="Type.."
-              :debounce="600"
+              v-model:debounce="600"
               class="q-mr-lg q-py-sm"
               float-label="Search By MID/TID/Merchant Name "
             />
@@ -146,7 +145,7 @@
         <!-- END: table body modification -->
       </q-table>
       <div
-        class="col-md-12 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
+        class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
       >Enter TID/MID for changing merchant data name</div>
       <q-table
         title="Change Management"
@@ -155,15 +154,15 @@
         :columns="columns1"
         row-key="name"
         :filter="filter"
-        :pagination.sync="paginationControl"
+        :pagination="paginationControl"
         :rows-per-page-options="[5,10,15,20]"
         :loading="toggleAjaxLoadFilter1"
         @request="ajaxLoadAllLeadInfo"
       >
-        <!-- <q-td slot="body-cell-action" slot-scope="props" :props="props">
+        <!-- <q-td v-slot:body-cell-action="props" :props="props">
           <q-btn @click="fnEdit(props.row.leadInformation.id)" flat class="text-negative">Edit</q-btn>
         </q-td>-->
-        <q-td slot="body-cell-action" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-action="props" :props="props">
           <q-btn
             highlight
             push
@@ -174,10 +173,10 @@
           >Data Entry</q-btn>
         </q-td>
         <!-- END: table body modification -->
-        <template slot="top" slot-scope="props" class="bottom-border">
+        <template v-slot:top="props" class="bottom-border">
           <!--START: table filter,search -->
           <div class="col-md-5">
-            <q-search
+            <q-input
               clearable
               color="grey-9"
               v-model="filter"

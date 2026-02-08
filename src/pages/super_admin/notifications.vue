@@ -1,6 +1,6 @@
 <template>
   <div>
-    <div class="col-12 q-title q-my-lg text-weight-regular"><strong>Notifications</strong></div>
+    <div class="col-12 text-h6 q-my-lg text-weight-regular"><strong>Notifications</strong></div>
     <form>
       <div class="q-px-md">
         <div class="q-pa-md">
@@ -71,7 +71,7 @@ import {
   alpha,
   alphaNum,
   numeric
-} from "vuelidate/lib/validators";
+} from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 export default {
   data() {

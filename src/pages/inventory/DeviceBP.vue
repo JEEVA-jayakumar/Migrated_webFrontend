@@ -4,9 +4,9 @@
     <!-- content -->
 
     <div>
-      <!--START: table title -->
+      <!--STARTv-model: table title -->
       <div
-        class="col-md-12 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
+        class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
       >
         Devices with BPRegions
       </div>
@@ -17,15 +17,14 @@
         :data="tableData"
         :columns="columns"
         :filter="filter"
-        :pagination.sync="paginationControl"
+        :pagination="paginationControl"
         row-key="name"
         :loading="toggleAjaxLoadFilter"
         :rows-per-page-options="[5,10,15,20,25]"
         @request="ajaxLoadAllLeadInfo"
       >
         <q-td
-          slot="body-cell-TidCreationDate"
-          slot-scope="props"
+          v-slot:body-cell-TidCreationDate="props"
           :props="props"
         >
           <span class="label">{{

@@ -4,7 +4,7 @@
             <q-tabs v-model="activeTab" class="shadow-1" color="grey-1" @select="goToCompleteTab">
                 <q-tab default color="dark" name="tab-1" slot="title" label="Pending Tickets" />
                 <q-tab color="dark" name="tab-2" slot="title" label="Completed Tickets" />
-                <q-tab-pane name="tab-1">
+                <q-tab-panel name="tab-1">
                     <div class="row items-center">
                         <div class="col">
                             <strong> Open For </strong>
@@ -13,17 +13,17 @@
                             color="grey" @input="dateClick">
                         </q-select>
                         <div class="col-5"></div>
-                        <q-search class="col-5" clearable color="grey-9" placeholder="Type.." v-model="filter"
+                        <q-input class="col-5" clearable color="grey-9" placeholder="Type.." v-model="filter"
                         float-label="Search By Ticket No, Merchant No..." />
                     </div>
-                    <q-table table-class="customTableClass" class="q-py-none" :data="tableData" :columns="columns"
-                        :filter="filter" :rows-per-page-options="[5, 10, 15]" :pagination.sync="paginationControl"
+                    <q-table table-class="customTableClass" class="q-py-none" v-model:data="tableData" :columns="columns"
+                        :filter="filter" :rows-per-page-options="[5, 10, 15]" :pagination="paginationControl"
                         :loading="toggleAjaxLoadFilter" @request="ajaxLoadAllLeadInfo">
-                        <q-td slot="body-cell-Date" slot-scope="props" :props="props">{{
+                        <q-td v-slot:body-cell-Date="props" :props="props">{{
                                 props.row == null ? "NA" : props.row.createdDate |
                                     moment("Do MMM Y")
                         }}</q-td>
-                        <q-td slot="body-cell-action" slot-scope="props" :props="props">
+                        <q-td v-slot:body-cell-action="props" :props="props">
                             <div class="row no-wrap no-padding">
                                 <q-btn :disable="props.row.serviceRequestTicketStatus != 1" dense no-caps no-wrap
                                     label="Resolved" icon="far fa-plus-square" size="md" @click="fnResolve(props.row)"
@@ -35,7 +35,7 @@
                                 </q-btn>
                             </div>
                         </q-td>
-                        <q-td slot="body-cell-updateRemarks" slot-scope="props" :props="props">
+                        <q-td v-slot:body-cell-updateRemarks="props" :props="props">
                             <div class="row no-wrap no-padding">
                                 <q-btn :disable="props.row.serviceRequestTicketStatus != 1" no-caps icon="edit"
                                     color="purple-9" size="xs" round @click="toggleAddremarks(props.row)">
@@ -45,35 +45,35 @@
                                 <span class="q-ma-sm" v-else="props.row.crmRemark == null">NA</span>
                             </div>
                         </q-td>
-                        <q-td slot="body-cell-createdDate" slot-scope="props" :props="props">{{ props.row == null
+                        <q-td v-slot:body-cell-createdDate="props" :props="props">{{ props.row == null
                                 ? "NA" : props.row.createdDate | moment("Do MMM Y")
                         }}</q-td>
                     </q-table>
-                </q-tab-pane>
-                <q-tab-pane name="tab-2">
+                </q-tab-panell>
+                <q-tab-panel name="tab-2">
                     <div class="row">
-                        <q-search class="col-4" v-model="filter1" clearable color="grey-9" placeholder="Type.."
+                        <q-input class="col-4" v-model="filter1" clearable color="grey-9" placeholder="Type.."
                         float-label="Search By Ticket No, Merchant No..." />
                     </div>
-                    <q-table table-class="customTableClass" class="q-py-none" :data="tableData1" :columns="columns2"
-                        :filter="filter1" :rows-per-page-options="[5, 10, 15]" :pagination.sync="paginationControl1"
+                    <q-table table-class="customTableClass" class="q-py-none" v-model:data="tableData1" :columns="columns2"
+                        :filter="filter1" :rows-per-page-options="[5, 10, 15]" :pagination="paginationControl1"
                         :loading="toggleAjaxLoadFilter1" @request="ajaxLoadAllLeadInfo1">
-                        <q-td slot="body-cell-updateRemarks" slot-scope="props" :props="props">
+                        <q-td v-slot:body-cell-updateRemarks="props" :props="props">
                             <div class="row no-wrap no-padding">
                                 <span class="q-ma-sm" v-if="props.row.crmRemark != null"
                                     v-html="props.row.crmRemark"></span>
                                 <span class="q-ma-sm" v-else="props.row.crmRemark == null">NA</span>
                             </div>
                         </q-td>
-                        <q-td slot="body-cell-createdDate" slot-scope="props" :props="props">{{ props.row.createdDate |
+                        <q-td v-slot:body-cell-createdDate="props" :props="props">{{ props.row.createdDate |
                                 moment("Do MMM Y")
                         }}</q-td>
-                        <q-td slot="body-cell-updatedDate" slot-scope="props" :props="props">{{ props.row.updatedDate |
+                        <q-td v-slot:body-cell-updatedDate="props" :props="props">{{ props.row.updatedDate |
                                 moment("Do MMM Y")
                         }}</q-td>
                     </q-table>
 
-                </q-tab-pane>
+                </q-tab-panell>
             </q-tabs>
 
         </div>

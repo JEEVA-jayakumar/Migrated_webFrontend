@@ -1,9 +1,9 @@
 <template>
   <q-layout view="lHh Lpr lFf">
-    <q-layout-header style="margin-left:0px" class="shadow-0 z-top" flat>
+    <q-header style="margin-left:0px" class="shadow-0 z-top" flat>
       <customHeader></customHeader>
-    </q-layout-header>
-    <q-layout-drawer
+    </q-header>
+    <q-drawer
       class="shadow-9"
       v-model="leftDrawerOpen"
       content-class="no-shadow"
@@ -17,10 +17,10 @@
         style="padding-top:65px"
       >
         <q-item v-for="menu in menus" :key="menu.id" :to="menu.to" class="menu-main-item-color">
-          <q-item-main class="menu-item-color">{{menu.name}}</q-item-main>
+          <q-item-section class="menu-item-color">{{menu.name}}</q-item-section>
         </q-item>
       </q-list>
-    </q-layout-drawer>
+    </q-drawer>
     <q-page-container>
       <customBody></customBody>
     </q-page-container>

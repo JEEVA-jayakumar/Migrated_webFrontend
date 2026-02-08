@@ -1,3 +1,4 @@
+import { api } from '../boot/axios';
 import Vue from "vue"
 function COMMON_FILE_DOWNLOAD(response) {
     return new Blob([response.data], {
@@ -20,7 +21,7 @@ function COMMON_FILE_DOWNLOAD(response) {
           commit
         }, request) {
             console.log("==========", request)
-            return await  Vue.http
+            return await  api
             .get("qr-gen/downloadString/"+request,{
               responseType: 'arraybuffer'
             })
@@ -44,7 +45,7 @@ function COMMON_FILE_DOWNLOAD(response) {
             commit
           }, request) {
               console.log("==========", request)
-              return await  Vue.http
+              return await  api
               .get("equitas-completedLeads",{
                 responseType: 'arraybuffer'
               })
@@ -66,7 +67,7 @@ function COMMON_FILE_DOWNLOAD(response) {
             commit
           }, request) {
               console.log("==========", request)
-              return await  Vue.http
+              return await  api
               .get("download-equitas-errorLeads",{
                 responseType: 'arraybuffer'
               })

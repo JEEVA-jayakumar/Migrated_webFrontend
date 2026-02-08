@@ -30,13 +30,13 @@
                             color="grey-9" v-model="merchant.salesInformation.applicationNumber"  float-label="Application Number" placeholder="Application Number" />
                           </div>
                           <div class="col-md-6 col-sm-12 col-xs-12">
-                            <q-datetime 
+                            <q-input
                             @blur="$v.merchant.salesInformation.applicationDate.$touch"      
                             :error="$v.merchant.salesInformation.applicationDate.$error"
                             color="grey-9" minimal v-model="merchant.salesInformation.applicationDate" :default-value	="new Date()" type="date" float-label="Application Date" placeholder="Application Date" />
                           </div>
                           <div class="col-md-6 col-sm-12 col-xs-12">
-                            <q-datetime 
+                            <q-input
                             color="grey-9" minimal v-model="merchant.salesInformation.aggreementDate" :default-value	="new Date()" type="date" float-label="Application Date" placeholder="Application Date" />
                           </div>
                           <div class="col-md-6 col-sm-12 col-xs-12">
@@ -56,13 +56,13 @@
                             <q-select placeholder="Choose from the below" color="grey-9" v-model="merchant.salesInformation.leadFrom" float-label="Lead From" :options="leadFromOptions" />
                           </div>
                           <div class="col-md-6 col-sm-12 col-xs-12">
-                            <p class="q-caption">Subvention Type</p>
+                            <p class="text-caption">Subvention Type</p>
                             <div v-for="(item,index) in viewBinding.subventionType" :key="index" >
                                 <q-checkbox color="grey-9" v-model="merchant.salesInformation.subventionType" :label="item.label" :val="item.value" />
                             </div>
                           </div>
                           <div class="col-md-6 col-sm-12 col-xs-12">
-                            <p class="q-caption">Sharing Model</p>
+                            <p class="text-caption">Sharing Model</p>
                             <div v-for="(item,index) in viewBinding.sharingModelCode" :key="index" >
                                 <q-radio color="grey-9" v-model="merchant.salesInformation.sharingModelCode" :val="item.value" :label="item.label" />
                             </div>
@@ -96,7 +96,7 @@
                                 color="grey-9" v-model="merchant.salesInformation.loanDisbursementAmount"  float-label="Loan disbursement value" type="number" placeholder="Loan disbursement value" />
                           </div>
                           <div class="col-md-6 col-sm-12 col-xs-12">
-                            <q-datetime 
+                            <q-input
                             @blur="$v.merchant.salesInformation.loanDisbursementDate.$touch"      
                             :error="$v.merchant.salesInformation.loanDisbursementDate.$error"
                             color="grey-9" minimal v-model="merchant.salesInformation.loanDisbursementDate" :default-value	="new Date()" type="date" float-label="Disbursement Date" placeholder="Disbursement Date" />
@@ -114,7 +114,7 @@
                             color="grey-9" v-model="merchant.salesInformation.tenureDay"  float-label="Tenure (in days)" type="number" placeholder="Tenure (in days)" />
                           </div>
                           <div class="col-md-6 col-sm-12 col-xs-12">
-                            <q-datetime 
+                            <q-input
                             @blur="$v.merchant.salesInformation.tenureStartDate.$touch"      
                             :error="$v.merchant.salesInformation.tenureStartDate.$error"
                             color="grey-9" minimal v-model="merchant.salesInformation.tenureStartDate" :default-value	="new Date()" type="date" float-label="Start Date" placeholder="Tenure Start Date" />
@@ -210,7 +210,7 @@
                             <q-input color="grey-9" v-model="merchant.companyInformation.constitutionDescription" float-label="Constitution description" placeholder="Constitution description" />
                           </div> -->
                           <div class="col-md-6 col-sm-12 col-xs-12">
-                            <q-datetime color="grey-9" minimal v-model="merchant.companyInformation.establishYear" :default-value	="new Date()" type="date" float-label="Year of Establishment" placeholder="Year of Establishment" />
+                            <q-input color="grey-9" minimal v-model="merchant.companyInformation.establishYear" :default-value	="new Date()" type="date" float-label="Year of Establishment" placeholder="Year of Establishment" />
                           </div>
                           <div class="col-md-6 col-sm-12 col-xs-12">
                             <q-input color="grey-9" v-model="merchant.companyInformation.registerNumber" float-label="Establish Number" placeholder="Establish Number" />
@@ -309,7 +309,7 @@
                             color="grey-9" type="email" v-model="merchant.companyInformation.contactEmail" float-label="Contact Email" placeholder="Contact Email" />
                           </div>
                           <div class="col-md-6 col-sm-12 col-xs-12">
-                            <div class="q-caption">Statement type</div>
+                            <div class="text-caption">Statement type</div>
                             <div class="group">
                               <q-radio 
                               @blur="$v.merchant.companyInformation.statementType.$touch"      
@@ -319,7 +319,7 @@
                             </div>
                           </div>
                           <div class="col-md-12 col-sm-12 col-xs-12">
-                            <p class="q-caption">Statement frequency</p>
+                            <p class="text-caption">Statement frequency</p>
                             <div class="group">
                               <q-radio 
                               @blur="$v.merchant.companyInformation.statementFrequency.$touch"      
@@ -458,7 +458,7 @@
                     <q-step name="fifth" title="Payment" subtitle="Details">
                       <div class="row gutter-sm">
                         <div class="col-md-6 col-sm-12 col-xs-12">
-                          <p class="q-caption">Device Owned By</p>
+                          <p class="text-caption">Device Owned By</p>
                           <div class="group">
                             <q-radio 
                             @blur="$v.merchant.paymentDetails.deviceOwnedBy.$touch"      
@@ -479,7 +479,7 @@
                           <q-input color="grey-9" type="number" v-model="merchant.paymentDetails.numberOfTerminals" float-label="No of Terminals" placeholder="No of Terminals" />
                         </div>
                         <div class="col-md-6 col-sm-12 col-xs-12">
-                            <p class="q-caption">Cash @POS Enabled?</p>
+                            <p class="text-caption">Cash @POS Enabled?</p>
                             <div class="group">
                               <q-radio 
                               @blur="$v.merchant.paymentDetails.cashAtPosEnabled.$touch"      
@@ -495,7 +495,7 @@
                           <q-select placeholder="Choose from the below" color="grey-9" v-model="merchant.paymentDetails.rentalModeCode" float-label="Rental Mode" :options="rentalModeOptions" />
                         </div>
                         <div class="col-md-6 col-sm-12 col-xs-12">
-                            <p class="q-caption">Rental Type</p>
+                            <p class="text-caption">Rental Type</p>
                             <div class="group">
                               <q-radio 
                               @blur="$v.merchant.paymentDetails.rentalType.$touch"      
@@ -515,7 +515,7 @@
                           <q-input color="grey-9" type="number" v-model="merchant.paymentDetails.noOfMonthRentPaidInAdvance" float-label="No. Of Month Rent Paid In Advance" placeholder="No. Of Month Rent Paid In Advance" />
                         </div>
                         <div v-if="merchant.paymentDetails.rentalType == 'A'"  class="col-md-6 col-sm-12 col-xs-12">
-                            <p class="q-caption">Advanced Rent Mode</p>
+                            <p class="text-caption">Advanced Rent Mode</p>
                             <div class="group">
                               <q-radio 
                               @blur="$v.merchant.paymentDetails.advancedRentMode.$touch"      
@@ -544,17 +544,17 @@
                     <q-step name="sixth" title="Discount" subtitle="Rate">
                       <div class="row group items-center">
                           <div class="col">
-                              <p class="q-caption">Device Owned By</p>
+                              <p class="text-caption">Device Owned By</p>
                               <q-radio color="grey-9" v-model="option" val="opt1" label="Small Merchant (<= 20 L)" />
                               <q-radio color="grey-9" v-model="option" val="opt2" label="Other Merchant (> 20 L)" />
                           </div>
                           <div class="col-md-12">
                               <div class="row items-center">
                                   <div class="col-3">
-                                      <div class="q-caption text-weight-medium">Domestic Debit Card above 2000</div>
+                                      <div class="text-caption text-weight-medium">Domestic Debit Card above 2000</div>
                                   </div>
                                   <div class="col">
-                                      <div class="q-caption text-weight-medium q-py-sm" align="center">Merchant Disc Fee</div>
+                                      <div class="text-caption text-weight-medium q-py-sm" align="center">Merchant Disc Fee</div>
                                       <div class="row group bg-green-2">
                                           <div class="col">
                                               <q-input color="grey-9" type="number" v-model="text" placeholder="Fixed" />
@@ -568,7 +568,7 @@
                                       </div>
                                   </div>
                                   <div class="col">
-                                      <div class="q-caption text-weight-medium q-py-sm" align="center">Provider Disc Fee</div>
+                                      <div class="text-caption text-weight-medium q-py-sm" align="center">Provider Disc Fee</div>
                                       <div class="row group bg-yellow-2">
                                           <div class="col">
                                               <q-input color="grey-9" type="number" v-model="text" placeholder="Fixed" />
@@ -584,7 +584,7 @@
                               </div>
                               <div class="row items-center">
                                   <div class="col-3">
-                                      <div class="q-caption text-weight-medium">Domestic Debit Card above 2000</div>
+                                      <div class="text-caption text-weight-medium">Domestic Debit Card above 2000</div>
                                   </div>
                                   <div class="col">
                                       <div class="row group bg-green-2">
@@ -617,7 +617,7 @@
                           <div class="col-md-12">
                               <div class="row items-center">
                                   <div class="col-3">
-                                      <div class="q-caption text-weight-medium">Standard/Classic (1st Stab)</div>
+                                      <div class="text-caption text-weight-medium">Standard/Classic (1st Stab)</div>
                                   </div>
                                   <div class="col">
                                       <div class="row group bg-green-2">
@@ -648,7 +648,7 @@
                               </div>
                               <div class="row items-center">
                                   <div class="col-3">
-                                      <div class="q-caption text-weight-medium">Premium/Platinum (2nd Stab)</div>
+                                      <div class="text-caption text-weight-medium">Premium/Platinum (2nd Stab)</div>
                                   </div>
                                   <div class="col">
                                       <div class="row group bg-green-2">
@@ -679,7 +679,7 @@
                               </div>
                               <div class="row items-center">
                                   <div class="col-3">
-                                      <div class="q-caption text-weight-medium">Super Premium/Signature (3rd Stab)</div>
+                                      <div class="text-caption text-weight-medium">Super Premium/Signature (3rd Stab)</div>
                                   </div>
                                   <div class="col">
                                       <div class="row group bg-green-2">
@@ -710,7 +710,7 @@
                               </div>
                               <div class="row items-center">
                                   <div class="col-3">
-                                      <div class="q-caption text-weight-medium">Commercial/Coporate 4th Stab</div>
+                                      <div class="text-caption text-weight-medium">Commercial/Coporate 4th Stab</div>
                                   </div>
                                   <div class="col">
                                       <div class="row group bg-green-2">
@@ -741,7 +741,7 @@
                               </div>
                               <div class="row items-center">
                                   <div class="col-3">
-                                      <div class="q-caption text-weight-medium">International Debit Card</div>
+                                      <div class="text-caption text-weight-medium">International Debit Card</div>
                                   </div>
                                   <div class="col">
                                       <div class="row group bg-green-2">
@@ -772,7 +772,7 @@
                               </div>
                               <div class="row items-center">
                                   <div class="col-3">
-                                      <div class="q-caption text-weight-medium">International Credit Card</div>
+                                      <div class="text-caption text-weight-medium">International Credit Card</div>
                                   </div>
                                   <div class="col">
                                       <div class="row group bg-green-2">
@@ -803,7 +803,7 @@
                               </div>
                               <div class="row items-center">
                                   <div class="col-3">
-                                      <div class="q-caption text-weight-medium">Onus</div>
+                                      <div class="text-caption text-weight-medium">Onus</div>
                                   </div>
                                   <div class="col">
                                       <div class="row group bg-green-2">
@@ -834,7 +834,7 @@
                               </div>
                               <div class="row items-center">
                                   <div class="col-3">
-                                      <div class="q-caption text-weight-medium">mVISA</div>
+                                      <div class="text-caption text-weight-medium">mVISA</div>
                                   </div>
                                   <div class="col">
                                       <div class="row group bg-green-2">
@@ -865,7 +865,7 @@
                               </div>
                               <div class="row items-center">
                                   <div class="col-3">
-                                      <div class="q-caption text-weight-medium">Master Pass</div>
+                                      <div class="text-caption text-weight-medium">Master Pass</div>
                                   </div>
                                   <div class="col">
                                       <div class="row group bg-green-2">
@@ -896,7 +896,7 @@
                               </div>
                               <div class="row items-center">
                                   <div class="col-3">
-                                      <div class="q-caption text-weight-medium">Cash at POS</div>
+                                      <div class="text-caption text-weight-medium">Cash at POS</div>
                                   </div>
                                   <div class="col">
                                       <div class="row group bg-green-2">
@@ -936,7 +936,7 @@
                     <q-step name="seventh" title="Bank & Collection" subtitle="Details">
                       <div class="row q-mb-md gutter-sm items-center">
                         <div class="col-md-12">
-                          <div class="q-title">Merchant Bank Details</div>
+                          <div class="text-h6">Merchant Bank Details</div>
                         </div>
                         <div class="col-md-6 col-sm-12 col-xs-12">
                           <q-input color="grey-9" v-model="merchant.bankInformation.bankDetails.ifsc" float-label="IFSC Code" placeholder="IFSC Code" />
@@ -997,13 +997,13 @@
                       </div>
                       <div class="row gutter-sm items-center">
                         <div class="col-md-12">
-                          <div class="q-title">Payment Collection Details</div>
+                          <div class="text-h6">Payment Collection Details</div>
                         </div>
                         <div class="col-md-4 col-sm-12 col-xs-12">
                           <q-input color="grey-9" v-model="merchant.bankInformation.collectionDetails.swipeAmount" float-label="Swipe Amount" placeholder="Swipe Amount" />
                         </div>
                         <div class="col-md-4 col-sm-12">
-                          <q-datetime color="grey-9" format-model="number" v-model="merchant.bankInformation.collectionDetails.collectedDate" minimal float-label="Swipe Date" />
+                          <q-input color="grey-9" format-model="number" v-model="merchant.bankInformation.collectionDetails.collectedDate" minimal float-label="Swipe Date" />
                         </div>
                         <div class="col-md-4 col-sm-12 col-xs-12">
                           <q-input color="grey-9" v-model="merchant.bankInformation.collectionDetails.swipeTerminal" float-label="Swiped on the terminal of" placeholder="Swiped on the terminal of" />
@@ -1012,7 +1012,7 @@
                           <q-input color="grey-9" v-model="merchant.bankInformation.collectionDetails.chequeAmount" float-label="Cheque Amount" placeholder="Cheque Amount" />
                         </div>
                         <div class="col-md-4 col-sm-12">
-                          <q-datetime color="grey-9" format-model="number" v-model="merchant.bankInformation.collectionDetails.chequeDate" minimal float-label="Cheque Date" />
+                          <q-input color="grey-9" format-model="number" v-model="merchant.bankInformation.collectionDetails.chequeDate" minimal float-label="Cheque Date" />
                         </div>
                         <div class="col-md-4 col-sm-12 col-xs-12">
                           <q-input color="grey-9" v-model="merchant.bankInformation.collectionDetails.chequeNumber" float-label="Cheque/UTR No" placeholder="Cheque/UTR No" />
@@ -1035,7 +1035,7 @@
 
 <script>
 import { easing } from "quasar";
-import { required, requiredIf } from "vuelidate/lib/validators";
+import { required, requiredIf } from "@vuelidate/validators";
 
 import { mapGetters, mapActions } from "vuex";
 import { uid, filter } from "quasar";

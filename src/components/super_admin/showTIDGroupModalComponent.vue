@@ -1,5 +1,5 @@
 <template>
-    <q-modal
+    <q-dialog
       minimized
       position="right"
       v-model="toggleModal"
@@ -10,7 +10,7 @@
     >
       <div class="row items-center bottom-border q-py-sm fit">
         <div class="col">
-          <div class="q-title text-weight-regular">Manage TID Group</div>
+          <div class="text-h6 text-weight-regular">Manage TID Group</div>
         </div>
         <div class="col" align="right">
           <q-btn outline round color="dark" size="sm" icon="clear" @click="emitModalClose"/>
@@ -20,7 +20,7 @@
         <!-- Tabs - notice slot="title" -->
         <q-tab @select="leadSourceActiveList" default slot="title" label="Active List" name="tab-1"/>
         <q-tab @select="leadSourceDeActiveList" slot="title" label="De-Actived List" name="tab-2"/>
-        <q-tab-pane name="tab-1">
+        <q-tab-panel name="tab-1">
           <q-table
             :data="getActiveLeadSource"
             table-class="customSATableClass"
@@ -29,7 +29,7 @@
             row-key="id"
             color="grey-9"
           >
-            <q-td slot="body-cell-action" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-action="props" :props="props">
               <div class="row no-wrap no-padding">
                 <q-btn
                   dense
@@ -55,10 +55,10 @@
                 ></q-btn>
               </div>
             </q-td>
-            <template slot="top" slot-scope="props">
+            <template v-slot:top="props">
               <!--START: table filter,search -->
               <div class="col-8">
-                <q-search
+                <q-input
                   clearable
                   color="grey-9"
                   v-model="activeFilterSearch"
@@ -77,21 +77,21 @@
                   @click="leadSourceCreate()"
                 />
               </div>
-              <!--END: table filter,search -->
+              <!--ENDv-model: table filter,search -->
             </template>
           </q-table>
-        </q-tab-pane>
-        <q-tab-pane name="tab-2">
+        </q-tab-panell>
+        <q-tab-panel name="tab-2">
           <q-table
             :data="deActiveLeadSourceList"
             table-class="customSATableClass"
             :columns="deActivatedColumns"
             :filter="deActivatedFilterSearch"
-            :pagination.sync="paginationControl"
+            :pagination="paginationControl"
             row-key="id"
             color="grey-9"
           >
-            <q-td slot="body-cell-action" slot-scope="props" :props="props">
+            <q-td v-slot:body-cell-action="props" :props="props">
               <div class="row no-wrap no-padding">
                 <q-btn
                   dense
@@ -106,10 +106,10 @@
                 ></q-btn>
               </div>
             </q-td>
-            <template slot="top" slot-scope="props">
+            <template v-slot:top="props">
               <!--START: table filter,search -->
               <div class="col">
-                <q-search
+                <q-input
                   clearable
                   color="grey-9"
                   v-model="deActivatedFilterSearch"
@@ -121,7 +121,7 @@
               <!--END: table filter,search -->
             </template>
           </q-table>
-        </q-tab-pane>
+        </q-tab-panell>
       </q-tabs>
       <!--START: Show create LeadSources -->
       <showCreateLeadSource
@@ -138,12 +138,12 @@
         @emitfnshowLeadSources="refreshLeadSourceList"
       ></showEditLeadSource>
       <!--END: Show edit LeadSources -->
-    </q-modal>
+    </q-dialog>
   </template>
   
   <script>
   import { mapGetters, mapActions } from "vuex";
-  import { required } from "vuelidate/lib/validators";
+  import { required } from "@vuelidate/validators";
   import showCreateLeadSource from "./createLeadSource.vue";
   import showEditLeadSource from "./editLeadSource.vue";
   export default {

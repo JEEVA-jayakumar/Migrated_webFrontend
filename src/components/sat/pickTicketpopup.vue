@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <q-modal
+    <q-dialog
       minimized
       no-backdrop-dismiss
       class="customModalOverlay"
@@ -8,7 +8,7 @@
       :content-css="{ padding: '30px', minWidth: '60vw' }"
     >
       <div class="row q-pa-md">
-        <div class="col-12 q-title text-weight-regular bottom-border">
+        <div class="col-12 text-h6 text-weight-regular bottom-border">
           Action Bar
         </div>
         <q-card class="q-pa-md" style="width: 100%">
@@ -72,7 +72,7 @@
           </q-card-actions>
         </q-card>
       </div>
-    </q-modal>
+    </q-dialog>
   </q-page>
 </template>
 
@@ -88,8 +88,8 @@ import {
   alpha,
   alphaNum,
   numeric
-} from "vuelidate/lib/validators";
-import { req } from "vuelidate/lib/validators/common";
+} from "@vuelidate/validators";
+import { req } from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 export default {
   props: ["propShowUpdatePickTicket", "propRowDetails"],

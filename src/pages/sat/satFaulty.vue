@@ -4,7 +4,7 @@
     <div>
       <div class="row bottom-border q-px-md q-py-md items-center">
         <!--START: table title -->
-        <div class="col-6 col-md-6 q-title text-weight-regular text-grey-9">Faulty Inventory</div>
+        <div class="col-6 col-md-6 text-h6 text-weight-regular text-grey-9">Faulty Inventory</div>
         <div class="col-6 col-md-6" align="right">
           <q-btn
             icon="attach_file"
@@ -81,9 +81,9 @@
         <div class="col group" v-for="(item,index) in formData.scannedItems" :key="index">
             <q-card class="shadow-4">
               <q-list highlight separator>
-                <q-list-header style="border-bottom: 1px solid #ccc;">
+                <q-item-label header style="border-bottom: 1px solid #ccc;">
                   <q-icon style="color:#202c3f" name="fas fa-tablet-alt"/> {{item.device.name}} 
-                </q-list-header>
+                </q-item-label header>
                 <q-scroll-area
                   style="height:400px"
                   :thumb-style="{
@@ -96,17 +96,17 @@
                   :delay="1500"
                 >
                   <div v-if="item.deviceSerialNumbers.length > 0">
-                    <q-item separator class=" text-light-blue" v-for="(subItem,subIndex) in item.deviceSerialNumbers" :key="subIndex">
-                      <q-item-main class="q-body-1">{{subItem}}</q-item-main>
-                      <q-item-side>
+                    <q-item separator class=" text-light-blue" v-for="(subItem,subIndex) in item.deviceSerialNumbers" v-model:key="subIndex">
+                      <q-item-section class="text-body1">{{subItem}}</q-item-section>
+                      <q-item-section>
                         <q-btn round size="sm" color="negative" icon="clear" @click="fnRemoveScannedItems(index,subIndex)" />
-                      </q-item-side>
+                      </q-item-section>
                     </q-item>
                   </div>
                   <div v-else>
                     <q-item>
-                      <q-item-main class="q-body-1">No data to display</q-item-main>
-                      <q-item-side><q-btn round size="sm" color="negative" @click="fnRemoveDeviceTypeFromList(index)" icon="clear" /></q-item-side>
+                      <q-item-section class="text-body1">No data to display</q-item-section>
+                      <q-item-section><q-btn round size="sm" color="negative" @click="fnRemoveDeviceTypeFromList(index)" icon="clear" /></q-item-section>
                     </q-item>
                   </div>
                 </q-scroll-area>
@@ -123,29 +123,27 @@
         :columns="columns"
         title="Lead Validation"
         table-class="customTableClass"
-        :pagination.sync="paginationControl"
+        :pagination="paginationControl"
       >
         <!--START: table body modification -->
         <q-td
-          slot="body-cell-deviceType"
-          slot-scope="props"
+          v-slot:body-cell-deviceType="props"
           :props="props"
         >{{props.row.device.name}}</q-td>
         <q-td
-          slot="body-cell-serialNumber"
-          slot-scope="props"
+          v-slot:body-cell-serialNumber="props"
           :props="props"
         >{{props.row.serialNumber}}</q-td>
-        <q-td slot="body-cell-status" slot-scope="props" :props="props">
+        <q-td v-slot:body-cell-status="props" :props="props">
           <q-btn flat v-if="props.row.status == true" icon="check" color="positive" />
           <q-btn flat v-else-if="props.row.status == false" icon="clear" color="negative" />
           <q-btn flat color="amber-9" v-else icon="warning" />
         </q-td>
         <!-- END: table body modification -->
-        <template slot="top" slot-scope="props" class="bottom-border">
+        <template v-slot:top="props" class="bottom-border">
           <!--START: table filter,search -->
           <div class="col-md-5">
-            <q-search
+            <q-input
               clearable
               color="grey-9"
               v-model="filter"

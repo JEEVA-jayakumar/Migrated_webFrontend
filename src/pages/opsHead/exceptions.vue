@@ -1,9 +1,9 @@
 <template>
   <q-page>
     <div>
-      <!--START: table title -->
+      <!--STARTv-model: table title -->
       <div
-        class="col-md-12 q-title q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
+        class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
       >Exceptions</div>
       <!--END: table title -->
       <q-table
@@ -11,14 +11,13 @@
         :data="tableData"
         :columns="columns"
         :filter="filter"
-        :pagination.sync="paginationControl"
+        :pagination="paginationControl"
         :rows-per-page-options="[5,10,15,20]"
         @request="ajaxLoadDataForAllExceptionList"
         row-key="name"
       >
         <q-tr
-          slot="body"
-          slot-scope="props"
+          v-slot:body="props"
           :props="props"
           @click.native="fnRowClick(props.row)"
           @mouseover.native="fnRowMouseOver(props.row.__index)"
@@ -55,10 +54,10 @@
           </q-td>
         </q-tr>
 
-        <template slot="top" slot-scope="props">
+        <template v-slot:top="props">
           <!--START: table search -->
           <div class="col-md-5">
-            <q-search
+            <q-input
               clearable
               v-model="filter"
               separator
