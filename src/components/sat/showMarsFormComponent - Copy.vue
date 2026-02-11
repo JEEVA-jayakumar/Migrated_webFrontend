@@ -624,6 +624,7 @@
 </template>
 
 <script>
+import { email, url, or, and } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
 import vuePdfjs from "vue-pdfjs";
 

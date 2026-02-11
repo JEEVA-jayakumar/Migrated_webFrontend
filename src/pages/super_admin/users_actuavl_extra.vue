@@ -230,6 +230,7 @@
 </template>
 
 <script>
+import { required, email } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
 import deleteUsersDetails from "../../components/super_admin/deleteUsersDetails";
 export default {

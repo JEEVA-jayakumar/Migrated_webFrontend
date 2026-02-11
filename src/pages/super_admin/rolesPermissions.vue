@@ -135,6 +135,7 @@
 </template>
 
 <script>
+import { required } from '@vuelidate/validators';
 import showCreateRole from "../../components/super_admin/showCreateRole.vue";
 import showEditRole from "../../components/super_admin/ShowEditRole.vue";
 import showAddRole from "../../components/super_admin/showAddRole.vue";

@@ -1168,7 +1168,7 @@
 </template>
 
 <script>
-import { easing } from "quasar";
+
 import {
   required,
   requiredIf,
@@ -1182,7 +1182,7 @@ import {
 } from "@vuelidate/validators";
 import { date } from "quasar";
 import { mapGetters, mapActions } from "vuex";
-import { uid, filter } from "quasar";
+import { uid } from "quasar";
 import viewLeadDocumentsDataEntryComponent from "./viewLeadDocumentsDataEntryComponent.vue";
 export default {
   name: "leadDataEntry",

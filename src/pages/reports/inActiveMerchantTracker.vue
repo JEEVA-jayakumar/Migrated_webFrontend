@@ -30,6 +30,7 @@
 </template>
 
 <script>
+import { or, and } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
 import { date } from "quasar";
 export default {

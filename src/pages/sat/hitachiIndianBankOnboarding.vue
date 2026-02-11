@@ -254,6 +254,7 @@
   </q-page>
 </template>
 <script>
+import { required, email, not, or } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
 import downloadIndianBankReports from "../../components/sat/downloadIndianBankReports.vue";
 export default {

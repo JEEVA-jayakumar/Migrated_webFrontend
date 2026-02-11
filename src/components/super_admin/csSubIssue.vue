@@ -81,6 +81,7 @@
     </q-page>
   </template>
   <script>
+import { required } from '@vuelidate/validators';
   import ShowEditCSSubIssue from "../../components/super_admin/ShowEditCSSubIssue.vue";
   import ShowAddCSSubIssue from "../../components/super_admin/ShowAddCSSubIssue.vue";
   import { mapGetters, mapActions } from "vuex";

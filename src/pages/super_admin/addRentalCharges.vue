@@ -209,6 +209,7 @@
 </template>
 
 <script>
+import { required, url, and } from '@vuelidate/validators';
 /* START >> Modal components Lead source, device, merchant type */
 import showLeadSourceModalComponent from "../../components/super_admin/showLeadSourceModalComponents.vue";
 import showDeviceDetailModalComponent from "../../components/super_admin/showDeviceDetailModalComponents.vue";

@@ -60,6 +60,7 @@
 </template>
 
 <script>
+import { required, or } from '@vuelidate/validators';
 
 import AddNewConfigurarions from "../../pages/super_admin/addMultiTidConfiguration.vue";
 import { mapGetters, mapActions } from "vuex";

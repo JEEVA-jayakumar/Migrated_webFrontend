@@ -61,6 +61,7 @@
 </template>
 
 <script>
+import { required, or } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
 
 import DownloadAggregatorsLostOrStolen from "../../components/inventory/DownloadAggregatorsLostOrStolen.vue";

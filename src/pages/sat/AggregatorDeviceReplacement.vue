@@ -252,6 +252,7 @@
   </template>
   
   <script>
+import { required, email, or } from '@vuelidate/validators';
   import { mapGetters, mapActions } from "vuex";
   
   export default {

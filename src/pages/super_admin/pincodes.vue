@@ -58,6 +58,7 @@
 </template>
 
 <script>
+import { required, or } from '@vuelidate/validators';
 import addPincode from "../../components/super_admin/addPincode.vue";
 import editPincode from "../../components/super_admin/editPincode.vue";
 import { mapGetters, mapActions } from "vuex";

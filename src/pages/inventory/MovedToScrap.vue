@@ -92,6 +92,7 @@
   </template>
   
   <script>
+import { required, or } from '@vuelidate/validators';
   import { mapGetters, mapActions } from "vuex";
   import DownloadMovedToScrap from "../../components/inventory/DownloadMovedToScrap.vue";
   export default {

@@ -430,6 +430,7 @@
   </q-page>
 </template>
 <script>
+import { required, and } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
 import phonepeRemarks from "../../components/crm/phonepeRemarks.vue";
 import PhonepeEscalateToSat from "../../components/crm/phonepeEscalateToSat.vue";

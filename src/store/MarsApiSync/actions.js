@@ -1,4 +1,3 @@
-import { api } from '../../boot/axios';
 import Vue from "vue"
 import VueResource from 'vue-resource';
 import api from "../api.js";

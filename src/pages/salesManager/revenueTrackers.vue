@@ -126,6 +126,7 @@
 </template>
 
 <script>
+import { required, and } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
 
 import RadialProgressBar from "vue-radial-progress";

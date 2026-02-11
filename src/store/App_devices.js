@@ -1,4 +1,4 @@
-import { api } from '../boot/axios';
+import { and } from '@vuelidate/validators';
 import Vue from 'vue';
 import api from "./api.js";
 import _ from 'lodash';

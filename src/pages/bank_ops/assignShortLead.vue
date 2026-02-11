@@ -90,6 +90,7 @@
 </template>
 
 <script>
+import { required } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
 
 import generalLeadInformation from "../../components/generalLeadInformation.vue";

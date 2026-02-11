@@ -176,6 +176,7 @@
 </template>
 
 <script>
+import { required } from '@vuelidate/validators';
 import showCreateRegion from "../../components/super_admin/showCreateRegions.vue";
 import showEditRegion from "../../components/super_admin/showEditRegions.vue";
 import ShowAddNewRegions from "../../components/super_admin/ShowAddNewRegions.vue";

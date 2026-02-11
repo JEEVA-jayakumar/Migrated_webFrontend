@@ -96,6 +96,7 @@
 </template>
 
 <script>
+import { required } from '@vuelidate/validators';
 import showCreateRegion from "../../components/super_admin/showCreateRegions.vue";
 import showEditAggregator from "../../components/super_admin/showEditAggregator.vue";
 import ShowAddNewAggregators from "../../components/super_admin/ShowAddNewAggregators.vue";

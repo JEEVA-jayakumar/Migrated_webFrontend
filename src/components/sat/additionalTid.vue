@@ -157,7 +157,7 @@
 </template>
 <script>
 import Vuelidate from "vuelidate";
-import { easing } from "quasar";
+
 import { LocalStorage } from "quasar";
 import multiTidComponents from "./multiTidComponents.vue";
 import multiTidPaymentMode from "./multiTidPaymentMode";
@@ -184,7 +184,7 @@ import { date } from "quasar";
 import moment from "moment";
 import { ref } from "vue";
 import { mapGetters, mapActions } from "vuex";
-import { uid, filter } from "quasar";
+import { uid } from "quasar";
 import Vue from "vue";
 
 import viewLeadDocumentsDataEntryComponent from "./viewLeadDocumentsDataEntryComponent.vue";

@@ -169,6 +169,7 @@
   </q-page>
 </template>
 <script>
+import { required } from '@vuelidate/validators';
 import ShowAddIssueMapping from "../../components/super_admin/ShowAddIssueMapping.vue";
 import ShowEditIssueMapping from "../../components/super_admin/ShowEditIssueMapping.vue";
 import { mapGetters, mapActions } from "vuex";

@@ -169,6 +169,7 @@
 </template>
 
 <script>
+import { required } from '@vuelidate/validators';
 import ShowAddSpareParts from "../../components/super_admin/ShowAddSpareParts.vue";
 import showEditSpareParts from "../../components/super_admin/showEditSpareParts.vue";
 import { mapGetters, mapActions } from "vuex";

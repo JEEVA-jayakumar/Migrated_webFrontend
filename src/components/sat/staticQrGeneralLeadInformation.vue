@@ -96,6 +96,7 @@
 </template>
 
 <script>
+import { and } from '@vuelidate/validators';
 import { mapGetters, mapActions } from 'vuex'
 export default {
   props: ['leadInformation', 'propToggleLeadInformationPop'],

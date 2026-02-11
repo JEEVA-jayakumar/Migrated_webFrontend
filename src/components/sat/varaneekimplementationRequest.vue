@@ -110,6 +110,7 @@
   </template>
   
   <script>
+import { required, or } from '@vuelidate/validators';
   import { mapGetters, mapActions } from "vuex";
   import DeviceAddressModal from "../../components/sat/DeviceAddressModal.vue";
   import generalLeadInformation from "../../components/generalLeadInformation.vue";

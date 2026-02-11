@@ -149,6 +149,7 @@
 </template>
 
 <script>
+import { required, or } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
 import moveToScrapComp from "../../components/inventory/moveToScrapComp.vue";
 import openAddBulkModelComp from "../../components/inventory/openAddBulkModelComp.vue";

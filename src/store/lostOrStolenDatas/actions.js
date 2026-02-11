@@ -1,3 +1,4 @@
+import { or } from '@vuelidate/validators';
 import api from '../api.js';
 
 export const FETCH_ALL_LOST_DEVICES_DATAS = ({

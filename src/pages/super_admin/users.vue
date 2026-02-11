@@ -127,6 +127,7 @@
 </template>
 
 <script>
+import { required, between, email } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
 import downloadExcel from "vue-json-excel";
 import deleteUsersDetails from "../../components/super_admin/deleteUsersDetails.vue";

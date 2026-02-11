@@ -1,3 +1,4 @@
+import { url } from '@vuelidate/validators';
 import api from "../api.js";
 import Vue from "vue";
 export const RENTAL_PLAN = ({

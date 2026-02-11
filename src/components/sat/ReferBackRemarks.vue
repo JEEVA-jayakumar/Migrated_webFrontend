@@ -90,6 +90,7 @@
 </template>
 
 <script>
+import { or } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
 export default {
   props: ["propShowUpdateOpenedExternal", "propRowDetails"],

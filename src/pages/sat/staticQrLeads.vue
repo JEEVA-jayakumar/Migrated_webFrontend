@@ -350,6 +350,7 @@
   </q-page>
 </template>
 <script>
+import { required, and } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
 import staticQrGeneralLeadInformation from "../../components/sat/staticQrGeneralLeadInformation.vue";
 import openRejectLeadComp from "../../components/sat/openRejectLeadComp.vue";

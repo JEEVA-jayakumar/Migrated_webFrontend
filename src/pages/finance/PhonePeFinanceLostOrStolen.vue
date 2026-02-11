@@ -69,6 +69,7 @@
   </template>
   
   <script>
+import { required, or } from '@vuelidate/validators';
   import { mapGetters, mapActions } from "vuex";
   import PhonepeRejectModel from "../../components/finance/PhonepeRejectModel.vue";
   import showMerchantTransactionLevelDetails from "../../components/sat/showMerchantTransactionLevelDetails.vue";

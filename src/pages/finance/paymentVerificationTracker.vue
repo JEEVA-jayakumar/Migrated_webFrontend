@@ -512,6 +512,7 @@
 </template>
 
 <script>
+import { required, or } from '@vuelidate/validators';
 import openRejectModelComp from "../../components/finance/openRejectModelComp.vue";
 import openQrRejectModelComp from "../../components/finance/openQrRejectModelComp.vue";
 import showPdfModalComponent from "../../components/sat/showPdfModalComponent.vue";

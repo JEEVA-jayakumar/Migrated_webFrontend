@@ -146,6 +146,7 @@
 </template>
 
 <script>
+import { email } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
 export default {
   props: ["leadInfo", "propToggleLeadInformationPop"],

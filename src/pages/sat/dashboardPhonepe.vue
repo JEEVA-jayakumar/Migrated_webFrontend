@@ -463,6 +463,7 @@
   </template>
   
   <script>
+import { required } from '@vuelidate/validators';
   import { mapGetters, mapActions } from "vuex";
   import chartDailyVolume from "../../components/sat/chartDailyVolume.js";
   import chartMerchantTracker from "../../components/sat/chartMerchantTracker.js";

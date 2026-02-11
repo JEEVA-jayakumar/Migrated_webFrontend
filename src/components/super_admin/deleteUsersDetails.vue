@@ -83,6 +83,7 @@
 </template>
 
 <script>
+import { required, email } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
 import reAssignLeads from "./reAssignLeads.vue";
 import reAssignReferences from "./reAssignReferences.vue";

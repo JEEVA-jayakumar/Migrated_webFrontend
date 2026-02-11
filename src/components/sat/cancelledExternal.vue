@@ -539,6 +539,7 @@
   </q-page>
 </template>
 <script>
+import { required, or } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
 export default {
   data() {

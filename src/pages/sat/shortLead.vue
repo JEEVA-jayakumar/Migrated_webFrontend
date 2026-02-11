@@ -538,7 +538,8 @@
 </template>
 
 <script>
-import { easing } from "quasar";
+import { not, and } from '@vuelidate/validators';
+
 import { mapGetters, mapActions } from "vuex";
 import generalLeadInformation from "../../components/generalLeadInformation.vue";
 import showPdfModalComponent from "../../components/sat/showPdfModalComponent.vue";

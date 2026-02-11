@@ -254,6 +254,7 @@
   </q-page>
 </template>
 <script>
+import { required } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
 import phonepePaperRollScan from "../../components/inventory/phonepePaperRollScan.vue";
 

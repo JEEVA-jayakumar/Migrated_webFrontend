@@ -2366,7 +2366,7 @@ import { LocalStorage } from "quasar";
 import Vuelidate from "vuelidate";
 import { date } from "quasar";
 import { ref } from "vue";
-// import { QDate } from 'quasar'
+// import { QDate } from "quasar";
 
 import { mapGetters, mapActions } from "vuex";
 import viewQrLeadDocument from "../../components/sat/viewQrLeadDocument.vue";

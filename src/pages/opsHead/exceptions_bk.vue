@@ -137,6 +137,7 @@
 </template>
 
 <script>
+import { required, and } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
 import _ from "lodash";
 import downloadExcel from "vue-json-excel";

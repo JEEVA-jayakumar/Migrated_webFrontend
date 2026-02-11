@@ -66,6 +66,7 @@
 
 
 <script>
+import { required } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
 import { date } from "quasar";
 import moment from "moment";

@@ -77,6 +77,7 @@
 </template>
 
 <script>
+import { required, or } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
 import DownloadBpRegionReport from "../../components/inventory/DownloadBpRegionReport.vue";
 import Vuelidate from "vuelidate";

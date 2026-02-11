@@ -1,3 +1,4 @@
+import { or } from '@vuelidate/validators';
 import api from '../api.js';
 // export const FETCH_SEND_TO_REPAIR_DETAILS = ({
 //   commit

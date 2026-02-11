@@ -104,6 +104,7 @@
 </template>
 
 <script>
+import { required, and } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
 
 export default {

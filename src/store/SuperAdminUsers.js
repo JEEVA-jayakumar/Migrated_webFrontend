@@ -1,3 +1,4 @@
+import { email, and } from '@vuelidate/validators';
 import api from "./api.js";
 
 /* START >> Store modules => Super Admin Users */

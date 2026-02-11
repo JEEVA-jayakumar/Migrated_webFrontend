@@ -1,31 +1,11 @@
 {
   "presets": [
     [
-      "@babel/preset-env",
+      "@quasar/babel-preset-app",
       {
-        "modules": false,
-        "loose": false,
-        "useBuiltIns": "usage"
-      }
-    ],
-    [
-      "@babel/preset-stage-2",
-      {
-        "modules": false,
-        "loose": false,
-        "useBuiltIns": true,
-        "decoratorsLegacy": true
+        "useBuiltIns": "usage",
+        "corejs": 3
       }
     ]
-  ],
-  "plugins": [
-    [
-      "@babel/transform-runtime",
-      {
-        "polyfill": false,
-        "regenerator": false
-      }
-    ]
-  ],
-  "comments": false
+  ]
 }

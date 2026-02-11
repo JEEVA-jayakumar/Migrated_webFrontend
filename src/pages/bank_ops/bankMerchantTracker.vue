@@ -161,6 +161,7 @@
 </template>
 
 <script>
+import { required } from '@vuelidate/validators';
 import Vue from "vue";
 import { mapGetters, mapActions } from "vuex";
 import generalLeadInformation from "../../components/generalLeadInformation.vue";

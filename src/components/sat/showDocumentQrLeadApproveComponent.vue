@@ -39,7 +39,7 @@
     alphaNum,
     numeric
   } from '@vuelidate/validators'
-  import { date } from 'quasar'
+  import { date } from "quasar";
   import { mapGetters, mapActions } from 'vuex'
   export default {
     props: ['propDocumentDetails', 'propToggleDocumentApproveModal'],
