@@ -1,4 +1,4 @@
-import { api } from '../boot/axios';
+import { or, and } from '@vuelidate/validators';
 import api from "./api.js";
 import Vue from "vue";
 

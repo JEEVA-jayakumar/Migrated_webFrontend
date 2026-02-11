@@ -84,6 +84,7 @@
 </template>
 
 <script>
+import { required } from '@vuelidate/validators';
 /* START >> Modal components Lead source, device, merchant type */
 // import showPlanModalComponent from "../../components/super_admin/showPlanModalComponent.vue";
 /* END >> Modal components Lead source, device, plan */

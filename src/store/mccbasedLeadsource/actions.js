@@ -1,4 +1,3 @@
-import { api } from '../../boot/axios';
 import api from "../api.js";
 import Vue from "vue";
 export const FECTCH_MCC_BASED_LEADSOURCE = ({

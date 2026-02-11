@@ -1,14 +1,9 @@
-// import something here
+import { boot } from 'quasar/wrappers'
 import "viewerjs/dist/viewer.css";
 import viewer from "v-viewer";
-// leave the export, even if you don't use it
-export default ({
-  app,
-  router,
-  Vue
-}) => {
-  // something to do
-  Vue.use(viewer, {
+
+export default boot(({ app }) => {
+  app.use(viewer, {
     defaultOptions: {
       toolbar: false,
       button: false,
@@ -20,4 +15,4 @@ export default ({
       initialViewIndex: 0
     }
   });
-}
+})

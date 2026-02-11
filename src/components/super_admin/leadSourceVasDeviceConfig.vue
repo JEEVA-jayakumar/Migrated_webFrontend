@@ -53,6 +53,7 @@
 </template>
   
 <script>
+import { required } from '@vuelidate/validators';
 import showAddLeadSOurceVasDevice from "../../components/super_admin/AddLeadSOurceVasDevice.vue";
 import showEditLsVasDevice from "../../components/super_admin/leadSourceVasDeviceModify.vue";
 import { mapGetters, mapActions } from "vuex";

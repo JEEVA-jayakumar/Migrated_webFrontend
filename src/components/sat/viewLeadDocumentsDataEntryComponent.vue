@@ -315,6 +315,7 @@
 </template>
 
 <script>
+import { url } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
 import "viewerjs/dist/viewer.css";
 import vuePdfjs from "vue-pdfjs";

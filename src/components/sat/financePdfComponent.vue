@@ -77,6 +77,7 @@
 </template>
 
 <script>
+import { url } from '@vuelidate/validators';
 import Vue from "vue";
 
 import vuePdfjs from "vue-pdfjs";

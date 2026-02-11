@@ -113,6 +113,7 @@
 </template>
 
 <script>
+import { required } from '@vuelidate/validators';
 import showCreateHierarchy from "../../components/super_admin/showCreateHierarchy.vue";
 import showEditHierarchy from "../../components/super_admin/ShowEditHierarchy.vue";
 import { mapGetters, mapActions } from "vuex";

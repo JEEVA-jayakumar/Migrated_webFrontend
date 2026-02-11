@@ -70,6 +70,7 @@
 </template>
 
 <script>
+import { required } from '@vuelidate/validators';
 import showCreatePermission from "../../components/super_admin/showCreatePermission.vue";
 import showEditPermission from "../../components/super_admin/showEditPermission.vue";
 import { mapGetters, mapActions } from "vuex";

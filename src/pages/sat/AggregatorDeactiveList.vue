@@ -221,6 +221,7 @@
 </template>
 
 <script>
+import { required } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
 
 import downloadExcel from "vue-json-excel";

@@ -809,8 +809,9 @@
 </template>
 
 <script>
+import { not, and } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
-import { easing } from "quasar";
+
 import showPdfModalComponent from "../../components/sat/showPdfModalComponent.vue";
 
 import showFinalRejectLeadRemarksComponent from "../../components/sat/showFinalRejectLeadRemarksComponent.vue";

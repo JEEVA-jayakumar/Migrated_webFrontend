@@ -90,6 +90,7 @@
 </template>
 
 <script>
+import { required, or } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
 import DownloadAggregatorsMovedToScrap from "../../components/inventory/DownloadAggregatorsMovedToScrap.vue";
 // import moment from "moment";

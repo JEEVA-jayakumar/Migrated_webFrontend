@@ -110,6 +110,7 @@
 </template>
 
 <script>
+import { required, or } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
 import deleteUsersDetails from "../../components/super_admin/deleteUsersDetails.vue";
 export default {

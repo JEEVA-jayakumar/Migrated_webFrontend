@@ -1,5 +1,6 @@
-import Vuelidate from "vuelidate";
+import { boot } from 'quasar/wrappers'
+import { VuelidatePlugin } from '@vuelidate/core'
 
-export default ({ Vue }) => {
-  Vue.use(Vuelidate);
-};
+export default boot(({ app }) => {
+  app.use(VuelidatePlugin)
+})

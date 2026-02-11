@@ -699,8 +699,9 @@
 </template>
 
 <script>
+import { not, and } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
-import { easing } from "quasar";
+
 import toggleUploadDocumentAndSubmit from "../../components/sat/toggleUploadDocumentAndSubmit.vue";
 import showPdfModalComponent from "../../components/sat/showPdfModalComponent.vue";
 import remarks from "../../components/sat/remarks.vue";

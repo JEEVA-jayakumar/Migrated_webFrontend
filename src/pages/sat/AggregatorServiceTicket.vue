@@ -194,6 +194,7 @@
 </template>
 
 <script>
+import { required } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
 import showPdfModalComponent from "../../components/sat/showPdfModalComponent.vue";
 import viewticketApprove from "src/components/sat/viewticketApprove.vue";

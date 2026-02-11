@@ -114,7 +114,7 @@
 </template>
 
 <script>
-import { easing } from "quasar";
+
 import salesInformation from "./dataEntry/salesInformation.vue";
 import companyInformation from "./dataEntry/companyInformation.vue";
 import partnerInformation from "./dataEntry/partnersInformation.vue";

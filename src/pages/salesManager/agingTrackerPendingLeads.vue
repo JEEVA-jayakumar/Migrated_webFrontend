@@ -54,6 +54,7 @@
 </template>
 
 <script>
+import { required } from '@vuelidate/validators';
 export default {
   name: "leadsPendingAssignment",
   data() {

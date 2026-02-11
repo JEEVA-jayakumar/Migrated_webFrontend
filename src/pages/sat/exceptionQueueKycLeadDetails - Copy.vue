@@ -462,8 +462,9 @@
 </template>
 
 <script>
+import { not, and } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
-import { easing } from "quasar";
+
 
 import showApproveRemarksComponent from "../../components/sat/showApproveRemarksComponent.vue";
 import showRejectLeadRejectComponent from "../../components/sat/showRejectLeadRejectComponent.vue";

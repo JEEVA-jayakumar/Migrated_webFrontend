@@ -1,3 +1,4 @@
+import { url } from '@vuelidate/validators';
 import api from "../api.js";
 
 export const MERCHANT_DOCUMENT_TYPE_ACTIVE_LIST = ({ commit }, request) => {

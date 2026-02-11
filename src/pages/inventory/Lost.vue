@@ -81,6 +81,7 @@
 </template>
 
 <script>
+import { required, or } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
 
 import DownloadLostOrStolen from "../../components/inventory/DownloadLostOrStolen.vue";

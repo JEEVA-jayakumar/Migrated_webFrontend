@@ -103,6 +103,7 @@
 </template>
 
 <script>
+import { required } from '@vuelidate/validators';
 import showMerchantTransactionLevelDetails from "../../components/sat/showMerchantTransactionLevelDetails.vue";
 import downloadExcel from "vue-json-excel";
 

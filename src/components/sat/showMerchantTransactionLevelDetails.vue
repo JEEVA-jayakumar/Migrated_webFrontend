@@ -86,6 +86,7 @@
 </template>
 
 <script>
+import { required, and } from '@vuelidate/validators';
 export default {
   name: "showMerchantTransactionLevelDetails",
   props: ["valueToggleMerchantTransaction"],

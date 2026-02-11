@@ -1,3 +1,4 @@
+import { or } from '@vuelidate/validators';
 import api from "./api.js";
 import Vue from "vue";
 

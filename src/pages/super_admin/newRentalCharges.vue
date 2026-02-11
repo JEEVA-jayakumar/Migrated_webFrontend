@@ -112,6 +112,7 @@
 </template>
 
 <script>
+import { required, or } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
 // import deleteUsersDetails from "../../components/super_admin/deleteUsersDetails.vue";
 import EditRentalCharges from "../../pages/super_admin/editRentalCharges.vue";

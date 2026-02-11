@@ -87,6 +87,7 @@
     </q-page>
 </template>
 <script>
+import { required } from '@vuelidate/validators';
 import { request } from "http";
 import { mapGetters, mapActions } from "vuex";
 import bijlipayAddRemarks from '../../components/crm/bijlipayAddRemarks.vue';

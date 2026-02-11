@@ -99,6 +99,7 @@
   </q-page>
 </template>
 <script>
+import { required } from '@vuelidate/validators';
 import showCancelStatus from '../../components/super_admin/showCancelStatus.vue'
 import ShowEditServiceCancelStatus from '../../components/super_admin/ShowEditServiceCancelStatus.vue'
 

@@ -258,6 +258,7 @@
 </template>
 
 <script>
+import { not } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
 import showDocumentLeadApproveComponent from "../../components/sat/showDocumentLeadApproveComponent.vue";
 import showDocumentLeadRejectComponent from "../../components/sat/showDocumentLeadRejectComponent.vue";

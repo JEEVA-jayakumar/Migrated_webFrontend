@@ -80,6 +80,7 @@
   </q-page>
 </template>
 <script>
+import { or } from '@vuelidate/validators';
 import Vue from "vue";
 import { mapGetters, mapActions } from "vuex";
 

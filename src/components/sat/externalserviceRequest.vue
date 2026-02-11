@@ -342,6 +342,7 @@
 </template>
 
 <script>
+import { required, email, or, and } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
 import pickTicketpopup from "../../components/sat/pickTicketpopup.vue";
 import reassignTicketPopup from "../../components/sat/reassignTicketPopup.vue";

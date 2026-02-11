@@ -108,6 +108,7 @@
 </template>
 
 <script>
+import { required, email } from '@vuelidate/validators';
 import showAddUser from "../../components/super_admin/showAddUser.vue";
 import { mapGetters, mapActions } from "vuex";
 

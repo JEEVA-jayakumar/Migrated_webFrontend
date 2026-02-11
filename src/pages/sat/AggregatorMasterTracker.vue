@@ -92,6 +92,7 @@
   </template>
   
   <script>
+import { required } from '@vuelidate/validators';
   import { mapGetters, mapActions } from "vuex";
   import Vuelidate from "vuelidate";
   import Vue from "vue";

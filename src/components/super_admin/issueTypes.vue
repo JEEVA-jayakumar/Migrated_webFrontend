@@ -184,6 +184,7 @@
   </q-page>
 </template>
 <script>
+import { required } from '@vuelidate/validators';
 import ShowAddServiceType from "../../components/super_admin/ShowAddServiceType.vue";
 import showEditServiceType from "../../components/super_admin/showEditServiceType.vue";
 import showEditSubTaskType from "../../components/super_admin/showEditSubTaskType.vue";

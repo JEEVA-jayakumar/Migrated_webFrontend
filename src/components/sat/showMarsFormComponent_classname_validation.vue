@@ -2741,7 +2741,7 @@
 </template>
 
 <script>
-import { easing } from "quasar";
+
 global.jQuery = require("jquery");
 var $ = global.jQuery;
 window.$ = $;
@@ -2761,7 +2761,7 @@ import {
 } from "@vuelidate/validators";
 import moment from "moment";
 import { mapGetters, mapActions } from "vuex";
-import { uid, filter } from "quasar";
+import { uid } from "quasar";
 import Vue from "vue";
 
 import viewLeadDocumentsDataEntryComponent from "./viewLeadDocumentsDataEntryComponent.vue";

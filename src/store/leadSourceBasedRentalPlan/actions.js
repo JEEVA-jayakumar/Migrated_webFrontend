@@ -1,4 +1,4 @@
-import { api } from '../../boot/axios';
+import { and } from '@vuelidate/validators';
 import api from "../api.js";
 import Vue from "vue";
 // export const LEAD_BASED_RENTAL = ({

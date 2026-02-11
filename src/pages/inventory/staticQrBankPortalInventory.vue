@@ -212,6 +212,7 @@
   </q-page>
 </template>
 <script>
+import { required } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
 import ScanStaticInventory from "../../components/inventory/ScanStaticInventory.vue";
 import soundBoxStaticInventory from "../../components/inventory/soundBoxStaticInventory.vue";

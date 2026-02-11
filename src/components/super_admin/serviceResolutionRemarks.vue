@@ -89,6 +89,7 @@
     </q-page>
   </template>
   <script>
+import { required } from '@vuelidate/validators';
   import showEditServiceResolutionRemarks from "../../components/super_admin/showEditServiceResolutionRemarks.vue";
   import showAddServiceResolutionRemarks from "../../components/super_admin/showAddServiceResolutionRemarks.vue";
   import { mapGetters, mapActions } from "vuex";

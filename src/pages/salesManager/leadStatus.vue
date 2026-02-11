@@ -200,6 +200,7 @@
 </template>
 
 <script>
+import { required, and } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
 import generalLeadInformation from "../../components/generalLeadInformation.vue";
 import userLeadInformation from "../../components/sat/userLeadInformation.vue";

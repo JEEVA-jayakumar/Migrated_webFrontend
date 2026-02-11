@@ -1584,6 +1584,7 @@
   </div>
 </template>
 <script>
+import { url, and } from '@vuelidate/validators';
 import Vue from "vue";
 import { mapGetters, mapActions } from "vuex";
 import showQrPdfModalComponent from "../../components/sat/showQrPdfModalComponent.vue";

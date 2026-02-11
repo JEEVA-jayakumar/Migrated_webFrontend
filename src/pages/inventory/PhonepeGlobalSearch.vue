@@ -372,6 +372,7 @@
     </q-page>
   </template>
   <script>
+import { required, or } from '@vuelidate/validators';
   import { mapGetters, mapActions } from "vuex";
   
   const deCapitalizeFirstLetter = ([first, ...rest], locale = navigator.language) =>

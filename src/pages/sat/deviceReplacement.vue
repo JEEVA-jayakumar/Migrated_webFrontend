@@ -235,6 +235,7 @@ float-label="Search By TID, MID" class="q-mr-lg q-py-sm" />
 </template>
 
 <script>
+import { required, email, not, or } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
 
 export default {

@@ -366,6 +366,7 @@
 </template>
 
 <script>
+import { url } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
 import showPdfModalComponent from "../../components/sat/showPdfModalComponent.vue";
 

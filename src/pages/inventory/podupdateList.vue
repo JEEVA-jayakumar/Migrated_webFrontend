@@ -77,6 +77,7 @@
 </template>
 
 <script>
+import { required, or } from '@vuelidate/validators';
 import editRegion from "../../components/inventory/editRegion.vue";
 import { mapGetters, mapActions } from "vuex";
 export default {

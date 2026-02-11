@@ -180,6 +180,7 @@
 </template>
 
 <script>
+import { and } from '@vuelidate/validators';
  import Vue from "vue";
 import { mapGetters, mapActions } from "vuex"; 
 import customHeader from '../components/customHeader.vue';

@@ -2846,7 +2846,7 @@
 </template>
 
 <script>
-import { easing } from "quasar";
+
 import {
   required,
   requiredIf,
@@ -2862,7 +2862,7 @@ import {
 } from "@vuelidate/validators";
 import moment from "moment";
 import { mapGetters, mapActions } from "vuex";
-import { uid, filter } from "quasar";
+import { uid } from "quasar";
 import Vue from "vue";
 
 import viewLeadDocumentsDataEntryComponent from "./viewLeadDocumentsDataEntryComponent.vue";

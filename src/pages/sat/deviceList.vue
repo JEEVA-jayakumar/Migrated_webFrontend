@@ -81,6 +81,7 @@
 </template>
 
 <script>
+import { required } from '@vuelidate/validators';
 import downloadExcel from "vue-json-excel";
 
 export default {

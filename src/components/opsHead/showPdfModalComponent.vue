@@ -22,6 +22,7 @@
 </template>
 
 <script>
+import { url } from '@vuelidate/validators';
 import vuePdfjs from "vue-pdfjs";
 import { mapGetters, mapActions } from "vuex";
 

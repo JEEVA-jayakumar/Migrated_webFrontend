@@ -16,6 +16,7 @@
 </template>
 
 <script>
+import { not, or } from '@vuelidate/validators';
 import HitachiUpload from "../../components/sat/HitachiUpload.vue";
 import { mapGetters, mapActions } from "vuex";
 export default {
@@ -162,6 +163,7 @@ export default {
   </q-page>
 </template>
 <script>
+import { not, or } from '@vuelidate/validators';
 import Vue from "vue";
 import { mapGetters, mapActions } from "vuex";
 export default {

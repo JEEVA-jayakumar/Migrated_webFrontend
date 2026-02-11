@@ -48,7 +48,7 @@
 <style scoped>
 </style>
 <script>
-import { easing } from "quasar";
+
 import { LocalStorage } from "quasar";
 global.jQuery = require("jquery");
 var $ = global.jQuery;
@@ -69,7 +69,7 @@ import {
 } from "@vuelidate/validators";
 import moment from "moment";
 import { mapGetters, mapActions } from "vuex";
-import { uid, filter } from "quasar";
+import { uid } from "quasar";
 import Vue from "vue";
 import MarsErrorResponse from "../../components/MarsErrorResponseHandler.vue";
 import showPdfModalComponent from "../../components/sat/showPdfModalComponent.vue";

@@ -59,6 +59,7 @@
 </template>
 
 <script>
+import { required } from '@vuelidate/validators';
 import showCreateDeviceType from "../../components/super_admin/showCreateDeviceTypes.vue";
 import showEditDeviceType from "../../components/super_admin/showEditDeviceTypes.vue";
 import { mapGetters, mapActions } from "vuex";

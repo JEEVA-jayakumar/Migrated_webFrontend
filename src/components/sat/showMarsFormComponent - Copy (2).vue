@@ -1034,11 +1034,11 @@
 </template>
 
 <script>
-import { easing } from "quasar";
+
 import { required, requiredIf } from "@vuelidate/validators";
 
 import { mapGetters, mapActions } from "vuex";
-import { uid, filter } from "quasar";
+import { uid } from "quasar";
 import viewLeadDocumentsDataEntryComponent from "./viewLeadDocumentsDataEntryComponent.vue";
 
 export default {

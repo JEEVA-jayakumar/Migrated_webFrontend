@@ -68,6 +68,7 @@
     </div>
   </template>
   <script>
+import { not, or } from '@vuelidate/validators';
   import Vue from "vue";
   import { mapGetters, mapActions } from "vuex";
   export default {

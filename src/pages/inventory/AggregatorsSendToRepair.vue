@@ -159,6 +159,7 @@
 </template>
 
 <script>
+import { required, or } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
 import AggregatorsmoveToScrapComp from "../../components/inventory/AggregatorsmoveToScrapComp.vue";
 import openAddAggregatorsBulkModelComp from "../../components/inventory/openAddAggregatorsBulkModelComp.vue";

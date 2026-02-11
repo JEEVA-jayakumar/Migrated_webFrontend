@@ -152,6 +152,7 @@
 </template>
   
 <script>
+import { required, and } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
 import downloadExcel from "vue-json-excel";
 import phonepeAddRefurbishedBulkUploadDevice from "../../components/inventory/phonepeAddRefurbishedBulkUploadDevice.vue"

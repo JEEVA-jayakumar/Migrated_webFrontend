@@ -8,7 +8,24 @@ module.exports = configure(function (ctx) {
       vueRouterMode: 'hash',
       publicPath: '',
       gzip: true,
-      extendWebpack (cfg) {}
+      extendWebpack (cfg) {
+        cfg.module.rules.forEach(rule => {
+          if (rule.oneOf) {
+            rule.oneOf.forEach(oneOfRule => {
+              if (oneOfRule.use) {
+                oneOfRule.use.forEach(loader => {
+                  if (loader.loader && loader.loader.includes('sass-loader')) {
+                    loader.options = {
+                      ...loader.options,
+                      api: 'legacy'
+                    };
+                  }
+                });
+              }
+            });
+          }
+        });
+      }
     },
     devServer: { port: 8081, open: true },
     framework: {
