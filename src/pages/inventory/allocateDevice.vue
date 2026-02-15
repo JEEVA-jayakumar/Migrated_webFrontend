@@ -228,7 +228,7 @@
                   <q-input class="col-5 search" clearable color="grey-9" placeholder="Type.." v-model="filter"
                     float-label="Search By POD Number" />
                 </div>
-                <q-table table-class="customTableClass" v-model:data="tableData" :columns="columns"
+                <q-table table-class="customTableClass" :rows="tableData" :columns="columns"
                   :pagination="paginationControl2" :filter="filter" row-key="id" :loading="toggleAjaxLoadFilter1"
                   :row-per-page-options="[5, 10, 15, 20]" @request="ajaxLoadAllRegionList">
                   <q-td v-slot:body-cell-createdAt="props" :props="props">{{
@@ -262,11 +262,11 @@
                     </div>
                   </q-td>
                 </q-table>
-              </q-tab-panell>
+              </q-tab-panel>
               <q-tab-panel name="tab-2">
                 <q-input class="col-5 search" clearable color="grey-9" placeholder="Type.." v-model="filter1"
                   float-label="Search By POD Number" />
-                <q-table table-class="customTableClass" v-model:data="tableData1" :columns="columns1"
+                <q-table table-class="customTableClass" :rows="tableData1" :columns="columns1"
                   :pagination="paginationControl1" :filter="filter1" row-key="id" :loading="toggleAjaxLoadFilter1"
                   :row-per-page-options="[5, 10, 15, 20]" @request="ajaxLoadAllRegionList1">
                   <q-td v-slot:body-cell-podNumber="props" :props="props">{{
@@ -286,7 +286,7 @@
                     props.row.batch.batchId
                   }}</q-td>
                 </q-table>
-              </q-tab-panell>
+              </q-tab-panel>
             </q-tabs>
 
           </div>
@@ -308,7 +308,7 @@
 
 <script>
 import { minValue, required,}from "@vuelidate/validators";
-import Vue from "vue";
+
 import VueBarcodeScanner from "vue-barcode-scanner";
 Vue.use(VueBarcodeScanner);
 import { mapGetters, mapActions } from "vuex";

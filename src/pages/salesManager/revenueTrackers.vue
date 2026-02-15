@@ -22,7 +22,7 @@
           <!--START: table aging pending/reject -->
           <q-table
             table-class="customTableClass"
-            :data="tableData.userList"
+            :rows="tableData.userList"
             v-model:columns="column"
             :filter="filter"
             :pagination="paginationControl"

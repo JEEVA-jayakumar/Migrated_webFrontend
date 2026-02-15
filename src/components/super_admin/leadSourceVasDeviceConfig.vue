@@ -5,9 +5,9 @@
 
       <q-tabs v-model="selectedTab" class="shadow-1" color="grey-1" @select="changeTabs">
         <q-tab default color="dark" name="active" slot="title" label="Active" />
-        <!--v-model:data="activeTableData"-->
+        <!--:rows="activeTableData"-->
         <q-tab-panel name="active">
-          <q-table :data="activeTableData" table-class="customSATableClass" :columns="columns" :filter="filterSearch"
+          <q-table :rows="activeTableData" table-class="customSATableClass" :columns="columns" :filter="filterSearch"
             :pagination="paginationControl" :filter-method="myCustomSearchFilter" row-key="name" color="grey-9"
             @request="ajaxLoadData">
 
@@ -34,7 +34,7 @@
               <!--END: table filter,search -->
             </template>
           </q-table>
-        </q-tab-panell>
+        </q-tab-panel>
       </q-tabs>
 
       <!--START: Show create Hierarchy -->

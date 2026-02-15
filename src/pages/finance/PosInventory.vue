@@ -1,7 +1,7 @@
 <template>
     <q-page>
       
-      <!-- <q-pull-to-refresh v-model:handler="PullToRefresh" inline></q-pull-to-refresh> -->
+      <!-- <q-pull-to-refresh :handler="PullToRefresh" inline></q-pull-to-refresh> -->
         <!--START: table title -->
         <div
           class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
@@ -18,7 +18,7 @@
         <!--START: table lead validation -->
         <q-table
           table-class="customTableClass"
-          :data="tableData"
+          :rows="tableData"
           :columns="columns"
           :filter="filter"
           :pagination="paginationControl"
@@ -137,7 +137,6 @@
             </div>
           </template> -->
         </q-table>
-      </q-pull-to-refresh>
         <!--END: table lead validation -->
         <!-- <showMerchantTransactionLevelDetails
           v-if="valueToggleMerchantTransaction"

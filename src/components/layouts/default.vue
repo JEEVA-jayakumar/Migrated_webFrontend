@@ -189,8 +189,7 @@ export default {
     return {
       leftDrawerOpen: this.$q.platform.is.desktop
         ? this.$route.name != "leadDataEntry"
-          ? true
-          : false
+
         : false,
       showMenu: [],
       menus: {

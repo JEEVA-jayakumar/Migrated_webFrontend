@@ -1,5 +1,5 @@
 import api from "./api.js";
-import Vue from "vue";
+
 function COMMON_FILE_DOWNLOAD(response) {
   return new Blob([response.data], {
     type: response.headers.get("content-type")

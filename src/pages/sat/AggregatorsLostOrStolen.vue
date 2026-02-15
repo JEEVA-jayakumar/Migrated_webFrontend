@@ -3,7 +3,7 @@
     <div
         class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
       >Aggregator Lost/Stolen</div>
-    <!-- <q-pull-to-refresh v-model:handler="PullToRefresh" inline></q-pull-to-refresh> -->
+    <!-- <q-pull-to-refresh :handler="PullToRefresh" inline></q-pull-to-refresh> -->
     <!--START: table title -->
     <!-- <div
       class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
@@ -22,7 +22,7 @@
         :propToggleLeadInformationPop="propToggleLeadInformation" @closeLeadInformation="toggleLeadInformation" />
       <!-- content -->
       <!--START: table lead validation -->
-      <q-table table-class="customTableClass" :data="tableData" :columns="columns" :filter="filter"
+      <q-table table-class="customTableClass" :rows="tableData" :columns="columns" :filter="filter"
         :pagination="paginationControl" row-key="name" :loading="toggleAjaxLoadFilter"
         :rows-per-page-options="[5, 10, 15, 20]" @request="ajaxLoadAllLeadInfo">
         <!--START: table header -->
@@ -97,7 +97,7 @@
   <div
         class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
       >Add Your Remarks</div>
-       <q-table table-class="customTableClass" v-model:columns="columns1" :data="tableData1" row-key="field" color="grey-9"
+       <q-table table-class="customTableClass" v-model:columns="columns1" :rows="tableData1" row-key="field" color="grey-9"
         :filter="filter1" :rows-per-page-options="[5, 10, 15, 20, 25]" :pagination="paginationControl1"
         :loading="toggleAjaxLoadFilter1" @request="lostOrStolenLoadInfo" table-style="word-break: break-all"
         class="payment_verification_table capitalize">
@@ -176,9 +176,9 @@
 <script>
 import { required, or } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
-import Vuelidate from "vuelidate";
-import Vue from "vue";
-Vue.use(Vuelidate);
+
+
+
 import { date } from "quasar";
 const today = new Date();
 const { startOfDate, addToDate, subtractFromDate } = date;

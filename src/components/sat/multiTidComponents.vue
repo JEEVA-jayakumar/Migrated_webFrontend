@@ -62,7 +62,7 @@
                                 </q-card-subtitle>
                                 <q-separator style="width:100%" />
                                 <q-table  table-class="customTableClass" class="payment_verification_table capitalize"
-                                    table-style="word-break: break-all" :data="listAllSubTidDetails" :columns="columns"
+                                    table-style="word-break: break-all" :rows="listAllSubTidDetails" :columns="columns"
                                     row-key="name" :rows-per-page-options="[1, 3, 5, 7, 9, 12, 15]">
                                     <q-tr v-slot:top-row="props">
                                         <q-th v-for="col in props.columns" :key="col.name" :props="props">{{ col.label
@@ -104,7 +104,7 @@
 </template>
   
 <script>
-import Vuelidate from "vuelidate";
+
 
 import { LocalStorage } from "quasar";
 import {Vuetify,VApp,VCard} from "vuetify";
@@ -129,13 +129,13 @@ import {
     decimal
 }
     from "@vuelidate/validators";
-Vue.use(Vuelidate);
+
 import { date } from "quasar";
 import moment from "moment";
 import { ref } from "vue";
 import { mapGetters, mapActions } from "vuex";
 import { uid } from "quasar";
-import Vue from "vue";
+
 
 import viewLeadDocumentsDataEntryComponent from "./viewLeadDocumentsDataEntryComponent.vue";
 // import MarsErrorResponse from "../MarsErrorResponseHandler.vue";

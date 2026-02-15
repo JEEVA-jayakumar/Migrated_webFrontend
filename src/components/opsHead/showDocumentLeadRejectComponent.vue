@@ -3,7 +3,7 @@
     <!-- Reject model -->
     <q-dialog
       minimized
-      v-model="propToggleDocumentRejectModal"
+      :model-value="propToggleDocumentRejectModal"
       @hide="emitToggleRemarks()"
       @escape-key="emitToggleRemarks()"
       :content-css="{padding:'30px',minWidth: '40vw'}"

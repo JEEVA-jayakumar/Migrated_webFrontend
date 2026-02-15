@@ -2,7 +2,7 @@
   <q-page>
     <div>
       <q-table
-        v-model:data="tableData"
+        :rows="tableData"
         :columns="columnDatacancelled"
         table-class="customTableClass"
         :filter="filterSearch"

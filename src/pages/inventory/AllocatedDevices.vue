@@ -12,7 +12,7 @@
       <q-table
         table-class="customTableClass"
         class="q-py-none"
-        :data="tableData"
+        :rows="tableData"
         :columns="columns"
         :filter="filter"
         :rows-per-page-options="[50,100,150,200,250]"

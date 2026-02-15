@@ -37,7 +37,7 @@
                   </div>
                   <div class="col-md-3 col-sm-6 col-xs-6" align="right">
                       <q-btn no-caps :disabled="
-                          formData.marsDeviceIdsCooked.length == 0 ? true v-model: false
+                          formData.marsDeviceIdsCooked.length == 0
                       " label="Assign" class="common-dark-blue" @click="assignImplementationUser" />
                   </div>
               </div>
@@ -61,9 +61,9 @@
               <!--
                 <q-tab-panel name="opened">
             <opened/>
-          </q-tab-panell> -->
+          </q-tab-panel> -->
               <q-tab-panel name="unAssigned">
-                  <q-table :data="tableData3" :columns="columnDataUnassigned" table-class="customTableClass"
+                  <q-table :rows="tableData3" :columns="columnDataUnassigned" table-class="customTableClass"
                       :filter="filterSearch1" selection="multiple" :selected="formData.marsDeviceIdsCooked"
                       v-model:pagination="paginationControl1" row-key="id" :loading="tableAjaxLoading1"
                       :rows-per-page-options="[5, 10, 15, 20]" color="dark" @request="ajaxLoadAllLeadInfo1">
@@ -130,9 +130,9 @@
                           </div>
                       </template>
                   </q-table>
-              </q-tab-panell>
+              </q-tab-panel>
               <q-tab-panel name="assigned">
-                  <q-table v-model:data="tableData1" :columns="columnDataAssigned" table-class="customTableClass"
+                  <q-table :rows="tableData1" :columns="columnDataAssigned" table-class="customTableClass"
                       :filter="filterSearch" :pagination="paginationControl"
                       v-model:selected="formData.marsDeviceIdsCookedUnAssinged" row-key="id" :loading="tableAjaxLoading"
                       :rows-per-page-options="[5, 10, 15, 20]" color="dark" @request="ajaxLoadAllLeadInfo">
@@ -434,7 +434,7 @@
                           </div>
                       </template>
                   </q-table>
-              </q-tab-panell>
+              </q-tab-panel>
           </q-tabs>
           <div class="row items-center gutter-y-sm">
               <div class="col-md-9 col-sm-12 col-xs-12">

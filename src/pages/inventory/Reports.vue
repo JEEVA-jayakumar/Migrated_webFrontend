@@ -19,19 +19,19 @@
   
               <q-tab-panel name="Replacement">
                 <Replacement />
-              </q-tab-panell>
+              </q-tab-panel>
               <q-tab-panel name="DeviceHistory">
                 <DeviceHistory />
-              </q-tab-panell>
+              </q-tab-panel>
               <q-tab-panel name="DeviceFSE">
                 <DeviceFSE />
-              </q-tab-panell>
+              </q-tab-panel>
               <q-tab-panel name="DeviceBP">
                 <DeviceBP />
-              </q-tab-panell>
+              </q-tab-panel>
               <q-tab-panel name="InventorySummary">
                 <InventorySummary />
-              </q-tab-panell>
+              </q-tab-panel>
             </q-tabs>
           </div>
         </div>

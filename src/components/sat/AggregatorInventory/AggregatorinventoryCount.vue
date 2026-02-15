@@ -215,7 +215,7 @@
                 </div>
                 <!--STARTv-model: table lead validation -->
                 <q-table title="Lead Validation" table-class="customTableClass" class="q-py-none"
-                    :data="getAllAggregatorsRegionalInventorySerialNumbersByDevice" :columns="columnData"
+                    :rows="getAllAggregatorsRegionalInventorySerialNumbersByDevice" :columns="columnData"
                     :filter="filter" :pagination="paginationControl" :loading="toggleAjaxLoadFilter"
                     row-key="name">
                     <q-td v-slot:body-cell-action="props" :props="props" v-if="info == 6">
@@ -238,7 +238,7 @@
                                 placeholder="Search by SO Name, Serial Number" class="q-mr-lg q-py-sm" />
                         </div>
                         <div class="col-md-5">
-                            <downloadExcel :data="getAllAggregatorsRegionalInventorySerialNumbersByDevice"
+                            <downloadExcel :rows="getAllAggregatorsRegionalInventorySerialNumbersByDevice"
                                 :fields="json_fields" name="InventoryWithSO.xls">
                                 <q-btn outline color="grey-9" label="Download as excel" />
                             </downloadExcel>

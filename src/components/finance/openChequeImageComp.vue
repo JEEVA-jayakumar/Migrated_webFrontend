@@ -1,7 +1,7 @@
 <template>
     <div>
         <q-dialog
-        v-model="showChequeImage"  
+        :model-value="showChequeImage"
         @hide="emitToggleCheque(showRejectModel)" 
         @escape-key="emitToggleCheque(showRejectModel)"  
         :content-css="{padding:'5px',maxWidth: '75vw',}"

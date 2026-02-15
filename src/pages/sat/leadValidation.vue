@@ -11,7 +11,7 @@
         </div>
         <!--END: table title -->
         <!--START: table lead validation -->
-        <q-table title="Lead Validation" table-class="customTableClass" class="q-py-none" :data="tableData"
+        <q-table title="Lead Validation" table-class="customTableClass" class="q-py-none" :rows="tableData"
           :columns="columns" row-key="name" :filter="filter" :pagination="paginationControl"
           :rows-per-page-options="[5,10,15,20]" :loading="toggleAjaxLoadFilter" @request="ajaxLoadAllLeadInfo">
           <!--START: table body modification -->

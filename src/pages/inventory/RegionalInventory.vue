@@ -9,7 +9,7 @@ LOST
         title="Change Management"
         table-class="customTableClass"
         class="q-py-none"
-        v-model:data="tableData"
+        :rows="tableData"
         :columns="columns"
         row-key="name"
         :filter="filter1"
@@ -184,7 +184,7 @@ LOST
           </div>
             <div class="col-auto" align="right"> 
           <q-btn
-            v-model:disabled="Add == ''"
+            :disabled="Add == ''"
             label="Add"
             class="text-white text-weight-regular common-dark-blue q-py-sm"
             @click="fnCookDispatchedHistoryDetails"
@@ -197,7 +197,7 @@ LOST
       <q-table
         title="Change Management"
         class="q-py-none"
-        :data="tableData1"
+        :rows="tableData1"
         :columns="columns1"
         row-key="name"
         :filter="filter"

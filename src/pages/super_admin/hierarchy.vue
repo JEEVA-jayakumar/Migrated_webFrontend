@@ -11,7 +11,7 @@
           <!-- <div>
              {{getAllHierarchiesData}}
           </div> -->
-          <q-table v-model:data="activeTableData" table-class="customSATableClass" :columns="columns" :filter="filterSearch"
+          <q-table :rows="activeTableData" table-class="customSATableClass" :columns="columns" :filter="filterSearch"
             :pagination="paginationControl" :filter-method="myCustomSearchFilter" row-key="name" color="grey-9"
             @request="ajaxLoadDataForHierarchyTable">
 
@@ -44,13 +44,13 @@
               <!--ENDv-model: table filter,search -->
             </template>
           </q-table>
-        </q-tab-panell>
+        </q-tab-panel>
 
         <q-tab-panel name="deactive">
           <!-- <div>
              {{getAllHierarchiesData}}
           </div> -->
-          <q-table :data="deActiveTableData" table-class="customSATableClass" :columns="columns1"
+          <q-table :rows="deActiveTableData" table-class="customSATableClass" :columns="columns1"
             :filter="filterSearch1" :pagination="paginationControl1" :filter-method="myCustomSearchFilter"
             row-key="name" color="grey-9" @request="ajaxLoadDataForHierarchyTable">
 
@@ -89,7 +89,7 @@
               <!--END: table filter,search -->
             </template>
           </q-table>
-        </q-tab-panell>
+        </q-tab-panel>
 
 
       </q-tabs>

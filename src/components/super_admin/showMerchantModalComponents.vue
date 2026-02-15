@@ -28,7 +28,7 @@
       <q-tab @select="merchantTypeDeActiveList" slot="title" label="De-Actived List" name="tab-2"/>
       <q-tab-panel name="tab-1">
         <q-table
-          :data="activeMerchantTypeList"
+          :rows="activeMerchantTypeList"
           table-class="customSATableClass"
           :columns="activatedColumns"
           :filter="activeFilterSearch"
@@ -76,10 +76,10 @@
             <!--ENDv-model: table filter,search -->
           </template>
         </q-table>
-      </q-tab-panell>
+      </q-tab-panel>
       <q-tab-panel name="tab-2">
         <q-table
-          :data="deActiveMerchantTypeList"
+          :rows="deActiveMerchantTypeList"
           table-class="customSATableClass"
           :columns="deActivatedColumns"
           :filter="deActivatedFilterSearch"
@@ -117,7 +117,7 @@
             <!--END: table filter,search -->
           </template>
         </q-table>
-      </q-tab-panell>
+      </q-tab-panel>
     </q-tabs>
     <!--START: Show create MerchantTypes -->
     <showCreateMerchantType

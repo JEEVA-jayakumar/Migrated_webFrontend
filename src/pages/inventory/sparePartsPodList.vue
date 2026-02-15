@@ -18,7 +18,7 @@
       <q-table
         table-class="customTableClass"
         :columns="columns"
-        :data="tableData"
+        :rows="tableData"
         color="grey-9"
         :filter="filterSearch"
         :pagination="paginationControl"

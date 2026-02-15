@@ -3,7 +3,7 @@
         <div>
             <div class="col-md-6 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9">Aggregator Device
                 Recovery</div>
-            <q-table table-class="customTableClass" v-model:data="tableData" :columns="columns" :filter="filter"
+            <q-table table-class="customTableClass" :rows="tableData" :columns="columns" :filter="filter"
                 :pagination="paginationControl" row-key="name" @request="fnajaxLoadingData">
                 <q-td v-slot:body-cell-serialNumber="props" :props="props">{{
                     props.row.aggregatorRegionalInventory == null ? "NA" :

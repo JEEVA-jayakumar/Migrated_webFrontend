@@ -8,7 +8,7 @@
         <q-tab color="dark" name="deactive" slot="title" label="Deactive Roles" />
 
          <q-tab-panel name="active">
-           <q-table v-model:data="activeTableData" table-class="customSATableClass" :columns="columns" :filter="filterSearch" :pagination="paginationControl" :filter-method="myCustomSearchFilter" row-key="name" color="grey-9">
+           <q-table :rows="activeTableData" table-class="customSATableClass" :columns="columns" :filter="filterSearch" :pagination="paginationControl" :filter-method="myCustomSearchFilter" row-key="name" color="grey-9">
         <q-td v-slot:body-cell-action="props" :props="props">
           <div class="row no-wrap no-padding">
             <q-btn dense no-caps no-wrap label="Modify Role/Permissions" icon="far fa-plus-square" size="md" @click="fnShowEditRole(props.row)" flat class="text-light-blue">
@@ -58,9 +58,9 @@
         </template>
 
       </q-table>
-         </q-tab-panell>
+         </q-tab-panel>
          <q-tab-panel name="deactive">
-           <q-table :data="deactivatedTableData" table-class="customSATableClass" :columns="columns1" :filter="filterSearch1" :pagination="paginationControl1" :filter-method="myCustomSearchFilter" row-key="name" color="grey-9">
+           <q-table :rows="deactivatedTableData" table-class="customSATableClass" :columns="columns1" :filter="filterSearch1" :pagination="paginationControl1" :filter-method="myCustomSearchFilter" row-key="name" color="grey-9">
         <q-td v-slot:body-cell-action="props" :props="props">
           <div class="row no-wrap no-padding">
             <!-- <q-btn dense no-caps no-wrap label="Modify Role/Permissions" icon="far fa-plus-square" size="md" @click="fnShowEditRole(props.row)" flat class="text-light-blue">
@@ -99,7 +99,7 @@
         </template>
 
       </q-table>
-         </q-tab-panell>
+         </q-tab-panel>
       </q-tabs>
 
        <!--START: Show create role -->

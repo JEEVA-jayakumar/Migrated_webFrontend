@@ -4,7 +4,7 @@
     no-backdrop-dismiss
     no-esc-dismiss
     v-model="toggleModal"
-    v-model:content-css="{padding:'50px 5px'}"
+    :content-css="{padding:'50px 5px'}"
   >
     <!--START: table title -->
     <div class="row items-center q-px-lg q-py-md text-weight-regular bottom-border text-grey-9">
@@ -19,7 +19,7 @@
         title="Lead Validation"
         table-class="customTableClass"
         class="q-py-none"
-        :data="tableData"
+        :rows="tableData"
         :columns="columns"
         :filter="filter"
         :pagination="paginationControl"

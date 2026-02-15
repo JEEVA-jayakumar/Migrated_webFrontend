@@ -1,4 +1,4 @@
-import Vue from "vue";
+
 import api from "../api.js";
 function COMMON_FILE_DOWNLOAD(response) {
   return new Blob([response.data], {

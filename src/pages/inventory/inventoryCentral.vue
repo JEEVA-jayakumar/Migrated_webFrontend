@@ -85,7 +85,7 @@
           <div>
             <!--STARTv-model: table Data -->
             <q-table
-              :data="getAllInventoryDevicesData"
+              :rows="getAllInventoryDevicesData"
               :columns="columnData"
               table-class="customTableClass shadow-0"
               :filter="filterSearch"
@@ -117,7 +117,7 @@
                     class="q-mr-lg q-py-sm"
                   />-->
                   <downloadExcel
-                    :data="getAllInventoryDevicesData"
+                    :rows="getAllInventoryDevicesData"
                     :fields="json_fields"
                     name="CentralInventory.xls"
                   >

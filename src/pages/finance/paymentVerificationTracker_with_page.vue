@@ -1,7 +1,7 @@
 <template>
   <q-page>
     <div>
-      <q-pull-to-refresh v-model:handler="PullToRefresh" inline>
+      <q-pull-to-refresh :handler="PullToRefresh" inline>
         <!--START: table title -->
         <div
           class="col-md-12 capitalize text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
@@ -10,7 +10,7 @@
         <!-- table payment verification tracker -->
         <q-table
           table-class="customTableClass"
-          :data="tableData"
+          :rows="tableData"
           :columns="columns"
           row-key="field"
           color="grey-9"
@@ -545,7 +545,7 @@ export default {
           value.verificationType === self.$VERIFICATION_TYPE_BANKSUBVENTION
         );
       });
-      return returnValue.length > 0 ? true : false;
+      return returnValue.length > 0 ;
     },
 
     fnShowBankUploadedDocumentBySat(rowDetails) {

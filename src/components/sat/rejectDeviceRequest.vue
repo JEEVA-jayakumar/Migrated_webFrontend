@@ -1,7 +1,7 @@
 <template>
     <div>
       <q-dialog
-        v-model="showRequestModal"
+        :model-value="showRequestModal"
         @hide="emitToggleLost(showRequestModal)"
         @escape-key="emitToggleLost(showRequestModal)"
         :content-css="{ padding: '25px' }"

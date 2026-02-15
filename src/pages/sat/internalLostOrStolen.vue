@@ -3,7 +3,7 @@
       <div
         class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
       > Bijlipay Lost/Stolen</div>
-      <!-- <q-pull-to-refresh v-model:handler="PullToRefresh" inline></q-pull-to-refresh> -->
+      <!-- <q-pull-to-refresh :handler="PullToRefresh" inline></q-pull-to-refresh> -->
       <!--START: table title -->
       <!-- <div
         class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
@@ -21,7 +21,7 @@
       <!--START: table lead validation -->
       <q-table
         table-class="customTableClass"
-        :data="tableData"
+        :rows="tableData"
         :columns="columns"
         :filter="filter"
         :pagination="paginationControl"
@@ -128,7 +128,7 @@
        <q-table
         table-class="customTableClass"
         v-model:columns="columns1"
-        :data="tableData1"
+        :rows="tableData1"
         row-key="field"
         color="grey-9"
         :filter="filter1"
@@ -289,9 +289,9 @@
   <script>
 import { required, or } from '@vuelidate/validators';
   import { mapGetters, mapActions } from "vuex";
-  import Vuelidate from "vuelidate";
-  import Vue from "vue";
-  Vue.use(Vuelidate);
+
+
+
   import { date } from "quasar";
   const today = new Date();
   const { startOfDate, addToDate, subtractFromDate } = date;

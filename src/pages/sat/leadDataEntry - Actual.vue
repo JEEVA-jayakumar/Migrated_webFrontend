@@ -298,7 +298,7 @@
 
 <script>
 import { not } from '@vuelidate/validators';
-import Vue from "vue";
+
 
 import { mapGetters, mapActions } from "vuex";
 import vuePdfjs from "vue-pdfjs";

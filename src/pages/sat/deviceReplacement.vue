@@ -25,7 +25,7 @@ placeholder="Assign To" separator color="grey-9" />
 </div>
 <div class="col-md-3 col-sm-6 col-xs-6" align="right">
 <q-btn no-caps :disabled="
-formData.marsDeviceIdsCooked.length == 0 ? true : false
+formData.marsDeviceIdsCooked.length == 0
 " label="Assign" class="common-dark-blue" @click="assignImplementationUser" />
 </div>
 </div>
@@ -51,7 +51,7 @@ placeholder="Re-Assign To" separator color="grey-9" :disable="isReAssignDropdown
 <div class="column items-end">
 <!-- Re-Assign Button -->
 <q-btn no-caps label="Re-Assign" class="common-dark-blue q-mb-sm"
-v-model:disabled="isReAssignDisabled" :loading="reAssignLoading"
+:disabled="isReAssignDisabled" :loading="reAssignLoading"
 @click="reAssignImplementationUser" />
 
 
@@ -70,7 +70,7 @@ v-model:disabled="isReAssignDisabled" :loading="reAssignLoading"
 <q-tab color="dark" name="assigned" slot="title" label="Assigned" />
 <q-tab-panel name="assigned">
 <!--START: table Data -->
-<q-table :data="tableData" :columns="columnDataAssigned" selection="multiple"
+<q-table :rows="tableData" :columns="columnDataAssigned" selection="multiple"
 table-class="customTableClass" :filter="filterSearch" :pagination="paginationControl"
 v-model:selected="formData.marsDeviceIdsCookedUnAssinged" row-key="id" :loading="tableAjaxLoading"
 :rows-per-page-options="[5, 10, 15, 20]" color="dark" @request="ajaxLoadAllLeadInfo">
@@ -143,10 +143,10 @@ float-label="Search By TID, MID" class="q-mr-lg q-py-sm" />
 </template>
 </q-table>
 <!--ENDv-model: table Data -->
-</q-tab-panell>
+</q-tab-panel>
 <q-tab-panel name="unAssigned">
 <!--START: table Data -->
-<q-table :data="tableData1" :columns="columnDataUnassigned" table-class="customTableClass"
+<q-table :rows="tableData1" :columns="columnDataUnassigned" table-class="customTableClass"
 :filter="filterSearch1" selection="multiple" :selected="formData.marsDeviceIdsCooked"
 v-model:pagination="paginationControl1" row-key="id" :loading="tableAjaxLoading1"
 :rows-per-page-options="[5, 10, 15, 20]" color="dark" @request="ajaxLoadAllLeadInfo1">
@@ -219,7 +219,7 @@ float-label="Search By TID, MID" class="q-mr-lg q-py-sm" />
 </template>
 </q-table>
 <!--END: table Data -->
-</q-tab-panell>
+</q-tab-panel>
 </q-tabs>
 <div class="row items-center gutter-y-sm">
 <div class="col-md-9 col-sm-12 col-xs-12">

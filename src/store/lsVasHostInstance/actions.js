@@ -1,6 +1,6 @@
 
 import api from "../api.js";
-import Vue from "vue";
+
 export const GET_LS_VAS_HOST_INSTANCE_DETAILS = ({
     commit
   }, request) => {

@@ -6,7 +6,7 @@
       >Bijlipay POD List</div>
       <q-table
         table-class="customTableClass"
-        v-model:data="tableData"
+        :rows="tableData"
         :columns="columns"
         :filter="filter"
         :pagination="paginationControl"
@@ -77,7 +77,7 @@
            
           </div>
           <!-- <div class="col-md-5">
-            <downloadExcel :data="getAllPodList" :fields="json_fields" name="PodList.xls">
+            <downloadExcel :rows="getAllPodList" :fields="json_fields" name="PodList.xls">
               <q-btn outline color="grey-9" label="Download as excel" />
             </downloadExcel>
           </div> -->

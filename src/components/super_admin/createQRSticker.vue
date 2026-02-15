@@ -90,7 +90,7 @@ import {
   minLength
 } from "@vuelidate/validators";
 
-import Vue from "vue";
+
 import { mapGetters, mapActions } from "vuex";
 export default {
   name: "damagedDevices",
@@ -128,8 +128,7 @@ export default {
     ...mapGetters("QRList", ["getAllQRList1"]),
     submitDisabled: function() {
       return this.formdata.leadSource != "" && this.formdata.count != ""
-        ? false
-        : true;
+        ;
     }
   },
 

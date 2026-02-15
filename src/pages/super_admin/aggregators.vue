@@ -7,7 +7,7 @@
                 <q-tab default color="dark" name="active" slot="title" label="Active Aggregators" />
                 <q-tab color="dark" name="deactive" slot="title" label="Deactive Aggregators" />
                 <q-tab-panel name="active">
-                    <q-table v-model:data="activeTableData" table-class="customSATableClass" :columns="columns"
+                    <q-table :rows="activeTableData" table-class="customSATableClass" :columns="columns"
                         :filter="filterSearch" :pagination="paginationControl"
                         :filter-method="myCustomSearchFilter" row-key="name" color="grey-9">
                         <!-- <q-td v-slot:body-cell-regionGroup="props" :props="props">{{ props.row.regionName
@@ -36,10 +36,10 @@
                             </div>
                         </template>
                     </q-table>
-                </q-tab-panell>
+                </q-tab-panel>
 
                 <q-tab-panel name="deactive">
-                    <q-table v-model:data="deActiveTableData" table-class="customSATableClass" :columns="columns1"
+                    <q-table :rows="deActiveTableData" table-class="customSATableClass" :columns="columns1"
                         :filter="filterSearch" :pagination="paginationControl"
                         :filter-method="myCustomSearchFilter" row-key="name" color="grey-9">
                         <!-- <q-td v-slot:body-cell-regionGroup="props" :props="props">{{ props.row.regionName
@@ -68,7 +68,7 @@
                             </div> -->
                         </template>
                     </q-table>
-                </q-tab-panell>
+                </q-tab-panel>
                 <!-- We can't disable regiongroup because existing flow through errors-->
 
 

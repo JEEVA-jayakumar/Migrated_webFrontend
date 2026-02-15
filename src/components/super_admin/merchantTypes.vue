@@ -6,7 +6,7 @@
     no-backdrop-dismiss
     @escape-key="emitModalClose"
     class="customModalOverlay"
-    v-model:content-css="{padding:'60px 25px',minWidth:'40vw',minHeight:'100vh'}"
+    :content-css="{padding:'60px 25px',minWidth:'40vw',minHeight:'100vh'}"
   >
     <div class="row items-center bottom-border q-py-sm">
       <div class="col">
@@ -29,7 +29,7 @@
       <!-- Targets -->
       <q-tab-panel name="tab-1">
         <q-table
-          :data="merchantTypesList"
+          :rows="merchantTypesList"
           table-class="customSATableClass"
           :columns="columns"
           :filter="filterSearch"
@@ -90,10 +90,10 @@
             <!--ENDv-model: table filter,search -->
           </template>
         </q-table>
-      </q-tab-panell>
+      </q-tab-panel>
       <q-tab-panel name="tab-2">
         <q-table
-          :data="merchantTypesDeactivatedList"
+          :rows="merchantTypesDeactivatedList"
           table-class="customSATableClass"
           :columns="columns"
           :filter="deActivatedSearch"
@@ -132,7 +132,7 @@
             <!--END: table filter,search -->
           </template>
         </q-table>
-      </q-tab-panell>
+      </q-tab-panel>
     </q-tabs>
 
     <!--START: Show create MerchantTypes -->

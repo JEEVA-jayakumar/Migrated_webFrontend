@@ -1,6 +1,6 @@
 import { url } from '@vuelidate/validators';
 import api from "../api.js";
-import Vue from "vue";
+
 import moment from "moment";
 // let variable = localStorage.getItem("aa_t")
 // let v = variable.lastIndexOf('|')

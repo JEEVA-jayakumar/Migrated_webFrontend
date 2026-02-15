@@ -3,7 +3,7 @@
     <!-- content -->
     <div>
       <!-- <pre>{{getAllHierarchiesData}}</pre> -->
-      <q-table v-model:data="getAllPermissionData" table-class="customSATableClass" :columns="columns" :filter="filterSearch" :pagination="paginationControl" :filter-method="myCustomSearchFilter" row-key="name" color="grey-9">
+      <q-table :rows="getAllPermissionData" table-class="customSATableClass" :columns="columns" :filter="filterSearch" :pagination="paginationControl" :filter-method="myCustomSearchFilter" row-key="name" color="grey-9">
 
         <q-td v-slot:body-cell-Permission="props" :props="props">
           {{props.row.label}}

@@ -34,12 +34,12 @@
 </template>
 
 <script>
-  import Vue from "vue";
-  import Vuelidate from "vuelidate";
+
+
   import { date } from "quasar";
   import { mapActions } from "vuex";
 
-  Vue.use(Vuelidate);
+
 
   const today = new Date();
   const { startOfDate, addToDate, subtractFromDate } = date;
@@ -69,8 +69,8 @@
     },
     computed: {
       submitDisabled() {
-        return (this.formData.selectedFromYear != 0) ? false : true;
-        // return (this.formData.selectedFromYear != 0 && this.formData.selectedToYear != 0) ? false : true;
+        return (this.formData.selectedFromYear != 0) ;
+        // return (this.formData.selectedFromYear != 0 && this.formData.selectedToYear != 0) ;
       }
     },
     methods: {

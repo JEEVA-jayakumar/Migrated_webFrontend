@@ -79,7 +79,7 @@
               <q-btn
                 color="purple-9"
                 label="Upload"
-                :disabled="formData.fileSelected.length == 0 ? true : false"
+                :disabled="formData.fileSelected.length == 0 "
                 @click="uploadFileForUpload"
               />
             </div>
@@ -89,7 +89,7 @@
     </div>
   </template>
   <script>
-  import Vue from "vue";
+
   import { required, requiredIf } from "@vuelidate/validators";
   import { mapGetters, mapActions } from "vuex";
   export default {

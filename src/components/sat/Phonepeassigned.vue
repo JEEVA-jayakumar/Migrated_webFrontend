@@ -49,7 +49,7 @@
               <q-btn
                 no-caps
                 :disabled="
-                  formData.marsDeviceIdsCooked.length == 0 ? true : false
+                  formData.marsDeviceIdsCooked.length == 0
                 "
                 label="Assign"
                 class="common-dark-blue"
@@ -74,7 +74,7 @@
                 v-model="formData.assignTo" 
                 separator 
                 color="grey-9" 
-                :disable="formData.marsDeviceIdsCookedUnAssinged.length == 0 ? true : false" 
+                :disable="formData.marsDeviceIdsCookedUnAssinged.length == 0 "
                 :options="assignToOptions"
                 placeholder="Assign To" 
                 />
@@ -86,7 +86,7 @@
                 <div>
                   <q-btn 
                   no-caps 
-                  :disabled="formData.marsDeviceIdsCookedUnAssinged.length == 0 ? true: false || this.formData.assignTo == ''"
+                  :disabled="formData.marsDeviceIdsCookedUnAssinged.length == 0  || this.formData.assignTo == ''"
                   label="Re-Assign" 
                   class="common-dark-blue"
                   @click="reAssignImplementationUser" 
@@ -95,8 +95,7 @@
                 <div>
                   <q-btn no-caps :disabled="
                     formData.marsDeviceIdsCookedUnAssinged.length == 0
-                      ? true
-                      v-model: false
+
                   " label="Un-Assign" 
                   class="common-dark-blue" 
                   @click="unAssignImplementationUser" 
@@ -112,7 +111,7 @@
         <q-tab default color="dark" name="assigned" slot="title" label="Normal" />
         <q-tab  color="dark" name="courier" slot="title" label="Courier" />
         <q-tab-panel name="assigned">
-          <q-table :data="tableData" :columns="columnDataAssigned" table-class="customTableClass" :filter="filterSearch"
+          <q-table :rows="tableData" :columns="columnDataAssigned" table-class="customTableClass" :filter="filterSearch"
             :pagination="paginationControl" selection="multiple"
             v-model:selected="formData.marsDeviceIdsCookedUnAssinged" row-key="id" :loading="tableAjaxLoading"
             :rows-per-page-options="[10, 20, 50, 100, 150, 200]" color="dark" @request="ajaxLoadAllLeadInfo">
@@ -145,11 +144,11 @@
               </div>
             </template>
           </q-table>
-        </q-tab-panell>
+        </q-tab-panel>
         <q-tab-panel name="courier">
-          <!--STARTv-model: table Data   :data="getImplementationQueueUnassignedList" selection="multiple"
+          <!--STARTv-model: table Data   :rows="getImplementationQueueUnassignedList" selection="multiple"
               :selected="formData.marsDeviceIdsCooked" -->
-          <q-table v-model:data="tableData1" :columns="columnDataUnassigned" table-class="customTableClass"
+          <q-table :rows="tableData1" :columns="columnDataUnassigned" table-class="customTableClass"
             :filter="filterSearch" :pagination="paginationControl1" row-key="id"
             :rows-per-page-options="[10, 20, 50, 100, 150, 200]" :loading="tableAjaxLoading1" color="dark"
             @request="ajaxLoadAllLeadInfo1">
@@ -202,7 +201,7 @@
             </template>
           </q-table>
           <!--END: table Data -->
-        </q-tab-panell>
+        </q-tab-panel>
       </q-tabs>
 
       <!--END: table Footer -->

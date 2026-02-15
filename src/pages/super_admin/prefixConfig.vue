@@ -16,43 +16,43 @@
   
               <!-- <q-tab-panel name="count">
                 <inventoryCount @emittedForTotalSerialNumbers="fnAjaxFetchAllDeviceDetailsWithCount" />
-              </q-tab-panell>
+              </q-tab-panel>
   
               <q-tab-panel name="Socount">
                 <inventoryCount @emittedForTotalSerialNumbers="fnAjaxFetchAllDeviceDetailsWithCount" />
-              </q-tab-panell>
+              </q-tab-panel>
   
               <q-tab-panel name="dispatch">
                 <dispatchedInventory
                   @fetchDeviceDetailsWithCount="fnAjaxFetchAllDeviceDetailsWithCount"
                 />
-              </q-tab-panell>
+              </q-tab-panel>
               <q-tab-panel name="damage">
                 <showAddDamagedDevices
                   :propDeviceTypes="getAllRegionalInventoryDeviceDetailsWithCount"
                 />
-              </q-tab-panell> -->
+              </q-tab-panel> -->
               <q-tab-panel name="prefix">
                 <prefix />
-              </q-tab-panell>
+              </q-tab-panel>
               <q-tab-panel name="vasDevLs">
                 <vasDevLs />
-              </q-tab-panell>
+              </q-tab-panel>
 <!--   
               <q-tab-panel name="allocatetoso">
                 <inventoryallocatetoso />
-              </q-tab-panell>
+              </q-tab-panel>
   
               <q-tab-panel name="inventorywithSo">
                 <inventorywithso />
-              </q-tab-panell>
+              </q-tab-panel>
   
               <q-tab-panel name="inventorywithResellar">
                 <inventorywithResellar />
-              </q-tab-panell>
+              </q-tab-panel>
               <q-tab-panel name="inventorywithResellarDetails">
                 <inventorywithResellarDetails />
-              </q-tab-panell> -->
+              </q-tab-panel> -->
             </q-tabs>
           </div>
         </div>

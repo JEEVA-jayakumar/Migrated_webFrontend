@@ -10,7 +10,7 @@
         <q-tab color="dark" name="deactive" slot="title" label="Deactive" />
         <q-tab-panel name="active">
           <q-table
-         v-model:data="activeTableData"
+         :rows="activeTableData"
           table-class="customSATableClass"
           :columns="columns"
           :filter="filterSearch"
@@ -84,10 +84,10 @@
       </div>
 </template>
 </q-table>
- </q-tab-panell>
+ </q-tab-panel>
 <q-tab-panel name="deactive">
           <q-table
-         v-model:data="deActiveTableData"
+         :rows="deActiveTableData"
           table-class="customSATableClass"
           :columns="columns1"
           :filter="filterSearch"
@@ -141,7 +141,7 @@
   <!--END: table filter,search -->
 </template>
 </q-table>
-        </q-tab-panell>
+        </q-tab-panel>
       </q-tabs>
      
 

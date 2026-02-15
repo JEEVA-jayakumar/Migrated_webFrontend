@@ -1,7 +1,7 @@
 <template>
     <q-page>
         <div>
-            <q-table v-model:data="tableData2" :columns="columnDataclosed"
+            <q-table :rows="tableData2" :columns="columnDataclosed"
                         table-class="customTableClass" :filter=" filterSearch" 
                         :selected="formData.marsDeviceIdsCooked" v-model:pagination=" paginationControl" row-key="id"
                         :loading="tableAjaxLoading" :rows-per-page-options="[5, 10, 15, 20]" color="dark"

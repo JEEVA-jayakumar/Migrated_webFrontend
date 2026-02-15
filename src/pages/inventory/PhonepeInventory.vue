@@ -91,7 +91,7 @@
         <div class="col-md-9">
           <div>
             <!--STARTv-model: table Data -->
-            <q-table :data="getAllPhonepeInventoryDevicesData" :columns="columnData"
+            <q-table :rows="getAllPhonepeInventoryDevicesData" :columns="columnData"
               table-class="customTableClass shadow-0" :filter="filterSearch" 
              
               row-key="index" :loading="tableAjaxLoading" color="primary">
@@ -111,7 +111,7 @@
                       float-label="Search .."
                       class="q-mr-lg q-py-sm"
                     />-->
-                  <downloadExcel :data="getAllPhonepeInventoryDevicesData" :fields="json_fields"
+                  <downloadExcel :rows="getAllPhonepeInventoryDevicesData" :fields="json_fields"
                     name="CentralInventory.xls">
                     <q-btn outline color="grey-9" label="Download as excel" />
                     <!-- @click="fndownload() -->

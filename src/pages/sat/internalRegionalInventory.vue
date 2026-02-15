@@ -44,21 +44,21 @@
                     fnAjaxFetchAllDeviceDetailsWithCount
                   "
                 />
-              </q-tab-panell>
+              </q-tab-panel>
               <!--<q-tab-panel name="spareSo">
                 <sparePartsSo
                   @emittedForTotalSerialNumbers="
                     fnAjaxFetchAllDeviceDetailsWithCount
                   "
                 />
-              </q-tab-panell> -->
+              </q-tab-panel> -->
               <q-tab-panel name="count">
                 <inventoryCount
                   @emittedForTotalSerialNumbers="
                     fnAjaxFetchAllDeviceDetailsWithCount
                   "
                 />
-              </q-tab-panell>
+              </q-tab-panel>
   
               <q-tab-panel name="Socount">
                 <inventoryCount
@@ -66,7 +66,7 @@
                     fnAjaxFetchAllDeviceDetailsWithCount
                   "
                 />
-              </q-tab-panell>
+              </q-tab-panel>
   
               <q-tab-panel name="dispatch">
                 <dispatchedInventory
@@ -74,39 +74,39 @@
                     fnAjaxFetchAllDeviceDetailsWithCount
                   "
                 />
-              </q-tab-panell>
+              </q-tab-panel>
               <q-tab-panel name="damage">
                 <showAddDamagedDevices
                   :propDeviceTypes="getAllRegionalInventoryDeviceDetailsWithCount"
                 />
-              </q-tab-panell>
+              </q-tab-panel>
               <!-- <q-tab-panel name="faulty">
                 <inventoryFaulty />
-              </q-tab-panell>-->
+              </q-tab-panel>-->
   
               <q-tab-panel name="allocatetoso">
                 <inventoryallocatetoso />
-              </q-tab-panell>
+              </q-tab-panel>
   
               <q-tab-panel name="inventorywithSo">
                 <inventorywithso />
-              </q-tab-panell>
+              </q-tab-panel>
   
               <q-tab-panel name="inventorywithResellar">
                 <inventorywithResellar />
-              </q-tab-panell>
+              </q-tab-panel>
               <q-tab-panel name="inventorywithResellarDetails">
                 <inventorywithResellarDetails />
-              </q-tab-panell>
+              </q-tab-panel>
               <q-tab-panel name="AllocateSotoSo">
                 <allocateSOtoSO />
-              </q-tab-panell>
+              </q-tab-panel>
               <q-tab-panel name="simStatus">
                 <simStatus/>
-              </q-tab-panell>
+              </q-tab-panel>
               <q-tab-panel name="deviceAllocationRequest">
                 <deviceAllocationRequest />
-              </q-tab-panell>
+              </q-tab-panel>
             </q-tabs>
           </div>
         </div>

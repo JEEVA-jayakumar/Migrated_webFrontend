@@ -40,7 +40,7 @@
               <q-btn
                 no-caps
                 :disabled="
-                  formData.marsDeviceIdsCooked.length == 0 ? true v-model: false
+                  formData.marsDeviceIdsCooked.length == 0
                 "
                 label="Assign"
                 class="common-dark-blue"
@@ -70,7 +70,7 @@
           <q-tab-panel name="assigned">
             <!--START: table Data -->
             <q-table
-              :data="tableData"
+              :rows="tableData"
               :columns="columnDataAssigned"
               table-class="customTableClass"
               :filter="filterSearch"
@@ -150,11 +150,11 @@
               </template>
             </q-table>
             <!--ENDv-model: table Data -->
-          </q-tab-panell>
+          </q-tab-panel>
           <q-tab-panel name="unAssigned">
             <!--START: table Data -->
             <q-table
-              :data="tableData1"
+              :rows="tableData1"
               :columns="columnDataUnassigned"
               table-class="customTableClass"
               :filter="filterSearch1"
@@ -236,7 +236,7 @@
               </template>
             </q-table>
             <!--END: table Data -->
-          </q-tab-panell>
+          </q-tab-panel>
         </q-tabs>
         <div class="row items-center gutter-y-sm">
           <div class="col-md-9 col-sm-12 col-xs-12">

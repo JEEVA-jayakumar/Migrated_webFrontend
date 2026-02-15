@@ -25,7 +25,7 @@
       <q-table
         table-class="customTableClass"
         class="q-py-none"
-        :data="crmLogs"
+        :rows="crmLogs"
         :columns="columns"
         row-key="name"
       >
@@ -43,7 +43,6 @@
 
 <script>
 /* START >> Modal components Lead source, device, merchant type */
-import { request } from "http";
 import {
   required,
   requiredIf,

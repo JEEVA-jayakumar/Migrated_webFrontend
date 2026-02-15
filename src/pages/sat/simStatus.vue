@@ -8,7 +8,7 @@
         table-class="customTableClass"
         v-model:columns="columns"
         :filter="filter"
-         :data="tableData"
+         :rows="tableData"
         :pagination="paginationControl"
         row-key="id"
          :rows-per-page-options="[5, 10, 15, 20]"
@@ -64,7 +64,7 @@
               @click="SimDeActivation()"
             />
             <!-- <downloadExcel
-              :data="getAllInventoryWithResellar"
+              :rows="getAllInventoryWithResellar"
               :fields="json_fields"
               name="InventoryWithReseller.xls"
             >

@@ -31,7 +31,7 @@
                 class="no-margin"
                 float-label="Select Rental Plan"
                 :options="dropDown.planOptions"
-                :disable="this.getImplementedQueue.leadInformation.cmsLeadStatus==15?true:false"
+                :disable="this.getImplementedQueue.leadInformation.cmsLeadStatus==15"
                 @input="fnPlan1"
               />
               <!-- @input="planSelected" -->
@@ -39,7 +39,7 @@
             <div class="col-xs-12 col-sm-6">
               <q-select
                 clearable
-                :disable="((formdata.plan != this.getImplementedQueue.leadInformation.plan.id)||(this.getImplementedQueue.leadInformation.cmsLeadStatus ==15)||(this.getImplementedQueue.leadInformation.cmsLeadStatus==21))?false:true"
+                :disable="((formdata.plan != this.getImplementedQueue.leadInformation.plan.id)||(this.getImplementedQueue.leadInformation.cmsLeadStatus ==15)||(this.getImplementedQueue.leadInformation.cmsLeadStatus==21))"
                 @blur="$v.formdata.paymentOption.$touch"
                 :error="$v.formdata.paymentOption.$error"
                 v-model.trim="formdata.paymentOption"
@@ -74,7 +74,7 @@
               <!-- <p class="caption">Pricing Exception</p> -->
               <q-checkbox
                 v-model="check"
-                :disable="this.getImplementedQueue.leadInformation.cmsLeadStatus==15?true:false"
+                :disable="this.getImplementedQueue.leadInformation.cmsLeadStatus==15"
                 color="positive"
                 label="Pricing Exception"
                 left-label
@@ -130,7 +130,7 @@
               <!-- <p class="caption">Pricing Exception</p> -->
               <q-checkbox
                 v-model="check"
-                :disable="this.getImplementedQueue.leadInformation.cmsLeadStatus==15?false:true"
+                :disable="this.getImplementedQueue.leadInformation.cmsLeadStatus==15"
                 color="positive"
                 label="Pricing Exception"
                 left-label
@@ -1523,7 +1523,7 @@
            
           </div>
           <div class="col-md-6">
-           <q-select :disable="this.getImplementedQueue.leadInformation.cmsLeadStatus==22?false:true"
+           <q-select :disable="this.getImplementedQueue.leadInformation.cmsLeadStatus==22"
                   placeholder="Choose from the below*"
                   color="grey-9"
                   v-model.trim="merchant.paymentDetails.rentalPlanCode"
@@ -1703,7 +1703,7 @@ import {
 import moment from "moment";
 import { mapGetters, mapActions } from "vuex";
 import { uid } from "quasar";
-import Vue from "vue";
+
 import MarsErrorResponse from "../../components/MarsErrorResponseHandler.vue";
 import showPdfModalComponent from "../../components/sat/showPdfModalComponent.vue";
 

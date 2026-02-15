@@ -9,7 +9,7 @@
 
                 <q-tab-panel name="active">
                     <q-table 
-                    v-model:data="activeTableData"
+                    :rows="activeTableData"
                      table-class="customSATableClass" 
                      :columns="columns"
                         :filter="filterSearch" 
@@ -56,11 +56,11 @@
                             </div>
                         </template>
                     </q-table>
-                </q-tab-panell>
+                </q-tab-panel>
                <!-- We can't disable regiongroup because existing flow through errors-->
 
                 <!-- <q-tab-panel name="deactive">
-                    <q-table v-model:data="deActiveTableData" table-class="customSATableClass" :columns="columns1"
+                    <q-table :rows="deActiveTableData" table-class="customSATableClass" :columns="columns1"
                         :filter="filterSearch1" :pagination="paginationControl1"
                         :filter-method="myCustomSearchFilter" row-key="name" color="grey-9">
                         <q-td v-slot:body-cell-regionGroup="props" :props="props">{{ props.row.regionName
@@ -81,7 +81,7 @@
                             </div>
                         </template>
                     </q-table>
-                </q-tab-panell> -->
+                </q-tab-panel> -->
 
 
 

@@ -14,7 +14,7 @@
 
 
       <!--START: table lead validation -->
-      <q-table table-class="customTableClass" class="q-py-none" :data="tableData" :columns="columns" :filter="filter"
+      <q-table table-class="customTableClass" class="q-py-none" :rows="tableData" :columns="columns" :filter="filter"
         :rows-per-page-options="[100, 200, 300, 400, 500]" :pagination="paginationControl"
         :loading="toggleAjaxLoadFilter" @request="ajaxLoadAllLeadInfo">
         <!-- :rows-per-page-options="[100,200,300,400,500]" -->
@@ -55,7 +55,7 @@
               class="q-mr-lg q-py-sm float-right"
               size="md"
             />-->
-            <!-- <downloadExcel :data="tableData" :fields="json_fields" name="InventoryWithMerchant.xls">
+            <!-- <downloadExcel :rows="tableData" :fields="json_fields" name="InventoryWithMerchant.xls">
               <q-btn outline color="grey-9" label="Download as excel" />
             </downloadExcel> -->
           </div>
@@ -83,9 +83,9 @@
 <script>
 import { required, or } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
-import Vuelidate from "vuelidate";
-import Vue from "vue";
-Vue.use(Vuelidate);
+
+
+
 import { date } from "quasar";
 const today = new Date();
 const { startOfDate, addToDate, subtractFromDate } = date;

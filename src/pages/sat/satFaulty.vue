@@ -118,7 +118,7 @@
       <q-table
         row-key="name"
         :filter="filter"
-        :data="tableData"
+        :rows="tableData"
         class="q-py-none"
         :columns="columns"
         title="Lead Validation"
@@ -178,7 +178,7 @@
 
 <script>
 import { required, not } from '@vuelidate/validators';
-import Vue from "vue";
+
 import VueBarcodeScanner from "vue-barcode-scanner";
 Vue.use(VueBarcodeScanner);
 import { mapGetters, mapActions } from "vuex";
@@ -249,10 +249,9 @@ export default {
     ]),
     disabledButton() {
       return _.find(this.formData.scannedItems, function(oo) {
-        return oo.deviceSerialNumbers.length > 0 ? true : false;
+        return oo.deviceSerialNumbers.length > 0 ;
       }) == undefined
-        ? true
-        : false;
+        ;
     }
   },
   created() {

@@ -9,7 +9,7 @@
       <!-- <pre>{{tableData}}</pre> -->
       <q-table
         table-class="customTableClass"
-        :data="getKycExceptionInfo"
+        :rows="getKycExceptionInfo"
         :columns="columns"
         :filter="filterSearch"
         :filter-method="myCustomSearchFilter"
@@ -103,7 +103,7 @@
           <!--START: table excel download -->
           <!-- <div class="col-md-4">
                   <downloadExcel
-                  :data="tableData"
+                  :rows="tableData"
                   :fields="columns.label"
                   name="KYC Exceptions List.xls">
                     <q-btn 

@@ -18,7 +18,7 @@
       <q-table
         table-class="customTableClass"
         class="q-py-none"
-        :data="tableData"
+        :rows="tableData"
         :columns="columns"
         row-key="name"
       >

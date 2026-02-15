@@ -1,6 +1,6 @@
 import { api } from '../../boot/axios';
 
-// import Vue from "vue"
+//
 
 // const FileDownload1 = {
 //   namespaced: true,

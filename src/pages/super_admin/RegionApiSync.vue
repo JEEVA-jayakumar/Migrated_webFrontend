@@ -36,9 +36,8 @@
     </q-page>
   </template>
   <script>
-  import { request } from "http";
-  import Vue from "vue";
-  import Vuelidate from "vuelidate";
+
+
   import {
     required,
     minLength,
@@ -49,7 +48,7 @@
     email
   } from "@vuelidate/validators";
   import { mapGetters, mapActions } from "vuex";
-  Vue.use(Vuelidate)
+
   
   export default {
     props: ["info"],

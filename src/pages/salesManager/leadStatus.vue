@@ -124,7 +124,7 @@
       <q-table
         v-if="viewTableFormatAndNotTabs"
         table-class="customTableClass"
-        :data="tableDataNormal"
+        :rows="tableDataNormal"
         :columns="columns"
         :filter="filter"
         :pagination="paginationControl"
@@ -172,7 +172,7 @@
           <!--START: table aging pending/reject -->
           <q-table
             table-class="customTableClass"
-            :data="tBodyContent.customData.tableData"
+            :rows="tBodyContent.customData.tableData"
             :columns="tBodyContent.customData.columns"
             v-model:filter="filter"
             :pagination="paginationControl"
@@ -192,7 +192,7 @@
             </q-td>
           </q-table>
           <!--END: table table aging pending/reject -->
-        </q-tab-panell>
+        </q-tab-panel>
         <!--END: tabs body -->
       </q-tabs>
     </div>

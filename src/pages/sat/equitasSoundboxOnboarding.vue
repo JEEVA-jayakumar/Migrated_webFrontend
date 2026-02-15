@@ -58,7 +58,7 @@
                 separator
                 color="grey-9"
                 :disable="
-                  formData.marsDeviceIdsCooked.length == 0 ? true : false
+                  formData.marsDeviceIdsCooked.length == 0
                 "
                 :options="assignToOptions"
                 placeholder="Assign To"
@@ -76,7 +76,7 @@
                 separator
                 color="grey-9"
                 :disable="
-                  formData.marsDeviceIdsCooked.length == 0 ? true v-model: false
+                  formData.marsDeviceIdsCooked.length == 0
                 "
                 :options="assignToRegionOptions"
                 placeholder="Assign To Region"
@@ -93,7 +93,7 @@
           </div>
         </q-card>
         <q-table
-          :data="tableData1"
+          :rows="tableData1"
           :columns="columnDataUnassigned"
           table-class="customTableClass"
           :filter="filterSearch1"
@@ -195,11 +195,11 @@
             <!--ENDv-model: table filter,search -->
           </template>
         </q-table>
-      </q-tab-panell>
+      </q-tab-panel>
       <q-tab-panel name="assigned">
         <!--START: table Data -->
         <q-table
-          :data="tableData"
+          :rows="tableData"
           :columns="columnDataAssigned"
           table-class="customTableClass"
           :filter="filterSearch"
@@ -319,10 +319,10 @@
           </template>
         </q-table>
         <!--ENDv-model: table Data -->
-      </q-tab-panell>
+      </q-tab-panel>
       <q-tab-panel name="completed">
         <q-table
-          :data="tableData2"
+          :rows="tableData2"
           :columns="completed"
           table-class="customTableClass"
           :filter="filterSearch2"
@@ -455,7 +455,7 @@
           </template>
         </q-table>
         <!--END: table Data -->
-      </q-tab-panell>
+      </q-tab-panel>
     </q-tabs>
     <div class="row items-center gutter-y-sm">
       <div class="col-md-9 col-sm-12 col-xs-12">

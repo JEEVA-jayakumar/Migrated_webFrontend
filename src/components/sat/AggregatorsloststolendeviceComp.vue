@@ -1,7 +1,7 @@
 <template>
     <div>
       <q-dialog
-        v-model="showLostModel"
+        :model-value="showLostModel"
         @hide="emitToggleLost(showLostModel)"
         @escape-key="emitToggleLost(showLostModel)"
         :content-css="{ padding: '25px' }"

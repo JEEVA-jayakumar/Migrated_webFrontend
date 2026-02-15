@@ -1,6 +1,6 @@
 import { and } from '@vuelidate/validators';
 import { api } from '../../boot/axios';
-import Vue from "vue";
+
 import { date } from "quasar";
 /***********
 Common function to convert response as BLOB and create a 

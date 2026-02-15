@@ -53,7 +53,7 @@
             <q-btn
               no-caps
               :disabled="
-                formData.marsDeviceIdsCooked.length == 0 ? true : false
+                formData.marsDeviceIdsCooked.length == 0
               "
               label="Assign"
               class="common-dark-blue"
@@ -82,7 +82,7 @@
                   v-model="formData.assignTo"
                   separator
                   color="grey-9"
-                  :disable="formData.marsDeviceIdsCookedUnAssinged.length == 0 ? true: false"
+                  :disable="formData.marsDeviceIdsCookedUnAssinged.length == 0 "
                   :options="assignToOptions"
                   placeholder="Assign To"
                 />
@@ -98,7 +98,7 @@
                 <div>
                   <q-btn
                     no-caps
-                    :disable="formData.marsDeviceIdsCookedUnAssinged.length == 0 ? true: false || this.formData.assignTo == ''"
+                    :disable="formData.marsDeviceIdsCookedUnAssinged.length == 0  || this.formData.assignTo == ''"
                     label="Re-Assign"
                     class="common-dark-blue"
                     @click="reAssignImplementationUser"
@@ -109,8 +109,7 @@
                     no-caps
                     :disabled="
                       formData.marsDeviceIdsCookedUnAssinged.length == 0
-                        ? true
-                        v-model: false
+
                     "
                     label="Un-Assign"
                     class="common-dark-blue"
@@ -139,7 +138,7 @@
         <q-tab color="dark" name="courier" slot="title" label="Courier" />
         <q-tab-panel name="assigned">
           <q-table
-            :data="tableData"
+            :rows="tableData"
             :columns="columnDataAssigned"
             table-class="customTableClass"
             :filter="filterSearch"
@@ -221,12 +220,12 @@
               </div>
             </template>
           </q-table>
-        </q-tab-panell>
+        </q-tab-panel>
         <q-tab-panel name="courier">
-          <!--STARTv-model: table Data   :data="getImplementationQueueUnassignedList" selection="multiple"
+          <!--STARTv-model: table Data   :rows="getImplementationQueueUnassignedList" selection="multiple"
             :selected="formData.marsDeviceIdsCooked" -->
           <q-table
-           v-model:data="tableData1"
+           :rows="tableData1"
             :columns="columnDataUnassigned"
             table-class="customTableClass"
             :filter="filterSearch"
@@ -338,7 +337,7 @@
             </template>
           </q-table>
           <!--END: table Data -->
-        </q-tab-panell>
+        </q-tab-panel>
       </q-tabs>
 
       <!--END: table Footer -->

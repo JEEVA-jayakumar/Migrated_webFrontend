@@ -14,7 +14,7 @@
       />
       <q-table
         table-class="customTableClass"
-        :data="tableData"
+        :rows="tableData"
         :columns="columns"
         :filter="filter"
         :pagination="paginationControl"

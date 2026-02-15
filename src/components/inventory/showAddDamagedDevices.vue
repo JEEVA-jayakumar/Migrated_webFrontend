@@ -115,7 +115,7 @@
 </template>
 
 <script>
-import Vue from "vue";
+
 import VueBarcodeScanner from "vue-barcode-scanner";
 Vue.use(VueBarcodeScanner);
 import { mapGetters, mapActions } from "vuex";

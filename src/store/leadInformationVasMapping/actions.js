@@ -1,5 +1,5 @@
 import api from "../api.js";
-import Vue from "vue";
+
 
 export const LEAD_INFORMATION_VAS_MAPPING_DERTAILS = ({ commit }, request) => {
   return api.post("lead-info-vas-map", request);

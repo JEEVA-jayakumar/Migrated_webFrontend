@@ -7,7 +7,7 @@
         <q-tab color="dark" name="deactive" slot="title" label="DeActived Rental Charges" />
         <q-tab-panel name="active">
           <!--STARTv-model: table Data -->
-          <q-table table-class="customTableClass" :data="tableData" :columns="columns" :filter="filterSearch"
+          <q-table table-class="customTableClass" :rows="tableData" :columns="columns" :filter="filterSearch"
             :pagination="paginationControl" row-key="name" :loading="toggleAjaxLoadFilter"
             :rows-per-page-options="[5, 10, 15, 20]" @request="ajaxLoadAllLeadInfo">
             <q-td v-slot:body-cell-leadSource="props" :props="props" class="cursor-pointer"
@@ -55,10 +55,10 @@
             </template>
           </q-table>
           <!--ENDv-model: table Data -->
-        </q-tab-panell>
+        </q-tab-panel>
         <q-tab-panel name="deactive">
           <!--START: table Data -->
-          <q-table table-class="customTableClass" :data="deactiveTableData" :columns="columnsDeactive"
+          <q-table table-class="customTableClass" :rows="deactiveTableData" :columns="columnsDeactive"
             :filter="filterSearch1" :pagination="paginationControl1" row-key="name"
             :loading="toggleAjaxLoadFilter1" :rows-per-page-options="[5, 10, 15, 20]" @request="ajaxLoadAllLeadInfo1">
             <q-td v-slot:body-cell-leadSource="props" :props="props" class="cursor-pointer"
@@ -102,7 +102,7 @@
             </template>
           </q-table>
           <!--END: table Data -->
-        </q-tab-panell>
+        </q-tab-panel>
       </q-tabs>
 
       <EditRentalCharges v-if="propShoweditPlanDetails" :propShoweditPlanDetails="propShoweditPlanDetails"

@@ -181,7 +181,7 @@
 
 <script>
 import { and } from '@vuelidate/validators';
- import Vue from "vue";
+
 import { mapGetters, mapActions } from "vuex"; 
 import customHeader from '../components/customHeader.vue';
 import customBody from '../components/customBody.vue';
@@ -196,8 +196,7 @@ export default {
     return {
       leftDrawerOpen: this.$q.platform.is.desktop
         ? this.$route.name != 'leadDataEntry'
-          ? true
-          : false
+
         : false,
       propShowDatas: false,
       menuListName: '',

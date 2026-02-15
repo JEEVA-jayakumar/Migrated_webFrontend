@@ -11,13 +11,13 @@
                 <q-tab color="dark" name="cancel" slot="title" label="cancelled" />
                   <q-tab-panel name="opened">
               <opened/>
-            </q-tab-panell>
+            </q-tab-panel>
             <q-tab-panel name="cancel">
               <cancelledInternal/>
-            </q-tab-panell>
+            </q-tab-panel>
                 <q-tab-panel name="closed">
                     <!--STARTv-model: table Data -->
-                    <q-table :data="internalClosedTableData" :columns="columnDataclosed" table-class="customTableClass"
+                    <q-table :rows="internalClosedTableData" :columns="columnDataclosed" table-class="customTableClass"
                         :filter="filterSearch" :pagination="paginationControl2"
                         v-model:selected="formData.marsDeviceIdsCookedUnAssinged" row-key="id" :loading="tableAjaxLoading"
                         :rows-per-page-options="[5, 10, 15, 20]" color="dark" @request="ajaxLoadAllLeadInfo2">
@@ -295,7 +295,7 @@
                             </template>
                         </q-table>
                     <!--END: table Data -->
-                </q-tab-panell>
+                </q-tab-panel>
             </q-tabs>
             <div class="row items-center gutter-y-sm">
                 <div class="col-md-9 col-sm-12 col-xs-12">

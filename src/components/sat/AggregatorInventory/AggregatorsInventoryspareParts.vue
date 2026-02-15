@@ -39,12 +39,12 @@
 
                 <q-tab-panel name="SoPodList">
                     <PhonepeSoPodList />
-                </q-tab-panell>
+                </q-tab-panel>
                 <!-- <q-tab-panel name="SoPodList" @click="this.$router.push({namev-model:'PhonepeSparePartsSoPodList'})">
-                </q-tab-panell> -->
+                </q-tab-panel> -->
 
                 <q-tab-panel name="incomingPods">
-                    <q-table :data="tableData" table-class="customSATableClass" :columns="columns"
+                    <q-table :rows="tableData" table-class="customSATableClass" :columns="columns"
                         :filter="filterSearch" :pagination="paginationControl"
                         :filter-method="myCustomSearchFilter" row-key="name" color="grey-9"
                         @request="ajaxLoadAllLeadInfo">
@@ -108,9 +108,9 @@
                             <!--ENDv-model: table filter,search -->
                         </template>
                     </q-table>
-                </q-tab-panell>
+                </q-tab-panel>
                 <q-tab-panel name="stocks">
-                    <q-table :data="tableData1" table-class="customSATableClass" :columns="columns1"
+                    <q-table :rows="tableData1" table-class="customSATableClass" :columns="columns1"
                         :filter="filterSearch1" :pagination="paginationControl1"
                         :filter-method="myCustomSearchFilter" row-key="name" color="grey-9"
                         @request="ajaxLoadAllLeadInfo1">
@@ -182,13 +182,13 @@
               color="purple-9"
               size="md"
             />
-          </div> v-model:data="tableData2"-->
+          </div> :rows="tableData2"-->
                         </template>
                     </q-table>
-                </q-tab-panell>
+                </q-tab-panel>
                 <!-- <q-tab-panel name="allocatedSo">
          
-          <q-table :data="tableData2" table-class="customSATableClass" :columns="columns2" :filter="filterSearch2"
+          <q-table :rows="tableData2" table-class="customSATableClass" :columns="columns2" :filter="filterSearch2"
             :pagination="paginationControl2" :filter-method="myCustomSearchFilter" row-key="name" color="grey-9"
             @request="ajaxLoadAllLeadInfo2">
             <q-td v-slot:body-cell-createdAt="props" :props="props">{{
@@ -231,7 +231,7 @@
               </div>
             </template>
           </q-table>
-        </q-tab-panell> -->
+        </q-tab-panel> -->
                 <q-tab-panel name="createSoPod">
                     <template>
                         <div class="col-sm-3">
@@ -281,7 +281,7 @@
 
                         </div>
                     </template>
-                </q-tab-panell>
+                </q-tab-panel>
             </q-tabs>
 
 

@@ -8,7 +8,7 @@
         </div>
       </div> -->
       <div>
-        <q-table table-class="customTableClass" :data="tableData" :columns="columns" :filter="filter"
+        <q-table table-class="customTableClass" :rows="tableData" :columns="columns" :filter="filter"
           :pagination="paginationControl" row-key="name" @request="ajaxLoadAllLeadInfo">
           <q-td v-slot:body-cell-created_at="props" :props="props">{{
             props.row.created_at == null ? "NA" :

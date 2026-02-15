@@ -60,7 +60,6 @@
 
 <script>
 /* START >> Modal components Lead source, device, merchant type */
-import { request } from "http";
 import {
   required,
   requiredIf,

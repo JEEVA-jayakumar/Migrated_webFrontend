@@ -156,7 +156,7 @@
                   placeholder="--RSM--"
                   stack-label="Select RSM"
                   radio
-                  :disable="assignToOptionsRSM.length > 0 ? false:true"
+                  :disable="assignToOptionsRSM.length > 0 "
                   :options="assignToOptionsRSM"
                 />
               </div>
@@ -168,7 +168,7 @@
                   placeholder="--ASM--"
                   stack-label="Select ASM"
                   radio
-                  :disable="assignToOptionsASM.length > 0 ? false:true"
+                  :disable="assignToOptionsASM.length > 0 "
                   :options="assignToOptionsASM"
                 />
               </div>
@@ -180,7 +180,7 @@
                   placeholder="--TL--"
                   stack-label="Select TL"
                   radio
-                  :disable="assignToOptionsTL.length > 0 ? false:true"
+                  :disable="assignToOptionsTL.length > 0 "
                   :options="assignToOptionsTL"
                 />
               </div>
@@ -195,7 +195,7 @@
                   placeholder="--SO--"
                   stack-label="Select SO"
                   radio
-                  :disable="assignToOptionsSO.length > 0 ? false:true"
+                  :disable="assignToOptionsSO.length > 0 "
                   :options="assignToOptionsSO"
                 />
               </div>

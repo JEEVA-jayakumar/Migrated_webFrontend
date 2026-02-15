@@ -43,7 +43,7 @@
               v-model="formData.assignTo"
               separator
               color="grey-9"
-              :disable="formData.marsDeviceIdsCooked.length == 0 ? true : false"
+              :disable="formData.marsDeviceIdsCooked.length == 0 "
               :options="assignToOptions"
               placeholder="Assign To"
             />
@@ -56,7 +56,7 @@
           <div class="col-md-3 col-sm-6 col-xs-6" align="right">
             <q-btn
               no-caps
-              :disabled="formData.marsDeviceIdsCooked.length == 0 ? true : false || this.formData.assignTo == ''"
+              :disabled="formData.marsDeviceIdsCooked.length == 0  || this.formData.assignTo == ''"
               label="Assign"
               class="common-dark-blue"
               @click="assignImplementationUser"
@@ -66,7 +66,7 @@
             <q-btn
               no-caps
               :disabled="
-                formData.marsDeviceIdsCooked.length == 0 ? true : false
+                formData.marsDeviceIdsCooked.length == 0
               "
               label="Re-Assign Region"
               class="common-dark-blue"
@@ -103,16 +103,16 @@
         
          <q-tab-panel name="assigned">
               <Phonepeassigned/>
-            </q-tab-panell>
+            </q-tab-panel>
 
             <!-- <q-tab-panel name="cancelledMerchants">
               <CancelledMerchants/>
-            </q-tab-panell> -->
+            </q-tab-panel> -->
 
               <q-tab-panel name="unAssigned">
-          <!--STARTv-model: table Data   :data="getPhonepeImplementationQueueUnassignedList"  -->
+          <!--STARTv-model: table Data   :rows="getPhonepeImplementationQueueUnassignedList"  -->
           <q-table
-           :data="tableData1"
+           :rows="tableData1"
             :columns="columnDataUnassigned"
             table-class="customTableClass"
             :filter="filterSearch"
@@ -195,7 +195,7 @@
               <!--END: table filter,search -->
             </template>
           </q-table>
-        </q-tab-panell>
+        </q-tab-panel>
 
       <q-card class="group q-pa-md" v-if="selectedTab == 'cancelledMerchants'">
         <div class="row items-center gutter-y-sm">
@@ -207,22 +207,20 @@
           <div class="side1" align="right">
             <q-btn no-caps :disabled="
                     formData.marsDeviceIdsCookedCancelled.length == 0
-                      ? true
-                      : false
+
                   " label="Cancel" class="common-dark-blue" @click="cancelImplementationUser" />
                   </div>
                   <div class="side2">
             <q-btn no-caps :disabled="
                     formData.marsDeviceIdsCookedCancelled.length == 0
-                      ? true
-                      v-model: false
+
                   " label="Re assign" class="common-dark-blue" @click="reAssignImplementationUser" />
         </div>
         </div>
       </q-card>
 
       <q-tab-panel name="cancelledMerchants">
-      <q-table :data="tableData2"
+      <q-table :rows="tableData2"
                       :columns="columnDataMerchants"
                        table-class="customTableClass"
                       :filter="filterSearch2" 
@@ -297,7 +295,7 @@
             </template>
             
             </q-table>
-          </q-tab-panell>
+          </q-tab-panel>
         </q-tabs>
       <!--ENDv-model: table Footer -->
       <!-- START >> COMPONENT: Update device address  -->

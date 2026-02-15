@@ -103,7 +103,7 @@
         <!--START: table lead validation -->
         <q-table
           table-class="customTableClass"
-          :data="tableData"
+          :rows="tableData"
           :columns="columns"
           :filter="filter"
           :pagination="paginationControl"
@@ -205,7 +205,7 @@ import {
   minLength
 } from "@vuelidate/validators";
 
-import Vue from "vue";
+
 import { mapGetters, mapActions } from "vuex";
 import HitachiDownload from "../../components/sat/HitachiDownload.vue";
 import generalLeadInformation from "../../components/generalLeadInformation.vue";
@@ -364,8 +364,7 @@ export default {
     ...mapGetters("hitachi", ["gethitachiEmiData"]),
     submitDisabled: function() {
       return this.formdata.leadSource != "" && this.formdata.count != ""
-        ? false
-        : true;
+        ;
     }
   },
   mounted() {

@@ -3,7 +3,7 @@
     <!-- content -->
     <div>
       <q-table
-        v-model:data="getAllPodList"
+        :rows="getAllPodList"
         table-class="customSATableClass"
         :columns="columns"
         :filter="filter"

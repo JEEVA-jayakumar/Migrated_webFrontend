@@ -20,22 +20,22 @@
   
               <q-tab-panel name="DeviceModelApiSync">
                 <DeviceModelApiSync />
-              </q-tab-panell>
+              </q-tab-panel>
               <q-tab-panel name="CityApiSync">
                 <CityApiSync />
-              </q-tab-panell>
+              </q-tab-panel>
               <q-tab-panel name="RegionApiSync">
                 <RegionApiSync />
-              </q-tab-panell>
+              </q-tab-panel>
               <q-tab-panel name="RentalPlanApiSync">
                 <RentalPlanApiSync />
-              </q-tab-panell>
+              </q-tab-panel>
               <q-tab-panel name="LeadFormApiSync">
                 <LeadFormApiSync />
-              </q-tab-panell>
+              </q-tab-panel>
               <q-tab-panel name="StateApiSync">
                 <StateApiSync />
-              </q-tab-panell>
+              </q-tab-panel>
             </q-tabs>
           </div>
         </div>

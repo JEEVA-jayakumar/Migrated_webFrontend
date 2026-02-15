@@ -1,7 +1,7 @@
 <template>
   <q-page>
     <div>
-      <q-pull-to-refresh v-model:handler="PullToRefresh" inline>
+      <q-pull-to-refresh :handler="PullToRefresh" inline>
         <!--START: table title -->
         <div
           class="col-md-12 capitalize text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
@@ -16,7 +16,7 @@
         <q-tab-panel name="tab-1">
         <q-table
           table-class="customTableClass"
-          :data="tableData"
+          :rows="tableData"
           :columns="columns"
           :filter="filter"
           :pagination="paginationControl"
@@ -96,12 +96,12 @@
           </template>
           <!--END: table search, filter -->
         </q-table>
-      </q-tab-panell>
+      </q-tab-panel>
       <q-tab-panel name="tab-2">
 
         <q-table
           table-class="customTableClass"
-          :data="tableData1"
+          :rows="tableData1"
           :columns="columns1"
           :filter="filter1"
           :pagination="paginationControl1"
@@ -161,7 +161,7 @@
           </template>
           <!--END: table search, filter -->
         </q-table>
-      </q-tab-panell>
+      </q-tab-panel>
       </q-tabs>
       </q-pull-to-refresh>
       <!-- <download-financeapproval></download-financeapproval> -->
@@ -190,9 +190,9 @@
 <script>
 import { required, or } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
-import Vuelidate from "vuelidate";
-import Vue from "vue";
-Vue.use(Vuelidate);
+
+
+
 import { date } from "quasar";
 const today = new Date();
 const { startOfDate, addToDate, subtractFromDate } = date;

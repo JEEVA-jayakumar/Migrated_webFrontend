@@ -14,15 +14,15 @@
             />
             <q-tab-panel name="createQRSticker">
               <createQRSticker />
-            </q-tab-panell>
+            </q-tab-panel>
 
             <q-tab-panel name="downloadQRcodes">
               <downloadQRcodes />
-            </q-tab-panell>
+            </q-tab-panel>
 
             <q-tab-panel name="implementQRleadsources">
               <implementQRleadsources />
-            </q-tab-panell>
+            </q-tab-panel>
           </q-tabs>
         </div>
       </div>

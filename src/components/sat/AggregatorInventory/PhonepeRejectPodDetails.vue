@@ -1,6 +1,6 @@
 <template>
     <div>
-        <q-dialog v-model="showRejectModel" @hide="emitToggleReject(showRejectModel)"
+        <q-dialog :model-value="showRejectModel" @hide="emitToggleReject(showRejectModel)"
             @escape-key="emitToggleReject(showRejectModel)" :content-css="{ padding: '50px' }">
             <div>
                 <div align="center" class="text-subtitle1 q-mb-md capitalize">

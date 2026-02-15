@@ -70,7 +70,7 @@
                     </div>
                     <div class="col-md-12 group" align="center">
                       <q-btn
-                        :disabled="formData.fileSelected.length == 0 ? true v-model: false"
+                        :disabled="formData.fileSelected.length == 0 "
                         type="button"
                         color="purple-9"
                         label="Submit"
@@ -124,7 +124,7 @@
               <q-tab-panel name="unAssigned">
                 <!--START: table Data -->
                 <q-table
-                  :data="tableData1"
+                  :rows="tableData1"
                   :columns="columnData"
                   table-class="customTableClass"
                   :filter="filterSearch1"
@@ -232,7 +232,7 @@
                   </template>
                 </q-table>
                 <!--END: table Data -->
-              </q-tab-panell>
+              </q-tab-panel>
             </q-tabs>
             <div class="row items-center gutter-y-sm">
               <div class="col-md-9 col-sm-12 col-xs-12">

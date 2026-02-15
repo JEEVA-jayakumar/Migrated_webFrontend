@@ -51,7 +51,7 @@
       <!-- Targets -->
       <q-tab-panel name="tab-1">
         <q-table
-          v-model:data="merchantDocumentTypesList"
+          :rows="merchantDocumentTypesList"
           table-class="customSATableClass"
           :columns="merchantActiveDocumentcolumns"
           :filter="filterSearch"
@@ -112,10 +112,10 @@
             <!--ENDv-model: table filter,search -->
           </template>
         </q-table>
-      </q-tab-panell>
+      </q-tab-panel>
       <q-tab-panel name="tab-2">
         <q-table
-          :data="merchantDocumentTypesDeactivatedList"
+          :rows="merchantDocumentTypesDeactivatedList"
           table-class="customSATableClass"
           :columns="merchantDeactiveDocumentcolumns"
           :filter="deActivatedSearch"
@@ -154,7 +154,7 @@
             <!--END: table filter,search -->
           </template>
         </q-table>
-      </q-tab-panell>
+      </q-tab-panel>
     </q-tabs>
 
     <!--START: Show create MerchantDocumentTypes -->
@@ -432,7 +432,7 @@ export default {
           console.log("rowDetails", rowDetails);
           this.UPDATE_MERCHANT_DOCUMENT_TYPE_AND_SET_ACTIVE({
             merchantType: this.formData.merchantType,
-            hasSubDoc: rowDetails.viewType ? false : true,
+            hasSubDoc: rowDetails.viewType ,
             id: rowDetails.id,
             params: rowDetails,
             parentId: rowDetails.parentID

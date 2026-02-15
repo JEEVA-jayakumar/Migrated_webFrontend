@@ -1,7 +1,7 @@
 <template>
     <div>
       <q-dialog
-        v-model="showScrapModel"
+        :model-value="showScrapModel"
         @hide="emitToggleScrap(showScrapModel)"
         @escape-key="emitToggleScrap(showScrapModel)"
         :content-css="{ padding: '25px' }"

@@ -63,7 +63,7 @@
             <q-btn
               type="button"
               color="purple-9"
-              :disabled="formData.fileSelected.length == 0 ? true : false"
+              :disabled="formData.fileSelected.length == 0 "
               label="Upload"
               @click="uploadlist"
             />
@@ -81,7 +81,7 @@
 </template>
 <script>
 import { or } from '@vuelidate/validators';
-import Vue from "vue";
+
 import { mapGetters, mapActions } from "vuex";
 
 export default {

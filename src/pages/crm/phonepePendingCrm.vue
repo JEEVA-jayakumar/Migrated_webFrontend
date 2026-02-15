@@ -61,7 +61,7 @@
           <q-table
             table-class="customTableClass"
             class="q-py-none"
-            v-model:data="tableData"
+            :rows="tableData"
             :columns="columns"
             :filter="filter"
             :rows-per-page-options="[5, 10, 15]"
@@ -174,7 +174,7 @@
           >
 
           </q-table>
-        </q-tab-panell>
+        </q-tab-panel>
         <q-tab-panel name="tab-2">
           <div class="row">
             <q-input
@@ -200,7 +200,7 @@
           <q-table
             table-class="customTableClass"
             class="q-py-none"
-            v-model:data="tableData1"
+            :rows="tableData1"
             :columns="columns2"
             :filter="filter1"
             :rows-per-page-options="[5, 10, 15]"
@@ -242,7 +242,7 @@
               }}</q-td
             >
           </q-table>
-        </q-tab-panell>
+        </q-tab-panel>
         <q-tab-panel name="tab-3">
           <q-tabs
             v-model="paperRollActiveTab"
@@ -291,7 +291,7 @@
               <q-table
                 table-class="customTableClass"
                 class="q-py-none"
-                v-model:data="tableData3"
+                :rows="tableData3"
                 :columns="columns3"
                 :filter="filter3"
                 :rows-per-page-options="[5, 10, 15]"
@@ -309,7 +309,7 @@
                   }}</q-td
                 >
               </q-table>
-            </q-tab-panell>
+            </q-tab-panel>
             <q-tab-panel name="tab-5">
               <div class="row">
                 <q-input
@@ -324,7 +324,7 @@
               <q-table
                 table-class="customTableClass"
                 class="q-py-none"
-                v-model:data="tableData4"
+                :rows="tableData4"
                 :columns="columns4"
                 :filter="filter4"
                 :rows-per-page-options="[5, 10, 15]"
@@ -351,9 +351,9 @@
                   }}</q-td
                 >
               </q-table>
-            </q-tab-panell>
+            </q-tab-panel>
           </q-tabs>
-        </q-tab-panell>
+        </q-tab-panel>
       </q-tabs>
     </div>
     <phonepeRemarks

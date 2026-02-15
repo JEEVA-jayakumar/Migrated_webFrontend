@@ -6,7 +6,7 @@
         <q-tab color="dark" name="tab-2" slot="title" label="De-activated Users" />
         <q-tab-panel name="tab-1">
           <!--STARTv-model: table Data -->
-          <q-table :data="getAllUsers" :columns="columns" table-class="customSATableClass" :filter="filterSearch"
+          <q-table :rows="getAllUsers" :columns="columns" table-class="customSATableClass" :filter="filterSearch"
             selection="multiple" :selected="formData.selectedUsersToDelete" v-model:pagination="paginationControl"
             :loading="tableAjaxLoading" :filter-method="myCustomSearchFilter" row-key="userId" color="grey-9">
             <q-td v-slot:body-cell-name="props" :props="props">
@@ -61,7 +61,7 @@
                           icon="far fa-trash-alt" />
                       </div>
                       <div class="col-auto q-px-xs">
-                        <downloadExcel :data="getAllUsers" :fields="json_fields" name="UserDetails.xls">
+                        <downloadExcel :rows="getAllUsers" :fields="json_fields" name="UserDetails.xls">
                           <q-btn outline color="grey-9" label="Download as excel" />
                         </downloadExcel>
                       </div>
@@ -77,10 +77,10 @@
             </template>
           </q-table>
           <!--END: table Data -->
-        </q-tab-panell>
+        </q-tab-panel>
         <q-tab-panel name="tab-2">
-          <!--START: table Data   :data="getImplementationQueueUnassignedList"  -->
-          <q-table :data="getAllUsers" :columns="columns" table-class="customSATableClass" :filter="filterSearch"
+          <!--START: table Data   :rows="getImplementationQueueUnassignedList"  -->
+          <q-table :rows="getAllUsers" :columns="columns" table-class="customSATableClass" :filter="filterSearch"
             selection="multiple" :selected="formData.selectedUsersToDelete" v-model:pagination="paginationControl"
             :loading="tableAjaxLoading" :filter-method="myCustomSearchFilter" row-key="userId" color="grey-9">
             <q-td v-slot:body-cell-name="props" :props="props">
@@ -116,7 +116,7 @@
             </template>
           </q-table>
           <!--END: table Data -->
-        </q-tab-panell>
+        </q-tab-panel>
       </q-tabs>
 
       <deleteUsersDetails v-if="showDeleteUserDetails" :propDeteledUsers="deteledUsers"

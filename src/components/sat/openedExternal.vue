@@ -54,7 +54,7 @@
               v-model="formData.assignTo.id"
               separator
               color="grey-9"
-              :disable="formData.marsDeviceIdsCooked.length == 0 ? true : false"
+              :disable="formData.marsDeviceIdsCooked.length == 0 "
               :options="assignToOptions"
               placeholder="Assign To"
             />
@@ -66,7 +66,7 @@
               v-model="formData.assignTo.region"
               separator
               color="grey-9"
-              :disable="formData.marsDeviceIdsCooked.length == 0 ? true : false"
+              :disable="formData.marsDeviceIdsCooked.length == 0 "
               :options="assignToRegionOptions"
               placeholder="Assign To Region"
             />
@@ -112,10 +112,10 @@
         <!-- 
                   <q-tab-panel name="opened">
               <opened/>
-            </q-tab-panell> -->
+            </q-tab-panel> -->
         <q-tab-panel name="unAssigned">
           <q-table
-            :data="tableData3"
+            :rows="tableData3"
             :columns="columnDataUnassigned"
             table-class="customTableClass"
             :filter="filterSearch1"
@@ -242,10 +242,10 @@
               </div>
             </template>
           </q-table>
-        </q-tab-panell>
+        </q-tab-panel>
         <q-tab-panel name="assigned">
           <q-table
-            v-model:data="tableData1"
+            :rows="tableData1"
             :columns="columnDataAssigned"
             table-class="customTableClass"
             :filter="filterSearch"
@@ -890,7 +890,7 @@
               </div>
             </template>
           </q-table>
-        </q-tab-panell>
+        </q-tab-panel>
       </q-tabs>
       <div class="row items-center gutter-y-sm">
         <div class="col-md-9 col-sm-12 col-xs-12">

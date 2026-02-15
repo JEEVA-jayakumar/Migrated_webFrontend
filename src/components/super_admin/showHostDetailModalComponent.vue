@@ -21,7 +21,7 @@
       <q-tab @select="leadSourceActiveList" default slot="title" label="Host List" name="tab-1"/>
       <q-tab-panel name="tab-1">
         <q-table
-          :data="tableData"
+          :rows="tableData"
           table-class="customSATableClass"
           :columns="activatedColumns"
           :filter="activeFilterSearch"
@@ -80,7 +80,7 @@
             <!--END: table filter,search -->
           </template>
         </q-table>
-      </q-tab-panell>
+      </q-tab-panel>
     </q-tabs>
     <!--START: Show create LeadSources -->
     <showCreateHost

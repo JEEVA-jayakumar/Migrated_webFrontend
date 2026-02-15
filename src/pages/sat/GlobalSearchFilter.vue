@@ -17,11 +17,11 @@
            
             <q-tab-panel name="internal">
               <InternalGlobalSearchFilter/>
-            </q-tab-panell>
+            </q-tab-panel>
            
             <q-tab-panel name="external">
               <AggregatorGlobalSearchFilter/>
-            </q-tab-panell>
+            </q-tab-panel>
           </q-tabs>
         </div>
       </div>

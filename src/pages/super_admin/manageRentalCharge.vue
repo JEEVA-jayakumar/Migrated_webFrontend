@@ -121,7 +121,7 @@
               @click="fnEditRentalPlan(formData)"
               color="purple-9"
             />-->
-            <q-btn label="submit" v-model:disabled="Submitdata" @click="fnsubmit(formData)" color="purple-9" />
+            <q-btn label="submit" :disabled="Submitdata" @click="fnsubmit(formData)" color="purple-9" />
           </q-card-actions>
         </q-card>
       </div>
@@ -130,7 +130,7 @@
       <!-- START >> Table >> rental charge details -->
       <!-- <div class="col-md-7 col-sm-8 col-xs-12">
         <q-table
-          :data="tableData"
+          :rows="tableData"
           table-class="customSATableClass"
           :columns="columns"
           :filter="filterSearch"

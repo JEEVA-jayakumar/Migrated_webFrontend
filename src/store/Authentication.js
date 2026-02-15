@@ -1,5 +1,5 @@
 import { url } from '@vuelidate/validators';
-import Vue from "vue";
+
 import {
   LocalStorage,
   SessionStorage

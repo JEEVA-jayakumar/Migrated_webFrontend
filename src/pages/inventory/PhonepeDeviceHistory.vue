@@ -13,7 +13,7 @@
         </div>
       </div> -->
     
-        <q-table table-class="customTableClass" class="q-py-none" :columns="columns" :data="tableData" :filter="filter"
+        <q-table table-class="customTableClass" class="q-py-none" :columns="columns" :rows="tableData" :filter="filter"
           :rows-per-page-options="[100, 200, 300, 400, 500]" :pagination="paginationControl"
           :loading="toggleAjaxLoadFilter" @request="ajaxLoadAllLeadInfo">
           <q-td v-slot:body-cell-installationDate="props" :props="props">
@@ -61,9 +61,9 @@
 <script>
 import { required, or } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
-import Vuelidate from "vuelidate";
-import Vue from "vue";
-Vue.use(Vuelidate);
+
+
+
 import { date } from "quasar";
 const today = new Date();
 const { startOfDate, addToDate, subtractFromDate } = date;

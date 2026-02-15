@@ -7,7 +7,7 @@
             <q-tab name="HitachiUpload" label="Upload And Download" slot="title" />
             <q-tab-panel name="HitachiUpload">
               <HitachiUpload />
-            </q-tab-panell>
+            </q-tab-panel>
           </q-tabs>
         </div>
       </div>
@@ -164,7 +164,7 @@ export default {
 </template>
 <script>
 import { not, or } from '@vuelidate/validators';
-import Vue from "vue";
+
 import { mapGetters, mapActions } from "vuex";
 export default {
   data() {

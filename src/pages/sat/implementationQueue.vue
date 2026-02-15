@@ -17,11 +17,11 @@
            
             <q-tab-panel name="internal">
               <internalimplementationRequest/>
-            </q-tab-panell>
+            </q-tab-panel>
            
             <q-tab-panel name="external">
               <externalimplementationRequest/>
-            </q-tab-panell>
+            </q-tab-panel>
           </q-tabs>
         </div>
       </div>

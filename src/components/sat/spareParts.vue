@@ -39,10 +39,10 @@
 
         <q-tab-panel name="allocatedSo">
           <allocatedSo />
-        </q-tab-panell>
+        </q-tab-panel>
 
         <q-tab-panel name="incomingPods">
-          <q-table v-model:data="tableData" table-class="customSATableClass" :columns="columns" :filter="filterSearch"
+          <q-table :rows="tableData" table-class="customSATableClass" :columns="columns" :filter="filterSearch"
             :pagination="paginationControl" :filter-method="myCustomSearchFilter" row-key="name" color="grey-9"
             @request="ajaxLoadAllLeadInfo">
             <q-td v-slot:body-cell-createdAt="props" :props="props">{{
@@ -104,9 +104,9 @@
               <!--ENDv-model: table filter,search -->
             </template>
           </q-table>
-        </q-tab-panell>
+        </q-tab-panel>
         <q-tab-panel name="stocks">
-          <q-table :data="tableData1" table-class="customSATableClass" :columns="columns1" :filter="filterSearch1"
+          <q-table :rows="tableData1" table-class="customSATableClass" :columns="columns1" :filter="filterSearch1"
             :pagination="paginationControl1" :filter-method="myCustomSearchFilter" row-key="name" color="grey-9"
             @request="ajaxLoadAllLeadInfo1">
             <q-td v-slot:body-cell-createdAt="props" :props="props">{{
@@ -176,10 +176,10 @@
               color="purple-9"
               size="md"
             />
-          </div> :data="tableData2"-->
+          </div> :rows="tableData2"-->
             </template>
           </q-table>
-        </q-tab-panell>
+        </q-tab-panel>
         <q-tab-panel name="createSoPod">
           <template>
             <div class="col-sm-3">
@@ -223,7 +223,7 @@
 
             </div>
           </template>
-        </q-tab-panell>
+        </q-tab-panel>
       </q-tabs>
        
 

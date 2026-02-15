@@ -23,8 +23,7 @@
                                         placeholder="Institution code*" float-label="Institution code*" />
                                 </div>
                                 <div class="col-md-6">
-                                    <q-input color="grey-9" :disable="this.propsAdditionalData.merchantRefCode != null ? true
-                                        : false
+                                    <q-input color="grey-9" :disable="this.propsAdditionalData.merchantRefCode != null
                                     " v-model.trim="additionalTerminal.merchantRefCode"
                                         float-label="Merchant RefCode*" />
                                 </div>
@@ -83,8 +82,7 @@
                                     <q-input color="grey-9" :disable="
                                         this.propsAdditionalData
                                             .merchantRefCode
-                                            ? true
-                                            : false
+
                                     " v-model.trim="additionalTerminal.merchantRefCode" :error="$v.additionalTerminal.merchantRefCode.$error
 " float-label="Merchant RefCode*" />
                                 </div>
@@ -156,7 +154,7 @@
     </div>
 </template>
 <script>
-import Vuelidate from "vuelidate";
+
 
 import { LocalStorage } from "quasar";
 import multiTidComponents from "./multiTidComponents.vue";
@@ -179,13 +177,13 @@ import {
     decimal
 }
     from "@vuelidate/validators";
-Vue.use(Vuelidate);
+
 import { date } from "quasar";
 import moment from "moment";
 import { ref } from "vue";
 import { mapGetters, mapActions } from "vuex";
 import { uid } from "quasar";
-import Vue from "vue";
+
 
 import viewLeadDocumentsDataEntryComponent from "./viewLeadDocumentsDataEntryComponent.vue";
 // import MarsErrorResponse from "../MarsErrorResponseHandler.vue";

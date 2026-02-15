@@ -70,7 +70,7 @@ import {
 import moment from "moment";
 import { mapGetters, mapActions } from "vuex";
 import { uid } from "quasar";
-import Vue from "vue";
+
 import MarsErrorResponse from "../../components/MarsErrorResponseHandler.vue";
 import showPdfModalComponent from "../../components/sat/showPdfModalComponent.vue";
 

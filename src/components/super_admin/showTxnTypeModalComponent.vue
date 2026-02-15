@@ -22,7 +22,7 @@
       <!-- <q-tab @select="leadSourceDeActiveList"  slot="title" label="Deactive Vas List" name="tab-2"/> -->
       <q-tab-panel name="tab-1">
         <q-table
-          :data="tableData"
+          :rows="tableData"
           table-class="customSATableClass"
           :columns="activatedColumns"
           :filter="activeFilterSearch"
@@ -81,7 +81,7 @@
             <!--END: table filter,search -->
           </template>
         </q-table>
-      </q-tab-panell>
+      </q-tab-panel>
     </q-tabs>
     <!--START: Show create LeadSources -->
     <showVasCreate

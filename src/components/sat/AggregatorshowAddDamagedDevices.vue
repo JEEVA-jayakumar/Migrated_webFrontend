@@ -69,7 +69,7 @@
 </template>
 
 <script>
-import Vue from "vue";
+
 import VueBarcodeScanner from "vue-barcode-scanner";
 import AggregatorShowRegionalInventoryDevicePod from "./AggregatorShowRegionalInventoryDevicePod.vue";
 Vue.use(VueBarcodeScanner);

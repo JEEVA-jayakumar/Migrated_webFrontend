@@ -19,14 +19,14 @@
                     fnAjaxFetchAllDeviceDetailsWithCount
                   "
                 />
-              </q-tab-panell>
+              </q-tab-panel>
               <q-tab-panel name="PhonepesparePodList">
                 <PhonepesparePartsPodList
                   @emittedForTotalSerialNumbers="
                     fnAjaxFetchAllDeviceDetailsWithCount
                   "
                 />
-              </q-tab-panell>
+              </q-tab-panel>
             </q-tabs>
           </div>
         </div>

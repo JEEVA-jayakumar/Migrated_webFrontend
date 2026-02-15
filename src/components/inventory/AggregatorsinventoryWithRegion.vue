@@ -81,7 +81,7 @@ export default {
         // },
         //        PodDisabled: function () {
 
-        // //   return (this.formData.mid != 0 || this.formData.tid !=0 || this.formData.mname !=0 || this.formData.fromDate !=0 || this.formData.toDate !=0) ? false : true;
+        // //   return (this.formData.mid != 0 || this.formData.tid !=0 || this.formData.mname !=0 || this.formData.fromDate !=0 || this.formData.toDate !=0) ;
         // },
     },
     created() {

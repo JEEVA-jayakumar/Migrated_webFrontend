@@ -130,7 +130,7 @@
   </div>
 </template>
 <script>
-import Vuelidate from "vuelidate";
+
 
 import { LocalStorage } from "quasar";
 import additionalInfo from "./additionalInfo";
@@ -153,13 +153,13 @@ import {
   minValue,
   decimal,
 } from "@vuelidate/validators";
-Vue.use(Vuelidate);
+
 import { date } from "quasar";
 import moment from "moment";
 import { ref } from "vue";
 import { mapGetters, mapActions } from "vuex";
 import { uid } from "quasar";
-import Vue from "vue";
+
 
 import viewLeadDocumentsDataEntryComponent from "./viewLeadDocumentsDataEntryComponent.vue";
 // import MarsErrorResponse from "../MarsErrorResponseHandler.vue";

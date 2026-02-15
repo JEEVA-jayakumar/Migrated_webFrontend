@@ -11,7 +11,7 @@
         </div>
       </div> -->
 
-      <q-table table-class="customTableClass" :data="tableData" :columns="columns" :filter="filter"
+      <q-table table-class="customTableClass" :rows="tableData" :columns="columns" :filter="filter"
         :pagination="paginationControl" :rows-per-page-options="[5, 10, 15, 20, 25]" row-key="name"
         :loading="toggleAjaxLoadFilter" @request="ajaxLoadAllLeadInfo">
         <q-td v-slot:body-cell-action="props" :props="props">

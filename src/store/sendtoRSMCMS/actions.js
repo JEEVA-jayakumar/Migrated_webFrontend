@@ -1,6 +1,6 @@
 import { url } from '@vuelidate/validators';
 import api from "../api.js";
-import Vue from "vue";
+
 export const SEND_TO_RSM_CMS = ({
     commit,
     rootState

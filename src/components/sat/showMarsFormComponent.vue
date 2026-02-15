@@ -6044,7 +6044,7 @@
 </template>
 
 <script>
-  import Vuelidate from "vuelidate";
+
 
   import { LocalStorage } from "quasar";
   import multiTidComponents from "./multiTidComponents.vue";
@@ -6065,13 +6065,13 @@
     minValue,
     decimal,
   } from "@vuelidate/validators";
-  Vue.use(Vuelidate);
+
   import { date } from "quasar";
   import moment from "moment";
   import { ref } from "vue";
   import { mapGetters, mapActions } from "vuex";
   import { uid } from "quasar";
-  import Vue from "vue";
+
 
   import viewLeadDocumentsDataEntryComponent from "./viewLeadDocumentsDataEntryComponent.vue";
   import MarsErrorResponse from "../MarsErrorResponseHandler.vue";
@@ -9748,23 +9748,20 @@
       // T => Transaction value model
       getAxisBank() {
         return this.merchant.salesInformation.leadFrom == "OPEN MARKET"
-          ? true
-          : false;
+          ;
       },
       getMpos() {
-        return this.merchant.paymentDetails.terminalType == "MPOS" ? true : false;
+        return this.merchant.paymentDetails.terminalType == "MPOS" ;
       },
 
       getTransctionValueModel() {
         return this.merchant.salesInformation.sharingModelCode == "T"
-          ? true
-          : false;
+          ;
       },
       // M => MDR/cash@pos/rent
       getCashAtPos() {
         return this.merchant.salesInformation.sharingModelCode == "M"
-          ? true
-          : false;
+          ;
       },
       // M => MDR/cash@pos/rent
       // getPartnersVisiblity() {
@@ -9776,49 +9773,45 @@
       // },
       // R=> rental type /= Rental
       getRentalTypeVisibilityForRental() {
-        return this.merchant.paymentDetails.rentalType == "R" ? true : false;
+        return this.merchant.paymentDetails.rentalType == "R" ;
       },
       // A=> rental type /= Advanced
       getRentalTypeVisibilityForAdvanced() {
-        return this.merchant.paymentDetails.rentalType == "A" ? true : false;
+        return this.merchant.paymentDetails.rentalType == "A" ;
       },
       getRentalTypeVisibilityForEmi() {
-        return this.merchant.paymentDetails.rentalType == "E" ? true : false;
+        return this.merchant.paymentDetails.rentalType == "E" ;
       },
       // A=> rental type /= Advanced
       getfeeTypeForSettlementVisibility() {
         return this.merchant.bankInformation.bankDetails.feeType == "N" ||
           this.merchant.bankInformation.bankDetails.feeType == "S"
-          ? true
-          : false;
+          ;
       },
       showOnlyIfSharingModelIsEnabled() {
         // N => No sharing
         return this.merchant.salesInformation.sharingModelCode != "N"
-          ? true
-          : false;
+          ;
       },
       chequeNumberValidation() {
         return this.propLeadDeatils.paymentOption == 2 ? 6 : 25;
       },
       bankInfoSwipePayment() {
-        return this.propLeadDeatils.paymentOption == 3 ? true : false;
+        return this.propLeadDeatils.paymentOption == 3 ;
       },
       bankInfoChequePayment() {
-        return this.propLeadDeatils.paymentOption == 2 ? true : false;
+        return this.propLeadDeatils.paymentOption == 2 ;
       },
       bankInfoUpiLink() {
-        return this.propLeadDeatils.paymentOption == 4 ? true : false;
+        return this.propLeadDeatils.paymentOption == 4 ;
       },
       getStatementType() {
         return this.merchant.companyInformation.statementType == "E"
-          ? true
-          : false;
+          ;
       },
       getmpose() {
         return this.merchant.businessInformation.currentPosName == "Y"
-          ? true
-          : false;
+          ;
       },
       //////////////////////////////////////////////////////
     },
@@ -13742,7 +13735,7 @@
       },
       // fnVasDisable(items) {
       //     if(items<3){
-      //       return items >3 ? false : true;
+      //       return items >3 ;
       //       // return true;
       //   //     var size = 3;
       //   // var items = this.tmpVasMapping.slice(0, size).map(i => {

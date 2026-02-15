@@ -11,7 +11,7 @@
       <!--END: table Footer -->
         <q-tab-panel name="rejectedTab">
           <q-table
-            :data="tableData"
+            :rows="tableData"
             :columns="columnData"
             table-class="customTableClass"
             :filter="filterSearch"
@@ -53,7 +53,7 @@
               </div>
             </template>
           </q-table>
-        </q-tab-panell>
+        </q-tab-panel>
       <!--END: table Footer -->
     </div>
   </q-page>

@@ -98,7 +98,7 @@
             <q-btn
               no-caps
               :disabled="
-                formData.marsDeviceIdsCooked.length == 0 ? true v-model: false
+                formData.marsDeviceIdsCooked.length == 0
               "
               label="Submit"
               class="common-dark-blue"
@@ -140,7 +140,7 @@
           label="Unassigned"
         />
         <q-tab-panel name="unAssigned">
-          <!--START: table Data    :data="tableData1" -->
+          <!--START: table Data    :rows="tableData1" -->
           <q-table
             :columns="columnDataUnassigned"
             table-class="customTableClass"
@@ -215,11 +215,11 @@
             </template>
           </q-table>
           <!--END: table Data -->
-        </q-tab-panell>
+        </q-tab-panel>
         <q-tab color="dark" name="assigned" slot="title" label="Assigned" />
 
         <q-tab-panel name="assigned">
-          <!--START: table Data    :data="tableData" -->
+          <!--START: table Data    :rows="tableData" -->
           <q-table
             :columns="columnDataAssigned"
             table-class="customTableClass"
@@ -320,12 +320,12 @@
             </template>
           </q-table>
           <!--ENDv-model: table Data -->
-        </q-tab-panell>
+        </q-tab-panel>
         <q-tab color="dark" name="closed" slot="title" label="Closed" />
         <q-tab-panel name="closed">
           <!--START: table Data -->
           <q-table
-            :data="closedDatas"
+            :rows="closedDatas"
             :columns="columns"
             table-class="customTableClass"
             :filter="filterSearch2"
@@ -425,7 +425,7 @@
             </template>
           </q-table>
           <!--END: table Data -->
-        </q-tab-panell>
+        </q-tab-panel>
       </q-tabs>
       <div class="row items-center gutter-y-sm">
         <div class="col-md-9 col-sm-12 col-xs-12">

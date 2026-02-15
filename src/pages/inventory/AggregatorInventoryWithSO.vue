@@ -11,7 +11,7 @@
         </div>
       </div> -->
      
-        <q-table table-class="customTableClass" :data="this.getInventoryWithSOAggregatorList" v-model:columns="columns"
+        <q-table table-class="customTableClass" :rows="this.getInventoryWithSOAggregatorList" v-model:columns="columns"
           :filter="filter" :pagination="paginationControl" row-key="name">
           <!-- <q-td
           v-slot:body-cell-createdAt="props"
@@ -65,7 +65,7 @@
               <!-- <div class="col-md-5">
               
               <downloadExcel
-                :data="getAllAggregatorInventoryWithSo"
+                :rows="getAllAggregatorInventoryWithSo"
                 :fields="json_fields"
                 name="InventoryWithSO.xls"
               >

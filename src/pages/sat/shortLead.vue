@@ -282,9 +282,8 @@
                         />
                       </q-item-section>
                     </q-item>
-                    </q-item>
                     <q-item class="q-pa-sm">
-                       <q-item-section>
+                      <q-item-section>
                         <q-input
                           color="grey-9"
                           float-label="Upi Prepaid Credit Cards Above 2000 (%)"

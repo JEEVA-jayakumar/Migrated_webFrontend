@@ -35,7 +35,7 @@
               v-model="formData.assignTo"
               separator
               color="grey-9"
-              :disable="formData.marsDeviceIdsCooked.length == 0 ? true : false"
+              :disable="formData.marsDeviceIdsCooked.length == 0 "
               :options="assignToOptions"
               placeholder="Assign To"
             />
@@ -56,7 +56,7 @@
             <q-btn
               no-caps
               :disabled="
-                formData.marsDeviceIdsCooked.length == 0 ? true v-model: false
+                formData.marsDeviceIdsCooked.length == 0
               "
               label="Assign"
               class="common-dark-blue agnalgin1"
@@ -97,11 +97,11 @@
         /> -->
         <q-tab-panel name="assigned">
           <assigned />
-        </q-tab-panell>
+        </q-tab-panel>
         <q-tab-panel name="unAssigned">
-          <!--START: table Data   :data="getImplementationQueueUnassignedList"  -->
+          <!--START: table Data   :rows="getImplementationQueueUnassignedList"  -->
           <q-table
-            :data="tableData1"
+            :rows="tableData1"
             :columns="columnDataUnassigned"
             table-class="customTableClass"
             :filter="filterSearch"
@@ -194,7 +194,7 @@
             </template>
           </q-table>
           <!--ENDv-model: table Data -->
-        </q-tab-panell>
+        </q-tab-panel>
       </q-tabs>
 
       <!--END: table Footer -->

@@ -945,7 +945,7 @@ import showLeadSourceModalComponent from "../../components/super_admin/showLeadS
 import showDeviceDetailModalComponent from "../../components/super_admin/showDeviceDetailModalComponents.vue";
 import showMerchantModalComponent from "../../components/super_admin/merchantTypes.vue";
 /* END >> Modal components Lead source, device, merchant type */
-import Vue from "vue";
+
 import {
   required,
   requiredIf,
@@ -959,8 +959,8 @@ import {
   minValue,
   decimal,
 } from "@vuelidate/validators";
-Vue.use(Vuelidate);
-import Vuelidate from "vuelidate";
+
+
 import { mapGetters, mapActions } from "vuex";
 export default {
   props: ["propShoweditMerchantDetails", "propRowDetails"],

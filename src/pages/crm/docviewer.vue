@@ -31,7 +31,7 @@
     </div>
   
     <div v-if="tableData.length != 0">
-      <q-table table-class="customTableClass" v-model:data="tableData" :columns="columns" :pagination="paginationControl" row-key="name" :loading="toggleAjaxLoadFilter" :rows-per-page-options="[5, 10, 15, 20]" @request="ajaxLoadAllLeadInfo">
+      <q-table table-class="customTableClass" :rows="tableData" :columns="columns" :pagination="paginationControl" row-key="name" :loading="toggleAjaxLoadFilter" :rows-per-page-options="[5, 10, 15, 20]" @request="ajaxLoadAllLeadInfo">
         <q-td v-slot:body-cell-tid="props" :props="props">
           <span class="label text-primary"># {{ props.row.tid }}</span>
         </q-td>
@@ -70,7 +70,6 @@
            <q-btn flat dense  color="green" @click="fnShowPopuop(props.row.pictureOfShop)">
                <q-icon name="fa fa-camera"/>
             </q-btn>
-           </q-btn>
           </div>
           <div v-else>NA Document</div>
          </q-td>
@@ -96,7 +95,7 @@
       </q-table>
     </div>
     <div v-else-if="tableData1.length != 0">
-      <q-table table-class="customTableClass" v-model:data="tableData1" :columns="columns1" row-key="name" :pagination="paginationControlchange" :rows-per-page-options="[5,10,15,20]" :loading="toggleAjaxLoadFilter" @request="ajaxLoadAllLeadInfo1">
+      <q-table table-class="customTableClass" :rows="tableData1" :columns="columns1" row-key="name" :pagination="paginationControlchange" :rows-per-page-options="[5,10,15,20]" :loading="toggleAjaxLoadFilter" @request="ajaxLoadAllLeadInfo1">
        <q-td v-slot:body-cell-tid="props" :props="props">
           <span class="label text-primary"># {{ props.row.serviceRequestData.tid }}</span>
         </q-td>
@@ -157,10 +156,7 @@
         </div>
         </div>
     </div>
-    </div>
-    <div v-if="toggleAjaxLoadFilter" class="fullscreen spinner-overlay">
       <q-spinner-bars class="absolute-center" style="color: #61116a" :size="35" />
-    </div>
     <showPDF v-if="toggleshowPDFModal"
       :propToggleshowPDFModal="toggleshowPDFModal"
       :propPDFDetails="PDFDetails"

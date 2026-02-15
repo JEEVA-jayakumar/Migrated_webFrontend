@@ -42,7 +42,7 @@
             <!--START: table lead validation -->
             <q-table
               table-class="customTableClass"
-              :data="getPricingExceptionList"
+              :rows="getPricingExceptionList"
               :columns="columns"
               :filter="filter"
               :pagination="paginationControl"
@@ -88,13 +88,13 @@
               </template>
             </q-table>
             <!--END: table lead validation -->
-          </q-tab-panell>
+          </q-tab-panel>
           <q-tab-panel name="tab-2">
             <!--START: table data -->
             <q-table
               v-if=" getRoleForTableToggleRsmList == false"
               table-class="customTableClass"
-              :data="getPricingRsmList"
+              :rows="getPricingRsmList"
               :columns="rsmcolumns"
               :filter="filter"
               :pagination="paginationControl"
@@ -117,7 +117,7 @@
             <q-table
               v-if=" getRoleForTableToggleRsmList == true"
               table-class="customTableClass"
-              :data="pricingExceptionByRsmIDList"
+              :rows="pricingExceptionByRsmIDList"
               :columns="rsmcolumnsLeads"
               :filter="filter"
               :pagination="paginationControl"
@@ -168,14 +168,14 @@
             </q-table>
             <!--END: table lead validation -->
             <!--END: table data -->
-          </q-tab-panell>
+          </q-tab-panel>
         </q-tabs>
       </div>
       <div v-else>
         <!--START: table lead validation -->
         <q-table
           table-class="customTableClass"
-          :data="getPricingExceptionList"
+          :rows="getPricingExceptionList"
           :columns="columns"
           :filter="filter"
           :pagination="paginationControl"

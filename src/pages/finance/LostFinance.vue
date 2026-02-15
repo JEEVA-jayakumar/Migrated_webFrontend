@@ -1,6 +1,6 @@
 <template>
   <q-page>
-    <q-pull-to-refresh v-model:handler="PullToRefresh" inline>
+    <q-pull-to-refresh :handler="PullToRefresh" inline>
     <!-- <q-pull-to-refresh :handler="PullToRefresh" inline></q-pull-to-refresh> -->
       <!--START: table title -->
       <div
@@ -18,7 +18,7 @@
       <!--START: table lead validation -->
       <q-table
         table-class="customTableClass"
-        :data="tableData"
+        :rows="tableData"
         :columns="columns"
         :filter="filter"
         :pagination="paginationControl"
@@ -115,8 +115,7 @@
       <div v-if="toggleAjaxLoadFilter" class="fullscreen spinner-overlay">
         <q-spinner-bars class="absolute-center" style="color:#61116a" :size="35" />
       </div>
-      <!--END >>  Show Ajax Spinner -->  
-    </div>
+      <!--END >>  Show Ajax Spinner -->
   </q-page>
 </template>
 

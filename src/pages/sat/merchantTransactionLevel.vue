@@ -9,7 +9,7 @@
     <!--START: table lead validation -->
     <q-table
       table-class="customTableClass"
-      :data="tableData"
+      :rows="tableData"
       :columns="columns"
       :filter="filter"
       :pagination="paginationControl"
@@ -74,7 +74,7 @@
             </div>
             <div class="col-md-4">
                 <downloadExcel
-                :data="tableData"
+                :rows="tableData"
                 :fields="columns.label"
                 name="Merchant Transaction Level.xls">
                   <q-btn 

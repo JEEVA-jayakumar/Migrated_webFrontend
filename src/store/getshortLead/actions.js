@@ -1,5 +1,5 @@
 import { or } from '@vuelidate/validators';
-import Vue from 'vue';
+
 import api from "../api.js";
 
 export const FETCH_SHORT_LEAD = ({

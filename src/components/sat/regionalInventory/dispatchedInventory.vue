@@ -71,7 +71,7 @@
         title="Lead Validation"
         table-class="customTableClass"
         class="q-py-none"
-        :data="getAllRegionalInventoryPDOBasedDevicesWithCount.regionalInventoryList"
+        :rows="getAllRegionalInventoryPDOBasedDevicesWithCount.regionalInventoryList"
         v-model:columns="columnData"
         :filter="filter"
         :pagination="paginationControl"

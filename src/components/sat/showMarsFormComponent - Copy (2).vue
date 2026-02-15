@@ -1510,37 +1510,33 @@ export default {
     // T => Transaction value model
     getTransctionValueModel() {
       return this.merchant.salesInformation.sharingModelCode == "T"
-        ? true
-        : false;
+        ;
     },
     // M => MDR/cash@pos/rent
     getCashAtPos() {
       return this.merchant.salesInformation.sharingModelCode == "M"
-        ? true
-        : false;
+        ;
     },
     // M => MDR/cash@pos/rent
     getPartnersVisiblity() {
       return this.merchant.companyInformation.constitution == "PL"
-        ? true
-        : false;
+        ;
     },
 
     // R=> rental type /= Rental
     getRentalTypeVisibilityForRental() {
-      return this.merchant.paymentDetails.rentalType == "R" ? true : false;
+      return this.merchant.paymentDetails.rentalType == "R" ;
     },
     // A=> rental type /= Advanced
     getRentalTypeVisibilityForAdvanced() {
-      return this.merchant.paymentDetails.rentalType == "A" ? true : false;
+      return this.merchant.paymentDetails.rentalType == "A" ;
     },
 
     // A=> rental type /= Advanced
     getfeeTypeForSettlementVisibility() {
       return this.merchant.paymentDetails.feeType == "N" ||
         this.merchant.paymentDetails.feeType == "S"
-        ? true
-        : false;
+        ;
     }
   },
 

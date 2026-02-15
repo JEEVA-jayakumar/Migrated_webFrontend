@@ -4,7 +4,7 @@
     no-backdrop-dismiss
     no-esc-dismiss
     v-model="toggleModal"
-    v-model:content-css="{padding:'50px 5px'}"
+    :content-css="{padding:'50px 5px'}"
   >
     <div>
       <!-- //Common lead information in popup -->
@@ -27,7 +27,7 @@
         title="Lead Validation"
         table-class="customTableClass"
         class="q-py-none"
-        :data="tableData"
+        :rows="tableData"
         :columns="columns"
         :filter="filter"
         :pagination="paginationControl"
