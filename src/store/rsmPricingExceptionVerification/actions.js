@@ -1,5 +1,5 @@
 import api from "../api.js";
-import Vue from "vue";
+
 export const PRICING_EXCEPTION_LIST = ({ commit }, request) => {
   return api.get("get-pricing-exceptions").then(response => {
     commit("SET_PRICING_EXCEPTION_LIST", response.data.data.leadInformation);

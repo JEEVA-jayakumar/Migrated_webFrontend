@@ -16,7 +16,7 @@
                         <q-input class="col-5" clearable color="grey-9" placeholder="Type.." v-model="filter"
                         float-label="Search By Ticket No, Merchant No..." />
                     </div>
-                    <q-table table-class="customTableClass" class="q-py-none" v-model:data="tableData" :columns="columns"
+                    <q-table table-class="customTableClass" class="q-py-none" :rows="tableData" :columns="columns"
                         :filter="filter" :rows-per-page-options="[5, 10, 15]" :pagination="paginationControl"
                         :loading="toggleAjaxLoadFilter" @request="ajaxLoadAllLeadInfo">
                         <q-td v-slot:body-cell-Date="props" :props="props">{{
@@ -49,13 +49,13 @@
                                 ? "NA" : props.row.createdDate | moment("Do MMM Y")
                         }}</q-td>
                     </q-table>
-                </q-tab-panell>
+                </q-tab-panel>
                 <q-tab-panel name="tab-2">
                     <div class="row">
                         <q-input class="col-4" v-model="filter1" clearable color="grey-9" placeholder="Type.."
                         float-label="Search By Ticket No, Merchant No..." />
                     </div>
-                    <q-table table-class="customTableClass" class="q-py-none" v-model:data="tableData1" :columns="columns2"
+                    <q-table table-class="customTableClass" class="q-py-none" :rows="tableData1" :columns="columns2"
                         :filter="filter1" :rows-per-page-options="[5, 10, 15]" :pagination="paginationControl1"
                         :loading="toggleAjaxLoadFilter1" @request="ajaxLoadAllLeadInfo1">
                         <q-td v-slot:body-cell-updateRemarks="props" :props="props">
@@ -73,7 +73,7 @@
                         }}</q-td>
                     </q-table>
 
-                </q-tab-panell>
+                </q-tab-panel>
             </q-tabs>
 
         </div>
@@ -88,7 +88,6 @@
 </template>
 <script>
 import { required } from '@vuelidate/validators';
-import { request } from "http";
 import { mapGetters, mapActions } from "vuex";
 import bijlipayAddRemarks from '../../components/crm/bijlipayAddRemarks.vue';
 export default {

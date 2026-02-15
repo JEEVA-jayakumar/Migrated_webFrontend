@@ -22,7 +22,7 @@
         <!-- <q-tab @select="leadSourceDeActiveList" slot="title" label="De-Actived List" name="tab-2"/> -->
         <q-tab-panel name="tab-1">
           <q-table
-            :data="activeLeadSourceList"
+            :rows="activeLeadSourceList"
             table-class="customSATableClass"
             :columns="activatedColumns"
             :filter="activeFilterSearch"
@@ -80,10 +80,10 @@
               <!--ENDv-model: table filter,search -->
             </template>
           </q-table>
-        </q-tab-panell>
+        </q-tab-panel>
         <!-- <q-tab-panel name="tab-2">
           <q-table
-            :data="deActiveLeadSourceList"
+            :rows="deActiveLeadSourceList"
             table-class="customSATableClass"
             :columns="deActivatedColumns"
             :filter="deActivatedFilterSearch"
@@ -119,7 +119,7 @@
               </div>
             </template>
           </q-table>
-        </q-tab-panell> -->
+        </q-tab-panel> -->
       </q-tabs>
       <!--START: Show create LeadSources -->
       <showCreatemarsInstance

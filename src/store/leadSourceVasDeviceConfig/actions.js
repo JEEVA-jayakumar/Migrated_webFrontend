@@ -1,5 +1,5 @@
 import api from "../api.js";
-import Vue from "vue";
+
 export const CREATE_LS_VAS_DEVICE_CONFIG = ({
     commit
   }, request) => {

@@ -6,7 +6,7 @@
         transition
         enter-class="animated fadeIn"
         leave-class="animated fadeOut"
-        v-model= "valueToggleMerchantTransaction"
+        :model-value="valueToggleMerchantTransaction"
         :content-css= "{maxWidth: '50vw', minHeight: '100vh',padding:'50px'}"
         position= "right"
         >
@@ -55,7 +55,7 @@
           flat
           dense
           class="shadow-none"
-          :data="tableData"
+          :rows="tableData"
           :columns="columns"
           :filter="filter"
           row-key="name"

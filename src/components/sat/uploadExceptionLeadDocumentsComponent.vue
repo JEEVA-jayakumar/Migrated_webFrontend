@@ -358,7 +358,7 @@
             </q-item-section>
             <!-- START >> Will be displayed if reprocess key => false -->
             <div v-if="!multipleDocument.reprocess && multipleDocument.verifiedStatus != 1">
-              <q-item-section v-if="multipleDocument.isKycChecked? false : true">
+              <q-item-section v-if="multipleDocument.isKycChecked">
                 <label
                   class="cursor-pointer text-white"
                   style="background-color: #202c3f;"
@@ -584,7 +584,7 @@ export default {
     //     let findSubDocument = _.find(
     //       selectDocumentByDocumentType.document,
     //       function(oo) {
-    //         return oo.documentVerifiedStatus == 2 ? true : false;
+    //         return oo.documentVerifiedStatus == 2 ;
     //       }
     //     );
     //     if (
@@ -1024,8 +1024,7 @@ export default {
           function(oo) {
             return oo.uploadedDocuments.length > 0 &&
               oo.subDocumentType == currentSelection.subDocumentType
-              ? true
-              : false;
+              ;
           }
         );
       } else {
@@ -1038,8 +1037,7 @@ export default {
             this.getShortLeadInfo.leadDocuments[
               currentSelection.documentType
             ][0].subDocumentType == currentSelection.subDocumentType
-            ? true
-            : false
+
           : false;
       }
     },
@@ -1053,8 +1051,7 @@ export default {
           this.getShortLeadInfo.leadDocuments[currentSelection.documentType][0]
             .subDocumentType ==
             currentSelection.subDocumentTypeSelection.subDocumentType
-          ? true
-          : false
+
         : false;
     },
 
@@ -1122,7 +1119,7 @@ export default {
         item.documentType
       ];
       let findSubDocument = _.find(selectDocumentByDocumentType, function(oo) {
-        return oo.documentVerifiedStatus == 2 ? true : false;
+        return oo.documentVerifiedStatus == 2 ;
       });
       if (
         findSubDocument != undefined &&

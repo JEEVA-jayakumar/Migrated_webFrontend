@@ -38,7 +38,7 @@
         </div>
         <div class="row bottom-border q-px-md q-py-md items-center text-weight-regular text-grey-9">
           <div class="col-12 group" align="right">
-            <q-btn v-model:disabled="disabledButton" class="q-py-xs" icon="build" outline color="amber-9"
+            <q-btn :disabled="disabledButton" class="q-py-xs" icon="build" outline color="amber-9"
               label="Send to repair" @click="fnFinalFaultySubmit(1)" />
 
             <q-btn :disabled="disabledButton" class="q-py-xs" icon="check" outline color="positive"
@@ -47,7 +47,7 @@
           <!--END: table title -->
         </div>
         <!--START: table lead validation -->
-        <q-table row-key="name" :filter="filter" :data="tableData" class="q-py-none" :columns="columns"
+        <q-table row-key="name" :filter="filter" :rows="tableData" class="q-py-none" :columns="columns"
           title="Lead Validation" table-class="customTableClass" :pagination="paginationControl">
           <!--START: table body modification -->
           <q-td v-slot:body-cell-deviceType="props" :props="props">{{ props.row.device.name }}</q-td>
@@ -83,7 +83,7 @@
 
 <script>
 import { required, not } from '@vuelidate/validators';
-import Vue from "vue";
+
 import VueBarcodeScanner from "vue-barcode-scanner";
 Vue.use(VueBarcodeScanner);
 import { mapGetters, mapActions } from "vuex";
@@ -159,10 +159,9 @@ export default {
     ...mapGetters("superAdminAggregators", ["getActiveCreatedAggregatorList"]),
     disabledButton() {
       return _.find(this.formData.scannedItems, function (oo) {
-        return oo.deviceSerialNumbers.length > 0 ? true : false;
+        return oo.deviceSerialNumbers.length > 0 ;
       }) == undefined
-        ? true
-        : false;
+        ;
     }
   },
   mounted() {

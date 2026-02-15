@@ -5,7 +5,7 @@
       no-esc-dismiss
       no-backdrop-dismiss
       class="customModalOverlay"
-      v-model="propToggleUploadDocumentAndSubmit"
+      :model-value="propToggleUploadDocumentAndSubmit"
       :content-css="{minWidth:'50%',height:'auto',maxHeight:'50vh',margin:'20px',padding:'20px'}"
     >
       <div class="column">
@@ -81,7 +81,7 @@
             @click="emitToggleRemarks()"
             class="q-ma-sm float-right text-dark"
             align="right"
-            :v-close-overlay="cancelConfirmation? true:false"
+            :v-close-overlay="cancelConfirmation"
             label="Cancel"
           />
 

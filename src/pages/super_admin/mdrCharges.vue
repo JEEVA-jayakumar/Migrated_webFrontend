@@ -25,7 +25,7 @@
         <q-tab-panel name="active">
           <!--START: table Data -->
           <q-table
-            :data="activetableData"
+            :rows="activetableData"
             :columns="columns"
             table-class="customTableClass"
             :filter="filterSearch"
@@ -289,11 +289,11 @@
             </template>
           </q-table>
           <!--ENDv-model: table Data -->
-        </q-tab-panell>
+        </q-tab-panel>
         <q-tab-panel name="deactive">
           <!--START: table Data -->
           <q-table
-            :data="deActivetableData"
+            :rows="deActivetableData"
             :columns="columnDataDiabled"
             table-class="customTableClass"
             :filter="filterSearch1"
@@ -485,7 +485,7 @@
             </template>
           </q-table>
           <!--END: table Data -->
-        </q-tab-panell>
+        </q-tab-panel>
       </q-tabs>
       <div class="row items-center gutter-y-sm">
         <div class="col-md-9 col-sm-12 col-xs-12">

@@ -1,4 +1,4 @@
-import Vue from 'vue'
+
 import api from '../api.js'
 
 export const FETCH_ALL_STATIC_QR_LEAD_VALIDATIONS_DATA = ({

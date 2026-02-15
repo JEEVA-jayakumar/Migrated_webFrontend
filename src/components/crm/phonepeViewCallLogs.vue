@@ -136,7 +136,7 @@ export default {
         </div>
       </div>
 
-      <q-table :data="callLogs" :columns="columns" @request="fetchLogs">
+      <q-table :rows="callLogs" :columns="columns" @request="fetchLogs">
    
           <q-td v-slot:body-cell-inputDate="props" :props="props">
             {{ props.row.inputDate | moment("Do MMM Y") }}

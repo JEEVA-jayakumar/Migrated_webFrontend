@@ -29,7 +29,7 @@
         title="Lead Validation"
         table-class="customTableClass"
         class="q-py-none"
-        :data="getAllLeadAllocationData.assignedLeads"
+        :rows="getAllLeadAllocationData.assignedLeads"
         v-model:columns="columns"
         :filter="filter"
         :pagination="paginationControl"

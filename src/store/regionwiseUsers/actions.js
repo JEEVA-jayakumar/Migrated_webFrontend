@@ -1,5 +1,5 @@
 import api from "../api.js";
-import Vue from "vue";
+
 export const FETCH_REGION_WISE_LIST = ({
   commit,
   rootState

@@ -327,7 +327,7 @@
         title="Lead Validation"
         table-class="customTableClass"
         class="q-py-none"
-        :data="getAllRegionalInventorySerialNumbersByDevice"
+        :rows="getAllRegionalInventorySerialNumbersByDevice"
         :columns="columnData"
         :filter="filter"
         :pagination="paginationControl"

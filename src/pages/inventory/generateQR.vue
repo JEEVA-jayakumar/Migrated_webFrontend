@@ -37,7 +37,7 @@
             </div>
           </q-card-section>
         </q-card>
-        </q-tab-panell>
+        </q-tab-panel>
 
         <q-tab-panel name="tab-2">
           <div class="col-md-10">
@@ -49,7 +49,7 @@
             v-model="filter"
             float-label="Search by Batch" />
           </div>
-          <q-table table-class="customTableClass" v-model:data="tableData" :columns="columns"
+          <q-table table-class="customTableClass" :rows="tableData" :columns="columns"
             :pagination="paginationControl"   :filter="filter" row-key="id" :loading="toggleAjaxLoadFilter"
             :rows-per-page-options="[5, 10, 15, 20]" @request="ajaxLoadAllBatchList">
             <!--START: table header -->
@@ -94,7 +94,7 @@
               </div>
             </q-td>
           </q-table>
-        </q-tab-panell>
+        </q-tab-panel>
       </q-tabs>
     <qrPopUp v-if="propToggleData" :QrInfo="addBasicInformation" :propToggleDataPop="propToggleData"
       @closeRemarksInfo="toggle" />

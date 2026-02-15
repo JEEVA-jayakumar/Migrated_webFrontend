@@ -1,5 +1,5 @@
 import api from "../api.js";
-import Vue from "vue";
+
 export const RENTAL_PLAN_FROM_MARS = ({
   commit,
   rootState

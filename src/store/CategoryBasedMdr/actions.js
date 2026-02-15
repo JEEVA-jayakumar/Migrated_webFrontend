@@ -1,5 +1,5 @@
 import api from "../api.js";
-import Vue from "vue";
+
 export const CATEGORY_BASED_MDR_PLAN = ({
   commit,
   rootState

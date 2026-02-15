@@ -36,7 +36,7 @@
         <!--ENDv-model: table title -->
       </div>
       <!--START: table Data -->
-      <q-table :data="tempTableData" :columns="columnData" table-class="customTableClass shadow-0"
+      <q-table :rows="tempTableData" :columns="columnData" table-class="customTableClass shadow-0"
         :filter="filterSearch" :pagination="paginationControl" row-key="index" :loading="tableAjaxLoading"
         color="light-blue">
         <q-td v-slot:body-cell-action="props" :props="props">
@@ -57,7 +57,7 @@
   
 <script>
 import { required } from '@vuelidate/validators';
-import Vue from "vue";
+
 import VueBarcodeScanner from "vue-barcode-scanner";
 Vue.use(VueBarcodeScanner);
 

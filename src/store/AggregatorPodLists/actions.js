@@ -1,4 +1,4 @@
-import Vue from 'vue';
+
 import api from "../api.js";
 export const FETCH_AGGREGATOR_POD_LIST = ({
     commit

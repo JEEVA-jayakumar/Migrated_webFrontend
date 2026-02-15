@@ -47,7 +47,7 @@
     <div class="row">
       <div>
         <q-table
-          v-model:data="tableData"
+          :rows="tableData"
           table-class="customSATableClass"
           :columns="columns"
           :filter="filterSearch"

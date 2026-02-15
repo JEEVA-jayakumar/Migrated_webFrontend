@@ -63,8 +63,8 @@
   </template>
   
   <script>
-  import Vue from "vue";
-  import Vuelidate from "vuelidate";
+
+
   import {
     required,
     email,
@@ -76,7 +76,7 @@
     numeric,
     sameAs,
   } from "@vuelidate/validators";
-  Vue.use(Vuelidate);
+
   import { date } from "quasar";
   const today = new Date();
   const { startOfDate, addToDate, subtractFromDate } = date;
@@ -99,7 +99,7 @@
   
     // computed: {
     //   submitDisabled: function () {
-    //     return (this.formData.from !=0 || this.formData.to !=0 || (this.formData.from== 0 && this.formData.to == 0)) ? false : true;
+    //     return (this.formData.from !=0 || this.formData.to !=0 || (this.formData.from== 0 && this.formData.to == 0)) ;
     //   },
     // },
 

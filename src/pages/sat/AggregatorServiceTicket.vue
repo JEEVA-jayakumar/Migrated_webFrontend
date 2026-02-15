@@ -8,7 +8,7 @@
       </div>
       <q-table
         table-class="customTableClass"
-        v-model:data="tableData"
+        :rows="tableData"
         :columns="columns"
         :filter="filter"
         :pagination="paginationControl"
@@ -134,7 +134,7 @@
         </q-td>
         <q-td v-slot:body-cell-action="props" :props="props">
           <q-btn
-            :disabled="props.row.serviceRequestSubTicketStatus.id == 102 ? false : true"
+            :disabled="props.row.serviceRequestSubTicketStatus.id == 102 "
             no-caps
             no-wrap
             label="Approve"
@@ -146,7 +146,7 @@
         </q-td>
         <q-td v-slot:body-cell-data="props" :props="props">
           <q-btn
-            :disabled="props.row.serviceRequestSubTicketStatus.id == 102 ? false : true"
+            :disabled="props.row.serviceRequestSubTicketStatus.id == 102 "
             no-caps
             no-wrap
             label="Reject"

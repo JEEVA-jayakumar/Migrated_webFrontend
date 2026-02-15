@@ -1,5 +1,5 @@
 import { api } from '../../boot/axios';
-import Vue from 'vue';
+
 export  const FETCH_VAS_DATAS = ({ commit }, request) => {
   return api
   .get("vas-mapping/get-vas-device-mapping"+"/"+request)

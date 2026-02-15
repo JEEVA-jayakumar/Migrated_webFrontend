@@ -19,7 +19,7 @@
                         :options="deviceOptions" />
                 </div>
                 <div class="col-auto q-px-xs">
-                        <downloadExcel :data="regionalItems" :fields="json_fields" name="InventoryWithRegion.xls">
+                        <downloadExcel :rows="regionalItems" :fields="json_fields" name="InventoryWithRegion.xls">
                           <q-btn outline color="grey-9" label="Download as excel" />
                         </downloadExcel>
                       </div>
@@ -30,7 +30,7 @@
 
 
             <!--STARTv-model: table lead validation -->
-            <q-table row-key="name" :filter="filter" :data="regionalItems" class="q-py-none" :columns="columns"
+            <q-table row-key="name" :filter="filter" :rows="regionalItems" class="q-py-none" :columns="columns"
                 title="Lead Validation" table-class="customTableClass" :pagination="paginationControl">
                 <!--START: table body modification  device-->
                 <q-td v-slot:body-cell-region="props" :props="props">{{ props.row.region == null ?
@@ -75,7 +75,7 @@
 
 <script>
 import { required } from '@vuelidate/validators';
-import Vue from "vue";
+
 import VueBarcodeScanner from "vue-barcode-scanner";
 import downloadExcel from "vue-json-excel";
 Vue.use(VueBarcodeScanner);
@@ -179,7 +179,7 @@ export default {
         ...mapGetters("inventoryWithRegion", ["getinventoryWithRegion"]),
         // disabledButton() {
         //   return _.find(this.formData.scannedItems, function(oo) {
-        //     return oo.deviceSerialNumbers.length > 0 ? true : false;
+        //     return oo.deviceSerialNumbers.length > 0 ;
         //   }) == undefined
         //     ? true
         //     : false;

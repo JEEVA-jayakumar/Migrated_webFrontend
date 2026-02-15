@@ -125,7 +125,7 @@ export default {
       formData: {
         url: {
           merchantType: this.propCurrentMerchantType,
-          hasSubDoc: this.propRowDetails.viewType ? false : true,
+          hasSubDoc: this.propRowDetails.viewType ,
           id: this.propRowDetails.id
         },
         params: {

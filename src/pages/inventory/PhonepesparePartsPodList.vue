@@ -9,7 +9,7 @@
         :propToggleLeadInformationPop="propToggleLeadInformation" @closeLeadInformation="toggleLeadInformation" />
       <!-- content -->
       <!--START: table lead validation -->
-      <q-table table-class="customTableClass" :columns="columns" :data="tableData" color="grey-9" :filter="filterSearch"
+      <q-table table-class="customTableClass" :columns="columns" :rows="tableData" color="grey-9" :filter="filterSearch"
         :pagination="paginationControl" :rows-per-page-options="[5, 10, 15, 20, 25]"
         :loading="toggleAjaxLoadFilter" @request="ajaxLoadAllLeadInfo">
         <q-td v-slot:body-cell-updated_date="props" :props="props">{{

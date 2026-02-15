@@ -28,8 +28,7 @@
                           <q-input color="grey-9" :disable="
                               this.propRowDetails.leadInformation
                                 .merchantRefCode
-                                ? true
-                                : false
+
                             " v-model.trim="additionalTerminal.merchantRefCode" :error="$v.additionalTerminal.merchantRefCode.$error
                   " float-label="Merchant RefCode*" />
                         </div>
@@ -92,7 +91,7 @@
                   </div>
                 </form>
               </div>
-            </q-tab-panell>
+            </q-tab-panel>
           </q-tabs>
         </div>
       </div>

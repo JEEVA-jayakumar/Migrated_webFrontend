@@ -28,7 +28,7 @@
       <!--STARTv-model: table lead validation -->
       <q-table
         table-class="customTableClass"
-        :data="tableData"
+        :rows="tableData"
         :columns="columns"
         :filter="filter"
         :pagination="paginationControl"
@@ -69,7 +69,7 @@
             <q-btn
               no-caps
               :disabled="
-                formData.marsDeviceIdsDemapping.length == 0 ? true : false
+                formData.marsDeviceIdsDemapping.length == 0
               "
               label="De-Mapping"
               class="common-dark-blue"
@@ -105,9 +105,9 @@
 <script>
 import { required, or } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
-import Vuelidate from "vuelidate";
-import Vue from "vue";
-Vue.use(Vuelidate);
+
+
+
 import { date } from "quasar";
 const today = new Date();
 const { startOfDate, addToDate, subtractFromDate } = date;

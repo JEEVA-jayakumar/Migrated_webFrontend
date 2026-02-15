@@ -3,7 +3,7 @@
     <!-- content -->
     <div>
       <q-table
-        v-model:data="getAllPincodes"
+        :rows="getAllPincodes"
         table-class="customSATableClass"
         :columns="columns"
         :filter="filter"

@@ -7,7 +7,7 @@
 
           <q-tab-panel name="tab-5">
           <q-table
-          v-model:data="ActivetableData"
+          :rows="ActivetableData"
           table-class="customSATableClass"
           :columns="columns1"
           :filter="filterSearch"
@@ -44,11 +44,11 @@
               </div>
             </template>
           </q-table>
-        </q-tab-panell>
+        </q-tab-panel>
 
         <q-tab-panel name="tab-6">
           <q-table
-          v-model:data="DeactivetableData"
+          :rows="DeactivetableData"
           table-class="customSATableClass"
           :columns="columns4"
           :filter="filterSearch"
@@ -77,7 +77,7 @@
               </div>
             </template>
           </q-table>
-        </q-tab-panell>
+        </q-tab-panel>
       </q-tabs>
 
       <!--START: Show AddServiceStatus -->

@@ -61,7 +61,7 @@
           <div>
             <!--STARTv-model: table Data -->
             <q-table
-              :data="getAllRegionalInventorySerialNumbersByDevice"
+              :rows="getAllRegionalInventorySerialNumbersByDevice"
               :columns="columnData"
               table-class="customTableClass shadow-0"
               :filter="filterSearch"
@@ -93,7 +93,7 @@
                     class="q-mr-lg q-py-sm"
                   />-->
                   <downloadExcel
-                    :data="getAllRegionalInventorySerialNumbersByDevice"
+                    :rows="getAllRegionalInventorySerialNumbersByDevice"
                     :fields="json_fields"
                     name="Central Inventory Region.xls"
                   >

@@ -1,5 +1,5 @@
 import api from "./api.js";
-import Vue from 'vue'
+
 
 /* START >> Store modules => Super Admin Users */
 const BankOpsShortLead = {

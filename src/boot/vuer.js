@@ -1,5 +1,5 @@
 // import something here
-import Vue from "vue";
+
 import "viewerjs/dist/viewer.css";
 import Vuer from "v-viewer";
 

@@ -1,5 +1,5 @@
 import api from "../api.js";
-import Vue from "vue";
+
 export const  UPDATE_PLAN_DETAILS_DATAS= ({ commit,
     rootState},request) => {
     return api

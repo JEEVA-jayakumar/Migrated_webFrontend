@@ -2,7 +2,7 @@
   <q-page>
     <!-- content -->
     <div>
-      <q-table v-model:data="getAllPincodes" table-class="customSATableClass" :columns="columns" :filter="filter" :pagination="serverPagination" row-key="name" :loading="loading" @request="searchRequest" color="grey-9">
+      <q-table :rows="getAllPincodes" table-class="customSATableClass" :columns="columns" :filter="filter" :pagination="serverPagination" row-key="name" :loading="loading" @request="searchRequest" color="grey-9">
         <q-td v-slot:body-cell-action="props" :props="props">
           <div class="row no-wrap no-padding">
             <q-btn dense no-caps no-wrap label="Modify" icon="far fa-plus-square" size="md" @click="fnShowEditPincode(props.row)" flat class="text-light-blue">

@@ -20,7 +20,7 @@
         <!-- Targets -->
         <q-tab-panel class="no-padding" name="tab-1">
           <q-table
-            v-model:data="getAllUsers"
+            :rows="getAllUsers"
             :columns="columns"
             table-class="customSATableClass"
             :filter="filterSearch"
@@ -129,10 +129,10 @@
               <!--ENDv-model: Tabs -->
             </template>
           </q-table>
-        </q-tab-panell>
+        </q-tab-panel>
         <q-tab-panel class="no-padding" name="tab-2">
           <q-table
-            :data="getAllUsers"
+            :rows="getAllUsers"
             :columns="columns"
             table-class="customSATableClass"
             :filter="filterSearchDeactivated"
@@ -216,7 +216,7 @@
               <!--END: Tabs -->
             </template>
           </q-table>
-        </q-tab-panell>
+        </q-tab-panel>
       </q-tabs>
       <deleteUsersDetails
         v-if="showDeleteUserDetails"

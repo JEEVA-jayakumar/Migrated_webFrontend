@@ -24,7 +24,7 @@
               <label>{{ menu.value.spare_parts_types }}</label>
               <input :id="menu.value.id + '_IP'" type="number" min="1" max="5000" @blur="getAllCounts($event, menu)" />
               <!-- <q-btn type="button" align="center" size="sm" color="purple">Save</q-btn> &nbsp;&nbsp;&nbsp; -->
-              <q-btn type="button" align="center" size="sm" color="purple" v-model:disable="dis()" @click="fnSubmit(formData)">Submit</q-btn>
+              <q-btn type="button" align="center" size="sm" color="purple" :disabled="dis()" @click="fnSubmit(formData)">Submit</q-btn>
             </div>
           </div>
         </div>
@@ -39,7 +39,7 @@
           ">
           Stock List
         </div>
-        <q-table :data="tableData" table-class="customSATableClass" :columns="columns"
+        <q-table :rows="tableData" table-class="customSATableClass" :columns="columns"
           :pagination="paginationControl" row-key="name" color="grey-9">
           <q-td v-slot:body-cell-created_date="props" :props="props">{{ props.row.created_date | moment("Do MMM Y") }}</q-td>
           <q-td v-slot:body-cell-updated_date="props" :props="props">{{ props.row.updated_date | moment("Do MMM Y") }}</q-td>
@@ -51,7 +51,7 @@
 
 <script>
 import { required } from '@vuelidate/validators';
-import Vue from "vue";
+
 import VueBarcodeScanner from "vue-barcode-scanner";
 Vue.use(VueBarcodeScanner);
 import { mapGetters, mapActions } from "vuex";

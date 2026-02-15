@@ -42,7 +42,7 @@
     </div>
     <q-table
       table-class="customTableClass"
-      v-model:data="getActiveandDeactiveLeadSource"
+      :rows="getActiveandDeactiveLeadSource"
       :columns="columns"
       :pagination="paginationControl"
       row-key="id"

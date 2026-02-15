@@ -2363,7 +2363,7 @@ import {
   between
 } from "@vuelidate/validators";
 import { LocalStorage } from "quasar";
-import Vuelidate from "vuelidate";
+
 import { date } from "quasar";
 import { ref } from "vue";
 // import { QDate } from "quasar";

@@ -2,7 +2,7 @@
     <div>
         <q-dialog
         minimized
-        v-model="propShowCreateRegions"  
+        :model-value="propShowCreateRegions"
         @hide="emitfnshowAddRegions" 
         @escape-key="emitfnshowAddRegions"  
         class="customModalOverlay" 

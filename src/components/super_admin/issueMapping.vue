@@ -18,7 +18,7 @@
         />
         <q-tab-panel name="tab-1">
           <q-table
-            v-model:data="tableData"
+            :rows="tableData"
             table-class="customSATableClass"
             :columns="columns1"
             :filter="filterSearch"
@@ -90,11 +90,11 @@
               </div>
             </template>
           </q-table>
-        </q-tab-panell>
+        </q-tab-panel>
 
         <q-tab-panel name="tab-2">
           <q-table
-            v-model:data="tableData1"
+            :rows="tableData1"
             table-class="customSATableClass"
             :columns="columns2"
             :filter="filterSearch1"
@@ -146,7 +146,7 @@
                 </div>
             </template>
           </q-table>
-        </q-tab-panell>
+        </q-tab-panel>
       </q-tabs>
 
       <!--START: Show edit  service Parts -->

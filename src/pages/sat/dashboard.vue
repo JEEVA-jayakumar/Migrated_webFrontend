@@ -428,7 +428,7 @@
                 </q-card-section>
                 <q-card-section>
                   <div>
-                    <q-table dense hide-bottom v-model:data="agingTrackerPendingTableData"
+                    <q-table dense hide-bottom :rows="agingTrackerPendingTableData"
                       :columns="agingTrackerPendingColumns" :pagination="paginationControl" row-key="name">
                       <q-td v-slot:body-cell-name="props" :props="props">{{ props.row.name }}</q-td>
                       <q-td v-slot:body-cell-greaterThanOneDay="props" :props="props" class="cursor-pointer"

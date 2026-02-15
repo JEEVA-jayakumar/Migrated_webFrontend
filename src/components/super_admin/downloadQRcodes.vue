@@ -6,7 +6,7 @@
       </div>
       <q-table
         table-class="customTableClass"
-        v-model:data="getAllQRList"
+        :rows="getAllQRList"
         :columns="columns"
         :filter="filter"
         :pagination="paginationControl"
@@ -47,7 +47,7 @@
             />
           </div>
           <!-- <div class="col-md-5">
-            <downloadExcel :data="getAllPodList" :fields="json_fields" name="QRList.xls">
+            <downloadExcel :rows="getAllPodList" :fields="json_fields" name="QRList.xls">
               <q-btn outline color="grey-9" label="Download as excel" />
             </downloadExcel>
           </div>-->

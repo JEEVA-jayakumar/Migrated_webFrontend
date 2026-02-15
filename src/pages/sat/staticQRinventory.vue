@@ -34,7 +34,7 @@
               <q-input class="col-4" clearable color="grey-9" placeholder="Type.." v-model="filter"
                 float-label="Search By POD Number" />
             </div>
-            <q-table table-class="customTableClass" class="q-py-none" v-model:data="tableData" :columns="columns"
+            <q-table table-class="customTableClass" class="q-py-none" :rows="tableData" :columns="columns"
               :filter="filter" :rows-per-page-options="[5, 10, 15]" :pagination="paginationControl"
               :loading="toggleAjaxLoadFilter" @request="ajaxLoadAllLeadInfo">
               <q-td v-slot:body-cell-updatedAt="props" :props="props">{{
@@ -48,14 +48,14 @@
 
               </q-td>
             </q-table>
-          </q-tab-panell>
+          </q-tab-panel>
           <q-tab-panel name="tab-2">
             <div class="row">
               <div class="col-8"></div>
               <q-input class="col-4" v-model="filter1" clearable color="grey-9" placeholder="Type.."
                 float-label="Search By POD Number" />
             </div>
-            <q-table table-class="customTableClass" class="q-py-none" v-model:data="tableData1" :columns="columns2"
+            <q-table table-class="customTableClass" class="q-py-none" :rows="tableData1" :columns="columns2"
               :filter="filter1" :rows-per-page-options="[5, 10, 15]" :pagination="paginationControl1"
               :loading="toggleAjaxLoadFilter1" @request="ajaxLoadAllLeadInfo1">
               <q-td v-slot:body-cell-updatedAt="props" :props="props">{{
@@ -64,7 +64,7 @@
               }}</q-td>
             </q-table>
 
-          </q-tab-panell>
+          </q-tab-panel>
           <q-tab-panel name="tab-3">
             <div>
               <!-- <div class="col-md-9 col-sm-12 col-xs-12">
@@ -149,7 +149,7 @@
               <q-input class="col-4" v-model="filter4" clearable color="grey-9" placeholder="Type.."
                 float-label="Search By POD Number" />
             </div>
-            <q-table table-class="customTableClass" class="q-py-none" v-model:data="tableData4" :columns="columns4"
+            <q-table table-class="customTableClass" class="q-py-none" :rows="tableData4" :columns="columns4"
               :filter="filter4" :rows-per-page-options="[5, 10, 15]" :pagination="paginationControl4"
               :loading="toggleAjaxLoadFilter4" @request="ajaxLoadAllLeadInfo4">
               <q-td v-slot:body-cell-createdAt="props" :props="props">{{
@@ -157,14 +157,14 @@
                 moment("Do MMM Y")
               }}</q-td>
             </q-table>
-              </q-tab-panell>
+              </q-tab-panel>
               <q-tab-panel name="tab-5">
                 <div class="row">
               <div class="col-8"></div>
               <q-input class="col-4" v-model="filter5" clearable color="grey-9" placeholder="Type.."
                 float-label="Search By POD Number" />
             </div>
-            <q-table table-class="customTableClass" class="q-py-none" v-model:data="tableData5" :columns="columns5"
+            <q-table table-class="customTableClass" class="q-py-none" :rows="tableData5" :columns="columns5"
               :filter="filter5" :rows-per-page-options="[5, 10, 15]" :pagination="paginationControl5"
               :loading="toggleAjaxLoadFilter5" @request="ajaxLoadAllLeadInfo5">
               <q-td v-slot:body-cell-createdAt="props" :props="props">{{
@@ -172,14 +172,14 @@
                 moment("Do MMM Y")
               }}</q-td>
             </q-table>
-              </q-tab-panell>
+              </q-tab-panel>
               <q-tab-panel name="tab-6">
                 <div class="row">
               <div class="col-8"></div>
               <q-input class="col-4" v-model="filter6" clearable color="grey-9" placeholder="Type.."
                 float-label="Search By POD Number" />
             </div>
-            <q-table table-class="customTableClass" class="q-py-none" v-model:data="tableData6" :columns="columns6"
+            <q-table table-class="customTableClass" class="q-py-none" :rows="tableData6" :columns="columns6"
               :filter="filter6" :rows-per-page-options="[5, 10, 15]" :pagination="paginationControl6"
               :loading="toggleAjaxLoadFilter6" @request="ajaxLoadAllLeadInfo6">
               <q-td v-slot:body-cell-createdAt="props" :props="props">{{
@@ -187,9 +187,9 @@
                 moment("Do MMM Y")
               }}</q-td>
             </q-table>
-              </q-tab-panell>
+              </q-tab-panel>
             </q-tabs>
-          </q-tab-panell>
+          </q-tab-panel>
         </q-tabs>
       </div>
       <div v-if="toggleAjaxLoadFilter || toggleAjaxLoadFilter1" class="fullscreen spinner-overlay">
@@ -202,8 +202,7 @@
   </q-page>
 </template>
 <script>
-import Vue from 'vue'
-import { request } from 'http'
+
 import { minValue, required,}from "@vuelidate/validators";
 import { mapGetters, mapActions } from 'vuex'
 import staticQrRegionApprove from '../../components/sat/staticQrRegionApprove.vue'

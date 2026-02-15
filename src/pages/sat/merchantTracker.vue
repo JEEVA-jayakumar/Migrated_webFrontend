@@ -9,7 +9,7 @@
         <!--START: table data -->
         <q-table
             table-class="customTableClass"
-            :data="tableData"
+            :rows="tableData"
             :columns="columns"
             :filter="filter"
             :pagination="paginationControl"
@@ -75,7 +75,7 @@
                 <!--START: table excel download -->
                 <div class="col-md-4">
                   <downloadExcel
-                  :data="tableData"
+                  :rows="tableData"
                   :fields="columns.label"
                   name="Merchant Tracker - TID.xls">
                     <q-btn 

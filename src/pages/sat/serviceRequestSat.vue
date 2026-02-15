@@ -17,11 +17,11 @@
            
             <q-tab-panel name="internal">
               <internalserviceRequest/>
-            </q-tab-panell>
+            </q-tab-panel>
            
             <q-tab-panel name="external">
               <externalserviceRequest/>
-            </q-tab-panell>
+            </q-tab-panel>
           </q-tabs>
         </div>
       </div>

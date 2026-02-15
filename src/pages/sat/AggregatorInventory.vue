@@ -25,34 +25,34 @@
   
               <q-tab-panel name="Aggregatorspare">
                 <AggregatorsInventoryspareParts/>
-              </q-tab-panell>
+              </q-tab-panel>
 
               <q-tab-panel name="Aggregatorcount">
                 <AggregatorinventoryCount  />
-              </q-tab-panell>
+              </q-tab-panel>
   
               <q-tab-panel name="AggregatorDispatch">
                 <AggregatorDispatchedInventory
                 />
-              </q-tab-panell>
+              </q-tab-panel>
               <q-tab-panel name="AggregatorDamagedDevices">
               <AggregatorshowAddDamagedDevices
                 :propDeviceTypes="getAllRegionalInventoryDeviceDetailsWithCount"
               />
-            </q-tab-panell>
+            </q-tab-panel>
   
               <q-tab-panel name="AggregatorAllocatetoso">
                 <AggregatorInventoryallocatetoso />
-              </q-tab-panell>
+              </q-tab-panel>
               <q-tab-panel name="AggregatorAllocateSotoso">
                 <AggregatorSOtoso />
-              </q-tab-panell>
+              </q-tab-panel>
               <q-tab-panel name="AggregatorInventoryWithSo">
                   <AggregatorInventoryWithSo />
-              </q-tab-panell>
+              </q-tab-panel>
               <q-tab-panel name="RequestSOList">
                 <AggregatorSODeviceReassigned />
-              </q-tab-panell>
+              </q-tab-panel>
             </q-tabs>
           </div>
         </div>

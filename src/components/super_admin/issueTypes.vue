@@ -6,7 +6,7 @@
           <q-tab  color="dark" name="tab-4" slot="title" label="Deactive Issue Types" />
         <!-- <q-tab-panel name="tab-1">
           <q-table 
-          v-model:data="ActivetableData"
+          :rows="ActivetableData"
           table-class="customSATableClass" 
           :columns="columns" 
           :filter="filterSearch"
@@ -50,10 +50,10 @@
               </div>
             </template>
           </q-table>
-        </q-tab-panell>
+        </q-tab-panel>
         <q-tab-panel name="tab-2">
           <q-table 
-          v-model:data="DeactivetableData"
+          :rows="DeactivetableData"
           table-class="customSATableClass" 
           :columns="columns" 
           :filter="filterSearch2"
@@ -91,10 +91,10 @@
               </div>
             </template>
           </q-table>
-        </q-tab-panell> -->
+        </q-tab-panel> -->
 
         <q-tab-panel name="tab-3">
-          <q-table v-model:data="ActivetableData" table-class="customSATableClass" :columns="columns1" :filter="filterSearch1"
+          <q-table :rows="ActivetableData" table-class="customSATableClass" :columns="columns1" :filter="filterSearch1"
             :pagination="paginationControl" :filter-method="myCustomSearchFilter1" row-key="name" color="grey-9">
             <q-td v-slot:body-cell-createdDate="props" :props="props">{{
                 props.row.createdDate | moment("Do MMM Y")
@@ -122,10 +122,10 @@
               </div>
             </template>
           </q-table>
-        </q-tab-panell>
+        </q-tab-panel>
         <q-tab-panel name="tab-4">
           <q-table 
-          v-model:data="DeactivetableData"
+          :rows="DeactivetableData"
           table-class="customSATableClass" 
           :columns="columns4" 
           :filter="filterSearch3"
@@ -154,7 +154,7 @@
               </div>
             </template>
           </q-table>
-        </q-tab-panell>
+        </q-tab-panel>
       </q-tabs>
       <!--START: Show edit  service Parts -->
       <showEditServiceType v-if="propShowEditServiceType" :propShowEditServiceType="propShowEditServiceType"

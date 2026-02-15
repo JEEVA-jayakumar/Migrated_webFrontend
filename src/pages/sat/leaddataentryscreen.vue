@@ -149,11 +149,11 @@
                   </div>
                 </form>
               </div>
-            </q-tab-panell>
+            </q-tab-panel>
             <q-tab-panel name="wiplead" @input="fetchappData">
               <div>
                 <!-- <q-pull-to-refresh :distance="30" :handler="PullToRefresh" inline> -->
-                <q-table class="my-sticky-header-table" title="Wip Lead Information" :data="getShortLead"
+                <q-table class="my-sticky-header-table" title="Wip Lead Information" :rows="getShortLead"
                   :columns="columns" row-key="name">
                   <q-td v-slot:body-cell-shortleadDate="props" :props="props">{{ props.row.shortleadDate |
                       moment("Do MMM Y")
@@ -200,7 +200,7 @@
                   ></convertToSat>
                 <!-- </q-pull-to-refresh> -->
               </div>
-            </q-tab-panell>
+            </q-tab-panel>
           </q-tabs>
         </div>
       </div>
@@ -423,17 +423,17 @@ export default {
       },
       ownerFirstName: {
         required: requiredIf(function () {
-          return this.selectedVas == 'AMEX' ? true : false;
+          return this.selectedVas == 'AMEX' ;
         })
       },
       ownerDOB: {
         required: requiredIf(function () {
-          return this.selectedVas == 'AMEX' ? true : false;
+          return this.selectedVas == 'AMEX' ;
         })
       },
       ownerLastName: {
         required: requiredIf(function () {
-          return this.selectedVas == 'AMEX' ? true : false;
+          return this.selectedVas == 'AMEX' ;
         })
       },
       vasInstanceMapping: {

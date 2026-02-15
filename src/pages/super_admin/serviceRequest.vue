@@ -20,26 +20,26 @@
             <q-tab name="csSubIssue" label="CS Sub Issue" slot="title" />
             <q-tab-panel name="serviceRequest">
               <serviceRequest/>
-            </q-tab-panell>
+            </q-tab-panel>
             <q-tab-panel name="issueTypes">
               <issueTypes/>
-            </q-tab-panell>
+            </q-tab-panel>
             <q-tab-panel name="serviceStatus">
               <serviceStatus/>
-            </q-tab-panell>
+            </q-tab-panel>
             
             <q-tab-panel name="cancelled">
               <cancelled/>
-            </q-tab-panell>
+            </q-tab-panel>
             <q-tab-panel name="serviceResolutionRemarks">
               <serviceResolutionRemarks/>
-            </q-tab-panell>
+            </q-tab-panel>
             <q-tab-panel name="issueMapping">
               <issueMapping/>
-            </q-tab-panell>
+            </q-tab-panel>
             <q-tab-panel name="csSubIssue">
               <csSubIssue/>
-            </q-tab-panell>
+            </q-tab-panel>
           </q-tabs>
         </div>
       </div>

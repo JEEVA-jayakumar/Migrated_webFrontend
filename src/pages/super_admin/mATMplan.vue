@@ -143,7 +143,7 @@
       <!-- START >> Table >> rental charge details -->
       <!-- <div class="col-md-7 col-sm-8 col-xs-12">
         <q-table
-          v-model:data="tableData"
+          :rows="tableData"
           table-class="customSATableClass"
           :columns="columns"
           :filter="filterSearch"

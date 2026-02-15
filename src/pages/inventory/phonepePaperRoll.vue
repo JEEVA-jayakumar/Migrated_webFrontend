@@ -50,7 +50,7 @@
           <q-table
             table-class="customTableClass"
             class="q-py-none"
-            v-model:data="tableData"
+            :rows="tableData"
             :columns="columns"
             :filter="filter"
             :rows-per-page-options="[5, 10, 15]"
@@ -115,7 +115,7 @@
               }}</q-td
             >
           </q-table>
-        </q-tab-panell>
+        </q-tab-panel>
         <q-tab-panel name="tab-2">
           <div class="row">
             <q-input
@@ -130,7 +130,7 @@
           <q-table
             table-class="customTableClass"
             class="q-py-none"
-            v-model:data="tableData1"
+            :rows="tableData1"
             :columns="columns2"
             :filter="filter1"
             :rows-per-page-options="[5, 10, 15]"
@@ -172,7 +172,7 @@
               </div>
             </q-td>
           </q-table>
-        </q-tab-panell>
+        </q-tab-panel>
         <q-tab-panel name="tab-3">
           <div class="row">
             <q-input
@@ -187,7 +187,7 @@
           <q-table
             table-class="customTableClass"
             class="q-py-none"
-            v-model:data="tableData2"
+            :rows="tableData2"
             :columns="columns3"
             :filter="filter2"
             :rows-per-page-options="[5, 10, 15]"
@@ -223,7 +223,7 @@
               }}</q-td
             >
           </q-table>
-        </q-tab-panell>
+        </q-tab-panel>
       </q-tabs>
     </div>
     <phonepePaperRollScan

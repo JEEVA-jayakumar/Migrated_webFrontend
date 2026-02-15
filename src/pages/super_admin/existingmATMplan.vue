@@ -3,7 +3,7 @@
     <div>
       <q-table
         table-class="customTableClass"
-        v-model:data="tableData"
+        :rows="tableData"
         :columns="columns"
         :filter="filter"
         :pagination="paginationControl"

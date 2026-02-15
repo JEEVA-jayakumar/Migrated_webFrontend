@@ -425,7 +425,7 @@
         title="Lead Validation"
         table-class="customTableClass"
         class="q-py-none"
-        :data="getAllRegionalInventorySerialNumbersByDevice"
+        :rows="getAllRegionalInventorySerialNumbersByDevice"
         :columns="columnData"
         :filter="filter"
         :pagination="paginationControl"
@@ -471,7 +471,7 @@
           </div>
           <div class="col-md-5">
             <downloadExcel
-              :data="getAllRegionalInventorySerialNumbersByDevice"
+              :rows="getAllRegionalInventorySerialNumbersByDevice"
               :fields="json_fields"
               name="InventoryWithSO.xls"
             >

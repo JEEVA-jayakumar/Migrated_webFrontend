@@ -6,7 +6,7 @@
    
     <q-table
       table-class="customTableClass"
-      v-model:data="tableData"
+      :rows="tableData"
       :columns="columns"
       :filter="filter"
       :pagination="paginationControl"
@@ -114,9 +114,9 @@
 
 <script>
 import { mapGetters, mapActions } from "vuex";
-import Vuelidate from "vuelidate";
-import Vue from "vue";
-Vue.use(Vuelidate);
+
+
+
 import { date } from "quasar";
 const today = new Date();
 const { startOfDate, addToDate, subtractFromDate } = date;

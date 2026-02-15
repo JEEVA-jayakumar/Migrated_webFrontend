@@ -1,5 +1,5 @@
 import api from "../api.js";
-import Vue from "vue";
+
 export const MARS_FINAL_SUBMIT_INTERNAL = ({
     commit
   }, request) => {

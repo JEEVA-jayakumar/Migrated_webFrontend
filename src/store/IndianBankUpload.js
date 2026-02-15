@@ -1,4 +1,4 @@
-import Vue from "vue"
+
 import api from "./api.js";
 
 /* START >> Store modules => Super Admin Users */

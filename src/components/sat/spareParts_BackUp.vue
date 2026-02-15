@@ -37,7 +37,7 @@
             <q-btn
               no-caps
               :disabled="
-                formData.marsDeviceIdsCooked.length == 0 ? true v-model: false
+                formData.marsDeviceIdsCooked.length == 0
               "
               label="Assign"
               class="common-dark-blue"
@@ -49,7 +49,7 @@
       <!--START: table lead validation  -->
       <q-table
         table-class="customTableClass"
-        :data="tableData"
+        :rows="tableData"
         :columns="columns"
         :filter="filter"
         selection="multiple"

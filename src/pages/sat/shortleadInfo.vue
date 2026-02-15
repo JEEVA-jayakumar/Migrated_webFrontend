@@ -5,7 +5,7 @@
       <q-table
         class="my-sticky-header-table"
         title="Short Lead Information"
-        :data="getShortLead"
+        :rows="getShortLead"
         :columns="columns"
         row-key="name"
       >

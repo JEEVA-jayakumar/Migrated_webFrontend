@@ -21,7 +21,7 @@
 
 
       <!--STARTv-model: table lead validation -->
-      <q-table row-key="name" :filter="filter" :data="tableData" class="q-py-none" :columns="columns"
+      <q-table row-key="name" :filter="filter" :rows="tableData" class="q-py-none" :columns="columns"
         title="Lead Validation" table-class="customTableClass" :pagination="paginationControl"
         @request="ajaxLoadAllLeadInfo">
         <!--START: table body modification  device-->
@@ -73,7 +73,7 @@
 
 <script>
 import { required } from '@vuelidate/validators';
-import Vue from "vue";
+
 import VueBarcodeScanner from "vue-barcode-scanner";
 import downloadExcel from "vue-json-excel";
 Vue.use(VueBarcodeScanner);
@@ -270,7 +270,7 @@ export default {
     ...mapGetters("Prefix", ["getAllPrefixDetails"])
     // disabledButton() {
     //   return _.find(this.formData.scannedItems, function(oo) {
-    //     return oo.deviceSerialNumbers.length > 0 ? true : false;
+    //     return oo.deviceSerialNumbers.length > 0 ;
     //   }) == undefined
     //     ? true
     //     : false;

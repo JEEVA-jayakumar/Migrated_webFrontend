@@ -7,7 +7,7 @@
       <pre>{{ getAllUsers }}</pre>
       <h2>tttt</h2>
       <pre>{{ testData }}</pre>
-			<q-table v-model:data="getAllUsers" :columns="columns" :filter="filterSearch" selection="multiple" :selected="selectedSecond" v-model:pagination="paginationControl" :loading="tableAjaxLoading" row-key="name" color="grey-9">
+			<q-table :rows="getAllUsers" :columns="columns" :filter="filterSearch" selection="multiple" :selected="selectedSecond" v-model:pagination="paginationControl" :loading="tableAjaxLoading" row-key="name" color="grey-9">
 				
 				<q-td v-slot:body-cell-sales="props" :props="props">
 					<img :src="props.row.profilePicture" class="avatar">

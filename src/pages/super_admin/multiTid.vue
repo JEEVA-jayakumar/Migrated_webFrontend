@@ -8,7 +8,7 @@
         <!-- <q-tab color="dark" name="deactive" slot="title" label="Deactive TID" /> -->
 
         <q-tab-panel name="active">
-          <q-table v-model:data="getlsVasHostInstanceDetails" table-class="customSATableClass" :columns="columns" :filter="filterSearch"
+          <q-table :rows="getlsVasHostInstanceDetails" table-class="customSATableClass" :columns="columns" :filter="filterSearch"
             :pagination="paginationControl" :filter-method="myCustomSearchFilter" row-key="name" color="grey-9"
             @request="ajaxLoadAllLeadInfo">
 
@@ -40,7 +40,7 @@
               </div>
             </template>
           </q-table>
-        </q-tab-panell>
+        </q-tab-panel>
 
 
 

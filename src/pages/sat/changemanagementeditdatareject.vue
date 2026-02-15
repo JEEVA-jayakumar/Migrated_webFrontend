@@ -64,7 +64,7 @@
             </div> -->
               <div class="col-xs-12 col-sm-6">
              <!-- <p class="caption">Pricing Exception</p> -->
-                   <q-checkbox v-model="check" :disable="this.getImplementedQueue.leadInformation.cmsLeadStatus==15?false:true" color="positive" label="Pricing Exception" left-label />
+                   <q-checkbox v-model="check" :disable="this.getImplementedQueue.leadInformation.cmsLeadStatus==15" color="positive" label="Pricing Exception" left-label />
             </div>
          </div>
         </div>
@@ -1349,7 +1349,7 @@ import {
 import moment from "moment";
 import { mapGetters, mapActions } from "vuex";
 import { uid } from "quasar";
-import Vue from "vue";
+
 import MarsErrorResponse from "../../components/MarsErrorResponseHandler.vue";
 import showPdfModalComponent from "../../components/sat/showPdfModalComponent.vue";
 

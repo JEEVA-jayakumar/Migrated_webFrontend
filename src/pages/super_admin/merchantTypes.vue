@@ -102,7 +102,7 @@
           <q-tab-panel name="tab-1">
             <q-table
               table-class="customTableClass"
-              v-model:data="activatedTableData"
+              :rows="activatedTableData"
               :columns="activatedColumns"
               :filter="filterSearch"
               :pagination="pagination"
@@ -150,11 +150,11 @@
                 <!--ENDv-model: table filter,search -->
               </template>
             </q-table>
-          </q-tab-panell>
+          </q-tab-panel>
           <q-tab-panel name="tab-2">
             <q-table
               table-class="customTableClass"
-              :data="deActivatedTableData"
+              :rows="deActivatedTableData"
               :columns="deActivatedColumns"
               :filter="filterSearch"
               :pagination="pagination"
@@ -202,7 +202,7 @@
                 <!--END: table filter,search -->
               </template>
             </q-table>
-          </q-tab-panell>
+          </q-tab-panel>
         </q-tabs>
       </div>
       <!-- END >> Table >> MDR details -->
@@ -497,7 +497,7 @@ export default {
       this.$v.formData.$touch();
       if (this.$v.formData.$error) {
       } else {
-      formData.hasSubDoc = this.formData.viewType ? false : true;
+      formData.hasSubDoc = this.formData.viewType ;
       delete formData.parentIDtemp;
       let requestParams = {
         url: {

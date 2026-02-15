@@ -1,6 +1,6 @@
 
 import api from "../api.js";
-import Vue from "vue";
+
 export const GET_HOST_DETAILS = ({
     commit
   }, request) => {

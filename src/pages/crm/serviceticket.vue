@@ -80,14 +80,14 @@
                 <q-btn
                   type="button"
                   color="purple-9"
-                  :disabled="formData.fileSelected.length == 0 ? true : false"
+                  :disabled="formData.fileSelected.length == 0 "
                   label="Upload"
                   @click="uploadlist"
                 />
               </div>
             </div>
           </div>
-        </q-tab-panell>
+        </q-tab-panel>
         <q-tab-panel name="tab-2">
           <div class="q-pa-md">
             <div class="row text-center justify-center">
@@ -153,14 +153,14 @@
                 <q-btn
                   type="button"
                   color="purple-9"
-                  :disabled="formData1.fileSelected.length == 0 ? true : false"
+                  :disabled="formData1.fileSelected.length == 0 "
                   label="Upload"
                   @click="uploadlist1(formData1)"
                 />
               </div>
             </div>
           </div>
-        </q-tab-panell>
+        </q-tab-panel>
       </q-tabs>
     </div>
     <div
@@ -173,7 +173,7 @@
 </template>
 <script>
 import { or } from '@vuelidate/validators';
-import Vue from "vue";
+
 import { mapGetters, mapActions } from "vuex";
 
 export default {

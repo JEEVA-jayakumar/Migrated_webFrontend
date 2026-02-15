@@ -25,7 +25,7 @@
     <!--START: table lead validation -->
     <q-table
       table-class="customTableClass"
-      :data="getAllShortLeadInfo"
+      :rows="getAllShortLeadInfo"
       :columns="columns"
       :filter="filter"
       :pagination="paginationControl"

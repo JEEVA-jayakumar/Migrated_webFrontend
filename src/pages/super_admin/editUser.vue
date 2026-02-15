@@ -427,17 +427,16 @@ export default {
             showBankOpsList:
             
               innerSelf.getAllUserByUserIdData.bankOpsUser == null
-                ? false
-                : true,
-             disableRegionSelection: innerSelf.getAllUserByUserIdData.roles[0].hierarchy.hierarchyCode == "CU" && innerSelf.getAllUserByUserIdData.serviceReqClients == null ? true : false,
+                ,
+             disableRegionSelection: innerSelf.getAllUserByUserIdData.roles[0].hierarchy.hierarchyCode == "CU" && innerSelf.getAllUserByUserIdData.serviceReqClients == null ,
             //  -UAT ------: this.formData.showAllRoleDetails == 24 
           // Production ------: this.formData.showAllRoleDetails == 25 
           // UAT SERVICE REQUEST(HIERARCHY ID -- 8) AND CRM USER (HIERARCHY ID -- 10)
         // PRODUCTION SERVICE REQUEST(HIERARCHY ID -- 9) AND CRM USER (HIERARCHY ID -- 10)
-             disableRegionSelection: innerSelf.getAllUserByUserIdData.bankOpsUser != null ? true : (innerSelf.getAllUserByUserIdData.roles[0].hierarchy.id == 10 ? true : false),
-             disableRegionSelection: innerSelf.getAllUserByUserIdData.serviceReqClients == null  && innerSelf.getAllUserByUserIdData.roles[0].hierarchy.hierarchyCode != "CU" ? false : true,
+             disableRegionSelection: innerSelf.getAllUserByUserIdData.bankOpsUser != null ? true : (innerSelf.getAllUserByUserIdData.roles[0].hierarchy.id == 10 ),
+             disableRegionSelection: innerSelf.getAllUserByUserIdData.serviceReqClients == null  && innerSelf.getAllUserByUserIdData.roles[0].hierarchy.hierarchyCode != "CU" ,
             
-            // disableRegionSelection:(innerSelf.getAllUserByUserIdData.bankOpsUser == null || innerSelf.getAllUserByUserIdData.serviceReqClients == null ? false: true),
+            // disableRegionSelection:(innerSelf.getAllUserByUserIdData.bankOpsUser == null || innerSelf.getAllUserByUserIdData.serviceReqClients == null ),
             // leadSource: innerSelf.getAllUserByUserIdData.serviceReqClients != null ? innerSelf.getAllUserByUserIdData.serviceReqClients.sourceId == null ? "No" : "Yes" : null,
             addUserDetails: {
               hasReadPermission:

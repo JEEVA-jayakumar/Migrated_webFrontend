@@ -752,7 +752,7 @@
           <q-card-actions vertical align="end">
             <!-- <q-btn label="EXSITING MDR PLAN" @click="fnEditMdrPlan(formData)" color="purple-9" /> -->
             <q-btn
-              v-model:disabled="Submitdata"
+              :disabled="Submitdata"
               label="submit"
               @click="fnsubmit(formData)"
               color="purple-9"
@@ -764,7 +764,7 @@
       <!-- START >> Table >> MDR details -->
       <div class="col-md-7 col-sm-8 col-xs-12">
         <!-- <q-table
-          :data="tableData"
+          :rows="tableData"
           table-class="customSATableClass"
           :columns="columns"
           :filter="filterSearch"
@@ -848,7 +848,7 @@ import showLeadSourceModalComponent from "../../components/super_admin/showLeadS
 import showDeviceDetailModalComponent from "../../components/super_admin/showDeviceDetailModalComponents.vue";
 import showMerchantModalComponent from "../../components/super_admin/merchantTypes.vue";
 /* END >> Modal components Lead source, device, merchant type */
-import Vue from "vue";
+
 import {
   required,
   requiredIf,
@@ -862,8 +862,8 @@ import {
   minValue,
   decimal,
 } from "@vuelidate/validators";
-Vue.use(Vuelidate);
-import Vuelidate from "vuelidate";
+
+
 import { mapGetters, mapActions } from "vuex";
 export default {
   name: "MDRdetails",

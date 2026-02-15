@@ -1,5 +1,5 @@
 import api from "../api.js";
-import Vue from "vue";
+
 export const FETCH_SHARING_MODEL_BASED_SHARING_PARTNER_CODE = ({
   commit,
   rootState

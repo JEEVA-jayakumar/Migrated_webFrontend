@@ -1,4 +1,4 @@
-import Vue from "vue";
+
 import api from "../api.js";
 
 export const FETCH_CRM_GLOBAL_SEARCH_DATAS = ({ commit }, request) => {

@@ -352,7 +352,7 @@
 
 <script>
 import { not } from '@vuelidate/validators';
-import Vue from "vue";
+
 
 import { mapGetters, mapActions } from "vuex";
 import showPdfModalComponent from "../../components/sat/showPdfModalComponent.vue";

@@ -15,7 +15,7 @@
     <!--START: table lead validation -->
     <q-table
       table-class="customTableClass"
-      :data="getAllMerchantTrackerInfo"
+      :rows="getAllMerchantTrackerInfo"
       :columns="columns"
       :filter="filter"
       :pagination="paginationControl"
@@ -162,7 +162,7 @@
 
 <script>
 import { required } from '@vuelidate/validators';
-import Vue from "vue";
+
 import { mapGetters, mapActions } from "vuex";
 import generalLeadInformation from "../../components/generalLeadInformation.vue";
 export default {

@@ -8,7 +8,7 @@
       <q-table
         table-class="customTableClass"
         class="q-py-none"
-        :data="tableData"
+        :rows="tableData"
         :columns="columns"
         :filter="filter"
         :rows-per-page-options="[5,10,15,20,25]"
@@ -77,9 +77,9 @@
 <script>
 import { required, email, or } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
-import Vuelidate from "vuelidate";
-import Vue from "vue";
-Vue.use(Vuelidate);
+
+
+
 import { date } from "quasar";
 const today = new Date();
 const { startOfDate, addToDate, subtractFromDate } = date;

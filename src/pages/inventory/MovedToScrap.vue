@@ -2,7 +2,7 @@
     <q-page>
       <!-- content -->
       <div>
-        <q-pull-to-refresh v-model:handler="PullToRefresh" inline>
+        <q-pull-to-refresh :handler="PullToRefresh" inline>
           <!--START: table title -->
           <div class="
               col-md-12
@@ -27,7 +27,7 @@
             <q-table
               table-class="customTableClass" 
               :columns="columns" 
-              :data="tableData"
+              :rows="tableData"
               color="grey-9"
               :filter="filterSearch" 
               :pagination="paginationControl"

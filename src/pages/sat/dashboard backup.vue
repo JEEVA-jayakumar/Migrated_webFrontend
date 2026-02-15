@@ -301,7 +301,7 @@
                       </q-list>
                     </div>
                   </div>
-                </q-tab-panell>
+                </q-tab-panel>
               </q-tabs>
               <router-link to="/sat/aging/tracker/pending" class="text-grey-8">
                 <p>View more</p>
@@ -386,7 +386,7 @@
                       </q-list>
                     </div>
                   </div>
-                </q-tab-panell>
+                </q-tab-panel>
               </q-tabs>
               <router-link to="/sat/aging/tracker/pending" class="text-grey-8">
                 <p>View more</p>

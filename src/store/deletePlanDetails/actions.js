@@ -1,4 +1,4 @@
-import Vue from 'vue';
+
 import api from "../api.js";
 export const DELETE_PLAN_DETAILS_DATAS = ({
     commit

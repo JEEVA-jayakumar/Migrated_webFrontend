@@ -103,7 +103,7 @@
                   :sublabel="'Rs. '+propLeadInformation.amountCollected"
                 />
               </q-item>
-              <q-item multiline v-if="merchantType in propLeadInformation?true:false">
+              <q-item multiline v-if="merchantType in propLeadInformation">
                 <q-item-section
                   label="Merchant Type"
                   :sublabel="'Rs. '+propLeadInformation.merchantType.merchantTypeName"

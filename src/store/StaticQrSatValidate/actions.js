@@ -1,4 +1,4 @@
-import Vue from 'vue'
+
 import api from '../api.js'
 
 export const REJECT_QR_LEAD_DOCUMENTS = ({

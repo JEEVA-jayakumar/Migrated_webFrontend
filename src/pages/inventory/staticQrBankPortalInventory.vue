@@ -24,7 +24,7 @@
           <q-table
             table-class="customTableClass"
             class="q-py-none"
-            v-model:data="tableData"
+            :rows="tableData"
             :columns="columns"
             :filter="filter"
             :rows-per-page-options="[50, 100, 150, 200]"
@@ -107,12 +107,12 @@
               </div>
             </q-td>
           </q-table>
-        </q-tab-panell>
+        </q-tab-panel>
         <q-tab-panel name="tab-2">
           <q-table
             table-class="customTableClass"
             class="q-py-none"
-            v-model:data="tableData1"
+            :rows="tableData1"
             :columns="columns2"
             :filter="filter1"
             :rows-per-page-options="[5, 10, 15, 20]"
@@ -147,13 +147,13 @@
               </div>
             </q-td>
           </q-table>
-        </q-tab-panell>
+        </q-tab-panel>
 
         <q-tab-panel name="tab-3">
           <q-table
             table-class="customTableClass"
             class="q-py-none"
-            v-model:data="tableData2"
+            :rows="tableData2"
             :columns="columns3"
             :filter="filter2"
             :rows-per-page-options="[5, 10, 15, 20]"
@@ -174,7 +174,7 @@
               </div>
             </q-td>
           </q-table>
-        </q-tab-panell>
+        </q-tab-panel>
       </q-tabs>
     </div>
     <ScanStaticInventory

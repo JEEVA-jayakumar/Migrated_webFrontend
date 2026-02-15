@@ -6,7 +6,7 @@
       >Bijlipay Inventory with Reseller</div>
       <q-table
         table-class="customTableClass"
-        v-model:data="getAllInventoryWithResellar"
+        :rows="getAllInventoryWithResellar"
         :columns="columns"
         :filter="filter"
         :pagination="paginationControl"
@@ -64,7 +64,7 @@
             @click="downloadInventoryResellerList()" />
            
             <!-- <downloadExcel
-              :data="getAllInventoryWithResellar"
+              :rows="getAllInventoryWithResellar"
               :fields="json_fields"
               name="InventoryWithReseller.xls"
             >

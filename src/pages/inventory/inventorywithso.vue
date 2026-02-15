@@ -6,7 +6,7 @@
       >Bijlipay Inventory with SO/Bill Partner/Sub Region</div>
       <q-table
         table-class="customTableClass"
-        v-model:data="getAllInventoryWithSo"
+        :rows="getAllInventoryWithSo"
         :columns="columns"
         :filter="filter"
         :pagination="paginationControl"
@@ -77,7 +77,7 @@
             <!-- <div class="col-md-5">
               
               <downloadExcel
-                :data="getAllInventoryWithSo"
+                :rows="getAllInventoryWithSo"
                 :fields="json_fields"
                 name="InventoryWithSO.xls"
               >

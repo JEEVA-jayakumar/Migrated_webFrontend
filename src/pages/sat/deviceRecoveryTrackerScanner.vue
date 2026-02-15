@@ -28,7 +28,7 @@
 
       <!--START: table Data -->
       <q-table
-        :data="getDeviceScannedItems"
+        :rows="getDeviceScannedItems"
         :columns="columnData"
         table-class="customTableClass shadow-0"
         :filter="filterSearch"
@@ -68,7 +68,7 @@
 
 <script>
 import { required } from '@vuelidate/validators';
-import Vue from "vue";
+
 import VueBarcodeScanner from "vue-barcode-scanner";
 Vue.use(VueBarcodeScanner);
 

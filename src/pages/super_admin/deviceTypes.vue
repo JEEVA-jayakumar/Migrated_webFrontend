@@ -2,7 +2,7 @@
   <q-page>
     <!-- content -->
     <div>
-      <q-table v-model:data="getAllDevicesInfo" table-class="customSATableClass" :columns="columns" :filter="filterSearch" :pagination="paginationControl" :filter-method="myCustomSearchFilter" row-key="name" color="grey-9">
+      <q-table :rows="getAllDevicesInfo" table-class="customSATableClass" :columns="columns" :filter="filterSearch" :pagination="paginationControl" :filter-method="myCustomSearchFilter" row-key="name" color="grey-9">
         <q-td v-slot:body-cell-action="props" :props="props">
           <pre>{{props.row}}  </pre>
           <div class="row no-wrap no-padding">

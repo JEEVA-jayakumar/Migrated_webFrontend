@@ -1,5 +1,5 @@
 import api from "../api.js";
-import Vue from "vue";
+
 export const CITY_FORM_ADDITIONAL_TID = ({
   commit,
   rootState

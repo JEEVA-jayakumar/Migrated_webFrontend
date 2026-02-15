@@ -36,7 +36,7 @@
       </q-card-section>
     </q-card>-->
     <q-table
-      v-model:data="getAllDevicesInfo"
+      :rows="getAllDevicesInfo"
       table-class="customSATableClass"
       :columns="columns"
       :filter="filterSearch"

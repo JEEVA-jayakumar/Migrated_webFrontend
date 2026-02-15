@@ -27,7 +27,7 @@
         title="Lead Validation"
         table-class="customTableClass"
         class="q-py-none"
-        :data="tableData"
+        :rows="tableData"
         :columns="columns"
         :filter="filter"
         row-key="name"

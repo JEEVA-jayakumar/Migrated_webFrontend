@@ -11,7 +11,7 @@
         :propToggleLeadInformationPop="propToggleLeadInformation" @closeLeadInformation="toggleLeadInformation" />
       <!-- content -->
       <!--START: table lead validation -->
-      <q-table table-class="customTableClass" :data="tableData" :columns="columns" :filter="filter"
+      <q-table table-class="customTableClass" :rows="tableData" :columns="columns" :filter="filter"
         :pagination="paginationControl" row-key="name" :loading="toggleAjaxLoadFilter"
         :rows-per-page-options="[5, 10, 15, 20]" @request="ajaxLoadAllLeadInfo">
         <q-td v-slot:body-cell-tid="props" :props="props">

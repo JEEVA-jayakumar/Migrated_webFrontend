@@ -3,7 +3,7 @@
       <!-- content -->
       <div>
        
-        <q-pull-to-refresh v-model:handler="PullToRefresh" inline>
+        <q-pull-to-refresh :handler="PullToRefresh" inline>
           <!--START: table title -->
           <div
             class="col-md-12 text-h6 q-px-lg q-py-md text-weight-regular bottom-border text-grey-9"
@@ -15,7 +15,7 @@
           <q-table
             table-class="customTableClass"
           :columns="columns"
-          :data="tableData"
+          :rows="tableData"
           color="grey-9"
           :filter="filterSearch"
           :pagination="paginationControl"
@@ -80,7 +80,7 @@
               </div>
               <!-- <div class="col-md-5">
                 <downloadExcel
-                  :data="tableData"
+                  :rows="tableData"
                   :fields="json_fields"
                   name="CentralInventory.xls"
                 >

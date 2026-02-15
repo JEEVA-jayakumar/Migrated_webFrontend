@@ -8,7 +8,7 @@
                 <q-tab color="dark" name="tab-3" slot="title" label=" Allocated Pod" />
 
                 <q-tab-panel name="tab-1">
-                    <q-table v-model:data="tableData" table-class="customSATableClass" :columns="columns"
+                    <q-table :rows="tableData" table-class="customSATableClass" :columns="columns"
                         :filter="filterSearch" :pagination="paginationControl"
                         :filter-method="myCustomSearchFilter" row-key="name" color="grey-9"
                         @request="ajaxLoadAllLeadInfo">
@@ -72,9 +72,9 @@
                             <!--ENDv-model: table filter,search -->
                         </template>
                     </q-table>
-                </q-tab-panell>
+                </q-tab-panel>
                 <q-tab-panel name="tab-2">
-                    <q-table :data="tableData1" table-class="customSATableClass" :columns="columns1"
+                    <q-table :rows="tableData1" table-class="customSATableClass" :columns="columns1"
                         :filter="filterSearch1" :pagination="paginationControl1"
                         :filter-method="myCustomSearchFilter" row-key="name" color="grey-9"
                         @request="ajaxLoadAllLeadInfo1">
@@ -159,13 +159,13 @@
               color="purple-9"
               size="md"
              />
-             </div> v-model:data="tableData2"-->
+             </div> :rows="tableData2"-->
                         </template>
                     </q-table>
-                </q-tab-panell>
+                </q-tab-panel>
                 <q-tab-panel name="tab-3">
 
-                    <q-table :data="tableData2" table-class="customSATableClass" :columns="columns2"
+                    <q-table :rows="tableData2" table-class="customSATableClass" :columns="columns2"
                         :filter="filterSearch2" :pagination="paginationControl2"
                         :filter-method="myCustomSearchFilter" row-key="name" color="grey-9"
                         @request="ajaxLoadAllLeadInfo2">
@@ -217,7 +217,7 @@
                             </div>
                         </template>
                     </q-table>
-                </q-tab-panell>
+                </q-tab-panel>
             </q-tabs>
         </div>
     </q-page>

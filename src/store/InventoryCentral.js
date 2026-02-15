@@ -1,6 +1,6 @@
 import { or, and } from '@vuelidate/validators';
 import api from "./api.js";
-import Vue from "vue";
+
 
 /***********
 Common function to convert response as BLOB and create a 

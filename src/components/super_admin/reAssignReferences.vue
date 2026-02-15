@@ -34,7 +34,7 @@
           <q-table
             table-class="customTableClass"
             class="q-py-none"
-            :data="tableData"
+            :rows="tableData"
             :columns="columns"
             selection="multiple"
             :selected="formData.selectedReferencesToReAssign"

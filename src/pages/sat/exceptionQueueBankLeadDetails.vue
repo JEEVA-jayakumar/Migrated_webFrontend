@@ -283,7 +283,6 @@
                         />
                       </q-item-section>
                     </q-item>
-                    </q-item>
                     <q-item class="q-pa-sm">
                        <q-item-section>
                         <q-input

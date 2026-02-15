@@ -83,7 +83,6 @@
 </template>
 
 <script>
-import { request } from "http";
 import { required } from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 import showServiceSubTaskDetails from  "../../components/super_admin/showServiceSubTaskDetails.vue";

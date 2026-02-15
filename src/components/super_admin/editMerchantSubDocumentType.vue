@@ -100,7 +100,7 @@ export default {
         url: {
           id: this.propRowDetails.id,
           merchantType: this.propRowDetails.merchantTypeId,
-          hasSubDoc: this.propRowDetails.viewType ? false : true
+          hasSubDoc: this.propRowDetails.viewType
         },
         params: {
           documentType: this.propRowDetails.parentID,

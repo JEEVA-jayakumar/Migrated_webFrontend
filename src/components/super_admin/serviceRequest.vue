@@ -6,7 +6,7 @@
         <q-tab  color="dark" name="tab-2" slot="title" label="Deactive Service Request" />
         <q-tab-panel name="tab-1">
           <q-table 
-          v-model:data="ActivetableData"
+          :rows="ActivetableData"
           table-class="customSATableClass" 
           :columns="columns2" 
           :filter="filterSearch"
@@ -50,11 +50,11 @@
               </div>
             </template>
           </q-table>
-        </q-tab-panell>
+        </q-tab-panel>
         
         <q-tab-panel name="tab-2">
           <q-table 
-          v-model:data="DeactivetableData"
+          :rows="DeactivetableData"
           table-class="customSATableClass" 
           :columns="columns1" 
           :filter="filterSearch1"
@@ -93,7 +93,7 @@
               </div> -->
             </template>
           </q-table>
-        </q-tab-panell>
+        </q-tab-panel>
               </q-tabs>
               
       <!--START: Show edit  service Parts -->

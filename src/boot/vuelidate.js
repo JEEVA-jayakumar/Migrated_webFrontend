@@ -1,6 +1,4 @@
 import { boot } from 'quasar/wrappers'
-import { VuelidatePlugin } from '@vuelidate/core'
-
 export default boot(({ app }) => {
-  app.use(VuelidatePlugin)
+  // Vuelidate 2 does not need a global plugin
 })

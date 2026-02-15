@@ -1,5 +1,5 @@
 import api from "../api.js";
-import Vue from "vue";
+
 export const DEVICE_WITH_MERCHANT = ({
   commit
 }, request) => {

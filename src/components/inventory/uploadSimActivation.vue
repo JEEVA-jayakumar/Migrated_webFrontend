@@ -105,8 +105,8 @@
 </template>
 
 <script>
-import Vue from "vue";
-import Vuelidate from "vuelidate";
+
+
 import {
   required,
   email,
@@ -118,7 +118,7 @@ import {
   numeric,
   sameAs
 } from "@vuelidate/validators";
-Vue.use(Vuelidate);
+
 import { date } from "quasar";
 const today = new Date();
 const { startOfDate, addToDate, subtractFromDate } = date;

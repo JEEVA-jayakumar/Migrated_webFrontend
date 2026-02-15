@@ -1,7 +1,7 @@
 <template>
     <div>
        <q-dialog
-       v-model="showRejectLeadModel" 
+       :model-value="showRejectLeadModel"
        @hide="emitToggleReject(showRejectLeadModel)" 
        @escape-key="emitToggleReject(showRejectLeadModel)"  
        :content-css="{padding:'50px'}"

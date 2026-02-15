@@ -125,7 +125,7 @@
           </div>
           <div class="col">
             <q-select
-              :disable="deviceSelectOptions.length > 0? false:true"
+              :disable="deviceSelectOptions.length > 0"
               placeholder="Device Type"
               clearable
               color="grey-9"
@@ -170,7 +170,7 @@
         <div class="row group q-mt-xs">
           <div class="col-md-4" v-if="formData.tempAssignedTo == 1">
             <q-select
-              :disable="RSMselectOptions.length > 0? false:true"
+              :disable="RSMselectOptions.length > 0"
               @blur="$v.formData.assignedOpsTo.id.$touch"
               :error="$v.formData.assignedOpsTo.id.$error"
               placeholder="Choose from the below"
@@ -184,7 +184,7 @@
           </div>
           <div class="col-md-4" v-if="formData.tempAssignedTo == 2">
             <q-select
-              :disable="getAllRegionsData.length > 0? false:true"
+              :disable="getAllRegionsData.length > 0"
               placeholder="Choose Region"
               clearable
               color="grey-9"
@@ -198,7 +198,7 @@
           </div>
           <div class="col-md-4" v-if="formData.tempAssignedTo == 2">
             <q-select
-              :disable="ASMselectOptions.length > 0? false:true"
+              :disable="ASMselectOptions.length > 0"
               @blur="$v.formData.assignedOpsTo.id.$touch"
               :error="$v.formData.assignedOpsTo.id.$error"
               placeholder="Choose from the below"

@@ -100,7 +100,7 @@ export default {
       // formData: {
       //   id: this.propRowDetails.id,
 
-      //   multiTidEnabled: this.propRowDetails.multiTidEnabled == true ? true : false,
+      //   multiTidEnabled: this.propRowDetails.multiTidEnabled == true ,
       //   baseTidMidPrefix: this.propRowDetails.baseTidMidPrefix,
       //   lastBaseTid: this.propRowDetails.lastBaseTid == null ? "NA" : this.propRowDetails.lastBaseTid ,
       //   lastBaseMid: this.propRowDetails.lastBaseMid == null ? "NA" : this.propRowDetails.lastBaseMid  

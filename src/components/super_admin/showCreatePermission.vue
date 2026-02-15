@@ -3,7 +3,7 @@
     <q-dialog
     minimized 
     class="customModalOverlay"
-    v-model="propShowCreatePermission"  
+    :model-value="propShowCreatePermission"
     @hide="emitfnshowAddPermissions(propShowCreatePermission)" 
     @escape-key="emitfnshowAddPermissions(propShowCreatePermission)"  
     :content-css="{padding:'30px',minWidth: '30vw'}"

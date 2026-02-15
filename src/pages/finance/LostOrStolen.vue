@@ -17,11 +17,11 @@
              
               <q-tab-panel name="internal">
                 <LostFinance/>
-              </q-tab-panell>
+              </q-tab-panel>
              
               <q-tab-panel name="external">
                 <PhonePeFinanceLostOrStolen/>
-              </q-tab-panell>
+              </q-tab-panel>
             </q-tabs>
           </div>
         </div>

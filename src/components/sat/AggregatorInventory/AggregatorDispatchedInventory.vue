@@ -68,7 +68,7 @@
                 </div>
                 <!--STARTv-model: table damaged device -->
                 <q-table title="Lead Validation" table-class="customTableClass" class="q-py-none"
-                    :data="deviceregionalInventoryList" :columns="columnData" :filter="filter"
+                    :rows="deviceregionalInventoryList" :columns="columnData" :filter="filter"
                     :pagination="paginationControl" :loading="toggleAjaxLoadFilter" row-key="name">
                     <q-td v-slot:body-cell-inboundVerified="props" :props="props">
                         <q-btn flat v-if="props.row.inboundVerifiedStatus == 1" icon="check" color="positive" />

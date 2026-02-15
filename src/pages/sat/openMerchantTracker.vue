@@ -1,7 +1,7 @@
 <template>
   <q-page>
     <div class="capitalize">
-      <q-pull-to-refresh v-model:distance="30" :handler="PullToRefresh" inline>
+      <q-pull-to-refresh :distance="30" :handler="PullToRefresh" inline>
         <!-- //Common lead information in popup -->
         <generalLeadInformation
           v-if="propToggleLeadInformation"
@@ -17,7 +17,7 @@
         <!--START: table open merchant tracker -->
         <q-table
           table-class="customTableClass"
-          :data="tableData"
+          :rows="tableData"
           :columns="columns"
           :filter="filter"
           :pagination="paginationControl"
@@ -89,7 +89,7 @@
                 color="grey-9" />
             </div>-->
             <!-- <div class="col-md-4">
-              <downloadExcel :data="excelTableData" :fields="excelColumnData.field" name="Merchant Transaction Level.xls">
+              <downloadExcel :rows="excelTableData" :fields="excelColumnData.field" name="Merchant Transaction Level.xls">
                 <q-btn outline color="grey-9" label="Download as Excel" class="q-mr-lg q-py-sm float-right" size="md" />
               </downloadExcel>
             </div>-->

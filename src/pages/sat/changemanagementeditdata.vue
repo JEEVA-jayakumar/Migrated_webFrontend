@@ -31,8 +31,7 @@
                 :options="dropDown.planOptions"
                 :disable="
                   this.getImplementedQueue.leadInformation.cmsLeadStatus == 15
-                    ? true
-                    : false
+
                 "
                 @input="fnPlan1"
               />
@@ -47,8 +46,7 @@
                   this.getImplementedQueue.leadInformation.cmsLeadStatus ==
                     15 ||
                   this.getImplementedQueue.leadInformation.cmsLeadStatus == 21
-                    ? false
-                    : true
+
                 "
                 @blur="$v.formdata.paymentOption.$touch"
                 :error="$v.formdata.paymentOption.$error"
@@ -82,17 +80,11 @@
                 color="grey-9"
                 v-model.trim="formdata.cmsCategoryType"
                 float-label="Category Type*"
-                v-if="
-                  this.getAllMarsData.mdrPlan.code != 8 ||
-                  this.getAllMarsData.mdrPlan.code != 9
-                    ? { cmsCategoryTypeOptions }
-                    : false
-                "
+                v-if="this.getAllMarsData.mdrPlan.code != 8 || this.getAllMarsData.mdrPlan.code != 9"
                 :disable="
                   this.getAllMarsData.mdrPlan.code == 8 ||
                   this.getAllMarsData.mdrPlan.code == 9
-                    ? true
-                    : false
+
                 "
                 :options="cmsCategoryTypeOptions"
               />
@@ -113,8 +105,7 @@
                 v-model="check"
                 :disable="
                   this.getImplementedQueue.leadInformation.cmsLeadStatus == 15
-                    ? true
-                    : false
+
                 "
                 color="positive"
                 label="Pricing Exception"
@@ -177,8 +168,7 @@
                 v-model="check"
                 :disable="
                   this.getImplementedQueue.leadInformation.cmsLeadStatus == 15
-                    ? false
-                    : true
+
                 "
                 color="positive"
                 label="Pricing Exception"
@@ -1860,8 +1850,7 @@
             <q-select
               :disable="
                 this.getImplementedQueue.leadInformation.cmsLeadStatus == 22
-                  ? false
-                  : true
+
               "
               placeholder="Choose from the below*"
               color="grey-9"
@@ -2036,7 +2025,7 @@ import {
 import moment from "moment";
 import { mapGetters, mapActions } from "vuex";
 import { uid } from "quasar";
-import Vue from "vue";
+
 import MarsErrorResponse from "../../components/MarsErrorResponseHandler.vue";
 import showPdfModalComponent from "../../components/sat/showPdfModalComponent.vue";
 

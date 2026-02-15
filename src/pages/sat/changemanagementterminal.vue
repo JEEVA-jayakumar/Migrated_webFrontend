@@ -5,7 +5,7 @@
         title="Change Management"
         table-class="customTableClass"
         class="q-py-none"
-        v-model:data="tableData"
+        :rows="tableData"
         :columns="columns"
         row-key="name"
         :filter="filter1"
@@ -134,7 +134,7 @@
               color="grey-9"
               v-model="filter1"
               placeholder="Type.."
-              v-model:debounce="600"
+              :debounce="600"
               class="q-mr-lg q-py-sm"
               float-label="Search By MID/TID/Merchant Name "
             />
@@ -150,7 +150,7 @@
       <q-table
         title="Change Management"
         class="q-py-none"
-        :data="tableData1"
+        :rows="tableData1"
         :columns="columns1"
         row-key="name"
         :filter="filter"

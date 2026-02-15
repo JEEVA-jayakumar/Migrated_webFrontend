@@ -31,10 +31,10 @@
           <!-- <q-tab color="dark" name="rejectedTab" slot="title" label="Rejected Leads" /> -->
           <q-tab-panel name="rejectedTab">
               <varaneekRejectedLead/>
-            </q-tab-panell>
+            </q-tab-panel>
           <q-tab-panel name="statusTab">
             <q-table
-             :data="tableData1"
+             :rows="tableData1"
               :columns="columnData"
               table-class="customTableClass"
               :filter="filterSearch"
@@ -90,7 +90,7 @@
               </template>
             </q-table>
             <!--ENDv-model: table Data -->
-          </q-tab-panell>
+          </q-tab-panel>
         </q-tabs>
   
         <!--END: table Footer -->
