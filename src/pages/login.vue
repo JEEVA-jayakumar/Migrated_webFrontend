@@ -9,29 +9,29 @@
           </div>
         </div>
       </div>
-      <div class="col-md-7 q-px-xl">
-        <div class="row justify-center gutter-md">
-          <div class="col-md-8" align="center">
-            <div class="q-display-1 text-grey-9 text-weight-medium q-py-lg">Please Log In </div>
+      <div class="col-12 col-md-7 q-px-xl">
+        <div class="row justify-center q-col-gutter-md">
+          <div class="col-12 col-sm-10 col-md-8" align="center">
+            <div class="text-h4 text-grey-9 text-weight-medium q-py-lg">Please Log In </div>
           </div>
-          <div class="col-md-8">
-            <q-input v-model.trim="formData.email" @blur="$v.formData.email.$touch" :error="$v.formData.email.$error"
+          <div class="col-12 col-sm-10 col-md-8">
+            <q-input v-model.trim="formData.email" @blur="v$.formData.email.$touch" :error="v$.formData.email.$error"
               label="Email" color="grey-9" placeholder="Enter your email id"
               @keyup.enter="fuSubmitLoginDetails(formData)" />
           </div>
-          <div class="col-md-8">
-            <q-input v-model.trim="formData.password" @blur="$v.formData.password.$touch"
-              :error="$v.formData.password.$error" placeholder="Enter your password"
+          <div class="col-12 col-sm-10 col-md-8">
+            <q-input v-model.trim="formData.password" @blur="v$.formData.password.$touch"
+              :error="v$.formData.password.$error" placeholder="Enter your password"
               @keyup.enter="fuSubmitLoginDetails(formData)" type="password" label="Password" color="grey-9" />
           </div>
-          <div class="col-md-8">
+          <div class="col-12 col-sm-10 col-md-8">
             <q-checkbox v-model="formData.rememberPassword" color="purple-9" label="Remember Password" />
           </div>
-          <div class="col-md-8" align="center">
+          <div class="col-12 col-sm-10 col-md-8" align="center">
             <q-btn class="full-width text-weight-regular q-pa-md" no-caps color="purple-9"
               @click="fuSubmitLoginDetails(formData)" style="max-width:300px">Log In</q-btn>
           </div>
-          <div class="col-md-8" align="center">
+          <div class="col-12 col-sm-10 col-md-8" align="center">
             <q-btn flat no-caps class="text-purple-9 text-weight-regular" color="white"
               @click="fnShowForgetPasswordModal">Forgot your password?</q-btn>
           </div>
@@ -97,7 +97,7 @@ export default {
     showForgetPasswordComp
   },
   setup() {
-    return { $v: useVuelidate() }
+    return { v$: useVuelidate() }
   },
   data() {
     return {
@@ -132,8 +132,8 @@ export default {
     ]),
 
     fuSubmitLoginDetails(request) {
-      this.$v.formData.$touch();
-      if (this.$v.formData.$error) {
+      this.v$.formData.$touch();
+      if (this.v$.formData.$error) {
         this.$q.notify("Please review fields again.");
       } else {
         let iv = CryptoJS.lib.WordArray.random(128 / 8).toString(
