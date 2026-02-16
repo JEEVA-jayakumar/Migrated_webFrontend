@@ -339,7 +339,7 @@
                     </q-step>
                     <q-step name="third" title="Partners" v-if="merchant.companyInformation.constitution == 'PL'">
                       <!-- <pre>{{$v.viewBinding.partnersArr.$each}}</pre> -->
-                        <div v-for="(v,index) in $v.viewBinding.partnersArr.$each.$iter" :key="index" class="row q-my-xs gutter-sm">
+                        <div v-for="(v,index) in $v.viewBinding.partnersArr.$each" :key="index" class="row q-my-xs gutter-sm">
                           <div class="col-md-12 col-sm-12 col-xs-12">
                             <div class="row group items-center">
                               <div class="col">
@@ -1879,11 +1879,11 @@ export default {
     },
     removePartnerFromArr(item) {
       let self = this;
-      _.map(self.$v.viewBinding.partnersArr.$each.$iter, function(oo) {
+      _.map(self.$v.viewBinding.partnersArr.$each, function(oo) {
         if (_.isEqual(oo.$model, item.$model)) {
           var index = self.viewBinding.partnersArr.indexOf(oo.$model);
           if (index !== -1) {
-            self.$delete(self.viewBinding.partnersArr, index);
+            self.viewBinding.partnersArr.splice(index, 1);
           }
         }
       });
@@ -2039,12 +2039,8 @@ export default {
         message: "Validating .."
       });
 
-      self.$set(self.merchant, "leadId", self.$route.params.id);
-      self.$set(
-        self.merchant,
-        "partnerInformation",
-        self.viewBinding.partnersArr
-      );
+      self.merchant["leadId"] = self.$route.params.id;
+      self.merchant["partnerInformation"] = self.viewBinding.partnersArr;
 
       /* API call to fetch regions */
       self
@@ -2056,7 +2052,7 @@ export default {
             spinnerColor: "purple-9",
             message: "Saved.. Sending data to mars"
           });
-          // self.$set(self.merchant, "merchant", self.merchant);
+          // self.merchant["merchant"] = self.merchant;
           self
             .MARS_DATA_SUBMIT_EXTERNAL({ merchant: self.merchant })
             .then(response => {

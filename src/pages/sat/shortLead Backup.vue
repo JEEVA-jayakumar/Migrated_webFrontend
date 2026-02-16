@@ -955,8 +955,8 @@ export default {
       let valueNow = this.getShortLeadInfoDocumentTypes[
         this.merchantTypeSelection
       ].documentsApplicable[value2].documents[value3];
-      this.$delete(primaryItem, "documentTypeSelection");
-      this.$set(primaryItem, "documentTypeSelection", valueNow);
+      primaryItem.splice("documentTypeSelection", 1);
+      primaryItem["documentTypeSelection"] = valueNow;
     },
 
     // function to toggle cheque image for payments info if available
@@ -968,14 +968,14 @@ export default {
     fnDocumentApproveModal(documentDetails) {
       this.toggleLeadDocumentApproveModal = !this
         .toggleLeadDocumentApproveModal;
-      this.$set(documentDetails, "leadId", this.$route.params.id);
+      documentDetails["leadId"] = this.$route.params.id;
       this.documentApproveTempArr = documentDetails;
     },
 
     // Function to reject document with reason
     fnDocumentRejectModal(documentDetails) {
       this.toggleLeadDocumentRejectModal = !this.toggleLeadDocumentRejectModal;
-      this.$set(documentDetails, "leadId", this.$route.params.id);
+      documentDetails["leadId"] = this.$route.params.id;
       this.documentRejectTempArr = documentDetails;
     },
 

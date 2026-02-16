@@ -285,7 +285,7 @@ export default {
     this.ajaxLoadDataForDeviceTypeTable();
     this.ajaxLoadAllLeadInfo();
   },
-  destroyed() {
+  unmounted() {
     // Remove listener when component is destroyed
     this.$barcodeScanner.destroy();
   },

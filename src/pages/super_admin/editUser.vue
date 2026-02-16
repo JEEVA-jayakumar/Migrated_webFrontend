@@ -499,16 +499,8 @@ export default {
                 innerSelf.getAllHierarchiesAndRolesData,
                 function (oo, i) {
                   if (o.hierarchy.id == oo.id) {
-                    innerSelf.$set(
-                      innerSelf.getAllHierarchiesAndRolesData[i],
-                      "checked",
-                      true
-                    );
-                    innerSelf.$set(
-                      innerSelf.getAllHierarchiesAndRolesData[i],
-                      "roleChecked",
-                      o.id
-                    );
+                    innerSelf.getAllHierarchiesAndRolesData[i]["checked"] = true;
+                    innerSelf.getAllHierarchiesAndRolesData[i]["roleChecked"] = o.id;
 
                     let predecessorCookUp = {
                       region: {
@@ -533,16 +525,8 @@ export default {
                             });
                           }
                         );
-                        innerSelf.$set(
-                          innerSelf.getAllHierarchiesAndRolesData[i],
-                          "predecessor",
-                          cookedArr
-                        );
-                        innerSelf.$set(
-                          innerSelf.getAllHierarchiesAndRolesData[i],
-                          "predecessorChecked",
-                          o.predecessor.id
-                        );
+                        innerSelf.getAllHierarchiesAndRolesData[i]["predecessor"] = cookedArr;
+                        innerSelf.getAllHierarchiesAndRolesData[i]["predecessorChecked"] = o.predecessor.id;
                       });
                   }
                 }

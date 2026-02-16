@@ -1792,7 +1792,7 @@ export default {
     fnDocumentApproveModal(documentDetails) {
       this.toggleLeadDocumentApproveModal = !this
         .toggleLeadDocumentApproveModal;
-      this.$set(documentDetails, "leadId", this.$route.params.id);
+      documentDetails["leadId"] = this.$route.params.id;
       this.documentApproveTempArr = documentDetails;
     },
 
@@ -1809,7 +1809,7 @@ export default {
 
     fnDocumentRejectModal(documentDetails) {
       this.toggleLeadDocumentRejectModal = !this.toggleLeadDocumentRejectModal;
-      this.$set(documentDetails, "leadId", this.$route.params.id);
+      documentDetails["leadId"] = this.$route.params.id;
       this.documentRejectTempArr = documentDetails;
     },
 
@@ -1911,12 +1911,12 @@ export default {
                 }
               });
               if (assumeArr == undefined) {
-                innerSelf.$set(value, "subDocumentTypeSelection", 0);
+                value["subDocumentTypeSelection"] = 0;
               } else {
-                innerSelf.$set(value, "subDocumentTypeSelection", assumeArr);
+                value["subDocumentTypeSelection"] = assumeArr;
               }
             } else {
-              innerSelf.$set(value, "subDocumentTypeSelection", 0);
+              value["subDocumentTypeSelection"] = 0;
             }
             multipleDocs.push(value);
           }
@@ -2255,11 +2255,7 @@ saveformsLists(fileName, mimeType, formTypeToUpdate) {
           documentDetails.selectedSubDocumentType =
             documentDetails.subDocumentType;
         } else {
-          this.$set(
-            documentDetails,
-            "selectedSubDocumentType",
-            documentDetails.subDocumentType
-          );
+          documentDetails["selectedSubDocumentType"] = documentDetails.subDocumentType;
         }
       }
     },

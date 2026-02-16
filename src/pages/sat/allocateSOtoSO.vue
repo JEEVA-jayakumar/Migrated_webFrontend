@@ -209,7 +209,7 @@ import { email } from '@vuelidate/validators';
       this.fnAjaxGetAllRegionsData();
       // this.FETCH_REGION_BASED_SO();
     },
-    destroyed() {
+    unmounted() {
       // Remove listener when component is destroyed
       this.$barcodeScanner.destroy();
     },
@@ -331,14 +331,10 @@ import { email } from '@vuelidate/validators';
       fnRemoveScannedItems(index, subIndex) {
         // this.formData.scannedItems[index].deviceSerialNumbers.splice(subIndex, 1);
         console.log("DELETE",JSON.stringify(this.formData.scannedItems[index]));
-        this.$delete(
-          this.formData.scannedItems[index].deviceSerialNumbers,
-          subIndex
-        );
-        this.$delete(
-          this.formData.scannedItems[index].userName,
-          subIndex
-        );
+        this.formData.scannedItems[index].deviceSerialNumbers.splice(subIndex
+        , 1);
+        this.formData.scannedItems[index].userName.splice(subIndex
+        , 1);
         this.scannerToggleOption = true;
       },
   
@@ -409,7 +405,7 @@ import { email } from '@vuelidate/validators';
       fnRemoveDeviceTypeFromList(index) {
         // this.formData.scannedItems.splice(index, 1);
         this.scannerToggleOption = true;
-        this.$delete(this.formData.scannedItems, index);
+        this.formData.scannedItems.splice(index, 1);
       },
   
       // Function to clear device type

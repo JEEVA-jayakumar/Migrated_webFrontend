@@ -234,7 +234,7 @@ import { required } from '@vuelidate/validators';
       removeScannedItems(item) {
         // this.getAddDeviceScannedItems.splice(item.__index, 1);
         // this.tempTableData.splice(item.__index, 1);
-        this.$delete(this.tempTableData, item.__index);
+        this.tempTableData.splice(item.__index, 1);
         if (this.tempTableData.length == 0) {
           this.scanningActive = true;
         }

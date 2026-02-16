@@ -142,7 +142,7 @@ export default {
     this.fnAjaxGetAllDevicesTypesData();
     this.fnAjaxGetAllRegionsData();
   },
-  destroyed() {
+  unmounted() {
     // Remove listener when component is destroyed
     this.$barcodeScanner.destroy();
   },

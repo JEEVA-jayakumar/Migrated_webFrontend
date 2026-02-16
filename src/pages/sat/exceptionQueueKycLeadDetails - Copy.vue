@@ -526,7 +526,7 @@ export default {
     //function to load all lead details when page loads
     this.ajaxLoadShortLeadInfo();
   },
-  destroyed() {
+  unmounted() {
     window.removeEventListener("scroll", this.handleScroll);
   },
   methods: {
@@ -553,13 +553,13 @@ export default {
     fnDocumentApproveModal(documentDetails) {
       this.toggleLeadDocumentApproveModal = !this
         .toggleLeadDocumentApproveModal;
-      this.$set(documentDetails, "leadId", this.$route.params.id);
+      documentDetails["leadId"] = this.$route.params.id;
       this.documentApproveTempArr = documentDetails;
     },
 
     fnDocumentRejectModal(documentDetails) {
       this.toggleLeadDocumentRejectModal = !this.toggleLeadDocumentRejectModal;
-      this.$set(documentDetails, "leadId", this.$route.params.id);
+      documentDetails["leadId"] = this.$route.params.id;
       this.documentRejectTempArr = documentDetails;
     },
 

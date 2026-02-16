@@ -899,7 +899,7 @@ export default {
         //                                     .slice(1, 2);
         //                                 let computeSplitted = splitted[splitted.length - 1];
         //                                 let fieldErrorFound = eval(`
-        //                 OThis.$v.viewBinding.partnersArr.$each.$iter[
+        //                 OThis.$v.viewBinding.partnersArr.$each[
         //                   ${findPartnersErrorIndex}
         //                 ].${computeSplitted}`);
         //                                 fieldErrorFound.$model = "";

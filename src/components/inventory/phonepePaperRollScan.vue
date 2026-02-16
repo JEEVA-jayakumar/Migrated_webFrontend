@@ -117,11 +117,11 @@
       },
       onBarcodeScanned(barcode){
         console.log("BARCODE",barcode);
-        // this.$delete(this.formData.podNumber.podNumber);
+        // this.formData.podNumber.podNumber);
         // this.formData.podNumber.podNumber=''
         this.scannerToggleOption = false;
         this.formData.podNumber.podNumber = barcode
-      console.log("FORMDATA",this.formData.podNumber.podNumber);
+      console.log("FORMDATA".splice(this.formData.podNumber.podNumber, 1);
       this.$barcodeScanner.destroy();
       },
     //   handleBarcodeScan(event) {

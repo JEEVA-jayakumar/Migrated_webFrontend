@@ -466,11 +466,7 @@ export default {
           return JSON.parse(obj);
         }
       );
-      this.$set(
-        this.formData.addUserDetails,
-        "userMapSets",
-        uniqueSortedArrSet
-      );
+      this.formData.addUserDetails["userMapSets"] = uniqueSortedArrSet;
 
       this.showDynamicHierarchyRoleRegionAddDelete = !this
         .showDynamicHierarchyRoleRegionAddDelete;
@@ -485,18 +481,14 @@ export default {
     //Start >> Modifying user mapping information in array
     fnShowDynamicHierarchyRoleRegionAddDeleteForEdit(mappingInfo, index) {
       // Setting index to find which the values belongs to
-      this.$set(mappingInfo, "index", index);
+      mappingInfo["index"] = index;
       this.editTempProp = mappingInfo;
       this.showDynamicHierarchyRoleRegionAddDeleteForEdit = !this
         .showDynamicHierarchyRoleRegionAddDeleteForEdit;
     },
 
     fnShowDynamicHierarchyRoleRegionAddDeleteWithParamsEdit(mappingInfo) {
-      this.$set(
-        this.formData.addUserDetails.userMapSets,
-        mappingInfo.index,
-        mappingInfo
-      );
+      this.formData.addUserDetails.userMapSets[mappingInfo.index] = mappingInfo;
       this.showDynamicHierarchyRoleRegionAddDeleteForEdit = !this
         .showDynamicHierarchyRoleRegionAddDeleteForEdit;
     },
@@ -515,7 +507,7 @@ export default {
 
     //Start >> Modifying user mapping information in array
     deleteDynamicComponentDeletion(value) {
-      this.$delete(this.formData.addUserDetails.userMapSets, value);
+      this.formData.addUserDetails.userMapSets.splice(value, 1);
     },
     //End >>deleting user mapping information in array
 

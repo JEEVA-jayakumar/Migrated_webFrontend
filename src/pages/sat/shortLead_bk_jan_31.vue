@@ -620,7 +620,7 @@ export default {
       });
       this.FETCH_SHORT_LEAD_DATA(this.$route.params.id)
         .then(response => {
-          this.$set(this.formData, "shortLead", this.getShortLeadInfo);
+          this.formData["shortLead"] = this.getShortLeadInfo;
           this.fnMoveToDataEntryScreen();
           if (this.formData.shortLead.documentUploadedType == 1) {
             if (
