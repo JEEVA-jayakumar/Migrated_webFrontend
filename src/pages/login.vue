@@ -65,7 +65,7 @@ let AesUtil = function (keySize, iterationCount) {
 };
 
 AesUtil.prototype.generateKey = function (salt, passPhrase) {
-  var key = CryptoJS.PBKDF2("BijliWeAreMakers", CryptoJS.enc.Hex.parse(salt), {
+  var key = CryptoJS.PBKDF2(passPhrase, CryptoJS.enc.Hex.parse(salt), {
     keySize: this.keySize,
     iterations: this.iterationCount
   });
@@ -73,7 +73,7 @@ AesUtil.prototype.generateKey = function (salt, passPhrase) {
 };
 
 AesUtil.prototype.encrypt = function (salt, iv, passPhrase, plainText) {
-  var key = this.generateKey(salt, "BijliWeAreMakers");
+  var key = this.generateKey(salt, passPhrase);
   var encrypted = CryptoJS.AES.encrypt(plainText, key, {
     iv: CryptoJS.enc.Hex.parse(iv)
   });
@@ -81,7 +81,7 @@ AesUtil.prototype.encrypt = function (salt, iv, passPhrase, plainText) {
 };
 
 AesUtil.prototype.decrypt = function (salt, iv, passPhrase, cipherText) {
-  var key = this.generateKey(salt, "BijliWeAreMakers");
+  var key = this.generateKey(salt, passPhrase);
   var cipherParams = CryptoJS.lib.CipherParams.create({
     ciphertext: CryptoJS.enc.Base64.parse(cipherText)
   });
@@ -113,7 +113,8 @@ export default {
   validations: {
     formData: {
       email: {
-        required
+        required,
+        email
       },
       password: {
         required
@@ -146,7 +147,7 @@ export default {
         let ciphertext = aesUtil.encrypt(
           salt,
           iv,
-          "some_key", // Fixed this for now as $("#key") won't work easily here
+          "BijliWeAreMakers", // Using the hardcoded key from the previous broken implementation
           this.formData.password
         );
         let aesPassword = iv + "::" + salt + "::" + ciphertext;

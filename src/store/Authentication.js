@@ -206,7 +206,7 @@ const Authentication = {
           // console.log("Password is " + response.data.password);
           localStorage.setItem("auth_token", response.data.jwt);
           // START=> COMMIT with data received'
-          commit("SET_USER_AUTH_DATA", response.data.data);
+          commit("SET_USER_AUTH_DATA", response.data.data || response.data);
           // END=> COMMIT with data received'
           return response;
         })
