@@ -3162,7 +3162,6 @@ export default {
   }
 };
 </script>
-</script>
 
 <style scoped>
 .border-1 {
