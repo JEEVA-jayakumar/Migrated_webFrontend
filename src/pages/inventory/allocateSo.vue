@@ -199,8 +199,8 @@
 <script>
 import { email } from '@vuelidate/validators';
 
-import VueBarcodeScanner from "vue-barcode-scanner";
-Vue.use(VueBarcodeScanner);
+// import VueBarcodeScanner from "vue-barcode-scanner";
+// Vue.use(VueBarcodeScanner);
 import { mapGetters, mapActions } from "vuex";
 import showPDORegionBasedSo from "../../components/inventory/showPDORegionBasedSo.vue";
 export default {

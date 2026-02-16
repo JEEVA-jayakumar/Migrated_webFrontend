@@ -2,7 +2,7 @@ const { configure } = require('quasar/wrappers');
 const path = require('path');
 module.exports = configure(function (ctx) {
   return {
-    boot: ['i18n', 'axios', 'GlobalVariables', 'vuelidate', 'moment', 'image-viewer'],
+    boot: ['i18n', 'axios', 'GlobalVariables', 'vuelidate', 'moment', 'image-viewer', 'stubs'],
     css: ['app.scss'],
     extras: ['roboto-font', 'material-icons', 'fontawesome-v5'],
     build: {

@@ -54,8 +54,8 @@
 <script>
 import { required } from '@vuelidate/validators';
 
-import VueBarcodeScanner from "vue-barcode-scanner";
-Vue.use(VueBarcodeScanner);
+// import VueBarcodeScanner from "vue-barcode-scanner";
+// Vue.use(VueBarcodeScanner);
 
 import { mapGetters, mapActions } from "vuex";
 export default {

@@ -25,7 +25,7 @@
           <div>
             <!-- Entry point for sat -->
             <div
-              v-if="$q.localStorage.get.item('u_i') != undefined && showMenu.includes($ROLE_HIERARCHY_OPERATION_SAT)"
+              v-if="$q.localStorage.getItem('u_i') != undefined && showMenu.includes($ROLE_HIERARCHY_OPERATION_SAT)"
             >
               <q-item
                 v-for="menu in menus.sat"
@@ -39,7 +39,7 @@
 
             <!-- Entry point for finance manager -->
             <div
-              v-if="$q.localStorage.get.item('u_i') != undefined && (showMenu.includes($ROLE_HIERARCHY_FINANCE_HEAD) || showMenu.includes($ROLE_HIERARCHY_FINANCE_MANAGER) || showMenu.includes($ROLE_HIERARCHY_FINANCE_EXECUTIVE))"
+              v-if="$q.localStorage.getItem('u_i') != undefined && (showMenu.includes($ROLE_HIERARCHY_FINANCE_HEAD) || showMenu.includes($ROLE_HIERARCHY_FINANCE_MANAGER) || showMenu.includes($ROLE_HIERARCHY_FINANCE_EXECUTIVE))"
             >
               <q-item
                 v-for="menu in menus.finance"
@@ -53,7 +53,7 @@
 
             <!-- Entry point for inventory -->
             <div
-              v-if="$q.localStorage.get.item('u_i') != undefined && showMenu.includes($ROLE_HIERARCHY_INVENTORY_OFFICER)"
+              v-if="$q.localStorage.getItem('u_i') != undefined && showMenu.includes($ROLE_HIERARCHY_INVENTORY_OFFICER)"
             >
               <q-item
                 v-for="menu in menus.inventory"
@@ -67,7 +67,7 @@
             <!-- Entry point for ksn inventory -->
             <div
               v-if="
-                $q.localStorage.get.item('u_i') != undefined &&
+                $q.localStorage.getItem('u_i') != undefined &&
                 showMenu.includes($ROLE_HIERARCHY_KSN)
               "
             >
@@ -82,7 +82,7 @@
             </div>
             <!-- Entry point for opeartions head -->
             <div
-              v-if="$q.localStorage.get.item('u_i') != undefined && showMenu.includes($ROLE_HIERARCHY_OPERATIONS_HEAD)"
+              v-if="$q.localStorage.getItem('u_i') != undefined && showMenu.includes($ROLE_HIERARCHY_OPERATIONS_HEAD)"
             >
               <q-item
                 v-for="menu in menus.opsHead"
@@ -117,7 +117,7 @@
 
             <!-- Entry point for sales manager => RSM/ASM -->
             <div
-              v-if="$q.localStorage.get.item('u_i') != undefined && (showMenu.includes($ROLE_HIERARCHY_SALES_RSM) || showMenu.includes($ROLE_HIERARCHY_SALES_ASM) || showMenu.includes($ROLE_HIERARCHY_SALES_NATIONAL_HEAD))"
+              v-if="$q.localStorage.getItem('u_i') != undefined && (showMenu.includes($ROLE_HIERARCHY_SALES_RSM) || showMenu.includes($ROLE_HIERARCHY_SALES_ASM) || showMenu.includes($ROLE_HIERARCHY_SALES_NATIONAL_HEAD))"
             >
               <q-item
                 v-for="menu in menus.salesManager"
@@ -131,7 +131,7 @@
 
             <!-- Entry point for sales manager => bank ops -->
             <div
-              v-if="$q.localStorage.get.item('u_i') != undefined && showMenu.includes($ROLE_HIERARCHY_BANK_OPS)"
+              v-if="$q.localStorage.getItem('u_i') != undefined && showMenu.includes($ROLE_HIERARCHY_BANK_OPS)"
             >
               <q-item
                 v-for="menu in menus.bankOps"
@@ -145,7 +145,7 @@
             
             <!-- Entry point for CRM Users -->
             <div
-              v-if="$q.localStorage.get.item('u_i') != undefined && showMenu.includes($HIERARCHY_CRM)"
+              v-if="$q.localStorage.getItem('u_i') != undefined && showMenu.includes($HIERARCHY_CRM)"
             >
               <q-item
                 v-for="menu in menus.crm"
@@ -159,7 +159,7 @@
 
             <!-- Entry point for super admin/bijlipay managemnet -->
             <div
-              v-if="$q.localStorage.get.item('u_i') != undefined && showMenu.includes($ROLE_BIJLIPAY_MANAGER)"
+              v-if="$q.localStorage.getItem('u_i') != undefined && showMenu.includes($ROLE_BIJLIPAY_MANAGER)"
             >
               <q-item v-for="menu in menus.superAdmin" :key="menu.id" :to="menu.to">
                 <q-item-section class="menu-item-color-SA">{{menu.name}}</q-item-section>

@@ -305,7 +305,7 @@ import vuePdfjs from "vue-pdfjs";
 
 import vZoom from "vue-zoom";
 import imgView from "vue-img-view";
-Vue.use(imgView);
+// Vue.use(imgView);
 import showPdfModalComponent from "../../components/sat/showPdfModalComponent.vue";
 import showMarsForm from "../../components/sat/showMarsFormComponent.vue";
 

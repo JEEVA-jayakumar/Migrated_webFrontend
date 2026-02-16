@@ -463,13 +463,13 @@
 } from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 
-import opened from "../../components/sat/opened.vue";
+
 import internalServiceRequestPopup from "../../components/sat/internalServiceRequestPopup.vue";
 
 export default {
     name: "implementationQueue",
     components: {
-        opened,
+
         //   generalLeadInformation,
         internalServiceRequestPopup,
     },

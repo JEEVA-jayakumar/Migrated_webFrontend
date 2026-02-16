@@ -100,9 +100,9 @@
 
 <script>
 
-import VueBarcodeScanner from "vue-barcode-scanner";
+// import VueBarcodeScanner from "vue-barcode-scanner";
 import showRegionalInventoryDevicePod from "./showRegionalInventoryDevicePod.vue";
-Vue.use(VueBarcodeScanner);
+// Vue.use(VueBarcodeScanner);
 import { mapGetters, mapActions } from "vuex";
 export default {
   name: "damagedDevices",

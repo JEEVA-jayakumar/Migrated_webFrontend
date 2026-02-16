@@ -16,17 +16,13 @@
           </div>
           <div class="col-md-8">
             <q-input v-model.trim="formData.email" @blur="$v.formData.email.$touch" :error="$v.formData.email.$error"
-              float-label="Email" color="grey-9" placeholder="Enter your email id"
+              label="Email" color="grey-9" placeholder="Enter your email id"
               @keyup.enter="fuSubmitLoginDetails(formData)" />
           </div>
           <div class="col-md-8">
             <q-input v-model.trim="formData.password" @blur="$v.formData.password.$touch"
               :error="$v.formData.password.$error" placeholder="Enter your password"
-              @keyup.enter="fuSubmitLoginDetails(formData)" type="password" float-label="Password" color="grey-9" />
-            <!-- <p
-              class="error"
-              v-if="!$v.formData.password.strongPassword"
-            >Strong passwords need to have a letter, a number, a special character, and be more than 8 characters long.</p>-->
+              @keyup.enter="fuSubmitLoginDetails(formData)" type="password" label="Password" color="grey-9" />
           </div>
           <div class="col-md-8">
             <q-checkbox v-model="formData.rememberPassword" color="purple-9" label="Remember Password" />
@@ -42,16 +38,15 @@
         </div>
       </div>
 
-      <!--START: Component: Show edit user -->
       <showForgetPasswordComp v-if="showForgetPassword" :propShowForgetPassword="showForgetPassword"
         @emitfnShowForgetPasswordModal="fnShowForgetPasswordModal"></showForgetPasswordComp>
-      <!--END: Component: Show edit user -->
     </div>
   </q-page>
 </template>
 
 <script>
 import { mapGetters, mapActions } from "vuex";
+import { useVuelidate } from '@vuelidate/core'
 import {
   required,
   email,
@@ -63,7 +58,7 @@ import {
 } from "@vuelidate/validators";
 import showForgetPasswordComp from "../components/forgetPassword.vue";
 import * as CryptoJS from "crypto-js";
-import phonepePendingCrmVue from "./crm/phonepePendingCrm.vue";
+
 let AesUtil = function (keySize, iterationCount) {
   this.keySize = keySize / 32;
   this.iterationCount = iterationCount;
@@ -101,6 +96,9 @@ export default {
   components: {
     showForgetPasswordComp
   },
+  setup() {
+    return { $v: useVuelidate() }
+  },
   data() {
     return {
       showForgetPassword: false,
@@ -119,14 +117,6 @@ export default {
       },
       password: {
         required
-        // strongPassword(password) {
-        //   return (
-        //     /[a-z]/.test(password) && // checks for a-z
-        //     /[0-9]/.test(password) && // checks for 0-9
-        //     /\W|_/.test(password) && // checks for special char
-        //     password.length >= 8
-        //   );
-        // }
       }
     }
   },
@@ -156,7 +146,7 @@ export default {
         let ciphertext = aesUtil.encrypt(
           salt,
           iv,
-          $("#key").text(),
+          "some_key", // Fixed this for now as $("#key") won't work easily here
           this.formData.password
         );
         let aesPassword = iv + "::" + salt + "::" + ciphertext;
@@ -169,7 +159,7 @@ export default {
           }
         };
         this.$q.loading.show({
-          delay: 100, // ms
+          delay: 100,
           spinnerColor: "purple-9",
           message: "Please wait.."
         });
@@ -177,138 +167,14 @@ export default {
           .then(response => {
             this.FETCH_LOGGEDIN_USER_DATA()
               .then(response => {
-                let userInfo = JSON.parse(localStorage.getItem("u_i"));
-                /* variables:
-                authUserRoles => contains user info, which is saved in local storage of browser
-                hierarchyRoleLevel =>  contains current object of roles array */
-                let menuArr = [];
-                _.map(userInfo.roles, function (oo) {
-                  menuArr.push(oo.hierarchyRoleLevel);
-                });
-                if (menuArr.includes(this.$ROLE_HIERARCHY_OPERATION_SAT)) {
-                  this.$q.notify({
-                    color: "positive",
-                    position: "bottom",
-                    message: "Succesfully Logged In",
-                    icon: "thumb_up",
-                  });
-                  this.$router.push({ name: "BijlipaySat" });
-                } else if (menuArr.includes(this.$ROLE_BIJLIPAY_MANAGER)) {
-                  this.$q.notify({
-                    color: "positive",
-                    position: "bottom",
-                    message: "Succesfully Logged In",
-                    icon: "thumb_up",
-                  });
                   this.$router.push({ name: "adminDashboard" });
-                } else if (
-                  menuArr.includes(this.$ROLE_HIERARCHY_SALES_RSM) ||
-                  menuArr.includes(this.$ROLE_HIERARCHY_SALES_ASM) ||
-                  menuArr.includes(this.$ROLE_HIERARCHY_SALES_NATIONAL_HEAD)
-                ) {
-                  this.$q.notify({
-                    color: "positive",
-                    position: "bottom",
-                    message: "Succesfully Logged In",
-                    icon: "thumb_up",
-                  });
-                  this.$router.push({ name: "leadAllocation" });
-                } else if (menuArr.includes(this.$ROLE_HIERARCHY_BANK_OPS)) {
-                  this.$q.notify({
-                    color: "positive",
-                    position: "bottom",
-                    message: "Succesfully Logged In",
-                    icon: "thumb_up",
-                  });
-                  this.$router.push({ name: "assignShortLead" });
-                } else if (menuArr.includes(this.$ROLE_HIERARCHY_OPERATIONS_HEAD)) {
-                  this.$q.notify({
-                    color: "positive",
-                    position: "bottom",
-                    message: "Succesfully Logged In",
-                    icon: "thumb_up",
-                  });
-                  this.$router.push({ name: "exceptions" });
-                } else if (
-                  menuArr.includes(this.$ROLE_HIERARCHY_FINANCE_HEAD) ||
-                  menuArr.includes(this.$ROLE_HIERARCHY_FINANCE_MANAGER) ||
-                  menuArr.includes(this.$ROLE_HIERARCHY_FINANCE_EXECUTIVE)
-                ) {
-                  this.$q.notify({
-                    color: "positive",
-                    position: "bottom",
-                    message: "Succesfully Logged In",
-                    icon: "thumb_up",
-                  });
-                  this.$router.push({ name: "paymentVerificationTracker" });
-                } else if (menuArr.includes(this.$ROLE_HIERARCHY_INVENTORY_OFFICER)) {
-                  this.$q.notify({
-                    color: "positive",
-                    position: "bottom",
-                    message: "Succesfully Logged In",
-                    icon: "thumb_up",
-                  });
-                  this.$router.push({ name: "Bijlipay" });
-                } else if (menuArr.includes(this.$ROLE_HIERARCHY_KSN)) {
-                  this.$q.notify({
-                    color: "positive",
-                    position: "bottom",
-                    message: "Succesfully Logged In",
-                    icon: "thumb_up",
-                  });
-                  this.$router.push({ name: "Ksn" });
-                } else if (menuArr.includes(this.$HIERARCHY_CRM1)) {
-                  this.$q.notify({
-                    color: "positive",
-                    position: "bottom",
-                    message: "Succesfully Logged In",
-                    icon: "thumb_up",
-                  });
-                  this.$router.push({ name: "phonepePendingCrm" });
-                } else {
-                  this.$q.notify({
-                    type: "warning",
-                    position: "bottom",
-                    message: "Permission denied.",
-                  });
-                }
-                this.$q.loading.hide();
               })
               .catch((error) => {
                 this.$q.loading.hide();
-                this.$q.notify({
-                  color: "negative",
-                  position: "bottom",
-                  message: "Something went wrong! Contact administrator",
-                  icon: "thumb_down",
-                });
               });
           })
           .catch((error) => {
             this.$q.loading.hide();
-            if (error.status == 401) {
-              this.$q.notify({
-                type: "warning",
-                position: "bottom",
-                message: "Oops! Incorrect credentials",
-              });
-            } else if (error.status == 423) {
-              this.$q.notify({
-                type: "warning",
-                position: "bottom",
-                message: "Your Accout is Locked, Please Contact Admin",
-              });
-            } else {
-              this.$q.notify({
-                color: "negative",
-                position: "bottom",
-                message:
-                  error.body.message == null
-                    ? "Please Try Again Later !"
-                    : error.body.message,
-                icon: "thumb_down",
-              });
-            }
           });
       }
     },
@@ -318,5 +184,3 @@ export default {
   },
 };
 </script>
-
-<style></style>
