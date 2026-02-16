@@ -17,7 +17,7 @@
           </div> 
           <!-- <q-item-section class="text-body1">{{this.formData.podNumber.podNumber}}</q-item-section> -->
           <!-- <p>{{ formData.podNumber.podNumber }}</p> -->
-          <q-input v-model="formData.podNumber.podNumber" readonly  float-label="POD Number"/>
+          <q-input v-model="formData.podNumber.podNumber" readonly  label="POD Number"/>
           <div class="group" >
             <q-btn @click="fnsubmit(formData)"  icon="check" label="Save" style="float:inline-end; color: white; background-color: #61116a;" />
             <q-btn @click="openScannerComp" v-if="scannerToggleOption"  color="blue" outline class="q-py-xs " label="Start scan" style="float: inline-end;"/>
@@ -28,15 +28,16 @@
   </template>
       
   <script>
-
-    import VueBarcodeScanner from "vue-barcode-scanner";
-  Vue.use(VueBarcodeScanner);
+  import { useVuelidate } from '@vuelidate/core'
   import { mapGetters, mapActions } from "vuex";
   import { required } from "@vuelidate/validators";
   
   export default {
     name: "phonepePaperRoll",
     props: ["scanInfo", "propToggleScannerPop", "propToggleScan"],
+    setup() {
+      return { v$: useVuelidate() }
+    },
     data() {
       return {
         toggleModal: this.propToggleScannerPop,
@@ -77,8 +78,8 @@
       // },
       fnsubmit(formData) {
         console.log("FORM DATA",JSON.stringify(formData));
-        this.$v.formData.$touch();
-        if (this.$v.formData.$error) {
+        this.v$.formData.$touch();
+        if (this.v$.formData.$error) {
           this.$q.notify("Please review fields again.");
         } else {      
           this.UPDATE_PHONEPE_PAPERROLL_PODNUMBER(formData)
@@ -121,7 +122,7 @@
         // this.formData.podNumber.podNumber=''
         this.scannerToggleOption = false;
         this.formData.podNumber.podNumber = barcode
-      console.log("FORMDATA".splice(this.formData.podNumber.podNumber, 1);
+      console.log("FORMDATA", this.formData.podNumber.podNumber);
       this.$barcodeScanner.destroy();
       },
     //   handleBarcodeScan(event) {
