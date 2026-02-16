@@ -212,7 +212,7 @@ const GlobalVariables = {
     UPDATEPASSWORD_URL: LOCAL_BASEURL_FOR_FILES + "authorization/password",
     /* END >> Module>> FORGOTPASSWORD_URL */
 
-    USER_PERSONAL_INFO: SessionStorage.get.item("role"),
+    USER_PERSONAL_INFO: SessionStorage.getItem("role"),
 
     /* Lead, TID, Serial Number Status */
     STATE_STATUS_VARIABLES: STATUS_VARIABLES
