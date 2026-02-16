@@ -221,7 +221,7 @@ export default {
     this.FETCH_REGION_BASED_RESELLAR();
     // this.FETCH_REGION_BASED_SO();
   },
-  destroyed() {
+  unmounted() {
     // Remove listener when component is destroyed
     this.$barcodeScanner.destroy();
   },

@@ -3739,11 +3739,7 @@ loadUpdate(){
       this.FETCH_STATIC_QR_SHORT_LEAD_DATA(this.$route.params.id)
         .then(response => {
           this.propLeadDeatils = response.data.data;
-          this.$set(
-            this.formData,
-            "qrShortLead",
-            this.getAllStaticQrShortLeadDatas
-          );
+          this.formData["qrShortLead"] = this.getAllStaticQrShortLeadDatas;
           console.log("INSIDE SHORT LEAD");
           // console.log("FORM DATA FIX",JSON.stringify(this.formData.qrShortLead.isMerchant.satToMarsRemarks));
           this.formData.qrShortLead.isMerchant == 1 ? "Small" : "Large";
@@ -3800,11 +3796,7 @@ loadUpdate(){
       this.FETCH_STATIC_QR_SHORT_LEAD_DATA(this.$route.params.id)
         .then(response => {
           this.propLeadDeatils = response.data.data;
-          this.$set(
-            this.formData,
-            "qrShortLead",
-            this.getAllStaticQrShortLeadDatas
-          );
+          this.formData["qrShortLead"] = this.getAllStaticQrShortLeadDatas;
           // console.log("FORM DATA FIX",JSON.stringify(this.formData.qrShortLead.isMerchant.satToMarsRemarks));
           this.formData.qrShortLead.isMerchant == 1 ? "Small" : "Large";
           console.log(
@@ -4296,7 +4288,7 @@ loadUpdate(){
             });
           } else {
             this.$q.loading.hide();
-            this.$delete(error.data.data, "toBeVerifiedDocuments");
+            error.data.data.splice("toBeVerifiedDocuments", 1);
             for (var key in error.data.data) {
               let arrayMessage = "";
               _.map(error.data.data[key], oo => {
@@ -4352,7 +4344,7 @@ loadUpdate(){
             "PROCEED TO MARS RESPONCE ----------->",
             this.iciciMarsRequest
           );
-          this.$delete(request.merchant.paymentDetails, "vpa");
+          request.merchant.paymentDetails.splice("vpa", 1);
           this.MARS_STATIC_QR_DATA_SUBMIT({
             params: request,
 

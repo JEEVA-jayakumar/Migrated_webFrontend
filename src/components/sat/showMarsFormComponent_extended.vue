@@ -421,7 +421,7 @@ export default {
         spinnerColor: "purple-9",
         message: "Saving data .."
       });
-      this.$set(this.merchant, "leadId", this.$route.params.id);
+      this.merchant["leadId"] = this.$route.params.id;
       this.MARS_DATA_SUBMIT_INTERNAL({
         merchant: this.merchant,
         action: 1
@@ -589,15 +589,9 @@ export default {
             })
               .then(res => {
                 //Date formatting for MARS
-                this.$set(
-                  res.salesInformation,
-                  "applicationDate",
-                  this.commonDateFormat(res.salesInformation.applicationDate)
+                res.salesInformation["applicationDate"] = this.commonDateFormat(res.salesInformation.applicationDate;
                 );
-                this.$set(
-                  res.salesInformation,
-                  "aggreementDate",
-                  this.commonDateFormat(res.salesInformation.aggreementDate)
+                res.salesInformation["aggreementDate"] = this.commonDateFormat(res.salesInformation.aggreementDate;
                 );
                 this.$set(
                   res.salesInformation,
@@ -606,15 +600,9 @@ export default {
                     res.salesInformation.loanDisbursementDate
                   )
                 );
-                this.$set(
-                  res.salesInformation,
-                  "tenureStartDate",
-                  this.commonDateFormat(res.salesInformation.tenureStartDate)
+                res.salesInformation["tenureStartDate"] = this.commonDateFormat(res.salesInformation.tenureStartDate;
                 );
-                this.$set(
-                  res.companyInformation,
-                  "establishYear",
-                  this.commonDateFormat(res.companyInformation.establishYear)
+                res.companyInformation["establishYear"] = this.commonDateFormat(res.companyInformation.establishYear;
                 );
                 this.$set(
                   res.bankInformation.collectionDetails,
@@ -637,10 +625,7 @@ export default {
                     res.bankInformation.collectionDetails.chequeDate
                   )
                 );
-                this.$set(
-                  res.businessInformation,
-                  "memberSince",
-                  this.commonDateFormat(res.businessInformation.memberSince)
+                res.businessInformation["memberSince"] = this.commonDateFormat(res.businessInformation.memberSince;
                 );
                 return res;
               })

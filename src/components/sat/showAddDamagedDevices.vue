@@ -134,7 +134,7 @@ export default {
   created() {
     this.fnAjaxGetAllDevicesTypesData();
   },
-  destroyed() {
+  unmounted() {
     // Remove listener when component is destroyed
     this.$barcodeScanner.destroy();
   },
@@ -234,7 +234,7 @@ export default {
 
     // Function remove scanned items
     fnRemoveScannedItems(index, subIndex) {
-      this.$delete(formData.scannedItems[index].deviceSerialNumbers, subIndex);
+      formData.scannedItems[index].deviceSerialNumbers.splice(subIndex, 1);
     },
 
     // Function to get all device types
@@ -257,7 +257,7 @@ export default {
 
     // Function to delete the entire device based information
     fnRemoveDeviceTypeFromList(index) {
-      this.$delete(this.formData.scannedItems, index);
+      this.formData.scannedItems.splice(index, 1);
     },
 
     // Function to clear device type

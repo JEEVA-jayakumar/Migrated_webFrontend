@@ -466,14 +466,14 @@ export default {
     fnDocumentApproveModal(documentDetails) {
       this.toggleLeadDocumentApproveModal = !this
         .toggleLeadDocumentApproveModal;
-      this.$set(documentDetails, "leadId", this.$route.params.id);
+      documentDetails["leadId"] = this.$route.params.id;
       this.documentApproveTempArr = documentDetails;
     },
 
     // Function to reject document with reason
     fnDocumentRejectModal(documentDetails) {
       this.toggleLeadDocumentRejectModal = !this.toggleLeadDocumentRejectModal;
-      this.$set(documentDetails, "leadId", this.$route.params.id);
+      documentDetails["leadId"] = this.$route.params.id;
       this.documentRejectTempArr = documentDetails;
     },
 

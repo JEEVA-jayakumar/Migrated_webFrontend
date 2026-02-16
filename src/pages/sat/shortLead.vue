@@ -702,7 +702,7 @@ export default {
     //function to load all lead details when page loads
     this.ajaxLoadShortLeadInfo();
   },
-  // destroyed() {
+  // unmounted() {
   //   this.$q.notify({
   //     timeout: 0
   //   });
@@ -753,7 +753,7 @@ export default {
       });
       this.FETCH_SHORT_LEAD_DATA(this.$route.params.id)
         .then(response => {
-          this.$set(this.formData, "shortLead", this.getShortLeadInfo);
+          this.formData["shortLead"] = this.getShortLeadInfo;
           this.fnMoveToDataEntryScreen();
           this.$q.loading.hide();
         })
@@ -838,7 +838,7 @@ export default {
                   ]
                 });
               } else {
-                this.$delete(error.data.data, "toBeVerifiedDocuments");
+                error.data.data.splice("toBeVerifiedDocuments", 1);
                 for (var key in error.data.data) {
                   let arrayMessage = "";
                   _.map(error.data.data[key], oo => {

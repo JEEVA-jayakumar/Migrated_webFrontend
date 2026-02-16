@@ -720,7 +720,7 @@
             :disable="!showPartnerstab"
           >
             <div
-              v-for="(v,index) in $v.viewBinding.partnersArr.$each.$iter"
+              v-for="(v,index) in $v.viewBinding.partnersArr.$each"
               :key="index"
               class="row q-my-xs gutter-sm"
               ref="parentElement"
@@ -735,7 +735,7 @@
                   </div>
                   <div
                     class="col-auto"
-                    v-if="Object.keys($v.viewBinding.partnersArr.$each.$iter).length > 1"
+                    v-if="Object.keys($v.viewBinding.partnersArr.$each).length > 1"
                   >
                     <q-btn
                       round
@@ -4690,9 +4690,9 @@ export default {
       done(this.COMMON_FILTER_FUNCTION(this.cityOptions, terms));
     },
     partnerCitySelected(item, index) {
-      this.$v.viewBinding.partnersArr.$each.$iter[index].cityRefCode.$model =
+      this.$v.viewBinding.partnersArr.$each[index].cityRefCode.$model =
         item.value;
-      this.$v.viewBinding.partnersArr.$each.$iter[index].cityRefLabel.$model =
+      this.$v.viewBinding.partnersArr.$each[index].cityRefLabel.$model =
         item.label;
     },
 
@@ -4701,9 +4701,9 @@ export default {
       done(this.COMMON_FILTER_FUNCTION(this.stateOptions, terms));
     },
     partnerStateSelected(item, index) {
-      this.$v.viewBinding.partnersArr.$each.$iter[index].stateRefCode.$model =
+      this.$v.viewBinding.partnersArr.$each[index].stateRefCode.$model =
         item.value;
-      this.$v.viewBinding.partnersArr.$each.$iter[index].stateRefLabel.$model =
+      this.$v.viewBinding.partnersArr.$each[index].stateRefLabel.$model =
         item.label;
     },
     /* MCC search result */
@@ -4797,7 +4797,7 @@ export default {
       this.viewBinding.partnersArr.push(partnerObj);
     },
     removePartnerFromArr(item, index) {
-      this.$delete(this.viewBinding.partnersArr, index);
+      this.viewBinding.partnersArr.splice(index, 1);
     },
     validatebeforeNavigate(step) {
       if (step == "salesInformation") {
@@ -5240,12 +5240,8 @@ export default {
         spinnerColor: "purple-9",
         message: "Saving data .."
       });
-      this.$set(this.merchant, "leadId", this.$route.params.id);
-      this.$set(
-        this.merchant,
-        "partnerInformation",
-        this.viewBinding.partnersArr
-      );
+      this.merchant["leadId"] = this.$route.params.id;
+      this.merchant["partnerInformation"] = this.viewBinding.partnersArr;
       this.MARS_DATA_SUBMIT_INTERNAL({ merchant: this.merchant, action: 1 })
         .then(response => {
           this.$q.loading.hide();
@@ -5447,7 +5443,7 @@ export default {
                         .slice(1, 2);
                       let computeSplitted = splitted[splitted.length - 1];
                       let fieldErrorFound = eval(`
-                        OThis.$v.viewBinding.partnersArr.$each.$iter[
+                        OThis.$v.viewBinding.partnersArr.$each[
                           ${findPartnersErrorIndex}
                         ].${computeSplitted}`);
                       fieldErrorFound.$model = "";

@@ -194,7 +194,7 @@ export default {
         // this.fnAjaxGetAllRegionsData();
         // this.fnAjaxFaultyInventoryData();
     },
-    destroyed() {
+    unmounted() {
         // Remove listener when component is destroyed
         this.$barcodeScanner.destroy();
     },

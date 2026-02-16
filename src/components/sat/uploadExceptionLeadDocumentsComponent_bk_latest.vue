@@ -625,14 +625,14 @@ export default {
       // console.log("documentDetails >>>>>", documentDetails);
       this.toggleLeadDocumentApproveModal = !this
         .toggleLeadDocumentApproveModal;
-      this.$set(documentDetails, "leadId", this.$route.params.id);
+      documentDetails["leadId"] = this.$route.params.id;
       this.documentApproveTempArr = documentDetails;
     },
 
     // Function to reject document with reason
     fnDocumentRejectModal(documentDetails) {
       this.toggleLeadDocumentRejectModal = !this.toggleLeadDocumentRejectModal;
-      this.$set(documentDetails, "leadId", this.$route.params.id);
+      documentDetails["leadId"] = this.$route.params.id;
       this.documentRejectTempArr = documentDetails;
     },
 
@@ -680,11 +680,7 @@ export default {
 
               //get verified status and place to the parent
               if (assumeArrForChecksum != undefined) {
-                innerSelf.$set(
-                  subValue,
-                  "verifiedStatus",
-                  assumeArrForChecksum.documentVerifiedStatus
-                );
+                subValue["verifiedStatus"] = assumeArrForChecksum.documentVerifiedStatus;
               }
               //get verified status and place to the parent
 
@@ -697,9 +693,9 @@ export default {
               ) {
                 // console.log(">>>>>>>>", subValue);
                 innerSelf.merchantDocumentIds.push(subValue.id);
-                innerSelf.$set(subValue, "isKycChecked", true);
+                subValue["isKycChecked"] = true;
               } else {
-                innerSelf.$set(subValue, "isKycChecked", false);
+                subValue["isKycChecked"] = false;
               }
               /* END >> Setting isKycChecked flag for kyc checkbox */
 
@@ -708,19 +704,15 @@ export default {
                 assumeArrForChecksum != undefined &&
                 assumeArrForChecksum.reprocess == true
               ) {
-                innerSelf.$set(subValue, "reprocess", true);
-                innerSelf.$set(
-                  subValue,
-                  "currentDocumentId",
-                  assumeArrForChecksum.id
-                );
+                subValue["reprocess"] = true;
+                subValue["currentDocumentId"] = assumeArrForChecksum.id;
               } else {
-                innerSelf.$set(subValue, "reprocess", false);
+                subValue["reprocess"] = false;
               }
               /* END >> Setting reprocess flag for kyc checkbox */
             } else {
-              innerSelf.$set(subValue, "isKycChecked", false);
-              innerSelf.$set(subValue, "reprocess", false);
+              subValue["isKycChecked"] = false;
+              subValue["reprocess"] = false;
             }
             assumeArr.push(subValue);
           });
@@ -747,16 +739,12 @@ export default {
             /* START >>  Set reprocess flag dynamically */
             if (assumeArr != undefined) {
               //get verified status and place to the parent
-              innerSelf.$set(
-                value,
-                "verifiedStatus",
-                leadDocuments[assumeArr.documentType][0].documentVerifiedStatus
-              );
+              value["verifiedStatus"] = leadDocuments[assumeArr.documentType][0].documentVerifiedStatus;
 
               if (leadDocuments[assumeArr.documentType][0].reprocess == true) {
-                innerSelf.$set(value, "reprocess", true);
+                value["reprocess"] = true;
               } else {
-                innerSelf.$set(value, "reprocess", false);
+                value["reprocess"] = false;
               }
 
               /* END >>  Set reprocess flag dynamically */
@@ -768,31 +756,31 @@ export default {
               ) {
                 // console.log("value ??===", value);
                 innerSelf.merchantDocumentIds.push(value.id);
-                innerSelf.$set(value, "isKycChecked", true);
+                value["isKycChecked"] = true;
               } else {
-                innerSelf.$set(value, "isKycChecked", false);
+                value["isKycChecked"] = false;
               }
               /* END >>  Set isKycChecked flag dynamically */
               // console.log("assumeArrSelectionOption", assumeArr);
               // console.log("assumeArrSelectionOption", assumeArr);
-              innerSelf.$set(value, "subDocumentTypeSelection", assumeArr);
+              value["subDocumentTypeSelection"] = assumeArr;
             } else {
               /* START >> Dropdown default value setup */
-              innerSelf.$set(value, "subDocumentTypeSelection", 0);
-              innerSelf.$set(value, "reprocess", false);
-              innerSelf.$set(value, "isKycChecked", false);
+              value["subDocumentTypeSelection"] = 0;
+              value["reprocess"] = false;
+              value["isKycChecked"] = false;
               /* END >> Dropdown default value setup */
             }
           } else {
-            innerSelf.$set(value, "subDocumentTypeSelection", 0);
-            innerSelf.$set(value, "reprocess", false);
-            innerSelf.$set(value, "isKycChecked", false);
+            value["subDocumentTypeSelection"] = 0;
+            value["reprocess"] = false;
+            value["isKycChecked"] = false;
           }
 
           arr.forMutipleDocument.push(value);
         }
       });
-      this.$set(this.getShortLeadInfoDocumentTypes, "uploadedDocuments", arr);
+      this.getShortLeadInfoDocumentTypes["uploadedDocuments"] = arr;
       // console.log(
       //   "this.getShortLeadInfoDocumentTypes",
       //   this.getShortLeadInfoDocumentTypes
@@ -811,11 +799,7 @@ export default {
           documentDetails.selectedSubDocumentType =
             documentDetails.subDocumentType;
         } else {
-          this.$set(
-            documentDetails,
-            "selectedSubDocumentType",
-            documentDetails.subDocumentType
-          );
+          documentDetails["selectedSubDocumentType"] = documentDetails.subDocumentType;
         }
       }
     },

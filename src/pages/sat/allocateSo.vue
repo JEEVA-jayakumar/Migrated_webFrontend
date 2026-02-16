@@ -195,7 +195,7 @@ export default {
     this.fnAjaxGetAllRegionsData();
     // this.FETCH_REGION_BASED_SO();
   },
-  destroyed() {
+  unmounted() {
     // Remove listener when component is destroyed
     this.$barcodeScanner.destroy();
   },
@@ -300,10 +300,8 @@ export default {
     // Function remove scanned items
     fnRemoveScannedItems(index, subIndex) {
       // this.formData.scannedItems[index].deviceSerialNumbers.splice(subIndex, 1);
-      this.$delete(
-        this.formData.scannedItems[index].deviceSerialNumbers,
-        subIndex
-      );
+      this.formData.scannedItems[index].deviceSerialNumbers.splice(subIndex
+      , 1);
     },
 
     // Function to final submit for allocate device
@@ -361,7 +359,7 @@ export default {
     // Function to delete the entire device based information
     fnRemoveDeviceTypeFromList(index) {
       // this.formData.scannedItems.splice(index, 1);
-      this.$delete(this.formData.scannedItems, index);
+      this.formData.scannedItems.splice(index, 1);
     },
 
     // Function to clear device type

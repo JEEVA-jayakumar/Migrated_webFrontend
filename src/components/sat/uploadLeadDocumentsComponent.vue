@@ -473,17 +473,17 @@ export default {
               }
             });
             if (assumeArr == undefined) {
-              innerSelf.$set(value, "subDocumentTypeSelection", 0);
+              value["subDocumentTypeSelection"] = 0;
             } else {
-              innerSelf.$set(value, "subDocumentTypeSelection", assumeArr);
+              value["subDocumentTypeSelection"] = assumeArr;
             }
           } else {
-            innerSelf.$set(value, "subDocumentTypeSelection", 0);
+            value["subDocumentTypeSelection"] = 0;
           }
           arr.forMutipleDocument.push(value);
         }
       });
-      this.$set(this.getShortLeadInfoDocumentTypes, "uploadedDocuments", arr);
+      this.getShortLeadInfoDocumentTypes["uploadedDocuments"] = arr;
       console.log("POS CHECK",JSON.stringify(arr))
     },
 
@@ -496,11 +496,7 @@ export default {
           documentDetails.selectedSubDocumentType =
             documentDetails.subDocumentType;
         } else {
-          this.$set(
-            documentDetails,
-            "selectedSubDocumentType",
-            documentDetails.subDocumentType
-          );
+          documentDetails["selectedSubDocumentType"] = documentDetails.subDocumentType;
         }
       }
     },

@@ -1,7 +1,7 @@
 <template>
   <div>
     <div
-      v-for="(v,index) in $v.partnersArr.$each.$iter"
+      v-for="(v,index) in $v.partnersArr.$each"
       :key="index"
       class="row q-my-xs gutter-sm"
       ref="parentElement"
@@ -14,7 +14,7 @@
               Partner 0{{parseInt(index)+1}}
             </span>
           </div>
-          <div class="col-auto" v-if="Object.keys($v.partnersArr.$each.$iter).length > 1">
+          <div class="col-auto" v-if="Object.keys($v.partnersArr.$each).length > 1">
             <q-btn round icon="delete" @click="removePartnerFromArr(v,index)" color="negative"/>
           </div>
         </div>
@@ -222,14 +222,14 @@ export default {
 
     // Partners city selction
     partnerCitySelected(item, index) {
-      this.$v.partnersArr.$each.$iter[index].cityRefCode.$model = item.value;
-      this.$v.partnersArr.$each.$iter[index].cityRefLabel.$model = item.label;
+      this.$v.partnersArr.$each[index].cityRefCode.$model = item.value;
+      this.$v.partnersArr.$each[index].cityRefLabel.$model = item.label;
     },
 
     // Partners state selection
     partnerStateSelected(item, index) {
-      this.$v.partnersArr.$each.$iter[index].stateRefCode.$model = item.value;
-      this.$v.partnersArr.$each.$iter[index].stateRefLabel.$model = item.label;
+      this.$v.partnersArr.$each[index].stateRefCode.$model = item.value;
+      this.$v.partnersArr.$each[index].stateRefLabel.$model = item.label;
     },
 
     addMorePartnersSet() {
@@ -249,7 +249,7 @@ export default {
     },
 
     removePartnerFromArr(item, index) {
-      this.$delete(this.partnersArr, index);
+      this.partnersArr.splice(index, 1);
     },
     validate() {
       this.$v.partnersArr.$touch();

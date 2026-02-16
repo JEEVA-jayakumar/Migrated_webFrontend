@@ -580,7 +580,7 @@ export default {
       });
       this.FETCH_SHORT_LEAD_DATA(this.$route.params.id)
         .then(response => {
-          this.$set(this.formData, "shortLead", this.getShortLeadInfo);
+          this.formData["shortLead"] = this.getShortLeadInfo;
           this.$q.loading.hide();
           this.toggleAjaxLoadFilter = false;
         })
@@ -623,12 +623,12 @@ export default {
                         new String(oo.subDocumentType).valueOf() ==
                           new String(io.subDocumentType).valueOf())
                     ) {
-                      innerSelf.$set(oo, "viewType", 1);
+                      oo["viewType"] = 1;
                       finalAssumeArr.push(oo);
                     }
                   });
                 } else {
-                  innerSelf.$set(io, "viewType", 1);
+                  io["viewType"] = 1;
                   finalAssumeArr.push(io);
                 }
               }
@@ -652,13 +652,13 @@ export default {
                         new String(oo.subDocumentType).valueOf() ==
                           new String(coo.subDocumentType).valueOf())
                     ) {
-                      innerSelf.$set(oo, "viewType", 0);
+                      oo["viewType"] = 0;
                       finalAssumeArr.push(oo);
                     }
                   });
                 });
               } else {
-                innerSelf.$set(o, "viewType", 0);
+                o["viewType"] = 0;
                 // o.viewType = 0;
                 finalAssumeArr.push(o);
               }

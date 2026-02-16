@@ -433,34 +433,22 @@ export default {
     //         return this.marsSavedDataFromInternal;
     //       })
     //       .then(res => {
-    //         this.$set(
-    //           res.salesInformation,
-    //           "applicationDate",
-    //           this.commonDateFormat(res.salesInformation.applicationDate)
+    //         //           res.salesInformation[//           "applicationDate"] = //           this.commonDateFormat(res.salesInformation.applicationDate;
     //         );
     //         return res;
     //       })
     //       .then(res => {
-    //         this.$set(
-    //           res.salesInformation,
-    //           "aggreementDate",
-    //           this.commonDateFormat(res.salesInformation.aggreementDate)
+    //         //           res.salesInformation[//           "aggreementDate"] = //           this.commonDateFormat(res.salesInformation.aggreementDate;
     //         );
     //         return res;
     //       })
     //       .then(res => {
-    //         this.$set(
-    //           res.salesInformation,
-    //           "loanDisbursementDate",
-    //           this.commonDateFormat(res.salesInformation.loanDisbursementDate)
+    //         //           res.salesInformation[//           "loanDisbursementDate"] = //           this.commonDateFormat(res.salesInformation.loanDisbursementDate;
     //         );
     //         return res;
     //       })
     //       .then(res => {
-    //         this.$set(
-    //           res.salesInformation,
-    //           "tenureStartDate",
-    //           this.commonDateFormat(res.salesInformation.tenureStartDate)
+    //         //           res.salesInformation[//           "tenureStartDate"] = //           this.commonDateFormat(res.salesInformation.tenureStartDate;
     //         );
     //         return res;
     //       });

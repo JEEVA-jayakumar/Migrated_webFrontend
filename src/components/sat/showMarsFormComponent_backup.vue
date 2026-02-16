@@ -363,14 +363,14 @@
               </q-stepper-navigation>
             </q-step>
             <q-step error-icon="warning" name="third" :error="businessInformationError" :order="3" title="Partners" v-if="showPartnerstab">
-                <div v-for="(v,index) in $v.viewBinding.partnersArr.$each.$iter" :key="index" class="row q-my-xs gutter-sm" ref="parentElement">
+                <div v-for="(v,index) in $v.viewBinding.partnersArr.$each" :key="index" class="row q-my-xs gutter-sm" ref="parentElement">
                   <div class="col-md-12 col-sm-12 col-xs-12">
                     <div class="row group items-center">
                       <div class="col">
                         <span class="q-pa-sm bg-light text-dark"><q-icon name="people" /> 
                         Partner 0{{parseInt(index)+1}}</span>
                       </div>
-                      <div class="col-auto" v-if="$v.viewBinding.partnersArr.$each.$iter.length > 1">
+                      <div class="col-auto" v-if="$v.viewBinding.partnersArr.$each.length > 1">
                         <q-btn round icon="delete" @click="removePartnerFromArr(v,index)" color="negative" />
                       </div>
                     </div>
@@ -2634,9 +2634,9 @@ export default {
       done(this.COMMON_FILTER_FUNCTION(this.cityOptions, terms));
     },
     partnerCitySelected(item, index) {
-      this.$v.viewBinding.partnersArr.$each.$iter[index].cityRefCode.$model =
+      this.$v.viewBinding.partnersArr.$each[index].cityRefCode.$model =
         item.value;
-      this.$v.viewBinding.partnersArr.$each.$iter[index].cityRefLabel.$model =
+      this.$v.viewBinding.partnersArr.$each[index].cityRefLabel.$model =
         item.label;
     },
 
@@ -2645,9 +2645,9 @@ export default {
       done(this.COMMON_FILTER_FUNCTION(this.stateOptions, terms));
     },
     partnerStateSelected(item, index) {
-      this.$v.viewBinding.partnersArr.$each.$iter[index].stateRefCode.$model =
+      this.$v.viewBinding.partnersArr.$each[index].stateRefCode.$model =
         item.value;
-      this.$v.viewBinding.partnersArr.$each.$iter[index].stateRefLabel.$model =
+      this.$v.viewBinding.partnersArr.$each[index].stateRefLabel.$model =
         item.label;
     },
     /* MCC search result */
@@ -2735,7 +2735,7 @@ export default {
       this.viewBinding.partnersArr.push(partnerObj);
     },
     removePartnerFromArr(item, index) {
-      this.$delete(this.viewBinding.partnersArr, index);
+      this.viewBinding.partnersArr.splice(index, 1);
     },
     validatebeforeNavigate(step) {
       if (step == "salesInformation") {
@@ -2968,12 +2968,8 @@ export default {
         spinnerColor: "purple-9",
         message: "Saving data .."
       });
-      this.$set(this.merchant, "leadId", this.$route.params.id);
-      this.$set(
-        this.merchant,
-        "partnerInformation",
-        this.viewBinding.partnersArr
-      );
+      this.merchant["leadId"] = this.$route.params.id;
+      this.merchant["partnerInformation"] = this.viewBinding.partnersArr;
       this.MARS_DATA_SUBMIT_INTERNAL({ merchant: this.merchant, action: 1 })
         .then(response => {
           this.$q.loading.hide();
