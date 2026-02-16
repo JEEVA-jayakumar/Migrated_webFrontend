@@ -9,9 +9,7 @@ export default boot(({ app, router }) => {
   app.config.globalProperties.$api = api
   app.config.globalProperties.$http = api
 
-  api.defaults.headers.common["Access-Control-Allow-Origin"] = "*";
-  api.defaults.headers.common["Content-Type"] = "application/json";
-  api.defaults.headers.common["X-Frame-Options"] = "SAMEORIGIN";
+  api.defaults.headers.common["Content-Type"] = "application/json;charset=UTF-8";
 
   api.interceptors.request.use(config => {
     if (

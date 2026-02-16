@@ -58,6 +58,7 @@ import {
 } from "@vuelidate/validators";
 import showForgetPasswordComp from "../components/forgetPassword.vue";
 import * as CryptoJS from "crypto-js";
+import _ from "lodash";
 
 let AesUtil = function (keySize, iterationCount) {
   this.keySize = keySize / 32;
@@ -167,14 +168,138 @@ export default {
           .then(response => {
             this.FETCH_LOGGEDIN_USER_DATA()
               .then(response => {
+                let userInfo = JSON.parse(localStorage.getItem("u_i"));
+                /* variables:
+                authUserRoles => contains user info, which is saved in local storage of browser
+                hierarchyRoleLevel =>  contains current object of roles array */
+                let menuArr = [];
+                _.map(userInfo.roles, function (oo) {
+                  menuArr.push(oo.hierarchyRoleLevel);
+                });
+                if (menuArr.includes(this.$ROLE_HIERARCHY_OPERATION_SAT)) {
+                  this.$q.notify({
+                    color: "positive",
+                    position: "bottom",
+                    message: "Succesfully Logged In",
+                    icon: "thumb_up",
+                  });
+                  this.$router.push({ name: "BijlipaySat" });
+                } else if (menuArr.includes(this.$ROLE_BIJLIPAY_MANAGER)) {
+                  this.$q.notify({
+                    color: "positive",
+                    position: "bottom",
+                    message: "Succesfully Logged In",
+                    icon: "thumb_up",
+                  });
                   this.$router.push({ name: "adminDashboard" });
+                } else if (
+                  menuArr.includes(this.$ROLE_HIERARCHY_SALES_RSM) ||
+                  menuArr.includes(this.$ROLE_HIERARCHY_SALES_ASM) ||
+                  menuArr.includes(this.$ROLE_HIERARCHY_SALES_NATIONAL_HEAD)
+                ) {
+                  this.$q.notify({
+                    color: "positive",
+                    position: "bottom",
+                    message: "Succesfully Logged In",
+                    icon: "thumb_up",
+                  });
+                  this.$router.push({ name: "leadAllocation" });
+                } else if (menuArr.includes(this.$ROLE_HIERARCHY_BANK_OPS)) {
+                  this.$q.notify({
+                    color: "positive",
+                    position: "bottom",
+                    message: "Succesfully Logged In",
+                    icon: "thumb_up",
+                  });
+                  this.$router.push({ name: "assignShortLead" });
+                } else if (menuArr.includes(this.$ROLE_HIERARCHY_OPERATIONS_HEAD)) {
+                  this.$q.notify({
+                    color: "positive",
+                    position: "bottom",
+                    message: "Succesfully Logged In",
+                    icon: "thumb_up",
+                  });
+                  this.$router.push({ name: "exceptions" });
+                } else if (
+                  menuArr.includes(this.$ROLE_HIERARCHY_FINANCE_HEAD) ||
+                  menuArr.includes(this.$ROLE_HIERARCHY_FINANCE_MANAGER) ||
+                  menuArr.includes(this.$ROLE_HIERARCHY_FINANCE_EXECUTIVE)
+                ) {
+                  this.$q.notify({
+                    color: "positive",
+                    position: "bottom",
+                    message: "Succesfully Logged In",
+                    icon: "thumb_up",
+                  });
+                  this.$router.push({ name: "paymentVerificationTracker" });
+                } else if (menuArr.includes(this.$ROLE_HIERARCHY_INVENTORY_OFFICER)) {
+                  this.$q.notify({
+                    color: "positive",
+                    position: "bottom",
+                    message: "Succesfully Logged In",
+                    icon: "thumb_up",
+                  });
+                  this.$router.push({ name: "Bijlipay" });
+                } else if (menuArr.includes(this.$ROLE_HIERARCHY_KSN)) {
+                  this.$q.notify({
+                    color: "positive",
+                    position: "bottom",
+                    message: "Succesfully Logged In",
+                    icon: "thumb_up",
+                  });
+                  this.$router.push({ name: "Ksn" });
+                } else if (menuArr.includes(this.$HIERARCHY_CRM1)) {
+                  this.$q.notify({
+                    color: "positive",
+                    position: "bottom",
+                    message: "Succesfully Logged In",
+                    icon: "thumb_up",
+                  });
+                  this.$router.push({ name: "phonepePendingCrm" });
+                } else {
+                  this.$q.notify({
+                    type: "warning",
+                    position: "bottom",
+                    message: "Permission denied.",
+                  });
+                }
+                this.$q.loading.hide();
               })
               .catch((error) => {
                 this.$q.loading.hide();
+                this.$q.notify({
+                  color: "negative",
+                  position: "bottom",
+                  message: "Something went wrong! Contact administrator",
+                  icon: "thumb_down",
+                });
               });
           })
           .catch((error) => {
             this.$q.loading.hide();
+            if (error.response && error.response.status == 401) {
+              this.$q.notify({
+                type: "warning",
+                position: "bottom",
+                message: "Oops! Incorrect credentials",
+              });
+            } else if (error.response && error.response.status == 423) {
+              this.$q.notify({
+                type: "warning",
+                position: "bottom",
+                message: "Your Accout is Locked, Please Contact Admin",
+              });
+            } else {
+              this.$q.notify({
+                color: "negative",
+                position: "bottom",
+                message:
+                  (error.response && error.response.data && error.response.data.message) == null
+                    ? "Please Try Again Later !"
+                    : error.response.data.message,
+                icon: "thumb_down",
+              });
+            }
           });
       }
     },

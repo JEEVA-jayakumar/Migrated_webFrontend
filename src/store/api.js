@@ -32,7 +32,7 @@ export default {
   delete(url, request) {
     return api
       .delete(url, {
-        body: request
+        data: request
       })
       .then(response => Promise.resolve(response))
       .catch(error => Promise.reject(error));
