@@ -86,8 +86,8 @@
   
 <script>
 
-import VueBarcodeScanner from "vue-barcode-scanner";
-Vue.use(VueBarcodeScanner);
+// import VueBarcodeScanner from "vue-barcode-scanner";
+// Vue.use(VueBarcodeScanner);
 import { mapGetters, mapActions } from "vuex";
 import showPhonePePDOmodal from "../../components/inventory/showPhonePePDOmodal.vue";
 export default {

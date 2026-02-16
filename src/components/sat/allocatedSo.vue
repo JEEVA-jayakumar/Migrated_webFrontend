@@ -228,12 +228,11 @@ import { required, or } from '@vuelidate/validators';
 // import showEditServiceType from "../../components/super_admin/showEditServiceType.vue";
 // import showEditSubTaskType from "../../components/super_admin/showEditSubTaskType.vue";
 // import ShowAddSubTaskType from "../../components/super_admin/ShowAddSubTaskType.vue";
-import allocatedSo from "../../components/sat/allocatedSo.vue";
 import { mapGetters, mapActions } from "vuex";
 export default {
     name: "getserviceRequestGetTypes",
     components: {
-        allocatedSo,
+
 
     },
 
@@ -916,7 +915,7 @@ export default {
                     });
 
                     // this.$router.push("/components/sat/spareParts");
-                    //  this.$router.push("allocatedSo");{ name: "login" }D:\SparePartsUpdate(10_05_2022)\SparePartsUpdate(10_05_2022)\src\components\sat\spareParts.vue
+                    //  this.$router.push("");{ name: "login" }D:\SparePartsUpdate(10_05_2022)\SparePartsUpdate(10_05_2022)\src\components\sat\spareParts.vue
                     //this.$router.push({name: "spareParts"})
                 })
                 .catch(error => {

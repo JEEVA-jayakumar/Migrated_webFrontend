@@ -179,8 +179,8 @@
 <script>
 import { required, not } from '@vuelidate/validators';
 
-import VueBarcodeScanner from "vue-barcode-scanner";
-Vue.use(VueBarcodeScanner);
+// import VueBarcodeScanner from "vue-barcode-scanner";
+// Vue.use(VueBarcodeScanner);
 import { mapGetters, mapActions } from "vuex";
 import showPDOmodal from "../../components/inventory/showFaultymodal.vue";
 import faultyBulkUploadModal from "../../components/inventory/faultyBulkUploadModal.vue";

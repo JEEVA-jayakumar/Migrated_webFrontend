@@ -76,9 +76,9 @@
 <script>
 import { required } from '@vuelidate/validators';
 
-import VueBarcodeScanner from "vue-barcode-scanner";
+// import VueBarcodeScanner from "vue-barcode-scanner";
 import downloadExcel from "vue-json-excel";
-Vue.use(VueBarcodeScanner);
+// Vue.use(VueBarcodeScanner);
 import { mapGetters, mapActions } from "vuex";
 import showPDOmodal from "../../components/inventory/showFaultymodal.vue";
 import inventoryWithRegion from "../../components/inventory/inventoryWithRegion.vue";

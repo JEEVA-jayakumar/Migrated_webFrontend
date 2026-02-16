@@ -924,7 +924,7 @@ import {
 } from "@vuelidate/validators";
 import { mapGetters, mapActions } from "vuex";
 
-import openedExternal from "../../components/sat/openedExternal.vue";
+
 import internalServiceRequestPopup from "../../components/sat/internalServiceRequestPopup.vue";
 import reOpenExternal from "../../components/sat/reOpenExternal.vue";
 import UpdateOpenedExternal from "../../components/sat/UpdateOpenedExternal.vue";
@@ -933,7 +933,7 @@ import { nullableTypeAnnotation } from "babel-types";
 export default {
   name: "implementationQueue",
   components: {
-    openedExternal,
+
     //   generalLeadInformation,
     internalServiceRequestPopup,
     reOpenExternal,

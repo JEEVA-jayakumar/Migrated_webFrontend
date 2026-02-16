@@ -155,8 +155,8 @@
   <script>
 import { email } from '@vuelidate/validators';
 
-  import VueBarcodeScanner from "vue-barcode-scanner";
-  Vue.use(VueBarcodeScanner);
+  // import VueBarcodeScanner from "vue-barcode-scanner";
+  // Vue.use(VueBarcodeScanner);
   import { mapGetters, mapActions } from "vuex";
   import reAssignSo from "../../components/sat/reAssignSo.vue";
   export default {

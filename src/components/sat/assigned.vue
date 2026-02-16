@@ -361,14 +361,14 @@ import { required, email, or } from '@vuelidate/validators';
 import { mapGetters, mapActions } from "vuex";
 import DeviceAddressModal from "../../components/sat/DeviceAddressModal.vue";
 import generalLeadInformation from "../../components/generalLeadInformation.vue";
-import assigned from "../../components/sat/assigned.vue";
+
 
 export default {
   name: "implementationQueue",
   components: {
     DeviceAddressModal,
     generalLeadInformation,
-    assigned
+
   },
   data() {
     return {

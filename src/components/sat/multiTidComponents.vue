@@ -30,19 +30,23 @@
                                     separator>
                                     <q-card flat>
                                         <table style="width:100%">
-                                            <tr style="border-bottom: 1px solid rgb(231 231 231);">
-                                                <th>Institution</th>
-                                                <th>Lead Source</th>
-                                                <th>Host Name</th>
-                                                <th>RRID</th>
-                                            </tr>
-                                            <tr v-for="sub in menu.subTidConfsList">
-                                                <td>{{ sub.institution.institutionName }}</td>
-                                                <td>{{ sub.leadSource.sourceName }}</td>
-                                                <td>{{ sub.masterHost.name }}</td>
-                                                <td>{{ sub.institution.institutionRRCode }}|{{ sub.masterHost.hostRRCode
-                                                }}|{{ sub.leadSource.sourceCode }}</td>
-                                            </tr>
+                                            <thead>
+                                                <tr style="border-bottom: 1px solid rgb(231 231 231);">
+                                                    <th>Institution</th>
+                                                    <th>Lead Source</th>
+                                                    <th>Host Name</th>
+                                                    <th>RRID</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
+                                                <tr v-for="sub in menu.subTidConfsList" :key="sub.id">
+                                                    <td>{{ sub.institution.institutionName }}</td>
+                                                    <td>{{ sub.leadSource.sourceName }}</td>
+                                                    <td>{{ sub.masterHost.name }}</td>
+                                                    <td>{{ sub.institution.institutionRRCode }}|{{ sub.masterHost.hostRRCode
+                                                    }}|{{ sub.leadSource.sourceCode }}</td>
+                                                </tr>
+                                            </tbody>
                                         </table>
                                     </q-card>
                                 </q-expansion-item>

@@ -53,8 +53,8 @@
 
 <script>
 
-  import VueBarcodeScanner from "vue-barcode-scanner";
-  Vue.use(VueBarcodeScanner);
+  // import VueBarcodeScanner from "vue-barcode-scanner";
+  // Vue.use(VueBarcodeScanner);
   import {
     required,
     requiredIf,

@@ -9,5 +9,5 @@ export default ({
   Vue
 }) => {
   // something to do
-  Vue.use(imgView)
+  // Vue.use(imgView)
 }

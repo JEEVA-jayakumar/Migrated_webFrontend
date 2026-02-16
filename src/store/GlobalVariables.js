@@ -212,7 +212,7 @@ const GlobalVariables = {
     UPDATEPASSWORD_URL: LOCAL_BASEURL_FOR_FILES + "authorization/password",
     /* END >> Module>> FORGOTPASSWORD_URL */
 
-    USER_PERSONAL_INFO: SessionStorage.get.item("role"),
+    // // USER_PERSONAL_INFO: SessionStorage.getItem("role"),
 
     /* Lead, TID, Serial Number Status */
     STATE_STATUS_VARIABLES: STATUS_VARIABLES
@@ -242,7 +242,7 @@ const GlobalVariables = {
   /* START >> getter actions goes here */
   getters: {
     GLOBAL_USER_INFO_COLLECTION(state) {
-      return state.USER_PERSONAL_INFO;
+      return SessionStorage.getItem("role");
     },
     GLOBAL_FILE_UPLOAD_URL(state) {
       return state.FILEUPLOADURL;

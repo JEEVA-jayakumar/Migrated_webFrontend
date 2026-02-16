@@ -309,8 +309,8 @@
 <script>
 import { minValue, required,}from "@vuelidate/validators";
 
-import VueBarcodeScanner from "vue-barcode-scanner";
-Vue.use(VueBarcodeScanner);
+// import VueBarcodeScanner from "vue-barcode-scanner";
+// Vue.use(VueBarcodeScanner);
 import { mapGetters, mapActions } from "vuex";
 import showPDOmodal from "../../components/inventory/showPDOmodal.vue";
 import editCountModal from '../../components/inventory/editCountModal.vue'
