@@ -1,4 +1,3 @@
-import { url } from '@vuelidate/validators';
 import { boot } from 'quasar/wrappers'
 import axios from 'axios'
 
@@ -12,25 +11,25 @@ export default boot(({ app, router }) => {
   app.config.globalProperties.$api = api
   app.config.globalProperties.$http = api
 
-  api.defaults.headers.common["Content-Type"] = "application/json;charset=UTF-8";
-  api.defaults.headers.common["Accept"] = "application/json, text/plain, */*";
-  api.defaults.headers.common["Access-Control-Allow-Origin"] = "*";
-  api.defaults.headers.common["X-Frame-Options"] = "SAMEORIGIN";
-  api.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
-
   api.interceptors.request.use(config => {
-    config.headers["nii"] = localStorage.getItem("aa_t") || "";
+    config.headers["Content-Type"] = "application/json;charset=UTF-8";
+    config.headers["Accept"] = "application/json, text/plain, */*";
+    config.headers["Access-Control-Allow-Origin"] = "*";
+    config.headers["X-Frame-Options"] = "SAMEORIGIN";
+    config.headers["X-Requested-With"] = "XMLHttpRequest";
 
     if (
       !config.url.includes("authorization/login") &&
       !config.url.includes("authorization/password")
     ) {
+      config.headers["nii"] = localStorage.getItem("aa_t") || "";
       const token = localStorage.getItem("auth_token");
       if (token) {
         config.headers["Authorization"] = "Token " + token;
       }
     } else {
       delete config.headers["Authorization"];
+      delete config.headers["nii"];
     }
     return config;
   }, error => {
