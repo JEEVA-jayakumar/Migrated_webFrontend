@@ -2,7 +2,10 @@ import { url } from '@vuelidate/validators';
 import { boot } from 'quasar/wrappers'
 import axios from 'axios'
 
-const api = axios.create({ baseURL: 'https://qaapp.bijlipay.co.in:8085/api/' })
+const api = axios.create({
+  baseURL: 'https://qaapp.bijlipay.co.in:8085/api/',
+  withCredentials: true
+})
 
 export default boot(({ app, router }) => {
   app.config.globalProperties.$axios = axios
