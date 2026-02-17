@@ -20,7 +20,7 @@
               @keyup.enter="fuSubmitLoginDetails(formData)" />
           </div>
           <div class="col-12 col-sm-10 col-md-8">
-            <q-input v-model.trim="formData.password" @blur="v$.formData.password.$touch"
+            <q-input v-model="formData.password" @blur="v$.formData.password.$touch"
               :error="v$.formData.password.$error" placeholder="Enter your password"
               @keyup.enter="fuSubmitLoginDetails(formData)" type="password" label="Password" color="grey-9" />
           </div>
@@ -66,7 +66,7 @@ let AesUtil = function (keySize, iterationCount) {
 };
 
 AesUtil.prototype.generateKey = function (salt, passPhrase) {
-  var key = CryptoJS.PBKDF2("BijliWeAreMakers", CryptoJS.enc.Hex.parse(salt), {
+  var key = CryptoJS.PBKDF2(passPhrase, CryptoJS.enc.Hex.parse(salt), {
     keySize: this.keySize,
     iterations: this.iterationCount
   });
@@ -74,7 +74,7 @@ AesUtil.prototype.generateKey = function (salt, passPhrase) {
 };
 
 AesUtil.prototype.encrypt = function (salt, iv, passPhrase, plainText) {
-  var key = this.generateKey(salt, "BijliWeAreMakers");
+  var key = this.generateKey(salt, passPhrase);
   var encrypted = CryptoJS.AES.encrypt(plainText, key, {
     iv: CryptoJS.enc.Hex.parse(iv)
   });
@@ -82,7 +82,7 @@ AesUtil.prototype.encrypt = function (salt, iv, passPhrase, plainText) {
 };
 
 AesUtil.prototype.decrypt = function (salt, iv, passPhrase, cipherText) {
-  var key = this.generateKey(salt, "BijliWeAreMakers");
+  var key = this.generateKey(salt, passPhrase);
   var cipherParams = CryptoJS.lib.CipherParams.create({
     ciphertext: CryptoJS.enc.Base64.parse(cipherText)
   });
@@ -147,7 +147,7 @@ export default {
         let ciphertext = aesUtil.encrypt(
           salt,
           iv,
-          "some_key", // Fixed this for now as $("#key") won't work easily here
+          "BijliWeAreMakers", // Correct passphrase
           this.formData.password
         );
         let aesPassword = iv + "::" + salt + "::" + ciphertext;
