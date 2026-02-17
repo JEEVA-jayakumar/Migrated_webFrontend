@@ -13,8 +13,12 @@ export default boot(({ app, router }) => {
   app.config.globalProperties.$http = api
 
   api.defaults.headers.common["Content-Type"] = "application/json;charset=UTF-8";
+  api.defaults.headers.common["Access-Control-Allow-Origin"] = "*";
+  api.defaults.headers.common["X-Frame-Options"] = "SAMEORIGIN";
 
   api.interceptors.request.use(config => {
+    config.headers["NII"] = localStorage.getItem("aa_t") || "";
+
     if (
       !config.url.includes("authorization/login") &&
       !config.url.includes("authorization/password")
@@ -23,10 +27,8 @@ export default boot(({ app, router }) => {
       if (token) {
         config.headers["Authorization"] = "Token " + token;
       }
-      const aa_t = localStorage.getItem("aa_t");
-      if (aa_t) {
-        config.headers["NII"] = aa_t;
-      }
+    } else {
+      delete config.headers["Authorization"];
     }
     return config;
   }, error => {
