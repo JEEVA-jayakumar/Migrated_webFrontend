@@ -15,15 +15,27 @@ export default boot(({ app }) => {
   app.config.globalProperties.$API_BAD_REQUEST = 400;
   app.config.globalProperties.$API_INTERNAL_SERVER_ERROR = 500;
 
-  app.config.globalProperties.$USER_INFO_NAME = JSON.parse(localStorage.getItem("u_i"));
+  const rawUserInfo = localStorage.getItem("u_i");
+  let userInfo = null;
+  try {
+    if (rawUserInfo && rawUserInfo !== "null" && rawUserInfo !== "undefined") {
+      userInfo = JSON.parse(rawUserInfo);
+    }
+  } catch (e) {
+    console.error("Error parsing user info from localStorage", e);
+  }
 
-  if (localStorage.getItem("u_i") != undefined) {
+  app.config.globalProperties.$USER_INFO_NAME = userInfo;
+
+  if (userInfo && userInfo.roles) {
     app.config.globalProperties.$USER_INFO_HIERARCHY = _.filter(
-      JSON.parse(localStorage.getItem("u_i")).roles,
+      userInfo.roles,
       function (o) {
-        return o.hierarchy.hierarchyCode == "SL";
+        return o.hierarchy && o.hierarchy.hierarchyCode == "SL";
       }
     );
+  } else {
+    app.config.globalProperties.$USER_INFO_HIERARCHY = [];
   }
 
   //** START =>> Global variables declaration <<= */
