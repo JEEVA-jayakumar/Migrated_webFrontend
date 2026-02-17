@@ -16,20 +16,21 @@ export default boot(({ app, router }) => {
   api.defaults.headers.common["Accept"] = "application/json, text/plain, */*";
   api.defaults.headers.common["Access-Control-Allow-Origin"] = "*";
   api.defaults.headers.common["X-Frame-Options"] = "SAMEORIGIN";
+  api.defaults.headers.common["X-Requested-With"] = "XMLHttpRequest";
 
   api.interceptors.request.use(config => {
+    config.headers["nii"] = localStorage.getItem("aa_t") || "";
+
     if (
       !config.url.includes("authorization/login") &&
       !config.url.includes("authorization/password")
     ) {
-      config.headers["nii"] = localStorage.getItem("aa_t") || "";
       const token = localStorage.getItem("auth_token");
       if (token) {
         config.headers["Authorization"] = "Token " + token;
       }
     } else {
       delete config.headers["Authorization"];
-      delete config.headers["nii"];
     }
     return config;
   }, error => {
