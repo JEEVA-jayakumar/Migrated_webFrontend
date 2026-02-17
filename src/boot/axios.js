@@ -17,18 +17,19 @@ export default boot(({ app, router }) => {
   api.defaults.headers.common["X-Frame-Options"] = "SAMEORIGIN";
 
   api.interceptors.request.use(config => {
-    config.headers["NII"] = localStorage.getItem("aa_t") || "";
-
     if (
       !config.url.includes("authorization/login") &&
       !config.url.includes("authorization/password")
     ) {
+      config.headers["NII"] = localStorage.getItem("aa_t") || "";
       const token = localStorage.getItem("auth_token");
       if (token) {
         config.headers["Authorization"] = "Token " + token;
       }
     } else {
+      config.headers["Content-Type"] = "application/json;charset=UTF-8";
       delete config.headers["Authorization"];
+      delete config.headers["NII"];
     }
     return config;
   }, error => {
